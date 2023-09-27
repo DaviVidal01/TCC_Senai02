@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <h1>TCC SENAI ( Polares ) 📚</h1>
-        <img src="" alt="Logo do Polares">
+        <h1>TCC SENAI ( Polaris ) 📚</h1>
+        <img src="" alt="Logo do Polaris">
         <h2>● Sobre o Projeto 🗃️</h2>
         <p>📌 - TCC </p>
         <h2>● Contribuidores 👥</h2>
