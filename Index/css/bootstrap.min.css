@@ -1098,7 +1098,7 @@ progress {
   }
   .row-cols-lg-auto>* {
     flex:0 0 auto;
-    width:auto
+    width:100%
   }
   .row-cols-lg-1>* {
     flex:0 0 auto;
@@ -1290,6 +1290,10 @@ progress {
     width:20%
   }
   .row-cols-xl-6>* {
+    flex:0 0 auto;
+    width:16.666667%
+  }
+  .row-cols-xl-8>* {
     flex:0 0 auto;
     width:16.666667%
   }
