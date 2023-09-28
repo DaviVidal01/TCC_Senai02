@@ -2566,20 +2566,20 @@ fieldset:disabled .btn {
 }
 .btn-primary {
   color:#fff;
-  background-color:#0d6efd;
-  border-color:#0d6efd
+  background-color:#FFAE2E;
+  border-color:#FFAE2E
 }
 .btn-primary:hover {
   color:#fff;
-  background-color:#025ce2;
-  border-color:#0257d5
+  background-color:#9c6a19;
+  border-color:#9c6a19
 }
 .btn-check:focus+.btn-primary,
 .btn-primary:focus {
   color:#fff;
-  background-color:#025ce2;
-  border-color:#0257d5;
-  box-shadow:0 0 0 .25rem rgba(49,132,253,.5)
+  background-color:#FFAE2E;
+  border-color:#FFAE2E;
+  box-shadow:0 0 0 .25rem rgba(255, 177, 33, 0.956)
 }
 .btn-check:active+.btn-primary,
 .btn-check:checked+.btn-primary,
@@ -2587,21 +2587,21 @@ fieldset:disabled .btn {
 .btn-primary:active,
 .show>.btn-primary.dropdown-toggle {
   color:#fff;
-  background-color:#0257d5;
-  border-color:#0252c9
+  background-color:#FFAE2E;
+  border-color:#FFAE2E
 }
 .btn-check:active+.btn-primary:focus,
 .btn-check:checked+.btn-primary:focus,
 .btn-primary.active:focus,
 .btn-primary:active:focus,
 .show>.btn-primary.dropdown-toggle:focus {
-  box-shadow:0 0 0 .25rem rgba(49,132,253,.5)
+  box-shadow:0 0 0 .25rem rgba(255,177,33,.956)
 }
 .btn-primary.disabled,
 .btn-primary:disabled {
   color:#fff;
-  background-color:#0d6efd;
-  border-color:#0d6efd
+  background-color:#FFAE2E;
+  border-color:#FFAE2E
 }
 .btn-secondary {
   color:#fff;
@@ -2683,19 +2683,19 @@ fieldset:disabled .btn {
 }
 .btn-info {
   color:#000;
-  background-color:#0dcaf0;
-  border-color:#0dcaf0
+  background-color:#FFAE2E;
+  border-color:#FFAE2E
 }
 .btn-info:hover {
   color:#000;
-  background-color:#2fd3f4;
-  border-color:#23d0f3
+  background-color:#FFAE2E;
+  border-color:#FFAE2E
 }
 .btn-check:focus+.btn-info,
 .btn-info:focus {
   color:#000;
-  background-color:#2fd3f4;
-  border-color:#23d0f3;
+  background-color:#FFAE2E;
+  border-color:#FFAE2E;
   box-shadow:0 0 0 .25rem rgba(11,172,204,.5)
 }
 .btn-check:active+.btn-info,
@@ -2704,8 +2704,8 @@ fieldset:disabled .btn {
 .btn-info:active,
 .show>.btn-info.dropdown-toggle {
   color:#000;
-  background-color:#3cd5f4;
-  border-color:#23d0f3
+  background-color:#FFAE2E;
+  border-color:#FFAE2E
 }
 .btn-check:active+.btn-info:focus,
 .btn-check:checked+.btn-info:focus,
@@ -2877,13 +2877,13 @@ fieldset:disabled .btn {
   border-color:#343a40
 }
 .btn-outline-primary {
-  color:#0d6efd;
-  border-color:#0d6efd
+  color:#FFAE2E;
+  border-color:#FFAE2E
 }
 .btn-outline-primary:hover {
   color:#fff;
-  background-color:#0d6efd;
-  border-color:#0d6efd
+  background-color:#a9741e;
+  border-color:#93651b
 }
 .btn-check:focus+.btn-outline-primary,
 .btn-outline-primary:focus {
@@ -2895,19 +2895,19 @@ fieldset:disabled .btn {
 .btn-outline-primary.dropdown-toggle.show,
 .btn-outline-primary:active {
   color:#fff;
-  background-color:#0d6efd;
-  border-color:#0d6efd
+  background-color:#FFAE2E;
+  border-color:#FFAE2E
 }
 .btn-check:active+.btn-outline-primary:focus,
 .btn-check:checked+.btn-outline-primary:focus,
 .btn-outline-primary.active:focus,
 .btn-outline-primary.dropdown-toggle.show:focus,
 .btn-outline-primary:active:focus {
-  box-shadow:0 0 0 .25rem rgba(13,110,253,.5)
+  box-shadow:0 0 0 .25rem #FFAE2E
 }
 .btn-outline-primary.disabled,
 .btn-outline-primary:disabled {
-  color:#0d6efd;
+  color:#FFAE2E;
   background-color:transparent
 }
 .btn-outline-secondary {
@@ -3409,7 +3409,7 @@ fieldset:disabled .btn {
 .dropdown-item:active {
   color:#fff;
   text-decoration:none;
-  background-color:#0d6efd
+  background-color:#FFAE2E
 }
 .dropdown-item.disabled,
 .dropdown-item:disabled {
@@ -3449,7 +3449,7 @@ fieldset:disabled .btn {
 .dropdown-menu-dark .dropdown-item.active,
 .dropdown-menu-dark .dropdown-item:active {
   color:#fff;
-  background-color:#0d6efd
+  background-color:#FFAE2E
 }
 .dropdown-menu-dark .dropdown-item.disabled,
 .dropdown-menu-dark .dropdown-item:disabled {
@@ -3615,7 +3615,7 @@ fieldset:disabled .btn {
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
   color:#fff;
-  background-color:#0d6efd
+  background-color:#FFAE2E
 }
 .nav-fill .nav-item,
 .nav-fill>.nav-link {

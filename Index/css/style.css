@@ -1,0 +1,28 @@
+
+#floatingEmail{
+    border-radius: 10%;
+    border-color: #FFAE2E;
+    border: solid 5px #FFAE2E;
+}
+
+#floatingPassword{
+    border-radius: 10%;
+    border-color: #FFAE2E;
+    border: solid 5px #FFAE2E;
+}
+
+#titleModal{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+#buttonCancelar{
+    border-radius: 3%;
+    border: solid 3px #203540; 
+}
+
+#buttonEntrar{
+    border-radius: 3%;
+    background-color: #203540;
+    border: solid 3px; 
+}

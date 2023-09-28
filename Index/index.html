@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalog-Z Bootstrap 5.0 HTML Template</title>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/templatemo-style.css">
+    <link rel="stylesheet" href="css/style.css">
 <!--
     
 TemplateMo 556 Catalog-Z
@@ -16,91 +19,62 @@ https://templatemo.com/tm-556-catalog-z
 -->
 </head>
 <body>
-<style>
-    
-#floatingEmail{
-    border-radius: 10%;
-    border-color: #FFAE2E;
-    border: solid 5px #FFAE2E;
-}
-
-#floatingPassword{
-    border-radius: 10%;
-    border-color: #FFAE2E;
-    border: solid 5px #FFAE2E;
-}
-
-#titleModal{
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-}
-
-#buttonCancelar{
-    border-radius: 3%;
-    border: solid 3px #203540; 
-}
-
-#buttonEntrar{
-    border-radius: 3%;
-    background-color: #203540;
-    border: solid 3px; 
-}
-</style>
+    <!--MODAL LOGIN-->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-body">
-              <div class="d-flex justify-content-end">
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="d-flex justify-content-center">
-                  <div class="d-flex justify-content-center">
-                      <div class="row">
-                          <h1 class="display-6 mb-0">Login</h1>
-                      </div>
-                  </div>
-              </div>
-              <hr class="border border-2 opacity-50">
-              <form>
-                <div class="mb-3">
-                  <div class="form-floating mb-3">
-                      <input type="email" class="px-4 form-control rounded-pill" id="floatingEmail" placeholder="name@hotmail.com" required>
-                      <label  for="floatingInput">Email</label>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <div class="form-floating">
-                      <input type="password" class="px-4 form-control rounded-pill" id="floatingPassword" placeholder="Senha" required>
-                      <label for="floatingPassword">Senha</label>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <div id="emailHelp" class="form-text">Esqueceu sua senha? <a href="#" style="color:#FFAE2E;">Clique aqui</a></div>
-                    </div>
-                    <div class="col">
-                      <div id="emailHelp" class="form-text text-end me-1">Não é registrado? <a href="#" style="color:#FFAE2E;">Criar conta</a></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Lembrar login</label>
-                </div>
-              </form>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div style="background-color: #FFAE2E;" class="modal-footer d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-              <button  type="button" style="border-color: #203540;" class="btn col-12 col-lg-auto me-lg-auto mb-2 mb-md-0" data-bs-dismiss="modal">Cancelar</button>
-              <button  type="button" style="background-color: #203540; color:white" class="btn text-end justify-content-start" data-bs-dismiss="modal">Entrar</button>
+            <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center">
+                    <div class="row">
+                        <h1 class="display-6 mb-0">Login</h1>
+                    </div>
+                </div>
             </div>
+            <hr class="border border-2 opacity-50">
+            <form>
+              <div class="mb-3">
+                <div class="form-floating mb-3">
+                    <input type="email" class="px-4 form-control rounded-pill" id="floatingEmail" placeholder="name@hotmail.com" required>
+                    <label  for="floatingInput">Email</label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="form-floating">
+                    <input type="password" class="px-4 form-control rounded-pill" id="floatingPassword" placeholder="Senha" required>
+                    <label for="floatingPassword">Senha</label>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div id="emailHelp" class="form-text">Esqueceu sua senha? <a href="#" style="color:#FFAE2E;">Clique aqui</a></div>
+                  </div>
+                  <div class="col">
+                    <div id="emailHelp" class="form-text text-end me-1">Não é registrado? <a href="#" style="color:#FFAE2E;">Criar conta</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Lembrar login</label>
+              </div>
+            </form>
+          </div>
+          <div style="background-color: #FFAE2E;" class="modal-footer d-flex flex-wrap gap-2 align-items-center justify-content-center justify-content-lg-start">
+            <button  type="button" style="border-color: #203540;" class="btn col-12 col-lg-auto me-lg-auto mb-2 mb-md-0" data-bs-dismiss="modal">Cancelar</button>
+            <button  type="button" style="background-color: #203540; color:white; justify-content: flex-end;" class="btn text-end justify-content-start" data-bs-dismiss="modal">Entrar</button>
           </div>
         </div>
       </div>
+    </div>
 
+    <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <i class="fas fa-film mr-2"></i>
-                Catalog-Z
+                <img src="img/LogoPolaris.png" width="60%">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
@@ -123,6 +97,7 @@ https://templatemo.com/tm-556-catalog-z
         </div>
     </nav>
 
+    <!--BARRA DE PESQUISA-->
     <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="img/hero.jpg">
         <form class="d-flex tm-search-form">
             <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
@@ -132,6 +107,7 @@ https://templatemo.com/tm-556-catalog-z
         </form>
     </div>
 
+    <!--CONTAINER FOTOS-->
     <div class="container-fluid tm-container-content tm-mt-60">
         <div class="row mb-4">
             <h2 class="col-6 tm-text-primary">
@@ -233,6 +209,7 @@ https://templatemo.com/tm-556-catalog-z
         </div>
     </div> <!-- container-fluid, tm-container-content -->
 
+    <!--FOOTER-->
     <footer class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer">
         <div class="container-fluid tm-container-small">
             <div class="row">
