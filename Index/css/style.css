@@ -26,3 +26,7 @@
     background-color: #203540;
     border: solid 3px; 
 }
+
+#search::placeholder{
+    color: #203540;
+}

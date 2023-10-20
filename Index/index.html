@@ -18,7 +18,7 @@ https://templatemo.com/tm-556-catalog-z
 
 -->
 </head>
-<body>
+<body style="background-color: #37506B;">
     <!--MODAL LOGIN-->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
       <div class="modal-dialog">
@@ -38,14 +38,14 @@ https://templatemo.com/tm-556-catalog-z
             <form>
               <div class="mb-3">
                 <div class="form-floating mb-3">
+                    <label  for="floatingInput">Email:</label>
                     <input type="email" class="px-4 form-control rounded-pill" id="floatingEmail" placeholder="name@hotmail.com" required>
-                    <label  for="floatingInput">Email</label>
                 </div>
               </div>
               <div class="mb-3">
                 <div class="form-floating">
+                    <label for="floatingPassword">Senha:</label>
                     <input type="password" class="px-4 form-control rounded-pill" id="floatingPassword" placeholder="Senha" required>
-                    <label for="floatingPassword">Senha</label>
                 </div>
                 <div class="row">
                   <div class="col">
@@ -71,11 +71,12 @@ https://templatemo.com/tm-556-catalog-z
     </div>
 
     <!--NAVBAR-->
-    <nav class="navbar navbar-expand-lg">
+    <nav style="background-color: #FFAE2E; border: solid #203540;" class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="img/LogoPolaris.png" width="60%">
-            </a>
+            <a class="navbar-brand" style="color:#203540;" href="#">
+                <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                Poralis
+              </a>          
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
@@ -88,8 +89,8 @@ https://templatemo.com/tm-556-catalog-z
                     <a class="nav-link nav-link-2" href="videos.html">Videos</a>
                 </li>
             </ul>
-            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="darkblue" class="bi bi-person" viewBox="2 1 18 16">
+            <button style="background-color: #203540; color: #FFFF" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-person" viewBox="2 1 18 16">
                   <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
                 </svg>Login
             </button>
@@ -100,7 +101,7 @@ https://templatemo.com/tm-556-catalog-z
     <!--BARRA DE PESQUISA-->
     <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="img/hero.jpg">
         <form class="d-flex tm-search-form">
-            <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
+            <input id="search" class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success tm-search-btn" type="submit">
                 <i class="fas fa-search"></i>
             </button>
@@ -114,7 +115,7 @@ https://templatemo.com/tm-556-catalog-z
                 Latest Photos
             </h2>
             <form class="d-flex justify-content-end tm-search-form">
-                <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
+                <input id="search" class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success tm-search-btn" type="submit">
                     <i class="fas fa-search"></i>
                 </button>
@@ -206,7 +207,7 @@ https://templatemo.com/tm-556-catalog-z
     </div> <!-- container-fluid, tm-container-content -->
 
     <!--FOOTER-->
-    <footer class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer">
+    <footer style="background-color: #2B2B2B;" class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer">
         <div class="container-fluid tm-container-small">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-12 px-5 mb-5">
