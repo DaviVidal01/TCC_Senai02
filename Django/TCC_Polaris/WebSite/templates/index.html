@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lista de Fotos</title>
+    </head>
+    <body>
+        <h1>Lista de Fotos</h1>
+        <ul>
+            {% for ix in fotos %}
+            <li>{{ ix.titulo }} por {{ ix.autor }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
