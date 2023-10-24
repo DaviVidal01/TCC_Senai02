@@ -7,3 +7,9 @@ def index(request):
     comentarios_view = Comentarios_BD.objects.all()
     return render(request, 'index.html', {'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
 
+def detalhes_fotos(request):
+    likes_view = Like_BD.objects.all()
+    fotos_view = Fotos_BD.objects.all()
+    comentarios_view = Comentarios_BD.objects.all()
+    return render(request, 'detalhes_fotos.html', {'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
+
