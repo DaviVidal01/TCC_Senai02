@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+    <!-- inicio do head -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,14 +11,15 @@
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/templatemo-style.css">
     <link rel="stylesheet" href="css/style.css">
-<!--
-    
-TemplateMo 556 Catalog-Z
+<style>
+    .texto_rodape{
+        color: #ffff;
+    }
 
-https://templatemo.com/tm-556-catalog-z
+</style>
 
--->
 </head>
+<!-- Inicio do body -->
 <body style="background-color: #37506B;">
     <!--MODAL LOGIN-->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
@@ -73,10 +75,9 @@ https://templatemo.com/tm-556-catalog-z
     <!--NAVBAR-->
     <nav style="background-color: #FFAE2E; border: solid #203540;" class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" style="color:#203540;" href="#">
-                <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-                Poralis
-              </a>          
+            <a class="navbar-brand d-flex" style="color:#203540;" href="#">
+                <p style="font-family: Roboto; color:#203540"><span><img src="/Index/img/estrela.png" width="30" height="24" class="d-inline-block align-text-top"></span> POLARIS</p>
+            </a>          
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
@@ -89,6 +90,7 @@ https://templatemo.com/tm-556-catalog-z
                     <a class="nav-link nav-link-2" href="videos.html">Videos</a>
                 </li>
             </ul>
+
             <button style="background-color: #203540; color: #FFFF" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-person" viewBox="2 1 18 16">
                   <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
@@ -114,12 +116,8 @@ https://templatemo.com/tm-556-catalog-z
             <h2 class="col-6 tm-text-primary">
                 Latest Photos
             </h2>
-            <form class="d-flex justify-content-end tm-search-form">
-                <input id="search" class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success tm-search-btn" type="submit">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
+            
+           
         </div>
         <div class="row tm-mb-90 tm-gallery">
             <div class="col-xl-8 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
@@ -152,6 +150,7 @@ https://templatemo.com/tm-556-catalog-z
                     <span>11,402 views</span>
                 </div>
             </div>
+            <!-- Inicio do 2ª-->
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
                     <img src="img/img-07.jpg" alt="Image" class="img-fluid">                   
@@ -189,9 +188,42 @@ https://templatemo.com/tm-556-catalog-z
                 <div class="d-flex justify-content-between tm-text-gray">
                     <span class="tm-text-gray-light">8 Sep 2020</span>
                     <span>11,402 views</span>
+                    
                 </div>
             </div>
-        </div> <!-- row -->
+            
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+            <figure class="effect-ming tm-video-item">
+                <img src="img/img-07.jpg" alt="Image" class="img-fluid">                   
+            </figure>
+            <div class="d-flex justify-content-between tm-text-gray">
+                <span class="tm-text-gray-light">16 Sep 2020</span>
+                <span>10,900 views</span>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+            <figure class="effect-ming tm-video-item">
+                <img src="img/img-08.jpg" alt="Image" class="img-fluid">
+                <figcaption class="d-flex align-items-center justify-content-center">
+                    <h2>New York</h2>
+                </figcaption>                    
+            </figure>
+            <div class="d-flex justify-content-between tm-text-gray">
+                <span class="tm-text-gray-light">12 Sep 2020</span>
+                <span>11,300 views</span>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+            <figure class="effect-ming tm-video-item">
+                <img src="img/img-09.jpg" alt="Image" class="img-fluid">                  
+            </figure>
+            <div class="d-flex justify-content-between tm-text-gray">
+                <span class="tm-text-gray-light">10 Sep 2020</span>
+                <span>42,700 views</span>
+            </div>
+        </div>
+        </div>
+        <!-- row -->
         <div class="row tm-mb-90">
             <div class="col-12 d-flex justify-content-between align-items-center tm-paging-col">
                 <a href="javascript:void(0);" class="btn btn-primary tm-btn-prev mb-2 disabled">Previous</a>
@@ -204,23 +236,23 @@ https://templatemo.com/tm-556-catalog-z
                 <a href="javascript:void(0);" class="btn btn-primary tm-btn-next">Next Page</a>
             </div>            
         </div>
-    </div> <!-- container-fluid, tm-container-content -->
+    </div> 
 
     <!--FOOTER-->
-    <footer style="background-color: #2B2B2B;" class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer">
+    <footer style="background-color: #203540;" class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer">
         <div class="container-fluid tm-container-small">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-12 px-5 mb-5">
-                    <h3 class="tm-text-primary mb-4 tm-footer-title">About Catalog-Z</h3>
-                    <p>Catalog-Z is free <a rel="sponsored" href="https://v5.getbootstrap.com/">Bootstrap 5</a> Alpha 2 HTML Template for video and photo websites. You can freely use this TemplateMo layout for a front-end integration with any kind of CMS website.</p>
+                    <h3 class="texto_rodape">Polaris</h3>
+                    <p class="texto_rodape">Catalog-Z is free <a rel="sponsored" href="https://v5.getbootstrap.com/" class="texto_rodape">Bootstrap 5</a> Alpha 2 HTML Template for video and photo websites. You can freely use this TemplateMo layout for a front-end integration with any kind of CMS website.</p>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
-                    <h3 class="tm-text-primary mb-4 tm-footer-title">Our Links</h3>
-                    <ul class="tm-footer-links pl-0">
-                        <li><a href="#">Advertise</a></li>
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">Our Company</a></li>
-                        <li><a href="#">Contact</a></li>
+                    <h3 class="texto_rodape">Our Links</h3>
+                    <ul class="texto_rodape">
+                        <li><a class="texto_rodape" href="#">Advertise</a></li>
+                        <li><a class="texto_rodape" href="#">Support</a></li>
+                        <li><a class="texto_rodape" href="#">Our Company</a></li>
+                        <li><a class="texto_rodape" href="#">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
@@ -230,16 +262,16 @@ https://templatemo.com/tm-556-catalog-z
                         <li class="mb-2"><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>
                         <li class="mb-2"><a href="https://pinterest.com"><i class="fab fa-pinterest"></i></a></li>
                     </ul>
-                    <a href="#" class="tm-text-gray text-right d-block mb-2">Terms of Use</a>
-                    <a href="#" class="tm-text-gray text-right d-block">Privacy Policy</a>
+                    <a href="#" class="texto_rodape">Terms of Use</a>
+                    <a href="#" class="texto_rodape">Privacy Policy</a>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8 col-md-7 col-12 px-5 mb-3">
-                    Copyright 2020 Catalog-Z Company. All rights reserved.
+                <div class="texto_rodape">
+                    Copyright 2023 Polaris Company. All rights reserved.
                 </div>
-                <div class="col-lg-4 col-md-5 col-12 px-5 text-right">
-                    Designed by <a href="https://templatemo.com" class="tm-text-gray" rel="sponsored" target="_parent">TemplateMo</a>
+                <div class="col-lg-4 col-md-5 col-12 px-5 text-right texto_rodape">
+                    Designed by <a href="https://templatemo.com" class="texto_rodape" rel="sponsored" target="_parent">TemplateMo</a>
                 </div>
             </div>
         </div>
