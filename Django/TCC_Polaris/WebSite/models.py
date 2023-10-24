@@ -5,14 +5,14 @@ from django.contrib.auth.models import User
 class Comentarios_BD(models.Model):
     comentario = models.TextField(max_length=255)
     data_comentario = models.DateField()
-    autor = models.ForeignKey(User.username)
+    autor = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Like_BD(models.Model):
     like = models.IntegerField()
-    autor = models.ForeignKey(User.username)
+    autor = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Fotos_BD(models.Model):
     titulo = models.CharField(max_length=25)
     descricao = models.TextField(max_length=255)
-    autor = models.ForeignKey(User.username)
+    autor = models.ForeignKey(User, on_delete=models.CASCADE)
     
