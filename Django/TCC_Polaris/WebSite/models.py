@@ -14,5 +14,6 @@ class Like_BD(models.Model):
 class Fotos_BD(models.Model):
     titulo = models.CharField(max_length=25)
     descricao = models.TextField(max_length=255)
+    foto = models.ImageField(default='', upload_to= './images')
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
     
