@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!--Titulo-->
+    <title>{% block title %}Detalhes de Fotos{% endblock %}</title>
+    <!--Header-->
+    {% include 'partials/header.html' %}
+    <!--Main-->
+    <main class="bg-gray">
+        <h1>Lista de Fotos</h1>
+        <ul>
+            {% for ix in fotos %}
+            <li>{{ ix.titulo }} por {{ ix.autor }}</li>
+            {% endfor %}
+        </ul>
+    </main>
+    <!--Footer-->
+    {% include 'partials/footer.html' %}
+{% endblock %}
