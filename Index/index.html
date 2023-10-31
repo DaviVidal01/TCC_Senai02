@@ -15,7 +15,40 @@
     .texto_rodape{
         color: #ffff;
     }
+    /* Estilos gerais para o formulário */
+    .form-group {
+          margin-bottom: 20px;
+      }
+      
+      .label-comentario{
+          font-weight: bold;
+          display: block;
+      }
+      
+      /* Estilos para os inputs */
+      .input-comentario[type="text"],
+      .input-comentario[type="date"],
+      .input-comentario[type="number"],
+      .input-comentario[type="file"] {
+          width: 65%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 16px;
+      }
+      /* Estilos para o botão */
+      .button-comentario {
+          background-color: #007BFF;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+      }
 
+      .button-comentario:hover {
+          background-color: #0056b3;
+      }
 </style>
 
 </head>
@@ -72,6 +105,43 @@
       </div>
     </div>
 
+    <!--MODAL COMMENT-->
+    <div  class="modal fade" id="staticBackdropFotos" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #FFAE2E;">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel" style="color:#203540">Nome da Foto</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form method = "POST">
+          <img src="img/img-01-big.jpg" alt="fotodeperfil" width="100%"> 
+          <div class="modal-body">
+              <div class="mb-3">
+                <div class="row">
+                  <div class="col">
+                  </div>
+                </div>
+              </div>
+              <div style="display: flex;justify-content: flex-end;" class="me-1">
+                <p>160 </p>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><g id="_01_align_center" data-name="01 align center"><path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"/></g></svg>
+                <p>11 </p>
+                <img src="img/mensagem.png" alt="mensagem" width="24" height="24">
+              </div>
+              <div class="modal-footer">
+                <img src="img/mensagem.png" alt="mensagem" width="24" height="24">
+                <input type="text" placeholder="Adicionar Comentário">
+                <button type="submit" class="btn btn-dark" >Enviar</button>
+              </div>
+            </form>
+          </div>
+         </div>
+        </div>
+      </div>
+    </div>
+    <div class="center"> 
+    </div>
+
     <!--NAVBAR-->
     <nav style="background-color: #FFAE2E; border: solid #203540;" class="navbar navbar-expand-lg">
         <div class="container-fluid">
@@ -119,9 +189,11 @@
         </div>
         <div class="row tm-mb-90 tm-gallery">
             <div class="col-xl-8 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos">
                     <figure class="effect-ming tm-video-item">
                         <img src="img/img-03.jpg" alt="Image" class="img-fluid">
                     </figure>             
+                </a>
                 <div class="d-flex justify-content-between tm-text-gray">
                     <span class="tm-text-gray-light">18 Oct 2020</span>
                     <span>9,906 views</span>
