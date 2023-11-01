@@ -49,6 +49,15 @@
       .button-comentario:hover {
           background-color: #0056b3;
       }
+
+      .rocketContainer {
+      width: 100px;
+      height: 100px;
+
+      display: flex;
+      align-content: center;
+      justify-content: center;
+    }
 </style>
 
 </head>
@@ -141,17 +150,23 @@
     </div>
 
     <!--NAVBAR-->
-    <nav style="background-color: #FFAE2E; border: solid #203540;" class="navbar navbar-expand-lg">
+    
+    <nav style="background-color: #FFAE2E; border: solid #203540;" class="navbar navbar-expand-lg">         
         <div class="container-fluid">
+
             <a class="navbar-brand d-flex" style="color:#203540;" href="#">
                 <p style="font-family: Roboto; color:#203540"><span><img src="/Index/img/estrela.png" width="30" height="24" class="d-inline-block align-text-top"></span> POLARIS</p>
-            </a>          
+            </a>   
+            <div class="rocketContainer row tm-sm-90">
+                <img alt="home"  width=30 src="https://www.svgrepo.com/show/22031/home-icon-silhouette.svg" viewBox="2 1 18 16" />
+            </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            </div>
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                <li class="nav-item">
+                <li class="nav-item ">
                     <a class="nav-link nav-link-1 active" aria-current="page" href="index.html">Photos</a>
                 </li>
                 <li class="nav-item">
