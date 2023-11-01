@@ -4,26 +4,29 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <h1>TCC SENAI ( Polaris ) 📚</h1>
-        <img src="" alt="Logo do Polaris">
+        <h1>TCC SENAI ( Polaris ) Album de Fotos 📚</h1>
+        <img src="assets-README/LogoPolaris.png" alt="Logo do Polaris">
         <h2>● Sobre o Projeto 🗃️</h2>
-        <p>📌 - TCC </p>
+          <list>
+            <ul>
+              Este projeto foi concebido e desenvolvido de forma colaborativa por um grupo de cinco estudantes denominado 'Polares'. Nosso trabalho resultou na construção de um site avaliativo de fotos, uma plataforma que visa proporcionar uma experiência única para os entusiastas da fotografia e os apaixonados por imagens.
+            </ul>
+            <ul>
+              - <strong>Comentários Moderados</strong>: Implementamos um sistema de comentários onde somente os moderadores que adicionaram as fotos podem visualizar e gerenciar os comentários. Isso permite um controle mais eficiente e personalizado das discussões em torno das imagens.
+            </ul>
+            <ul>
+              - <strong>Avaliações "Like"</strong>: Os usuários podem avaliar as fotos usando o recurso "Like", proporcionando uma maneira fácil e rápida de expressar sua apreciação pelas imagens.
+            </ul>
+          </list>
         <h2>● Contribuidores 👥</h2>
         <table align="center" style="justify-content:center;">
           <tr>
             <td align="center"><a href="https://github.com/DaviVidal01"><img src="https://avatars.githubusercontent.com/u/118399810?v=4" width="100px;" alt="Davi Vidal"/><br /><sub><b>DaviVidal01</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=DaviVidal01">🎩<span><strong>Backend e Frontend</strong></span></a></td>
             <td align="center"><a href="https://github.com/lferodrigues"><img src="https://avatars.githubusercontent.com/u/65414548?v=4" width="100px;" alt="Luis Felipe"/><br /><sub><b>lferodrigues</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=lferodrigues">🚀<span><strong>Analista de sistemas e Backend </strong></span></a></td>
             <td align="center"><a href="https://github.com/luquinha157"><img src="https://avatars.githubusercontent.com/u/131728136?v=4" width="100px;" alt="Lucas"/><br /><sub><b>luquinha157</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=luquinha157">💻<span><strong>Frontend</strong></span></a></td>
-            <td align="center"><a href="https://github.com/GiselliR"><img src="https://avatars.githubusercontent.com/u/131727965?v=4" width="100px;" alt="Giselli"/><br /><sub><b>GiselliR</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=GiselliR">🎨<span><strong>Frontend e Designer</strong></span></a></td>
+            <td align="center"><a href="https://github.com/GiselliR"><img src="https://avatars.githubusercontent.com/u/131727965?v=4" width="100px;" alt="Giselli"/><br /><sub><b>GiselliR</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=GiselliR">🎨<span><strong>Backend e Designer</strong></span></a></td>
           </tr>
         </table>
-        <ul type="square">
-            <li><strong>🎩┆ DaviVidal01:</strong> </li>
-            <li><strong>🚀┆ lferodrigues:</strong> </li>
-            <li><strong>💻┆ raquelffernandes:</strong> </li>
-            <li><strong>💻┆ luquinha157:</strong></li>
-            <li><strong>🎨┆ GiselliR:</strong></li>
-        </ul>
         <h2>● Programas 📚</h2>
         <table>
           <tr>
