@@ -1,26 +1,18 @@
 {% extends 'base.html' %}
-{% load static %}
-{% block content %}
-    <!--Titulo-->
-    <title>{% block title %}Fotos Listas{% endblock %}</title>
-    <!--Header-->
-    {% include 'partials/header.html' %}
-    <!--Main-->
-    <main class="bg-gray">
-        <h1>Lista de Fotos</h1>
-        <ul>
-            {% for ix in fotos %}
-            <li>{{ ix.titulo }} por {{ ix.autor }}</li>
-            <li>
-              {% if ix.foto %}
-                  <img src="{{ ix.foto.url }}" alt="capa-de-livros" width="10%">
-              {% else %}
-                  <p>foto não encontrada</p>
-              {% endif %}
-            </li>
-            {% endfor %}
-        </ul>
-    </main>
-    <!--Footer-->
-    {% include 'partials/footer.html' %}
-{% endblock %}
+    
+    {% include 'partials/user/header.html' %}
+    
+    <!--BARRA DE PESQUISA-->
+    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="img/hero.jpg">
+        <form class="d-flex tm-search-form">
+            <input id="search" class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success tm-search-btn" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </div>
+
+    {% include 'partials/user/container_fotos.html' %}
+
+    {% include 'partials/user/footer.html' %}
+    
