@@ -1,0 +1,163 @@
+{% load static %}
+    <!--MODAL COMMENT-->
+    <div  class="modal fade" id="staticBackdropFotos" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #FFAE2E;">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel" style="color:#203540">Nome da Foto</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form method = "POST">
+          <img src="img/img-01-big.jpg" alt="fotodeperfil" width="100%"> 
+          <div class="modal-body">
+              <div class="mb-3">
+                <div class="row">
+                  <div class="col">
+                  </div>
+                </div>
+              </div>
+              <div style="display: flex;justify-content: flex-end;" class="me-1">
+                <p>160 </p>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><g id="_01_align_center" data-name="01 align center"><path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"/></g></svg>
+                <p>11 </p>
+                <img src="img/mensagem.png" alt="mensagem" width="24" height="24">
+              </div>
+              <div class="modal-footer">
+                <img src="img/mensagem.png" alt="mensagem" width="24" height="24">
+                <input type="text" placeholder="Adicionar Comentário">
+                <button type="submit" class="btn btn-dark" >Enviar</button>
+              </div>
+            </form>
+          </div>
+         </div>
+        </div>
+      </div>
+    </div>
+    
+    <!--CONTAINER FOTOS-->
+    <div class="container-fluid tm-container-content tm-mt-60">
+        <div class="row mb-4">
+            <h2 class="col-6 tm-text-primary">
+                Latest Photos
+            </h2>
+        </div>
+        <div class="row tm-mb-90 tm-gallery">
+            <div class="col-xl-8 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos">
+                    <figure class="effect-ming tm-video-item">
+                        <img src="img/img-03.jpg" alt="Image" class="img-fluid">
+                    </figure>             
+                </a>
+                <div class="d-flex justify-content-between tm-text-gray">
+                    <span class="tm-text-gray-light">18 Oct 2020</span>
+                    <span>9,906 views</span>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <figure class="effect-ming tm-video-item">
+                    <img src="img/img-04.jpg" alt="Image" class="img-fluid">                  
+                </figure>
+                <div class="d-flex justify-content-between tm-text-gray">
+                    <span class="tm-text-gray-light">14 Oct 2020</span>
+                    <span>16,100 views</span>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <figure class="effect-ming tm-video-item">
+                    <img src="img/img-06.jpg" alt="Image" class="img-fluid">
+                    <figcaption class="d-flex align-items-center justify-content-center">
+                        <h2>Pinky</h2>
+                    </figcaption>                    
+                </figure>
+                <div class="d-flex justify-content-between tm-text-gray">
+                    <span class="tm-text-gray-light">10 Oct 2020</span>
+                    <span>11,402 views</span>
+                </div>
+            </div>
+            <!-- Inicio do 2ª-->
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <figure class="effect-ming tm-video-item">
+                    <img src="img/img-07.jpg" alt="Image" class="img-fluid">                   
+                </figure>
+                <div class="d-flex justify-content-between tm-text-gray">
+                    <span class="tm-text-gray-light">16 Sep 2020</span>
+                    <span>10,900 views</span>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <figure class="effect-ming tm-video-item">
+                    <img src="img/img-08.jpg" alt="Image" class="img-fluid">
+                    <figcaption class="d-flex align-items-center justify-content-center">
+                        <h2>New York</h2>
+                    </figcaption>                    
+                </figure>
+                <div class="d-flex justify-content-between tm-text-gray">
+                    <span class="tm-text-gray-light">12 Sep 2020</span>
+                    <span>11,300 views</span>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <figure class="effect-ming tm-video-item">
+                    <img src="img/img-09.jpg" alt="Image" class="img-fluid">                  
+                </figure>
+                <div class="d-flex justify-content-between tm-text-gray">
+                    <span class="tm-text-gray-light">10 Sep 2020</span>
+                    <span>42,700 views</span>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <figure class="effect-ming tm-video-item">
+                    <img src="img/img-10.jpg" alt="Image" class="img-fluid">                   
+                </figure>
+                <div class="d-flex justify-content-between tm-text-gray">
+                    <span class="tm-text-gray-light">8 Sep 2020</span>
+                    <span>11,402 views</span>
+                    
+                </div>
+            </div>
+            
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+            <figure class="effect-ming tm-video-item">
+                <img src="img/img-07.jpg" alt="Image" class="img-fluid">                   
+            </figure>
+            <div class="d-flex justify-content-between tm-text-gray">
+                <span class="tm-text-gray-light">16 Sep 2020</span>
+                <span>10,900 views</span>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+            <figure class="effect-ming tm-video-item">
+                <img src="img/img-08.jpg" alt="Image" class="img-fluid">
+                <figcaption class="d-flex align-items-center justify-content-center">
+                    <h2>New York</h2>
+                </figcaption>                    
+            </figure>
+            <div class="d-flex justify-content-between tm-text-gray">
+                <span class="tm-text-gray-light">12 Sep 2020</span>
+                <span>11,300 views</span>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+            <figure class="effect-ming tm-video-item">
+                <img src="img/img-09.jpg" alt="Image" class="img-fluid">                  
+            </figure>
+            <div class="d-flex justify-content-between tm-text-gray">
+                <span class="tm-text-gray-light">10 Sep 2020</span>
+                <span>42,700 views</span>
+            </div>
+        </div>
+        </div>
+        <!-- row -->
+        <div class="row tm-mb-90">
+            <div class="col-12 d-flex justify-content-between align-items-center tm-paging-col">
+                <a href="javascript:void(0);" class="btn btn-primary tm-btn-prev mb-2 disabled">Previous</a>
+                <div class="tm-paging d-flex">
+                    <a href="javascript:void(0);" class="active tm-paging-link">1</a>
+                    <a href="javascript:void(0);" class="tm-paging-link">2</a>
+                    <a href="javascript:void(0);" class="tm-paging-link">3</a>
+                    <a href="javascript:void(0);" class="tm-paging-link">4</a>
+                </div>
+                <a href="javascript:void(0);" class="btn btn-primary tm-btn-next">Next Page</a>
+            </div>            
+        </div>
+    </div> 
