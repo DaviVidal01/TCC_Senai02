@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <!-- inicio do head -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog-Z Polaris</title>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<!-- Inicio do body -->
+<body style="background-color: #37506B;">
+    <!--MODAL LOGIN-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center">
+                    <div class="row">
+                        <h1 class="display-6 mb-0">Login</h1>
+                    </div>
+                </div>
+            </div>
+            <hr class="border border-2 opacity-50">
+            <form>
+              <div class="mb-3">
+                <div class="form-floating mb-3">
+                    <label  for="floatingInput">Email:</label>
+                    <input type="email" class="px-4 form-control rounded-pill" id="floatingEmail" placeholder="name@hotmail.com" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="form-floating">
+                    <label for="floatingPassword">Senha:</label>
+                    <input type="password" class="px-4 form-control rounded-pill" id="floatingPassword" placeholder="Senha" required>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div id="emailHelp" class="form-text">Esqueceu sua senha? <a href="#" style="color:#FFAE2E;">Clique aqui</a></div>
+                  </div>
+                  <div class="col">
+                    <div id="emailHelp" class="form-text text-end me-1">Não é registrado? <a href="#" style="color:#FFAE2E;">Criar conta</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Lembrar login</label>
+              </div>
+            </form>
+          </div>
+          <div style="background-color: #FFAE2E;" class="modal-footer d-flex flex-wrap gap-2 align-items-center justify-content-center justify-content-lg-start">
+            <button  type="button" style="border-color: #203540;" class="btn col-12 col-lg-auto me-lg-auto mb-2 mb-md-0" data-bs-dismiss="modal">Cancelar</button>
+            <button  type="button" style="background-color: #203540; color:white; justify-content: flex-end;" class="btn text-end justify-content-start" data-bs-dismiss="modal">Entrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--MODAL COMMENT-->
+    <div  class="modal fade" id="staticBackdropFotos" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #FFAE2E;">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel" style="color:#203540">Nome da Foto</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form method = "POST">
+          <img src="img/img-01-big.jpg" alt="fotodeperfil" width="100%"> 
+          <div class="modal-body">
+              <div class="mb-3">
+                <div class="row">
+                  <div class="col">
+                  </div>
+                </div>
+              </div>
+              <div style="display: flex;justify-content: flex-end;" class="me-1">
+                <p>160 </p>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><g id="_01_align_center" data-name="01 align center"><path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"/></g></svg>
+                <p>11 </p>
+                <img src="img/mensagem.png" alt="mensagem" width="24" height="24">
+              </div>
+              <div class="modal-footer">
+                <img src="img/mensagem.png" alt="mensagem" width="24" height="24">
+                <input type="text" placeholder="Adicionar Comentário">
+                <button type="submit" class="btn btn-dark" >Enviar</button>
+              </div>
+            </form>
+          </div>
+         </div>
+        </div>
+      </div>
+    </div>
+    <div class="center"> 
+    </div>
+
+    <!--NAVBAR-->
+    <nav style="background-color: #FFAE2E; border: solid #203540;" class="navbar navbar-expand-md"><!---->
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex" style="color:#203540;" href="#">
+                <p style="font-family: Roboto; color:#203540"><span><img src="/Index/img/estrela.png" width="30" height="24" class="d-inline-block align-text-top"></span> POLARIS</p>
+            </a>          
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2"></div>
+                <div class="mx-auto order-0">
+                    <a class="navbar-brand mx-auto" href="#"><img alt="rocket" width=35 src="https://www.svgrepo.com/show/111256/house.svg" /></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>     
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-1 active" aria-current="page" href="index.html">Photos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-2" href="videos.html">Videos</a>
+                        </li>
+                    </ul>
+                    <button style="background-color: #203540; color: #FFFF" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-person" viewBox="2 1 18 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                        </svg>Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="justify-content-center">
+        <a class="d-flex justify-content-center" aria-current="page" href="index.html">Photos</a>
+    </div>
+
+    <!--BARRA DE PESQUISA-->
+    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="img/hero.jpg">
+        <form class="d-flex tm-search-form">
+            <input id="search" class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success tm-search-btn" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </div>
+
+    <!--CONTAINER FOTOS-->
+    <div class="container-fluid tm-container-content tm-mt-60">
+        <div class="row mb-4">
+            <h2 class="col-6 tm-text-primary">
+                Latest Photos
+            </h2>
+        </div>
+        <div class="row tm-mb-90 tm-gallery">
+            <div class="col-xl-8 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <div class="card mb-3"style="background-color: #FFAE2E;">
+                    <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap" width=200px height=280px>
+                    <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
+                        <div style="display: flex;justify-content: flex-end;" class="me-1">
+                            <p>160 </p>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><g id="_01_align_center" data-name="01 align center"><path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"/></g></svg>
+                            <p>11 </p>
+                           <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="img/mensagem.png" alt="mensagem" width="24" height="24"> </a>
+                          </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <div class="card"  style="background-color: #FFAE2E;">
+                    <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap"  width=400px height=280px>
+                    <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
+                        <div style="display: flex;justify-content: flex-end;" class="me-1">
+                            <p>160 </p>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><g id="_01_align_center" data-name="01 align center"><path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"/></g></svg>
+                            <p>11 </p>
+                           <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="img/mensagem.png" alt="mensagem" width="24" height="24"> </a>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+          <!-- Inicio do 2ª-->
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <div class="card"  style="background-color: #FFAE2E;">
+                    <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap"  width=400px height=280px>
+                    <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
+                        <div style="display: flex;justify-content: flex-end;" class="me-1">
+                            <p>160 </p>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><g id="_01_align_center" data-name="01 align center"><path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"/></g></svg>
+                            <p>11 </p>
+                           <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="img/mensagem.png" alt="mensagem" width="24" height="24"> </a>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <div class="card"  style="background-color: #FFAE2E;">
+                    <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap"  width=400px height=280px>
+                    <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
+                        <div style="display: flex;justify-content: flex-end;" class="me-1">
+                            <p>160 </p>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><g id="_01_align_center" data-name="01 align center"><path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"/></g></svg>
+                            <p>11 </p>
+                           <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="img/mensagem.png" alt="mensagem" width="24" height="24"> </a>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <div class="card"  style="background-color: #FFAE2E;">
+                    <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap"  width=400px height=280px>
+                    <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
+                        <div style="display: flex;justify-content: flex-end;" class="me-1">
+                            <p>160 </p>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><g id="_01_align_center" data-name="01 align center"><path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"/></g></svg>
+                            <p>11 </p>
+                           <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="img/mensagem.png" alt="mensagem" width="24" height="24"> </a>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+            <!--Inicio do Terceira coluna-->
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <div class="card"  style="background-color: #FFAE2E;">
+                    <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap"  width=400px height=280px>
+                    <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
+                        <div style="display: flex;justify-content: flex-end;" class="me-1">
+                            <p>160 </p>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><g id="_01_align_center" data-name="01 align center"><path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"/></g></svg>
+                            <p>11 </p>
+                           <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="img/mensagem.png" alt="mensagem" width="24" height="24"> </a>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-xl-8 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <div class="card mb-3"style="background-color: #FFAE2E;">
+                    <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap" width=200px height=280px>
+                    <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
+                        <div style="display: flex;justify-content: flex-end;" class="me-1">
+                            <p>160 </p>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><g id="_01_align_center" data-name="01 align center"><path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"/></g></svg>
+                            <p>11 </p>
+                           <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="img/mensagem.png" alt="mensagem" width="24" height="24"> </a>
+                          </div>
+                    </div>
+                  </div>
+            </div>
+            <!--Inicio Quarta coluna-->
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+            <div class="card"  style="background-color: #FFAE2E;">
+                <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap"  width=400px height=280px>
+                <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
+                    <div style="display: flex;justify-content: flex-end;" class="me-1">
+                        <p>160 </p>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><g id="_01_align_center" data-name="01 align center"><path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"/></g></svg>
+                        <p>11 </p>
+                       <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="img/mensagem.png" alt="mensagem" width="24" height="24"> </a>
+                    </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+            <div class="card"  style="background-color: #FFAE2E;">
+                <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap"  width=400px height=280px>
+                <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
+                    <div style="display: flex;justify-content: flex-end;" class="me-1">
+                        <p>160 </p>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><g id="_01_align_center" data-name="01 align center"><path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"/></g></svg>
+                        <p>11 </p>
+                       <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="img/mensagem.png" alt="mensagem" width="24" height="24"> </a>
+                    </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+            <div class="card"  style="background-color: #FFAE2E;">
+                <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap"  width=400px height=280px>
+                <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
+                    <div style="display: flex;justify-content: flex-end;" class="me-1">
+                        <p>160 </p>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><g id="_01_align_center" data-name="01 align center"><path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"/></g></svg>
+                        <p>11 </p>
+                       <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="img/mensagem.png" alt="mensagem" width="24" height="24"> </a>
+                    </div>
+                </div>
+              </div>
+        </div>
+        </div>
+        <!-- row -->
+        <div class="row tm-mb-90">
+            <div class="col-12 d-flex justify-content-between align-items-center tm-paging-col">
+                <a href="javascript:void(0);" class="btn btn-primary tm-btn-prev mb-2 disabled">Previous</a>
+                <div class="tm-paging d-flex">
+                    <a href="index.html" class="active tm-paging-link">1</a>
+                    <a href="page2.html" class="tm-paging-link">2</a>
+                    <a href="javascript:void(0);" class="tm-paging-link">3</a>
+                    <a href="javascript:void(0);" class="tm-paging-link">4</a>
+                </div>
+                <a href="javascript:void(0);" class="btn btn-primary tm-btn-next">Next Page</a>
+            </div>            
+        </div>
+    </div> 
+
+    <!--FOOTER-->
+    <footer style="background-color: #203540;" class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer">
+        <div class="container-fluid tm-container-small">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-12 px-5 mb-5">
+                    <h3 class="texto_rodape">Polaris</h3>
+                    <p class="texto_rodape">Catalog-Z is free <a rel="sponsored" href="https://v5.getbootstrap.com/" class="texto_rodape">Bootstrap 5</a> Alpha 2 HTML Template for video and photo websites. You can freely use this TemplateMo layout for a front-end integration with any kind of CMS website.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
+                    <h3 class="texto_rodape">Our Links</h3>
+                    <ul class="texto_rodape">
+                        <li><a class="texto_rodape" href="#">Advertise</a></li>
+                        <li><a class="texto_rodape" href="#">Support</a></li>
+                        <li><a class="texto_rodape" href="#">Our Company</a></li>
+                        <li><a class="texto_rodape" href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
+                    <ul class="tm-social-links d-flex justify-content-end pl-0 mb-5">
+                        <li class="mb-2"><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
+                        <li class="mb-2"><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+                        <li class="mb-2"><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>
+                        <li class="mb-2"><a href="https://pinterest.com"><i class="fab fa-pinterest"></i></a></li>
+                    </ul>
+                    <a href="#" class="texto_rodape">Terms of Use</a>
+                    <a href="#" class="texto_rodape">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="texto_rodape">
+                    Copyright 2023 Polaris Company. All rights reserved.
+                </div>
+                <div class="col-lg-4 col-md-5 col-12 px-5 text-right texto_rodape">
+                    Designed by <a href="https://templatemo.com" class="texto_rodape" rel="sponsored" target="_parent">TemplateMo</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    {% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><a href="#">&laquo;</a></li>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+      {% ifequal num page_obj.number %}
+        <li class="active"><a href="#">{{ num }}<span class="sr-only">(current)</span></a></li>
+      {% else %}
+        <li><a href="?page={{ num }}">{{ num }}</a></li>
+      {% endifequal %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><a href="#">&raquo;</a></li>
+    {% endif %}
+  </ul>
+{% endif %}
+    
+    <script src="js/plugins.js"></script>
+    <script>
+        $(window).on("load", function() {
+            $('body').addClass('loaded');
+        });
+    </script>
+</body>
+</html>
