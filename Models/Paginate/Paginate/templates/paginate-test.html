@@ -159,19 +159,20 @@
                 Latest Photos
             </h2>
         </div>
+
         <div class="row tm-mb-90 tm-gallery">
             <div class="col-xl-8 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <div class="card mb-3"style="background-color: #FFAE2E;">
-                    <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap" width=200px height=280px>
-                    <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
-                        <div style="display: flex;justify-content: flex-end;" class="me-1">
+                {% for fotos in imagens %}
+                    <div class="card mb-3" style="background-color: #FFAE2E;">
+                        <img src="{{ fotos.imagens.url}}" class="card-img-top" alt="{{ fotos.titulo }}" width=200px height=280px>
+                        <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
                             <p>160 </p>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><g id="_01_align_center" data-name="01 align center"><path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"/></g></svg>
                             <p>11 </p>
-                           <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="img/mensagem.png" alt="mensagem" width="24" height="24"> </a>
-                          </div>
-                    </div>
-                  </div>
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="img/mensagem.png" alt="mensagem" width="24" height="24"></a>
+                        </div>
+                    </div>      
+                {% endfor %}  
             </div>
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <div class="card"  style="background-color: #FFAE2E;">
@@ -256,7 +257,7 @@
             <!--Inicio Quarta coluna-->
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
             <div class="card"  style="background-color: #FFAE2E;">
-                <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap"  width=400px height=280px>
+                <img class="card-img-top" src="{% static 'img/img-01-big.jpg' %}" alt="Card image cap"  width=400px height=280px>
                 <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
                     <div style="display: flex;justify-content: flex-end;" class="me-1">
                         <p>160 </p>
@@ -297,7 +298,7 @@
         <!-- row -->
         <div class="row tm-mb-90">
             <div class="col-12 d-flex justify-content-between align-items-center tm-paging-col">
-                <a href="javascript:void(0);" class="btn btn-primary tm-btn-prev mb-2 disabled">Previous</a>
+                <div class="pagination">
                 <span class="step-links">
                   {% if page_obj.has_previous %}
                       <a href="?page=1">&laquo; Primeira</a>
@@ -311,12 +312,7 @@
                       <a href="?page={{ page_obj.paginator.num_pages }}">Última &raquo;</a>
                   {% endif %}
                   </span>
-                    <a href="index.html" class="active tm-paging-link">1</a>
-                    <a href="page2.html" class="tm-paging-link">2</a>
-                    <a href="javascript:void(0);" class="tm-paging-link">3</a>
-                    <a href="javascript:void(0);" class="tm-paging-link">4</a>
                 </div>
-                <a href="javascript:void(0);" class="btn btn-primary tm-btn-next">Next Page</a>
             </div>            
         </div>
     </div> 
