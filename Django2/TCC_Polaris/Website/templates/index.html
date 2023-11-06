@@ -5,7 +5,7 @@
     
     <!--BARRA DE PESQUISA-->
     {% for x in imagem %}
-    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{{{ x.imagem.url}}}">
+    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{{ x.imagem.url}}">
         {% endfor %}
         <form class="d-flex tm-search-form">
             <input id="search" class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
