@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Catalog Z Polaris - Dashboard</title>
+	<link rel="stylesheet"href="{% static 'assets/css/styles.css' %}">
+	<link rel="stylesheet"href="{% static 'assets/css/responsive.css' %}">
+    <style>
+        .custom-form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        /* Estilos para os campos do formulário */
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .custom-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .custom-textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .custom-file-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        /* Estilos para o botão */
+        .custom-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .custom-button:hover {
+            background-color: #2980b9;
+        }
+        .nav-option a {
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .rounded-btn {
+            border: none;
+            border-radius: 15px;
+            width: 40%; 
+            height: 100px;
+            margin: 10px;
+        }
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .side-buttons {
+            display: flex;
+            justify-content: center;
+        }
+        .purple-btn {
+            background-color: #3f0097; /* Cor roxa */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+        }
+        .white-btn{
+            border: solid #3f0097 5px;
+            background-color: #ffffff; /* Cor roxa */
+            color: #3f0097;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+        }
+        .purple-btn:hover{
+            background-color: #4b49ac;
+            color:white
+        }
+        .white-btn:hover{
+            background-color: #3f0097;
+            color:white
+        }
+    </style>
+</head>
+
+<body>
+    {% block content %}
+    {% endblock %}
+    <script>
+        const navOptions = document.querySelectorAll('.nav-option');
+    
+        navOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                // Remova a classe 'option1' de todas as opções
+                navOptions.forEach(opt => opt.classList.remove('option1'));
+    
+                // Adicione a classe 'option1' à opção clicada
+                option.classList.add('option1');
+            });
+        });
+    </script>
+	<script src="{% static 'assets/js/index.js' %}"></script>
+</body>
+</html>

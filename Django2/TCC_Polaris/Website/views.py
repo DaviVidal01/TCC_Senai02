@@ -1,94 +1,102 @@
-from django.shortcuts import render,redirect
-from Website.forms import LoginForms, RegisterForms
-from .models import Like_BD, Fotos_BD, Comentarios_BD
-from django.contrib import auth
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.shortcuts import redirect, render
+from Website.forms import FotoForms, LoginForms, RegisterForms
+from .models import Comentarios_BD, Fotos_BD, Like_BD
+from django.contrib.auth.forms import UserCreationForm
 
+# -----> USER PAGE
 def index(request):
     likes_view = Like_BD.objects.all()
     fotos_view = Fotos_BD.objects.all()
     comentarios_view = Comentarios_BD.objects.all()
-    return render(request, 'index.html', {'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
+    user_form = LoginForms()
+    user = User.objects.all()
+    return render(request, 'index.html', {'user':user, 'user_form': user_form ,'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
 
 def detalhes_fotos(request):
     likes_view = Like_BD.objects.all()
     fotos_view = Fotos_BD.objects.all()
     comentarios_view = Comentarios_BD.objects.all()
+    user = User.objects.all()
     return render(request, 'detalhes_fotos.html', {'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
 
+# -----> DASHBOARD ADMIN PAGE
 
-@login_required
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    user = User.objects.all()
+    likes_view = Like_BD.objects.all()
+    fotos_view = Fotos_BD.objects.all()
+    comentarios_view = Comentarios_BD.objects.all()
+    return render(request, 'dashboard.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
 
-# Espaço reservado para o C.R.U.D do Dashboard!!!
+def consulta_fotos(request):
+    user = User.objects.all()
+    likes_view = Like_BD.objects.all()
+    fotos_view = Fotos_BD.objects.all()
+    comentarios_view = Comentarios_BD.objects.all()
+    return render(request, 'dashboardC.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
 
-# Consultar Fotos pelo C.R.U.D
+def add_fotos(request):
+    if request.method == 'POST':
+        foto_form = FotoForms(request.POST, request.FILES)
+        if foto_form.is_valid():
+            foto = foto_form.save(commit=False)
+            foto.autor = request.user
+            foto.save()
+            return redirect('add_fotos')
+    else:
+        foto_form = FotoForms()
+
+    return render(request, 'dashboardA.html', {'foto_form': foto_form})
 
 
-# Adicionar Fotos pelo C.R.U.D
-#def adicionarFoto(request):
-#    foto = Fotos_BD.objects.all()
-#    addfoto = AddFoto()
-#    return render(request,"add_foto.html", {'foto': foto, 'addfoto': addfoto}
-
-def login(request):
-    form = LoginForms()
+# -----> LOGIN LOGOUT AUTH
+def login_user(request):
+    user_form = LoginForms()
 
     if request.method == 'POST':
-        form = LoginForms(request.POST)
+        user_form = LoginForms(request.POST)
 
-        if form.is_valid():
-            email = form['email'].value()
-            password = form['senha'].value()
-        user_temp = User.objects.get(email= email)
+        if user_form.is_valid():
+            email = user_form.cleaned_data['email']
+            senha = user_form.cleaned_data['senha']
+            user = authenticate(request, username=email, password=senha)
 
-        user = auth.authenticate(
-            request,
-            username=user_temp,
-            password=password
-        )
+            if user is not None:
+                auth_login(request, user)
+                messages.success(request, 'Foi logado com sucesso!')
 
-        if user is not None:
-            auth.login(request, user)
-            messages.success(request, f'Foi logado com sucesso!')
-            return redirect('dashboard')
-        else:
-            messages.error(request, 'Erro ao efetuar login')
-            return redirect('login')
+                if user.is_staff:
+                    return redirect('dashboard')
+                else:
+                    return redirect('index')
+            else:
+                messages.error(request, 'Erro ao efetuar login')
+                return redirect('index')
 
-    return render(request, 'usuarios/login.html', {'form': form})
+    return render(request, 'index.html', {'user_form': user_form})
 
-@login_required
-def register(request):
+def register_user(request):
     if request.method == 'POST':
-        form = RegisterForms(request.POST)
-
+        form = UserCreationForm(request.POST)
         if form.is_valid():
-            name=form['name'].value()
-            email=form['email'].value()
-            password=form['password'].value()
-
-            if User.objects.filter(username=name).exists():
-                messages.error(request, 'Usuário já existente')
-                return redirect('users')
-
-            usuario = User.objects.create_user(
-                username=name,
-                email=email,
-                password=password
-            )
-            usuario.save()
-            messages.success(request, 'Usuario cadastrado com sucesso!')
-            return redirect('users')
+            user = form.save()
+            login(request, user)
+            messages.success(request, 'Usuário cadastrado com sucesso!')
+            return redirect('index')
+    else:
+        form = UserCreationForm()
+    
+    return render(request, 'index.html', {'register_form': form})
 
 @login_required
-def logout(request):
+def logout_user(request):
     auth.logout(request)
     messages.success(request, 'Logout efetuado com sucesso!')
-    return redirect('login')
+    return redirect('index')
 
 @login_required
 def inative(request, id):
