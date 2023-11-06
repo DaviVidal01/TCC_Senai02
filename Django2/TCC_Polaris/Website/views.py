@@ -52,6 +52,24 @@ def add_fotos(request):
 
     return render(request, 'dashboardA.html', {'foto_form': foto_form})
 
+# -----> Like ADD
+def add_like(request, foto_id):
+    foto = Fotos_BD.objects.get(pk=foto_id)
+    like, created = Like_BD.objects.get_or_create(autor=request.user, foto=foto)
+    if created:
+        like.save()
+    return redirect('index')
+
+# -----> Comment ADD
+def add_comentario(request, foto_id):
+    foto = Fotos_BD.objects.get(pk=foto_id)
+    comentario_text = request.POST.get('comentario')
+    if comentario_text:
+        comentario = Comentarios_BD(comentario=comentario_text, autor=request.user)
+        comentario.save()
+        foto.comentarios_bd_set.add(comentario)
+        foto.save()
+    return redirect('index')
 
 # -----> LOGIN LOGOUT AUTH
 def login_user(request):

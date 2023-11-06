@@ -5,8 +5,26 @@
 	{% include 'partials/admin/header.html' %}
 
 	{% include 'partials/admin/sidebar.html' %}
-		<div class="main">
-
-		</div>
-	</div>
+	<div class="main">
+        <div class="photo-list">
+            <h2>Fotos</h2>
+            <div style="--bs-gutter-x: 1.5rem;--bs-gutter-y: 0;display: flex;flex-wrap: wrap;margin-top: calc(var(--bs-gutter-y) * -1);margin-right: calc(var(--bs-gutter-x)/ -2);margin-left: calc(var(--bs-gutter-x)/ -2);">
+				{% for foto in fotos %}
+					<div style="flex-shrink: 0;width: 30%;max-width: 100%;padding-right: calc(var(--bs-gutter-x)/ 2);padding-left: calc(var(--bs-gutter-x)/ 2);margin-top: var(--bs-gutter-y);">
+						<div style="position: relative;display: flex;flex-direction: column;min-width: 0;word-wrap: break-word;background-color: #fff;background-clip: border-box;border: 1px solid rgba(0,0,0,.125);border-radius: 0.25rem;margin-bottom: 1.5rem!important;">
+							<img src="{{ foto.foto.url }}" style="width: 100%;border-top-left-radius: calc(0.25rem - 1px);border-top-right-radius: calc(0.25rem - 1px);" alt="{{ foto.titulo }}">
+							<div style="flex: 1 1 auto; padding: 1rem 1rem;">
+								<h5 style="margin-bottom: 0.5rem;">{{ foto.titulo }}</h5>
+								<p style="margin-top: 0;margin-bottom: 1rem;">Autor: {{ foto.autor.username }}</p>
+								<p style="margin-top: 0;margin-bottom: 1rem;">Publicação: {{ foto.data_foto }}</p>
+								<p style="margin-top: 0;margin-bottom: 1rem;">Descrição: {{ foto.descricao }}</p>
+								<p style="margin-top: 0;margin-bottom: 1rem;">Likes: {{ foto.like_bd_set.count }}</p>
+								<p style="margin-top: 0;margin-bottom: 1rem;">Comentários: {{ foto.comentarios_bd_set.count }}</p>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+        </div>
+    </div>
 {% endblock %}
