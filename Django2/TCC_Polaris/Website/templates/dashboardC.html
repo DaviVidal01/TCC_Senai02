@@ -5,8 +5,21 @@
 	{% include 'partials/admin/header.html' %}
 
 	{% include 'partials/admin/sidebar.html' %}
-		<div class="main">
-
-		</div>
-	</div>
+	<div class="main">
+        <div class="photo-list">
+            <h2>Fotos</h2>
+            <ul>
+                {% for foto in fotos %}
+                    <li>
+                        <img src="{{ foto.foto.url }}" alt="{{ foto.titulo }}">
+                        <p>Autor: {{ foto.autor.username }}</p>
+                        <p>Publicação: {{ foto.data_foto }}</p>
+                        <p>Descrição: {{ foto.descricao }}</p>
+                        <p>Likes: {{ foto.like_bd_set.count }}</p>
+                        <p>Comentários: {{ foto.comentarios_bd_set.count }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 {% endblock %}

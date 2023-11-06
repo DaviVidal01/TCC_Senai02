@@ -1,5 +1,5 @@
 from django import forms
-from .models import Fotos_BD
+from .models import Fotos_BD, Comentarios_BD, Like_BD
 
 class LoginForms(forms.Form):
     email = forms.EmailField(
@@ -108,3 +108,13 @@ class FotoForms(forms.ModelForm):
             'descricao': forms.Textarea(attrs={'class': 'custom-textarea'}),
             'foto': forms.FileInput(attrs={'class': 'custom-file-input'}),
         }
+    
+class ComentarioForms(forms.ModelForm):
+    class Meta:
+        model = Comentarios_BD
+        fields = ['comentario', 'data_comentario', 'autor']
+
+class LikeForms(forms.ModelForm):
+    class Meta:
+        model = Like_BD
+        fields = ['like', 'autor']
