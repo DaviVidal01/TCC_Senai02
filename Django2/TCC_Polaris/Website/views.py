@@ -11,18 +11,19 @@ from django.contrib.auth.forms import UserCreationForm
 def index(request):
     likes_view = Like_BD.objects.all()
     fotos_view = Fotos_BD.objects.all()
+    imagem_view = Barra_Pesquisa.objects.all()
     comentarios_view = Comentarios_BD.objects.all()
     user_form = LoginForms()
     user = User.objects.all()
-    return render(request, 'index.html', {'user':user, 'user_form': user_form ,'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
+    return render(request, 'index.html', {'user':user, 'user_form': user_form ,'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagens': imagem_view})
 
 def detalhes_fotos(request):
     likes_view = Like_BD.objects.all()
     fotos_view = Fotos_BD.objects.all()
     comentarios_view = Comentarios_BD.objects.all()
-    imagem = Barra_Pesquisa.objects.all()
+    imagem_view = Barra_Pesquisa.objects.all()
     user = User.objects.all()
-    return render(request, 'detalhes_fotos.html', {'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagem': imagem})
+    return render(request, 'detalhes_fotos.html', {'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagens': imagem_view})
 
 # -----> DASHBOARD ADMIN PAGE
 
