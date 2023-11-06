@@ -20,3 +20,7 @@ class Fotos_BD(models.Model):
     data_foto = models.DateField(default=timezone.now)
     foto = models.ImageField(upload_to= 'images/')
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
+
+#-----Imagem da Barra de Pesquisa
+class Barra_Pesquisa(models.Model):
+    imagem = models.ImageField(upload_to= 'images/')

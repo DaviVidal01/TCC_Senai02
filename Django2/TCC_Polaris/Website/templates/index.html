@@ -4,7 +4,9 @@
     {% include 'partials/user/header.html' %}
     
     <!--BARRA DE PESQUISA-->
-    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{% static 'assets/img/hero.jpg' }">
+    {% for x in imagem %}
+    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{{{ x.imagem.url}}}">
+        {% endfor %}
         <form class="d-flex tm-search-form">
             <input id="search" class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success tm-search-btn" type="submit">

@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from Website.forms import FotoForms, LoginForms, RegisterForms
-from .models import Comentarios_BD, Fotos_BD, Like_BD
+from .models import Comentarios_BD, Fotos_BD, Like_BD, Barra_Pesquisa
 from django.contrib.auth.forms import UserCreationForm
 
 # -----> USER PAGE
@@ -20,8 +20,9 @@ def detalhes_fotos(request):
     likes_view = Like_BD.objects.all()
     fotos_view = Fotos_BD.objects.all()
     comentarios_view = Comentarios_BD.objects.all()
+    imagem = Barra_Pesquisa.objects.all()
     user = User.objects.all()
-    return render(request, 'detalhes_fotos.html', {'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
+    return render(request, 'detalhes_fotos.html', {'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagem': imagem})
 
 # -----> DASHBOARD ADMIN PAGE
 
