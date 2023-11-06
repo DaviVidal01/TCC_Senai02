@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-    
+{% load static %}
+{% block content %}
     {% include 'partials/user/header.html' %}
     
     <!--BARRA DE PESQUISA-->
@@ -13,6 +14,6 @@
     </div>
 
     {% include 'partials/user/container_fotos.html' %}
-
-    {% include 'partials/user/footer.html' %}
+    {% include 'partials/user/footer.html' %}  
     
+{% endblock %}
