@@ -41,7 +41,7 @@ def consulta_fotos(request):
     likes_view = Like_BD.objects.all()
     fotos_view = Fotos_BD.objects.all()
     comentarios_view = Comentarios_BD.objects.all()
-    return render(request, 'dashboardC.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
+    return render(request, 'dashboardConsulta_fotos.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
 
 def add_fotos(request):
     if request.method == 'POST':
@@ -54,7 +54,7 @@ def add_fotos(request):
     else:
         foto_form = FotoForms()
 
-    return render(request, 'dashboardA.html', {'foto_form': foto_form})
+    return render(request, 'dashboardAdd_fotos.html', {'foto_form': foto_form})
 
 # -----> Like ADD
 def add_like(request, foto_id):
@@ -134,4 +134,4 @@ def listarFotos(request):
         fotos = Fotos_BD.objects.filter(Q(titulo__icontains=search_query) | Q(autor__username__icontains=search_query))
     else:
         fotos = Fotos_BD.objects.all()
-    return render(request,"dashboardC.html",{"fotos":fotos})
+    return render(request,"dashboardConsulta_fotos.html",{"fotos":fotos})
