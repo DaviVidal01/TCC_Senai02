@@ -1,9 +1,12 @@
-{% extends 'base.html' %}
-    
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
     {% include 'partials/user/header.html' %}
-    
+    {% include 'partials/alerts.html' %}{% include 'partials/alerts.html' %}
     <!--BARRA DE PESQUISA-->
-    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="img/hero.jpg">
+    {% for x in imagens %}
+    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{{ x.imagem.url}}">
+        {% endfor %}
         <form class="d-flex tm-search-form">
             <input id="search" class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success tm-search-btn" type="submit">
@@ -13,6 +16,5 @@
     </div>
 
     {% include 'partials/user/container_fotos.html' %}
-
-    {% include 'partials/user/footer.html' %}
-    
+    {% include 'partials/user/footer.html' %}  
+{% endblock %}
