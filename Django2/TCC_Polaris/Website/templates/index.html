@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
     {% include 'partials/user/header.html' %}
-    
+    {% include 'partials/alerts.html' %}{% include 'partials/alerts.html' %}
     <!--BARRA DE PESQUISA-->
     {% for x in imagens %}
     <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{{ x.imagem.url}}">

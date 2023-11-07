@@ -11,9 +11,9 @@ urlpatterns = [
     path('add_comentario/<int:foto_id>/', views.add_comentario, name='add_comentario'),
     path('consulta_fotos/', views.consulta_fotos, name='consulta_fotos'),
     # -----> LOGIN AUTH
-    path('inativar/<int:id>', views.inative, name="inative_user"),
-    path('ativar/<int:id>', views.active, name="active_user"),
-    path('login_user/', views.login_user, name="login_user"),
-    path('logout/', views.logout_user, name="logout"),
-    path('register_user/', views.register_user, name='register_user')
+    path('login', views.login_view, name="login"),
+    path('logout', views.logout_view, name="logout"),
+    path('add_user/', views.add_user, name='add_user'),
+    # -----> CRUD FOTOS
+    path('listarFotos', views.listarFotos, name="listarFotos"),
 ]
