@@ -16,4 +16,7 @@ urlpatterns = [
     path('add_user/', views.add_user, name='add_user'),
     # -----> CRUD FOTOS
     path('listarFotos', views.listarFotos, name="listarFotos"),
+    path('editar/<int:id>', views.edit, name="edit"),
+    path('atualizar/<int:id>', views.update, name="update"),
+    path('deletar/<int:id>', views.delete, name="delete"),
 ]

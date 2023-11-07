@@ -1,0 +1,27 @@
+{% extends 'layouts/adminbase.html' %}
+{% load static %}
+{% block content %}
+	<!-- for header part -->
+	{% include 'partials/admin/header.html' %}
+	{% include 'partials/admin/sidebar.html' %}
+	{% include 'partials/alerts.html' %}
+	<div class="main">
+        <form method="POST" action="{% url 'update' fotos.id %}" enctype="multipart/form-data" class="custom-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_titulo">Titulo:</label>
+                <input type="text" name="titulo" class="custom-input" maxlength="25" required="" id="id_titulo" value="{{fotos.titulo}}">
+            </div>
+            <div class="form-group">
+                <label for="id_descricao">Descricao:</label>
+                <textarea name="descricao" cols="40" rows="10" class="custom-textarea" maxlength="255" required="" id="id_descricao" value="{{fotos.descricao}}"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="id_foto">Foto:</label>
+                <input type="file" name="foto" class="custom-file-input" accept="image/*" required="" id="id_foto" value="{{fotos.foto}}">
+            </div>
+            <button type="submit" class="custom-button">Adicionar Foto</button>
+        </form>
+    </div>
+{% endblock %}
+        

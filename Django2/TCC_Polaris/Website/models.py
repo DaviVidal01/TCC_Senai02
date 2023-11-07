@@ -6,7 +6,8 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Comentarios_BD(models.Model):
-    autor = models.ForeignKey('Fotos_BD', on_delete=models.CASCADE)
+
+    autor = models.ForeignKey(User, on_delete=models.CASCADE)
     comentario = models.TextField()
     data_comentario = models.DateField(default=timezone.now)
 

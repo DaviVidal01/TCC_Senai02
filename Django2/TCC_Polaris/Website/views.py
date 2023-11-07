@@ -137,3 +137,20 @@ def listarFotos(request):
     else:
         fotos = Fotos_BD.objects.all()
     return render(request,"dashboardConsulta_fotos.html",{"fotos":fotos})
+
+def edit(request, id):
+    fotos = Fotos_BD.objects.get(pk=id)
+    return render(request, "dashboardEditar.html",{'fotos':fotos})
+
+def update(request, id):
+    fotos = Fotos_BD.objects.get(pk=id)
+    fotos.titulo = request.POST['titulo']
+    fotos.descricao = request.POST['descricao']
+    fotos.foto = request.POST['foto']
+    fotos.save()
+    return redirect('listarFotos')
+
+def delete(request, id):
+    fotos = Fotos_BD.objects.get(pk=id)
+    fotos.delete()
+    return redirect('listarFotos')
