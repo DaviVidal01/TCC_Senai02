@@ -1,6 +1,5 @@
 from django.urls import path
 from . import views
-from Website.views import *
 
 urlpatterns = [
     # -----> USER PAGE
@@ -9,6 +8,7 @@ urlpatterns = [
     # -----> ADMIN PAGE
     path('dashboard/', views.dashboard, name='dashboard'),
     path('add_fotos/', views.add_fotos, name='add_fotos'),
+    path('add_comentario/<int:foto_id>/', views.add_comentario, name='add_comentario'),
     path('consulta_fotos/', views.consulta_fotos, name='consulta_fotos'),
     # -----> LOGIN AUTH
     path('login', views.login_view, name="login"),

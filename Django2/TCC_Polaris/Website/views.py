@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404, redirect
 from Website.forms import FotoForms, LoginForms, RegisterForms
 from .models import Comentarios_BD, Fotos_BD, Like_BD, Barra_Pesquisa
 from django.contrib.auth.forms import UserCreationForm
@@ -33,7 +33,7 @@ def dashboard(request):
     user = User.objects.all()
     likes_view = Like_BD.objects.all()
     fotos_view = Fotos_BD.objects.all()
-    comentarios_view = Comentarios_BD.objects.all()
+    comentarios_view = Comentarios_BD.objects.all() 
     return render(request, 'dashboard.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
 
 def consulta_fotos(request):
@@ -65,15 +65,16 @@ def add_like(request, foto_id):
     return redirect('index')
 
 # -----> Comment ADD
+
 def add_comentario(request, foto_id):
-    foto = Fotos_BD.objects.get(pk=foto_id)
-    comentario_text = request.POST.get('comentario')
-    if comentario_text:
-        comentario = Comentarios_BD(comentario=comentario_text, autor=request.user)
-        comentario.save()
-        foto.comentarios_bd_set.add(comentario)
-        foto.save()
+    foto = get_object_or_404(Fotos_BD, pk=foto_id)
+    if request.method == 'POST':
+        comentario_text = request.POST.get('comentario')
+        if comentario_text:
+            comentario = Comentario.objects.create(comentario=comentario_text, autor=request.user, foto=foto)
     return redirect('index')
+
+
 
 # -----> LOGIN LOGOUT AUTH
 def login_view(request):
