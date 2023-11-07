@@ -14,17 +14,18 @@ def index(request):
     fotos_view = Fotos_BD.objects.all()
     register_form = RegisterForms()
     login_form = LoginForms()
-    usuarios = User.objects.all()
+    imagem_view = Barra_Pesquisa.objects.all()
     comentarios_view = Comentarios_BD.objects.all()
-    return render(request, 'index.html', {'register_form':register_form,'user_form': login_form,'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
+    user = User.objects.all()
+    return render(request, 'index.html', {'register_form':register_form,'user_form': login_form ,'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagens': imagem_view})
 
 def detalhes_fotos(request):
     likes_view = Like_BD.objects.all()
     fotos_view = Fotos_BD.objects.all()
     comentarios_view = Comentarios_BD.objects.all()
-    imagem = Barra_Pesquisa.objects.all()
+    imagem_view = Barra_Pesquisa.objects.all()
     user = User.objects.all()
-    return render(request, 'detalhes_fotos.html', {'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagem': imagem})
+    return render(request, 'detalhes_fotos.html', {'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagens': imagem_view})
 
 # -----> DASHBOARD ADMIN PAGE
 

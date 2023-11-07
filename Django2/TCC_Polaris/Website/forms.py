@@ -1,6 +1,6 @@
 from django import forms
 from django.shortcuts import render
-from .models import Fotos_BD, Comentarios_BD, Like_BD
+from .models import Fotos_BD, Comentarios_BD, Like_BD, Barra_Pesquisa
 
 class LoginForms(forms.Form):
     email = forms.EmailField(
@@ -113,3 +113,12 @@ class LikeForms(forms.ModelForm):
     class Meta:
         model = Like_BD
         fields = ['like', 'autor']
+
+class Barra_Pesquisa(forms.ModelForm):
+    class Meta:
+        model = Barra_Pesquisa
+        fields = ['imagem']
+        widgets = {
+            'imagem': forms.FileInput(attrs={'class': 'custom-file-input'}),
+        }
+    
