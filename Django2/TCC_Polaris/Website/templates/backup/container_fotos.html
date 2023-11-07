@@ -8,8 +8,7 @@
             <h1 class="modal-title fs-5" id="staticBackdropLabel" style="color:#203540">{{ x.titulo}}</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <form method = "POST" action="{% url 'add_comentario' x.id %}">
-            {% csrf_token %}
+          <form method = "POST">
           <img src="{{ x.foto.url}}" alt="{{ x.titulo}}" width="100%"> 
           <div class="modal-body">
               <div class="mb-3">
@@ -17,6 +16,7 @@
                   <div class="col">
                   </div>
                 </div>
+                {% endfor %}
               </div>
               <div style="display: flex;justify-content: flex-end;" class="me-1">
                 <p>160 </p>
@@ -29,7 +29,6 @@
                 <input type="text" placeholder="Adicionar Comentário">
                 <button type="submit" class="btn btn-dark" >Enviar</button>
               </div>
-              {% endfor %}
             </form>
           </div>
          </div>
@@ -64,8 +63,7 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 {% for x in fotos %}
                 <div class="card"  style="background-color: #FFAE2E;">
-                    <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}"  width=400px height=280px>
-                    <p>{{ x.descricao }}</p>
+                    <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap"  width=400px height=280px>
                     <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
                         <div style="display: flex;justify-content: flex-end;" class="me-1">
                             <p>160 </p>
@@ -74,15 +72,12 @@
                            <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
                         </div>
                     </div>
-                    {% endfor %} 
                   </div>
             </div>
           <!-- Inicio do 2ª-->
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                {% for x in fotos %}
                 <div class="card"  style="background-color: #FFAE2E;">
-                    <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}"  width=400px height=280px>
-                    <p>{{ x.descricao }}</p>
+                    <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap"  width=400px height=280px>
                     <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
                         <div style="display: flex;justify-content: flex-end;" class="me-1">
                             <p>160 </p>
@@ -91,14 +86,11 @@
                            <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
                         </div>
                     </div>
-                    {% endfor %} 
                   </div>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                {% for x in fotos %}
                 <div class="card"  style="background-color: #FFAE2E;">
-                    <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}"  width=400px height=280px>
-                    <p>{{ x.descricao }}</p>
+                    <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap"  width=400px height=280px>
                     <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
                         <div style="display: flex;justify-content: flex-end;" class="me-1">
                             <p>160 </p>
@@ -107,14 +99,11 @@
                            <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
                         </div>
                     </div>
-                    {% endfor %} 
                   </div>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                {% for x in fotos %}
                 <div class="card"  style="background-color: #FFAE2E;">
-                    <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}"  width=400px height=280px>
-                    <p>{{ x.descricao }}</p>
+                    <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap"  width=400px height=280px>
                     <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
                         <div style="display: flex;justify-content: flex-end;" class="me-1">
                             <p>160 </p>
@@ -123,15 +112,12 @@
                            <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
                         </div>
                     </div>
-                    {% endfor %} 
                   </div>
             </div>
             <!--Inicio do Terceira coluna-->
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                {% for x in fotos %}
                 <div class="card"  style="background-color: #FFAE2E;">
-                    <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}"  width=400px height=280px>
-                    <p>{{ x.descricao }}</p>
+                    <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap"  width=400px height=280px>
                     <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
                         <div style="display: flex;justify-content: flex-end;" class="me-1">
                             <p>160 </p>
@@ -140,14 +126,11 @@
                            <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
                         </div>
                     </div>
-                    {% endfor %} 
                   </div>
             </div>
             <div class="col-xl-8 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                {% for x in fotos %}
                 <div class="card mb-3"style="background-color: #FFAE2E;">
-                    <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}" width=200px height=280px>
-                    <p>{{ x.descricao }}</p>
+                    <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap" width=200px height=280px>
                     <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
                         <div style="display: flex;justify-content: flex-end;" class="me-1">
                             <p>160 </p>
@@ -156,15 +139,12 @@
                            <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
                           </div>
                     </div>
-                    {% endfor %} 
                   </div>
             </div>
             <!--Inicio Quarta coluna-->
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-            {% for x in fotos %}
             <div class="card"  style="background-color: #FFAE2E;">
-                <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}"  width=400px height=280px>
-                <p>{{ x.descricao }}</p>
+                <img class="card-img-top" src="{% static 'img/img-01-big.jpg' %}" alt="Card image cap"  width=400px height=280px>
                 <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
                     <div style="display: flex;justify-content: flex-end;" class="me-1">
                         <p>160 </p>
@@ -173,14 +153,11 @@
                        <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
                     </div>
                 </div>
-                {% endfor %} 
               </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-            {% for x in fotos %}
             <div class="card"  style="background-color: #FFAE2E;">
-                <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}"  width=400px height=280px>
-                <p>{{ x.descricao }}</p>
+                <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap"  width=400px height=280px>
                 <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
                     <div style="display: flex;justify-content: flex-end;" class="me-1">
                         <p>160 </p>
@@ -189,14 +166,11 @@
                        <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
                     </div>
                 </div>
-                {% endfor %}
               </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-            {% for x in fotos %}
             <div class="card"  style="background-color: #FFAE2E;">
-                <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}"  width=400px height=280px>
-                <p>{{ x.descricao }}</p>
+                <img class="card-img-top" src="img/img-01-big.jpg" alt="Card image cap"  width=400px height=280px>
                 <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
                     <div style="display: flex;justify-content: flex-end;" class="me-1">
                         <p>160 </p>
@@ -205,7 +179,6 @@
                        <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
                     </div>
                 </div>
-                {% endfor %} 
               </div>
         </div>
         </div>

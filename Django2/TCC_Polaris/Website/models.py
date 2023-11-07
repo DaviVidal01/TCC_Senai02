@@ -6,9 +6,13 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Comentarios_BD(models.Model):
-    comentario = models.TextField(max_length=255)
-    data_comentario = models.DateField(default=timezone.now)
+    foto = models.ForeignKey('Fotos_BD', on_delete=models.CASCADE, related_name='comentarios')
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
+    comentario = models.TextField()
+    data_comentario = models.DateField(default=timezone.now)
+
+    def __str__(self):
+        return f"Comentário por {self.autor} em {self.foto.titulo}"
 
 class Like_BD(models.Model):
     like = models.IntegerField()
