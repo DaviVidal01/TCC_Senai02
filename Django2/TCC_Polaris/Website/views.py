@@ -41,7 +41,7 @@ def consulta_fotos(request):
     likes_view = Like_BD.objects.all()
     fotos_view = Fotos_BD.objects.all()
     comentarios_view = Comentarios_BD.objects.all()
-    return render(request, 'dashboardC.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
+    return render(request, 'dashboardConsulta_fotos.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
 
 def add_fotos(request):
     if request.method == 'POST':
@@ -54,7 +54,7 @@ def add_fotos(request):
     else:
         foto_form = FotoForms()
 
-    return render(request, 'dashboardA.html', {'foto_form': foto_form})
+    return render(request, 'dashboardAdd_fotos.html', {'foto_form': foto_form})
 
 # -----> Like ADD
 def add_like(request, foto_id):
@@ -134,3 +134,20 @@ def listarFotos(request):
     else:
         fotos = Fotos_BD.objects.all()
     return render(request,"dashboardConsulta_fotos.html",{"fotos":fotos})
+
+def edit(request, id):
+    fotos = Fotos_BD.objects.get(pk=id)
+    return render(request, "dashboardEditar.html",{'fotos':fotos})
+
+def update(request, id):
+    fotos = Fotos_BD.objects.get(pk=id)
+    fotos.titulo = request.POST['titulo']
+    fotos.descricao = request.POST['descricao']
+    fotos.foto = request.POST['foto']
+    fotos.save()
+    return redirect('listarFotos')
+
+def delete(request, id):
+    fotos = Fotos_BD.objects.get(pk=id)
+    fotos.delete()
+    return redirect('listarFotos')
