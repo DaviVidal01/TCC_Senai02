@@ -6,11 +6,11 @@
         {% for x in fotos %}
         <div class="modal-content" style="background-color: #FFAE2E;">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel" style="color:#203540">{{ x.titulo}}</h1>
+            <h1 class="modal-title fs-5" id="staticBackdropLabel" style="color:#203540">{{ x.titulo }}</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <form method = "POST">
-          <img src="{{ x.foto.url}}" alt="{{ x.titulo}}" width="100%"> 
+          <img src="{{ x.foto.url}}" alt="{{ x.titulo }}" width="100%"> 
           <div class="modal-body">
               <div class="mb-3">
                 <div class="row">
