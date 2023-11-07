@@ -1,20 +1,22 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
+from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from Website.forms import FotoForms, LoginForms, RegisterForms
 from .models import Comentarios_BD, Fotos_BD, Like_BD, Barra_Pesquisa
 from django.contrib.auth.forms import UserCreationForm
+from django.db.models import Q
 
 # -----> USER PAGE
 def index(request):
     likes_view = Like_BD.objects.all()
     fotos_view = Fotos_BD.objects.all()
+    register_form = RegisterForms()
+    login_form = LoginForms()
+    usuarios = User.objects.all()
     comentarios_view = Comentarios_BD.objects.all()
-    user_form = LoginForms()
-    user = User.objects.all()
-    return render(request, 'index.html', {'user':user, 'user_form': user_form ,'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
+    return render(request, 'index.html', {'register_form':register_form,'user_form': login_form,'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
 
 def detalhes_fotos(request):
     likes_view = Like_BD.objects.all()
@@ -73,62 +75,61 @@ def add_comentario(request, foto_id):
     return redirect('index')
 
 # -----> LOGIN LOGOUT AUTH
-def login_user(request):
+def login_view(request):
     user_form = LoginForms()
 
     if request.method == 'POST':
         user_form = LoginForms(request.POST)
 
-        if user_form.is_valid():
-            email = user_form.cleaned_data['email']
-            senha = user_form.cleaned_data['senha']
-            user = authenticate(request, username=email, password=senha)
+    if user_form.is_valid():
+        email = user_form['email'].value()
+        senha = user_form['senha'].value()
+        user_temp = User.objects.get(email=email)
 
-            if user is not None:
-                auth_login(request, user)
-                messages.success(request, 'Foi logado com sucesso!')
+        usuario = auth.authenticate(
+            request,
+            username = user_temp,
+            password = senha
+        )
 
-                if user.is_staff:
-                    return redirect('dashboard')
-                else:
-                    return redirect('index')
+        if usuario is not None:
+            auth.login(request, usuario)
+            messages.success(request, 'Foi logado com sucesso!')
+            if usuario.is_staff:
+                return redirect('dashboard')
             else:
-                messages.error(request, 'Erro ao efetuar login')
                 return redirect('index')
+        else:
+            messages.error(request, 'Erro ao efetuar login')
+            return redirect('index')
 
     return render(request, 'index.html', {'user_form': user_form})
 
-def register_user(request):
+def add_user(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
+        register_form = UserCreationForm(request.POST)
+        if register_form.is_valid():
+            user = register_form.save()
             login(request, user)
             messages.success(request, 'Usuário cadastrado com sucesso!')
             return redirect('index')
     else:
-        form = UserCreationForm()
+        register_form = UserCreationForm()
     
-    return render(request, 'index.html', {'register_form': form})
+    return redirect(request, 'index.html', {'register_form':register_form})
 
 @login_required
-def logout_user(request):
+def logout_view(request):
     auth.logout(request)
     messages.success(request, 'Logout efetuado com sucesso!')
     return redirect('index')
 
-@login_required
-def inative(request, id):
-    user = User.objects.get(id=id)
-    user.is_active = False
-    user.save()
-    messages.success(request, 'Usuario inativado com sucesso!')
-    return redirect('users')
+# -----> CRUD FOTOS
 
-@login_required
-def active(request, id):
-    user = User.objects.get(id=id)
-    user.is_active = True
-    user.save()
-    messages.success(request, 'Usuario ativado com sucesso!')
-    return redirect('users')
+def listarFotos(request):
+    search_query = request.GET.get('search')
+    if search_query:
+        fotos = Fotos_BD.objects.filter(Q(titulo__icontains=search_query) | Q(autor__username__icontains=search_query))
+    else:
+        fotos = Fotos_BD.objects.all()
+    return render(request,"dashboardC.html",{"fotos":fotos})
