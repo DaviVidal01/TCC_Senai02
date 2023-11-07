@@ -33,7 +33,7 @@ def dashboard(request):
     user = User.objects.all()
     likes_view = Like_BD.objects.all()
     fotos_view = Fotos_BD.objects.all()
-    comentarios_view = Comentarios_BD.objects.all() 
+    comentarios_view = Comentarios_BD.objects.all()
     return render(request, 'dashboard.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
 
 def consulta_fotos(request):
@@ -41,7 +41,7 @@ def consulta_fotos(request):
     likes_view = Like_BD.objects.all()
     fotos_view = Fotos_BD.objects.all()
     comentarios_view = Comentarios_BD.objects.all()
-    return render(request, 'dashboardConsulta_fotos.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
+    return render(request, 'dashboardC.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
 
 def add_fotos(request):
     if request.method == 'POST':
@@ -54,7 +54,7 @@ def add_fotos(request):
     else:
         foto_form = FotoForms()
 
-    return render(request, 'dashboardAdd_fotos.html', {'foto_form': foto_form})
+    return render(request, 'dashboardA.html', {'foto_form': foto_form})
 
 # -----> Like ADD
 def add_like(request, foto_id):
@@ -65,16 +65,15 @@ def add_like(request, foto_id):
     return redirect('index')
 
 # -----> Comment ADD
-
 def add_comentario(request, foto_id):
-    foto = get_object_or_404(Fotos_BD, pk=foto_id)
-    if request.method == 'POST':
-        comentario_text = request.POST.get('comentario')
-        if comentario_text:
-            comentario = Comentario.objects.create(comentario=comentario_text, autor=request.user, foto=foto)
+    foto = Fotos_BD.objects.get(pk=foto_id)
+    comentario_text = request.POST.get('comentario')
+    if comentario_text:
+        comentario = Comentarios_BD(comentario=comentario_text, autor=request.user)
+        comentario.save()
+        foto.comentarios_bd_set.add(comentario)
+        foto.save()
     return redirect('index')
-
-
 
 # -----> LOGIN LOGOUT AUTH
 def login_view(request):
@@ -118,7 +117,7 @@ def add_user(request):
     else:
         register_form = UserCreationForm()
     
-    return render(request, 'index.html', {'register_form':register_form})
+    return redirect(request, 'index.html', {'register_form':register_form})
 
 @login_required
 def logout_view(request):
