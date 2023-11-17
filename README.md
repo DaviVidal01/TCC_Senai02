@@ -9,13 +9,10 @@
         <h2>● Sobre o Projeto 🗃️</h2>
           <list>
             <ul>
-              Este projeto foi concebido e desenvolvido de forma colaborativa por um grupo de cinco estudantes denominado 'Polares'. Nosso trabalho resultou na construção de um site avaliativo de fotos, uma plataforma que visa proporcionar uma experiência única para os entusiastas da fotografia e os apaixonados por imagens.
+              Este projeto foi concebido e desenvolvido de forma colaborativa por um grupo de cinco estudantes denominado 'Polaris'. Nosso trabalho resultou na construção de um site avaliativo de fotos, uma plataforma que visa proporcionar uma experiência única para os entusiastas da fotografia e os apaixonados por imagens.
             </ul>
             <ul>
               - <strong>Comentários Moderados</strong>: Implementamos um sistema de comentários onde somente os moderadores que adicionaram as fotos podem visualizar e gerenciar os comentários. Isso permite um controle mais eficiente e personalizado das discussões em torno das imagens.
-            </ul>
-            <ul>
-              - <strong>Avaliações "Like"</strong>: Os usuários podem avaliar as fotos usando o recurso "Like", proporcionando uma maneira fácil e rápida de expressar sua apreciação pelas imagens.
             </ul>
           </list>
         <h2>● Contribuidores 👥</h2>
