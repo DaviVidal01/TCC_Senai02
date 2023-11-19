@@ -32,6 +32,7 @@ def detalhes_fotos(request):
 
 # -----> DASHBOARD ADMIN PAGE
 
+@login_required
 def dashboard(request):
     user = User.objects.all()
     likes_view = Like_BD.objects.all()
@@ -39,6 +40,7 @@ def dashboard(request):
     comentarios_view = Comentarios_BD.objects.all()
     return render(request, 'dashboard.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
 
+@login_required
 def consulta_fotos(request):
     user = User.objects.all()
     likes_view = Like_BD.objects.all()
@@ -46,6 +48,7 @@ def consulta_fotos(request):
     comentarios_view = Comentarios_BD.objects.all()
     return render(request, 'dashboardConsulta_fotos.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
 
+@login_required
 def add_fotos(request):
     if request.method == 'POST':
         foto_form = FotoForms(request.POST, request.FILES)
@@ -109,18 +112,18 @@ def login_view(request):
 
     return render(request, 'index.html', {'user_form': user_form})
 
+@login_required
 def add_user(request):
     if request.method == 'POST':
-        register_form = UserCreationForm(request.POST)
+        register_form = RegisterForms(request.POST)
         if register_form.is_valid():
-            user = register_form.save()
-            login(request, user)
-            messages.success(request, 'Usuário cadastrado com sucesso!')
-            return redirect('index')
+            user = register_form.save(commit=False)
+            user.save()
+            return redirect('add_user')
     else:
-        register_form = UserCreationForm()
-    
-    return redirect(request, 'index.html', {'register_form':register_form})
+        register_form = RegisterForms()
+
+    return render(request, 'dashboardAdd_user.html', {'register_form': register_form})
 
 @login_required
 def logout_view(request):
@@ -129,7 +132,7 @@ def logout_view(request):
     return redirect('index')
 
 # -----> CRUD FOTOS
-
+@login_required
 def listarFotos(request):
     search_query = request.GET.get('search')
     if search_query:
@@ -138,18 +141,21 @@ def listarFotos(request):
         fotos = Fotos_BD.objects.all()
     return render(request,"dashboardConsulta_fotos.html",{"fotos":fotos})
 
+@login_required
 def edit(request, id):
     fotos = Fotos_BD.objects.get(pk=id)
     return render(request, "dashboardEditar.html",{'fotos':fotos})
 
+@login_required
 def update(request, id):
     fotos = Fotos_BD.objects.get(pk=id)
     fotos.titulo = request.POST['titulo']
     fotos.descricao = request.POST['descricao']
-    fotos.foto = request.POST['foto']
+    fotos.foto = request.FILES['foto']
     fotos.save()
     return redirect('listarFotos')
 
+@login_required
 def delete(request, id):
     fotos = Fotos_BD.objects.get(pk=id)
     fotos.delete()

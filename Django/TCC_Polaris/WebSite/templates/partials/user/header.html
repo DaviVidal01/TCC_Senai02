@@ -1,34 +1,4 @@
 {% load static %}
-    <!--MODAL REGISTER-->
-    <div class="modal fade" id="staticBackdropRegister" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <form method="post" action="{% url 'add_user' %}">
-          <div class="modal-body">
-            <div class="d-flex justify-content-end">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="d-flex justify-content-center">
-                <div class="d-flex justify-content-center">
-                    <div class="row">
-                        <h1 class="display-6 mb-0">Register</h1>
-                    </div>
-                </div>
-            </div>
-            <hr class="border border-2 opacity-50">
-              <div class="mb-3">
-                {% csrf_token %}
-                {{ register_form.as_p }}
-              </div>
-          </div>
-          <div style="background-color: #FFAE2E;" class="modal-footer d-flex flex-wrap gap-2 align-items-center justify-content-center justify-content-lg-start">
-            <button  type="button" style="border-color: #203540;" class="btn col-12 col-lg-auto me-lg-auto mb-2 mb-md-0" data-bs-dismiss="modal">Cancelar</button>
-            <button  type="submit" style="background-color: #203540; color:white; justify-content: flex-end;" class="btn text-end justify-content-start" data-bs-dismiss="modal">Registrar</button>
-          </div>
-        </form>
-        </div>
-      </div>
-    </div>
     <!--MODAL LOGIN-->
     <div class="modal fade" id="staticBackdroplogin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
       <div class="modal-dialog">
