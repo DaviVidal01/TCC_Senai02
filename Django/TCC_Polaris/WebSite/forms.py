@@ -32,8 +32,8 @@ from django import forms
 from django.contrib.auth.models import User
 
 class RegisterForms(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput())
-    password_confirm = forms.CharField(widget=forms.PasswordInput())
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'custom-input'})),
+    password_confirm = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'custom-input'}))
 
     class Meta:
         model = User
@@ -42,7 +42,6 @@ class RegisterForms(forms.ModelForm):
             'username': forms.TextInput(attrs={'class': 'custom-input'}),
             'email': forms.TextInput(attrs={'class': 'custom-input'}),
             'password': forms.TextInput(attrs={'class': 'custom-input'}),
-            'password_confirm': forms.TextInput(attrs={'class': 'custom-input'}),
         }
 
     def clean_password_confirm(self):

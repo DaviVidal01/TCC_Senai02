@@ -49,6 +49,14 @@ def consulta_fotos(request):
     return render(request, 'dashboardConsulta_fotos.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
 
 @login_required
+def consulta_users(request):
+    user = User.objects.all()
+    likes_view = Like_BD.objects.all()
+    fotos_view = Fotos_BD.objects.all()
+    comentarios_view = Comentarios_BD.objects.all()
+    return render(request, 'dashboardConsulta_user.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
+
+@login_required
 def add_fotos(request):
     if request.method == 'POST':
         foto_form = FotoForms(request.POST, request.FILES)
@@ -160,3 +168,11 @@ def delete(request, id):
     fotos = Fotos_BD.objects.get(pk=id)
     fotos.delete()
     return redirect('listarFotos')
+
+# ------> CRUD USERS
+
+@login_required
+def delete(request, id):
+    user = User.objects.get(pk=id)
+    user.delete()
+    return redirect('consulta_users')
