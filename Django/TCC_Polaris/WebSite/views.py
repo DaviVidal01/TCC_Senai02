@@ -69,7 +69,7 @@ def add_like(request, foto_id):
 
 # -----> Comment ADD
 def add_comentario(request, foto_id):
-    foto = Fotos_BD.objects.get(pk=foto_id)
+    foto = get_object_or_404(Fotos_BD, pk=foto_id)
     comentario_text = request.POST.get('comentario')
     if comentario_text:
         comentario = Comentarios_BD(comentario=comentario_text, autor=request.user)
