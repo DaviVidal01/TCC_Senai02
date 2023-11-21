@@ -13,9 +13,6 @@ from dotenv import load_dotenv
 from django.contrib.messages import constants as messages
 from pathlib import Path
 import os
-import pymysql
-pymysql.install_as_MySQLdb()
-pymysql = "==1.1.0"
 
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
