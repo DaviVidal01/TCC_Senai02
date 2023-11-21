@@ -40,209 +40,42 @@
     
     <!--CONTAINER FOTOS-->
     <div class="container-fluid tm-container-content tm-mt-60">
-        <div class="row mb-4">
-            <h2 class="col-6 tm-text-primary">
-                Latest Photos
-            </h2>
+      <div class="row mb-4">
+        <h2 class="col-6 tm-text-primary">
+          Latest Photos
+        </h2>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+        {% for x in fotos %}
+        <div class="card"  style="background-color: #FFAE2E;">
+          <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}"  width=400px height=280px>
+          <p>{{ x.descricao }}</p>
+          <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
+            <div style="display: flex;justify-content: flex-end;" class="me-1">
+              <p>160 </p>
+              <svg class="heart" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 16.47 2 13.36 2 9.5 2 7.02 4.02 5 6.5 5c1.74 0 3.41.81 4.5 2.09C11.59 5.81 13.26 5 14.99 5 17.48 5 19.5 7.02 19.5 9.5c0 3.86-3.4 6.97-8.55 10.54L12 21.35z"/>
+              </svg>
+              <p>11 </p>
+              <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
+            </div>
+          </div>
+          {% endfor %} 
         </div>
-        <div class="row tm-mb-90 tm-gallery">
-            <div class="col-xl-8 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                {% for x in fotos %}
-                    <div class="card mb-3" style="background-color: #FFAE2E;">       
-                        <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}" width=200px height=280px>
-                        <p>{{ x.descricao }}</p>
-                        <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
-                            <div style="display: flex;justify-content: flex-end;" class="me-1">
-                                <p>160 </p>
-                                <svg class="heart" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                                    <path d="M12 21.35l-1.45-1.32C5.4 16.47 2 13.36 2 9.5 2 7.02 4.02 5 6.5 5c1.74 0 3.41.81 4.5 2.09C11.59 5.81 13.26 5 14.99 5 17.48 5 19.5 7.02 19.5 9.5c0 3.86-3.4 6.97-8.55 10.54L12 21.35z"/>
-                                  </svg>
-                                <p>11 </p>
-                                <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"></a>
-                            </div>
-                        </div>      
-                    {% endfor %} 
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                {% for x in fotos %}
-                <div class="card"  style="background-color: #FFAE2E;">
-                    <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}"  width=400px height=280px>
-                    <p>{{ x.descricao }}</p>
-                    <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
-                        <div style="display: flex;justify-content: flex-end;" class="me-1">
-                            <p>160 </p>
-                            <svg class="heart" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                                <path d="M12 21.35l-1.45-1.32C5.4 16.47 2 13.36 2 9.5 2 7.02 4.02 5 6.5 5c1.74 0 3.41.81 4.5 2.09C11.59 5.81 13.26 5 14.99 5 17.48 5 19.5 7.02 19.5 9.5c0 3.86-3.4 6.97-8.55 10.54L12 21.35z"/>
-                              </svg>
-                            <p>11 </p>
-                           <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
-                        </div>
-                    </div>
-                    {% endfor %} 
-                  </div>
-            </div>
-          <!-- Inicio do 2ª-->
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                {% for x in fotos %}
-                <div class="card"  style="background-color: #FFAE2E;">
-                    <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}"  width=400px height=280px>
-                    <p>{{ x.descricao }}</p>
-                    <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
-                        <div style="display: flex;justify-content: flex-end;" class="me-1">
-                            <p>160 </p>
-                            <svg class="heart" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                                <path d="M12 21.35l-1.45-1.32C5.4 16.47 2 13.36 2 9.5 2 7.02 4.02 5 6.5 5c1.74 0 3.41.81 4.5 2.09C11.59 5.81 13.26 5 14.99 5 17.48 5 19.5 7.02 19.5 9.5c0 3.86-3.4 6.97-8.55 10.54L12 21.35z"/>
-                              </svg>
-                            <p>11 </p>
-                           <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
-                        </div>
-                    </div>
-                    {% endfor %} 
-                  </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                {% for x in fotos %}
-                <div class="card"  style="background-color: #FFAE2E;">
-                    <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}"  width=400px height=280px>
-                    <p>{{ x.descricao }}</p>
-                    <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
-                        <div style="display: flex;justify-content: flex-end;" class="me-1">
-                            <p>160 </p>
-                            <svg class="heart" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                                <path d="M12 21.35l-1.45-1.32C5.4 16.47 2 13.36 2 9.5 2 7.02 4.02 5 6.5 5c1.74 0 3.41.81 4.5 2.09C11.59 5.81 13.26 5 14.99 5 17.48 5 19.5 7.02 19.5 9.5c0 3.86-3.4 6.97-8.55 10.54L12 21.35z"/>
-                              </svg>
-                            <p>11 </p>
-                           <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
-                        </div>
-                    </div>
-                    {% endfor %} 
-                  </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                {% for x in fotos %}
-                <div class="card"  style="background-color: #FFAE2E;">
-                    <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}"  width=400px height=280px>
-                    <p>{{ x.descricao }}</p>
-                    <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
-                        <div style="display: flex;justify-content: flex-end;" class="me-1">
-                            <p>160 </p>
-                            <svg class="heart" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                                <path d="M12 21.35l-1.45-1.32C5.4 16.47 2 13.36 2 9.5 2 7.02 4.02 5 6.5 5c1.74 0 3.41.81 4.5 2.09C11.59 5.81 13.26 5 14.99 5 17.48 5 19.5 7.02 19.5 9.5c0 3.86-3.4 6.97-8.55 10.54L12 21.35z"/>
-                              </svg>
-                            <p>11 </p>
-                           <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
-                        </div>
-                    </div>
-                    {% endfor %} 
-                  </div>
-            </div>
-            <!--Inicio do Terceira coluna-->
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                {% for x in fotos %}
-                <div class="card"  style="background-color: #FFAE2E;">
-                    <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}"  width=400px height=280px>
-                    <p>{{ x.descricao }}</p>
-                    <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
-                        <div style="display: flex;justify-content: flex-end;" class="me-1">
-                            <p>160 </p>
-                            <svg class="heart" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                                <path d="M12 21.35l-1.45-1.32C5.4 16.47 2 13.36 2 9.5 2 7.02 4.02 5 6.5 5c1.74 0 3.41.81 4.5 2.09C11.59 5.81 13.26 5 14.99 5 17.48 5 19.5 7.02 19.5 9.5c0 3.86-3.4 6.97-8.55 10.54L12 21.35z"/>
-                              </svg>
-                            <p>11 </p>
-                           <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
-                        </div>
-                    </div>
-                    {% endfor %} 
-                  </div>
-            </div>
-            <div class="col-xl-8 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                {% for x in fotos %}
-                <div class="card mb-3"style="background-color: #FFAE2E;">
-                    <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}" width=200px height=280px>
-                    <p>{{ x.descricao }}</p>
-                    <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
-                        <div style="display: flex;justify-content: flex-end;" class="me-1">
-                            <p>160 </p>
-                            <svg class="heart" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                                <path d="M12 21.35l-1.45-1.32C5.4 16.47 2 13.36 2 9.5 2 7.02 4.02 5 6.5 5c1.74 0 3.41.81 4.5 2.09C11.59 5.81 13.26 5 14.99 5 17.48 5 19.5 7.02 19.5 9.5c0 3.86-3.4 6.97-8.55 10.54L12 21.35z"/>
-                              </svg>
-                            <p>11 </p>
-                           <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
-                          </div>
-                    </div>
-                    {% endfor %} 
-                  </div>
-            </div>
-            <!--Inicio Quarta coluna-->
-        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-            {% for x in fotos %}
-            <div class="card"  style="background-color: #FFAE2E;">
-                <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}"  width=400px height=280px>
-                <p>{{ x.descricao }}</p>
-                <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
-                    <div style="display: flex;justify-content: flex-end;" class="me-1">
-                        <p>160 </p>
-                        <svg class="heart" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                            <path d="M12 21.35l-1.45-1.32C5.4 16.47 2 13.36 2 9.5 2 7.02 4.02 5 6.5 5c1.74 0 3.41.81 4.5 2.09C11.59 5.81 13.26 5 14.99 5 17.48 5 19.5 7.02 19.5 9.5c0 3.86-3.4 6.97-8.55 10.54L12 21.35z"/>
-                          </svg>
-                        <p>11 </p>
-                       <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
-                    </div>
-                </div>
-                {% endfor %} 
-              </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-            {% for x in fotos %}
-            <div class="card"  style="background-color: #FFAE2E;">
-                <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}"  width=400px height=280px>
-                <p>{{ x.descricao }}</p>
-                <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
-                    <div style="display: flex;justify-content: flex-end;" class="me-1">
-                        <p>160 </p>
-                        <svg class="heart" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                            <path d="M12 21.35l-1.45-1.32C5.4 16.47 2 13.36 2 9.5 2 7.02 4.02 5 6.5 5c1.74 0 3.41.81 4.5 2.09C11.59 5.81 13.26 5 14.99 5 17.48 5 19.5 7.02 19.5 9.5c0 3.86-3.4 6.97-8.55 10.54L12 21.35z"/>
-                          </svg>
-                        <p>11 </p>
-                       <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
-                    </div>
-                </div>
-                {% endfor %}
-              </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-            {% for x in fotos %}
-            <div class="card"  style="background-color: #FFAE2E;">
-                <img class="card-img-top" src="{{ x.foto.url }}" alt="{{ x.titulo }}"  width=400px height=280px>
-                <p>{{ x.descricao }}</p>
-                <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
-                    <div style="display: flex;justify-content: flex-end;" class="me-1">
-                        <p>160 </p>
-                        <svg class="heart" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-                            <path d="M12 21.35l-1.45-1.32C5.4 16.47 2 13.36 2 9.5 2 7.02 4.02 5 6.5 5c1.74 0 3.41.81 4.5 2.09C11.59 5.81 13.26 5 14.99 5 17.48 5 19.5 7.02 19.5 9.5c0 3.86-3.4 6.97-8.55 10.54L12 21.35z"/>
-                          </svg>
-                        <p>11 </p>
-                       <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdropFotos"> <img src="static\assets\img\mensagem.png" alt="mensagem" width="24" height="24"> </a>
-                    </div>
-                </div>
-                {% endfor %} 
-              </div>
-        </div>
-        </div>
-        <!-- row -->
-        <div class="row tm-mb-90">
-            <div class="col-12 d-flex justify-content-between align-items-center tm-paging-col">
-                <a href="javascript:void(0);" class="btn btn-primary tm-btn-prev mb-2 disabled">Previous</a>
-                <div class="tm-paging d-flex">
-                    <a href="javascript:void(0);" class="active tm-paging-link">1</a>
-                    <a href="javascript:void(0);" class="tm-paging-link">2</a>
-                    <a href="javascript:void(0);" class="tm-paging-link">3</a>
-                    <a href="javascript:void(0);" class="tm-paging-link">4</a>
-                </div>
-                <a href="javascript:void(0);" class="btn btn-primary tm-btn-next">Next Page</a>
-            </div>            
-        </div>
+      </div>
+      <!-- row -->
+      <div class="row tm-mb-90">
+        <div class="col-12 d-flex justify-content-between align-items-center tm-paging-col">
+          <a href="javascript:void(0);" class="btn btn-primary tm-btn-prev mb-2 disabled">Previous</a>
+          <div class="tm-paging d-flex">
+            <a href="javascript:void(0);" class="active tm-paging-link">1</a>
+            <a href="javascript:void(0);" class="tm-paging-link">2</a>
+            <a href="javascript:void(0);" class="tm-paging-link">3</a>
+            <a href="javascript:void(0);" class="tm-paging-link">4</a>
+          </div>
+          <a href="javascript:void(0);" class="btn btn-primary tm-btn-next">Next Page</a>
+        </div>            
+      </div>
     </div> 
 <!-- Js do coração-->
     <script>
