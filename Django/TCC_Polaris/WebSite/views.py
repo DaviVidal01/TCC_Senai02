@@ -18,17 +18,47 @@ def index(request):
     imagem_view = Barra_Pesquisa.objects.all()
     comentarios_view = Comentarios_BD.objects.all()
     user = User.objects.all()
-
-
     return render(request, 'index.html', {'register_form':register_form,'user_form': login_form ,'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagens': imagem_view})
 
-def detalhes_fotos(request):
+def faq(request):
     likes_view = Like_BD.objects.all()
     fotos_view = Fotos_BD.objects.all()
-    comentarios_view = Comentarios_BD.objects.all()
+    register_form = RegisterForms()
+    login_form = LoginForms()
     imagem_view = Barra_Pesquisa.objects.all()
+    comentarios_view = Comentarios_BD.objects.all()
     user = User.objects.all()
-    return render(request, 'detalhes_fotos.html', {'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagens': imagem_view})
+    return render(request, 'faq.html', {'register_form':register_form,'user_form': login_form ,'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagens': imagem_view})
+
+def dicas(request):
+    likes_view = Like_BD.objects.all()
+    fotos_view = Fotos_BD.objects.all()
+    register_form = RegisterForms()
+    login_form = LoginForms()
+    imagem_view = Barra_Pesquisa.objects.all()
+    comentarios_view = Comentarios_BD.objects.all()
+    user = User.objects.all()
+    return render(request, 'dicas.html', {'register_form':register_form,'user_form': login_form ,'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagens': imagem_view})
+
+def sobre(request):
+    likes_view = Like_BD.objects.all()
+    fotos_view = Fotos_BD.objects.all()
+    register_form = RegisterForms()
+    login_form = LoginForms()
+    imagem_view = Barra_Pesquisa.objects.all()
+    comentarios_view = Comentarios_BD.objects.all()
+    user = User.objects.all()
+    return render(request, 'sobre.html', {'register_form':register_form,'user_form': login_form ,'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagens': imagem_view})
+
+def catalogo(request):
+    likes_view = Like_BD.objects.all()
+    fotos_view = Fotos_BD.objects.all()
+    register_form = RegisterForms()
+    login_form = LoginForms()
+    imagem_view = Barra_Pesquisa.objects.all()
+    comentarios_view = Comentarios_BD.objects.all()
+    user = User.objects.all()
+    return render(request, 'catalogo.html', {'register_form':register_form,'user_form': login_form ,'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagens': imagem_view})
 
 # -----> DASHBOARD ADMIN PAGE
 
@@ -55,6 +85,19 @@ def consulta_users(request):
     fotos_view = Fotos_BD.objects.all()
     comentarios_view = Comentarios_BD.objects.all()
     return render(request, 'dashboardConsulta_user.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
+
+@login_required
+def add_user(request):
+    if request.method == 'POST':
+        register_form = RegisterForms(request.POST)
+        if register_form.is_valid():
+            user = register_form.save(commit=False)
+            user.save()
+            return redirect('add_user')
+    else:
+        register_form = RegisterForms()
+
+    return render(request, 'dashboardAdd_user.html', {'register_form': register_form})
 
 @login_required
 def add_fotos(request):
@@ -121,19 +164,6 @@ def login_view(request):
     return render(request, 'index.html', {'user_form': user_form})
 
 @login_required
-def add_user(request):
-    if request.method == 'POST':
-        register_form = RegisterForms(request.POST)
-        if register_form.is_valid():
-            user = register_form.save(commit=False)
-            user.save()
-            return redirect('add_user')
-    else:
-        register_form = RegisterForms()
-
-    return render(request, 'dashboardAdd_user.html', {'register_form': register_form})
-
-@login_required
 def logout_view(request):
     auth.logout(request)
     messages.success(request, 'Logout efetuado com sucesso!')
@@ -150,12 +180,12 @@ def listarFotos(request):
     return render(request,"dashboardConsulta_fotos.html",{"fotos":fotos})
 
 @login_required
-def edit(request, id):
+def edit_fotos(request, id):
     fotos = Fotos_BD.objects.get(pk=id)
-    return render(request, "dashboardEditar.html",{'fotos':fotos})
+    return render(request, "dashboardEditar_fotos.html",{'fotos':fotos})
 
 @login_required
-def update(request, id):
+def update_fotos(request, id):
     fotos = Fotos_BD.objects.get(pk=id)
     fotos.titulo = request.POST['titulo']
     fotos.descricao = request.POST['descricao']
@@ -164,7 +194,7 @@ def update(request, id):
     return redirect('listarFotos')
 
 @login_required
-def delete(request, id):
+def delete_fotos(request, id):
     fotos = Fotos_BD.objects.get(pk=id)
     fotos.delete()
     return redirect('listarFotos')
@@ -172,7 +202,20 @@ def delete(request, id):
 # ------> CRUD USERS
 
 @login_required
-def delete(request, id):
+def edit_user(request, id):
+    user = User.objects.get(pk=id)
+    return render(request, "dashboardEditar_user.html",{'user':user})
+
+@login_required
+def update_user(request, id):
+    user = User.objects.get(pk=id)
+    user.username = request.POST['username']
+    user.email = request.POST['email']
+    user.save()
+    return redirect('consulta_users')
+
+@login_required
+def delete_user(request, id):
     user = User.objects.get(pk=id)
     user.delete()
     return redirect('consulta_users')

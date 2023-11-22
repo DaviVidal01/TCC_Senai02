@@ -1,6 +1,8 @@
 from django import forms
 from django.shortcuts import render
 from .models import Fotos_BD, Comentarios_BD, Like_BD, Barra_Pesquisa
+from django import forms
+from django.contrib.auth.models import User
 
 class LoginForms(forms.Form):
     email = forms.EmailField(
@@ -28,9 +30,6 @@ class LoginForms(forms.Form):
         ),
     )
 
-from django import forms
-from django.contrib.auth.models import User
-
 class RegisterForms(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'custom-input'})),
     password_confirm = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'custom-input'}))
@@ -41,7 +40,7 @@ class RegisterForms(forms.ModelForm):
         widgets = {
             'username': forms.TextInput(attrs={'class': 'custom-input'}),
             'email': forms.TextInput(attrs={'class': 'custom-input'}),
-            'password': forms.TextInput(attrs={'class': 'custom-input'}),
+            'password': forms.PasswordInput(attrs={'class': 'custom-input'}),
         }
 
     def clean_password_confirm(self):

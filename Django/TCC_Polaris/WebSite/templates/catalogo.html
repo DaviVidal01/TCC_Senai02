@@ -1,0 +1,19 @@
+{% extends 'layouts/catalogo.html' %}
+{% load static %}
+{% block content %}
+    {% include 'partials/user/catalog/header_catalog.html' %}
+    {% include 'partials/alerts.html' %}
+    <!--BARRA DE PESQUISA-->
+    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{% static 'assets/img/hero.jpg' %}">
+        <form class="d-flex tm-search-form">
+            <input id="search" class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success tm-search-btn" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </div>
+
+    {% include 'partials/user/catalog/container_fotos.html' %}
+    {% include 'partials/user/footer.html' %}  
+    
+{% endblock %}

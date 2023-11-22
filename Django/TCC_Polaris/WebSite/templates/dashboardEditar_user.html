@@ -1,0 +1,23 @@
+{% extends 'layouts/adminbase.html' %}
+{% load static %}
+{% block content %}
+	<!-- for header part -->
+	{% include 'partials/admin/header.html' %}
+	{% include 'partials/admin/sidebar.html' %}
+	{% include 'partials/alerts.html' %}
+	<div class="main">
+        <form method="POST" action="{% url 'update_user' user.id %}" enctype="multipart/form-data" class="custom-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_titulo">Username:</label>
+                <input type="text" name="titulo" class="custom-input" maxlength="25" required="" id="id_titulo" value="{{user.username}}">
+            </div>
+            <div class="form-group">
+                <label for="id_descricao">Email:</label>
+                <input name="descricao" cols="40" rows="10" class="custom-input" maxlength="255" required="" id="id_descricao" value="{{user.email}}">
+            </div>
+            <button type="submit" class="custom-button">Editar Usuário</button>
+        </form>
+    </div>
+{% endblock %}
+        
