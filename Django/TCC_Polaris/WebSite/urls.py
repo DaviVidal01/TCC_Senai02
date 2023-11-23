@@ -12,7 +12,6 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('add_fotos/', views.add_fotos, name='add_fotos'),
     path('add_user/', views.add_user, name='add_user'),
-    path('add_comentario/<int:foto_id>/', views.add_comentario, name='add_comentario'),
     path('consulta_fotos/', views.consulta_fotos, name='consulta_fotos'),
     path('consulta_users/', views.consulta_users, name='consulta_users'),
     # -----> LOGIN AUTH

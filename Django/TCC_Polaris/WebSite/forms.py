@@ -1,6 +1,6 @@
 from django import forms
 from django.shortcuts import render
-from .models import Fotos_BD, Comentarios_BD, Like_BD, Barra_Pesquisa
+from .models import Produtos_BD, Barra_Pesquisa, Tecido_BD, Tipo_BD, Marca_BD, Tamanho_BD
 from django import forms
 from django.contrib.auth.models import User
 
@@ -60,25 +60,20 @@ class RegisterForms(forms.ModelForm):
             user.save()
         return user
 
-class FotoForms(forms.ModelForm):
+class ProdutosForms(forms.ModelForm):
     class Meta:
-        model = Fotos_BD
-        fields = ['titulo', 'descricao', 'foto']
+        model = Produtos_BD
+        fields = ['titulo', 'descricao', 'foto', 'preco', 'tecido', 'tamanho', 'tipo', 'marca']
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'custom-input'}),
             'descricao': forms.Textarea(attrs={'class': 'custom-textarea'}),
             'foto': forms.FileInput(attrs={'class': 'custom-file-input'}),
+            'preco': forms.NumberInput(attrs={'class': 'custom-input'}),
+            'tecido': forms.Select(attrs={'class': 'custom-input'}),
+            'tamanho': forms.Select(attrs={'class': 'custom-input'}),
+            'tipo': forms.Select(attrs={'class': 'custom-input'}),
+            'marca': forms.Select(attrs={'class': 'custom-input'}),
         }
-    
-class ComentarioForms(forms.ModelForm):
-    class Meta:
-        model = Comentarios_BD
-        fields = ['comentario', 'data_comentario', 'autor']
-
-class LikeForms(forms.ModelForm):
-    class Meta:
-        model = Like_BD
-        fields = ['like', 'autor']
 
 class Barra_Pesquisa(forms.ModelForm):
     class Meta:

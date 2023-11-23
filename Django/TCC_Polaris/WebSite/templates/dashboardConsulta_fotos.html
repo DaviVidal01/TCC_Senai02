@@ -15,9 +15,13 @@
 							<img src="{{ foto.foto.url }}" style="width: 100%;border-top-left-radius: calc(0.25rem - 1px);border-top-right-radius: calc(0.25rem - 1px);" alt="{{ foto.titulo }}">
 							<div style="flex: 1 1 auto; padding: 1rem 1rem;">
 								<h5 style="margin-bottom: 0.5rem;">{{ foto.titulo }}</h5>
+								<p style="margin-top: 0;margin-bottom: 1rem;">Descrição: {{ foto.preco }}</p>
+								<p style="margin-top: 0;margin-bottom: 1rem;">Descrição: {{ foto.descricao }}</p>
+								<p style="margin-top: 0;margin-bottom: 1rem;">Descrição: {{ foto.tamanho }}</p>
+								<p style="margin-top: 0;margin-bottom: 1rem;">Descrição: {{ foto.tecido }}</p>
+								<p style="margin-top: 0;margin-bottom: 1rem;">Descrição: {{ foto.marca }}</p>
 								<p style="margin-top: 0;margin-bottom: 1rem;">Autor: {{ foto.autor.username }}</p>
 								<p style="margin-top: 0;margin-bottom: 1rem;">Publicação: {{ foto.data_foto }}</p>
-								<p style="margin-top: 0;margin-bottom: 1rem;">Descrição: {{ foto.descricao }}</p>
 								<hr>
 								<div style="text-decoration: none;">
 								 	<a href="{% url 'edit_fotos' foto.id %}">

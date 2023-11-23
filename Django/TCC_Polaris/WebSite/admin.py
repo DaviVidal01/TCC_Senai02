@@ -1,8 +1,18 @@
 from django.contrib import admin
-from .models import Fotos_BD, Comentarios_BD, Like_BD, Barra_Pesquisa
+from .models import Produtos_BD, Tecido_BD, Tipo_BD, Marca_BD, Tamanho_BD, Barra_Pesquisa
 
-admin.site.register(Fotos_BD)
-admin.site.register(Comentarios_BD)
-admin.site.register(Like_BD)
+@admin.register(Tecido_BD)
+class TecidoAdmin(admin.ModelAdmin):
+    list_display = ('tecido')
+@admin.register(Tipo_BD)
+class TipoAdmin(admin.ModelAdmin):
+    list_display = ('tipo')
+@admin.register(Marca_BD)
+class MarcaAdmin(admin.ModelAdmin):
+    list_display = ('marca')
+@admin.register(Tamanho_BD)
+class TamanhoAdmin(admin.ModelAdmin):
+    list_display = ('tamanho')
+admin.site.register(Produtos_BD)
 admin.site.register(Barra_Pesquisa)
 # Register your models here.

@@ -3,88 +3,72 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render, get_object_or_404, redirect
-from Website.forms import FotoForms, LoginForms, RegisterForms
-from .models import Comentarios_BD, Fotos_BD, Like_BD, Barra_Pesquisa
+from Website.forms import ProdutosForms, LoginForms, RegisterForms
+from .models import Barra_Pesquisa, Produtos_BD
 from django.contrib.auth.forms import UserCreationForm
 
 from django.db.models import Q
 
 # -----> USER PAGE
 def index(request):
-    likes_view = Like_BD.objects.all()
-    fotos_view = Fotos_BD.objects.all()
+    fotos_view = Produtos_BD.objects.all()
     register_form = RegisterForms()
     login_form = LoginForms()
     imagem_view = Barra_Pesquisa.objects.all()
-    comentarios_view = Comentarios_BD.objects.all()
     user = User.objects.all()
-    return render(request, 'index.html', {'register_form':register_form,'user_form': login_form ,'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagens': imagem_view})
+    return render(request, 'index.html', {'register_form':register_form,'user_form': login_form , 'fotos': fotos_view,'imagens': imagem_view})
 
 def faq(request):
-    likes_view = Like_BD.objects.all()
-    fotos_view = Fotos_BD.objects.all()
+    fotos_view = Produtos_BD.objects.all()
     register_form = RegisterForms()
     login_form = LoginForms()
     imagem_view = Barra_Pesquisa.objects.all()
-    comentarios_view = Comentarios_BD.objects.all()
     user = User.objects.all()
-    return render(request, 'faq.html', {'register_form':register_form,'user_form': login_form ,'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagens': imagem_view})
+    return render(request, 'faq.html', {'register_form':register_form,'user_form': login_form ,'fotos': fotos_view,'imagens': imagem_view})
 
 def dicas(request):
-    likes_view = Like_BD.objects.all()
-    fotos_view = Fotos_BD.objects.all()
+    fotos_view = Produtos_BD.objects.all()
     register_form = RegisterForms()
     login_form = LoginForms()
     imagem_view = Barra_Pesquisa.objects.all()
-    comentarios_view = Comentarios_BD.objects.all()
     user = User.objects.all()
-    return render(request, 'dicas.html', {'register_form':register_form,'user_form': login_form ,'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagens': imagem_view})
+    return render(request, 'dicas.html', {'register_form':register_form,'user_form': login_form ,'fotos': fotos_view,'imagens': imagem_view})
 
 def sobre(request):
-    likes_view = Like_BD.objects.all()
-    fotos_view = Fotos_BD.objects.all()
+    fotos_view = Produtos_BD.objects.all()
     register_form = RegisterForms()
     login_form = LoginForms()
     imagem_view = Barra_Pesquisa.objects.all()
-    comentarios_view = Comentarios_BD.objects.all()
     user = User.objects.all()
-    return render(request, 'sobre.html', {'register_form':register_form,'user_form': login_form ,'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagens': imagem_view})
+    return render(request, 'sobre.html', {'register_form':register_form,'user_form': login_form ,'fotos': fotos_view,'imagens': imagem_view})
 
 def catalogo(request):
-    likes_view = Like_BD.objects.all()
-    fotos_view = Fotos_BD.objects.all()
+    fotos_view = Produtos_BD.objects.all()
     register_form = RegisterForms()
     login_form = LoginForms()
     imagem_view = Barra_Pesquisa.objects.all()
-    comentarios_view = Comentarios_BD.objects.all()
     user = User.objects.all()
-    return render(request, 'catalogo.html', {'register_form':register_form,'user_form': login_form ,'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view,'imagens': imagem_view})
+    return render(request, 'catalogo.html', {'register_form':register_form,'user_form': login_form ,'fotos': fotos_view,'imagens': imagem_view})
 
 # -----> DASHBOARD ADMIN PAGE
 
 @login_required
 def dashboard(request):
     user = User.objects.all()
-    likes_view = Like_BD.objects.all()
-    fotos_view = Fotos_BD.objects.all()
-    comentarios_view = Comentarios_BD.objects.all()
-    return render(request, 'dashboard.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
+    fotos_view = Produtos_BD.objects.all()
+    return render(request, 'dashboard.html', {'user':user,'fotos': fotos_view})
 
 @login_required
 def consulta_fotos(request):
     user = User.objects.all()
-    likes_view = Like_BD.objects.all()
-    fotos_view = Fotos_BD.objects.all()
-    comentarios_view = Comentarios_BD.objects.all()
-    return render(request, 'dashboardConsulta_fotos.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
+    fotos_view = Produtos_BD.objects.all()
+    return render(request, 'dashboardConsulta_fotos.html', {'user':user, 'fotos': fotos_view})
 
 @login_required
 def consulta_users(request):
     user = User.objects.all()
-    likes_view = Like_BD.objects.all()
-    fotos_view = Fotos_BD.objects.all()
-    comentarios_view = Comentarios_BD.objects.all()
-    return render(request, 'dashboardConsulta_user.html', {'user':user, 'likes': likes_view,'fotos': fotos_view,'comentarios': comentarios_view})
+    fotos_view = Produtos_BD.objects.all()
+    return render(request, 'dashboardConsulta_user.html', {'user':user, 'fotos': fotos_view})
 
 @login_required
 def add_user(request):
@@ -102,35 +86,16 @@ def add_user(request):
 @login_required
 def add_fotos(request):
     if request.method == 'POST':
-        foto_form = FotoForms(request.POST, request.FILES)
+        foto_form = ProdutosForms(request.POST, request.FILES)
         if foto_form.is_valid():
             foto = foto_form.save(commit=False)
             foto.autor = request.user
             foto.save()
             return redirect('add_fotos')
     else:
-        foto_form = FotoForms()
+        foto_form = ProdutosForms()
 
     return render(request, 'dashboardAdd_fotos.html', {'foto_form': foto_form})
-
-# -----> Like ADD
-def add_like(request, foto_id):
-    foto = Fotos_BD.objects.get(pk=foto_id)
-    like, created = Like_BD.objects.get_or_create(autor=request.user, foto=foto)
-    if created:
-        like.save()
-    return redirect('index')
-
-# -----> Comment ADD
-def add_comentario(request, foto_id):
-    foto = get_object_or_404(Fotos_BD, pk=foto_id)
-    comentario_text = request.POST.get('comentario')
-    if comentario_text:
-        comentario = Comentarios_BD(comentario=comentario_text, autor=request.user)
-        comentario.save()
-        foto.comentarios_bd_set.add(comentario)
-        foto.save()
-    return redirect('index')
 
 # -----> LOGIN LOGOUT AUTH
 def login_view(request):
@@ -174,28 +139,33 @@ def logout_view(request):
 def listarFotos(request):
     search_query = request.GET.get('search')
     if search_query:
-        fotos = Fotos_BD.objects.filter(Q(titulo__icontains=search_query) | Q(autor__username__icontains=search_query))
+        fotos = Produtos_BD.objects.filter(Q(titulo__icontains=search_query) | Q(autor__username__icontains=search_query))
     else:
-        fotos = Fotos_BD.objects.all()
+        fotos = Produtos_BD.objects.all()
     return render(request,"dashboardConsulta_fotos.html",{"fotos":fotos})
 
 @login_required
 def edit_fotos(request, id):
-    fotos = Fotos_BD.objects.get(pk=id)
+    fotos = Produtos_BD.objects.get(pk=id)
     return render(request, "dashboardEditar_fotos.html",{'fotos':fotos})
 
 @login_required
 def update_fotos(request, id):
-    fotos = Fotos_BD.objects.get(pk=id)
+    fotos = Produtos_BD.objects.get(pk=id)
     fotos.titulo = request.POST['titulo']
     fotos.descricao = request.POST['descricao']
+    fotos.preco = request.POST['preco']
+    fotos.tipo = request.POST['tipo']
+    fotos.tamanho = request.POST['tamanho']
+    fotos.marca = request.POST['marca']
+    fotos.tecido = request.POST['tecido']
     fotos.foto = request.FILES['foto']
     fotos.save()
     return redirect('listarFotos')
 
 @login_required
 def delete_fotos(request, id):
-    fotos = Fotos_BD.objects.get(pk=id)
+    fotos = Produtos_BD.objects.get(pk=id)
     fotos.delete()
     return redirect('listarFotos')
 
