@@ -13,12 +13,36 @@
                 <input type="text" name="titulo" class="custom-input" maxlength="25" required="" id="id_titulo" value="{{fotos.titulo}}">
             </div>
             <div class="form-group">
+                <label for="id_titulo">Preço:</label>
+                <input type="select" name="preco" class="custom-input" maxlength="25" required="" id="id_titulo" value="{{fotos.preco}}">
+            </div>
+            <div class="form-group">
                 <label for="id_descricao">Descricao:</label>
                 <textarea name="descricao" cols="40" rows="10" class="custom-textarea" maxlength="255" required="" id="id_descricao" value="{{fotos.descricao}}"></textarea>
             </div>
             <div class="form-group">
+                <label for="id_titulo">Gênero:</label>
+                <input type="choice" name="tipo" class="custom-input" maxlength="25" required="" id="id_titulo" value="{{fotos.genero}}">
+            </div>
+            <div class="form-group">
+                <label for="id_titulo">Tamanho:</label>
+                <input type="select" name="tamanho" class="custom-input" maxlength="25" required="" id="id_titulo" value="{{fotos.tamanho}}">
+            </div>
+            <div class="form-group">
+                <label for="id_titulo">Tipo:</label>
+                <input type="select" name="tipo" class="custom-input" maxlength="25" required="" id="id_titulo" value="{{fotos.tipo}}">
+            </div>
+            <div class="form-group">
+                <label for="id_titulo">Marca:</label>
+                <input type="select" name="marca" class="custom-input" maxlength="25" required="" id="id_titulo" value="{{fotos.marca}}">
+            </div>
+            <div class="form-group">
+                <label for="id_titulo">Tecido:</label>
+                <input type="select" name="tecido" class="custom-input" maxlength="25" required="" id="id_titulo" value="{{fotos.tecido}}">
+            </div>
+            <div class="form-group">
                 <label for="id_foto">Foto:</label>
-                {{fotos.foto.url}}
+                <img src="{{ fotos.foto.url }}" style="width: 100%;border-top-left-radius: calc(0.25rem - 1px);border-top-right-radius: calc(0.25rem - 1px);" alt="{{ foto.titulo }}">
                 <input type="file" name="foto" class="custom-file-input" accept="image/*" required="" id="id_foto" value="{{fotos.foto}}">
             </div>
             <button type="submit" class="custom-button">Editar Foto</button>

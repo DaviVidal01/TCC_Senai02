@@ -7,21 +7,29 @@ from django.contrib.auth.models import User
 
 class Tamanho_BD(models.Model):
     tamanho = models.CharField(max_length=7)
+    def __str__(self):
+        return self.tamanho
 
 class Marca_BD(models.Model):
     marca = models.CharField(max_length=15)
+    def __str__(self):
+        return self.marca
 
 class Tipo_BD(models.Model):
     tipo = models.CharField(max_length=15)
+    def __str__(self):
+        return self.tipo
 
 class Tecido_BD(models.Model):
     tecido = models.CharField(max_length=15)
+    def __str__(self):
+        return self.tecido
 
 class Produtos_BD(models.Model):
     titulo = models.CharField(max_length=25)
     foto = models.ImageField(upload_to= 'images/')
     descricao = models.TextField(max_length=255)
-    preco = models.TextField(max_length=255)
+    preco = models.DecimalField(max_digits=5, decimal_places=2)
     tamanho = models.ForeignKey(Tamanho_BD, on_delete=models.CASCADE)
     tipo = models.ForeignKey(Tipo_BD, on_delete=models.CASCADE)
     marca = models.ForeignKey(Marca_BD, on_delete=models.CASCADE)
