@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listar Produtos</title>
+</head>
+<body>
+    <h2>Lista de Produtos</h2>
+    <ul>
+        {% for produto in produtos %}
+            <li>{{ produto.nome }} - R$ {{ produto.preco }}</li>
+            <a href="{% url 'delete_produto' produto.id%}">Excluir</a>
+        {% endfor %}
+    </ul>
+    <ul>
+        {% for produto in produtos %}
+            <li>
+                {{ produto.nome }} - R$ {{ produto.preco }}
+                <form method="post" action="{% url 'efetuar_compra' produto.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Comprar</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'adicionar_produto' %}">Adicionar Produto</a>
+</body>
+</html>
