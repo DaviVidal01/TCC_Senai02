@@ -12,7 +12,10 @@
       <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
           {% for foto in fotos %}
           <div class="card" style="background-color: #FFAE2E;">
+              {% if foto.foto.image %}
               <img class="card-img-top" src="{{ foto.foto.url }}" alt="{{ foto.titulo }}" width=400px height=280px>
+              {% else %}
+              {% endif %}
               <p>{{ foto.descricao }}</p>
               <div class="mx-3" style="background-color: #FFAE2E; margin-top: 5px;">
                   <div style="display: flex;justify-content: flex-end;" class="me-1">

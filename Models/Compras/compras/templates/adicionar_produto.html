@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adicionar Produto</title>
+</head>
+<body>
+    <h2>Adicionar Produto</h2>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Adicionar</button>
+    </form>
+    <a href="{% url 'listar_produtos' %}">Voltar para a lista de produtos</a>
+</body>
+</html>
