@@ -69,7 +69,7 @@ class ProdutosForms(forms.ModelForm):
             'descricao': forms.Textarea(attrs={'class': 'custom-textarea'}),
             'foto': forms.FileInput(attrs={'class': 'custom-file-input'}),
             'preco': forms.NumberInput(attrs={'class': 'custom-input'}),
-            'genero': forms.SelectInput(attrs={'class': 'custom-input'}),
+            'genero': forms.Select(attrs={'class': 'custom-input'}),
             'tecido': forms.Select(attrs={'class': 'custom-input'}),
             'tamanho': forms.Select(attrs={'class': 'custom-input'}),
             'tipo': forms.Select(attrs={'class': 'custom-input'}),
