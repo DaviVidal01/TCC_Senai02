@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+</head>
+<body>
+    <h2>Checkout - {{ produto.nome }}</h2>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Efetuar Compra</button>
+    </form>
+    <a href="{% url 'listar_produtos' %}">Cancelar</a>
+</body>
+</html>

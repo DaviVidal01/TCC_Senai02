@@ -1,6 +1,7 @@
-from .models import Produto, Compra
-from .forms import ProdutoForm
-from django.shortcuts import render, redirect, get_object_or_404
+from .models import Produto, Pedido
+from .forms import ProdutoForm, CheckoutForm
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
 
 # Create your views here.
 def compras(request):
@@ -29,11 +30,20 @@ def delete_produto(request, produto_id):
 
 def efetuar_compra(request, produto_id):
     produto = Produto.objects.get(id=produto_id)
+    
+    if request.method == 'POST':
+        form = CheckoutForm(request.POST)
+        if form.is_valid():
+            # Crie um novo pedido
+            novo_pedido = form.save(commit=False)
+            novo_pedido.produto = produto
+            novo_pedido.save()
 
-    # Crie uma nova compra
-    nova_compra = Compra(produto=produto)
-    nova_compra.save()
-    # Lógica adicional pode ser adicionada aqui, como atualizar o estoque, processar pagamento, etc.
+            # Lógica adicional pode ser adicionada aqui, como atualizar o estoque, processar pagamento, etc.
 
-    # Redirecione para a lista de produtos após a compra
-    return redirect('listar_produtos')
+            # Redirecione para a lista de produtos após a compra
+            return redirect('listar_produtos')
+    else:
+        form = CheckoutForm()
+
+    return render(request, 'efetuar_compra.html', {'form': form, 'produto': produto})
