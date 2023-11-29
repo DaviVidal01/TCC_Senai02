@@ -1,6 +1,6 @@
 {% load static %}
     <!--MODAL LOGIN-->
-    <div class="modal fade" id="staticBackdroplogin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <!-- <div class="modal fade" id="staticBackdroplogin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <form method="POST" action="{% url 'login' %}">
@@ -49,7 +49,56 @@
           </form>
         </div>
       </div>
+    </div> -->
+    <!--modal-login-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content"><br>
+          <div class="modal-header">
+            <a class="navbar-brand" href="#">
+              <h2 style="font-family: serif; color: #FFFFF5;">Login</h2>
+            </a>
+            <button class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span class="icon-close">
+              <ion-icon name="close"></ion-icon>
+            </span>
+           </button>
+          </div>
+          <form method="POST" action="{% url 'login' %}"> 
+            <div class="modal-body">
+              {% csrf_token %}
+              <div class="input-box">
+                <span class="icon">
+                      <ion-icon name="mail-outline"></ion-icon>
+                  </span>
+                  {{ user_form.email }}
+                  <label>Email</label>
+              </div>
+              <div class="input-box">
+                  <span class="icon">
+                      <ion-icon name="lock-closed-outline"></ion-icon>
+                    </span>
+                  {{ user_form.senha }}
+                  <label>Password</label>
+              </div>
+              <div class="remember-forgot">
+                  <label><input type="checkbox">Lembre de mim</label>
+                  <a href="#"> Esqueceu a senha?</a>
+              </div>
+            </div>
+            <div class="footer-modal">
+              <button class="btn-cancelar" data-bs-dismiss="modal">
+                  <a class="nav-link" aria-current="page">Cancelar</a>
+              </button>
+              <button type="submit" class="btn-entrar">
+                <a class="nav-link" aria-current="page">Entrar</a>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+    <!--modal-login-->
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg" style="background-color:  #FFFFF5;">
       <div class="container-fluid">
@@ -81,7 +130,7 @@
               {% if user.is_authenticated %}
                   <a href="{% url 'logout' %}" style="background-color: #203540; color: #FFFF" class="btn btn-outline-primary">Logout</a>
               {% else %}
-                  <button style="background-color: #203540; color: #FFFF" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdroplogin">
+                  <button style="background-color: #203540; color: #FFFF" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-person" viewBox="2 1 18 16">
                           <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
                       </svg>Login
