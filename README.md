@@ -28,7 +28,4 @@ Este site foi cuidadosamente projetado e desenvolvido pela equipe dedicada da Po
 **Produzido por:** [Polaris Softwares](https://polarissoftwares.github.io/site/)
 
 Descubra a fusão perfeita entre moda e tecnologia. Seja bem-vindo ao futuro da High Fashion.
-            <img src="" alt="Imagem3" width="500px">
-        </div>
-    </body>
-</html>
+---          
