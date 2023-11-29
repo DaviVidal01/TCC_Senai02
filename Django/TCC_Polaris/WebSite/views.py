@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render, get_object_or_404, redirect
 from Website.forms import ProdutosForms, LoginForms, RegisterForms
-from .models import Barra_Pesquisa, Produtos_BD, Genero_BD, Tipo_BD, Marca_BD, Tecido_BD, Tamanho_BD
+from .models import Barra_Pesquisa, Produtos_BD, Tipo_BD, Marca_BD, Tecido_BD, Tamanho_BD
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
 
