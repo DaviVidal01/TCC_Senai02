@@ -6,7 +6,6 @@ from django.shortcuts import redirect, render, get_object_or_404, redirect
 from Website.forms import ProdutosForms, LoginForms, RegisterForms
 from .models import Barra_Pesquisa, Produtos_BD
 from django.contrib.auth.forms import UserCreationForm
-
 from django.db.models import Q
 
 # -----> USER PAGE
@@ -25,6 +24,22 @@ def faq(request):
     imagem_view = Barra_Pesquisa.objects.all()
     user = User.objects.all()
     return render(request, 'faq.html', {'register_form':register_form,'user_form': login_form ,'fotos': fotos_view,'imagens': imagem_view})
+
+def termos(request):
+    fotos_view = Produtos_BD.objects.all()
+    register_form = RegisterForms()
+    login_form = LoginForms()
+    imagem_view = Barra_Pesquisa.objects.all()
+    user = User.objects.all()
+    return render(request, 'termos.html', {'register_form':register_form,'user_form': login_form ,'fotos': fotos_view,'imagens': imagem_view})
+
+def politica(request):
+    fotos_view = Produtos_BD.objects.all()
+    register_form = RegisterForms()
+    login_form = LoginForms()
+    imagem_view = Barra_Pesquisa.objects.all()
+    user = User.objects.all()
+    return render(request, 'politica.html', {'register_form':register_form,'user_form': login_form ,'fotos': fotos_view,'imagens': imagem_view})
 
 def dicas(request):
     fotos_view = Produtos_BD.objects.all()
@@ -147,20 +162,22 @@ def listarFotos(request):
 @login_required
 def edit_fotos(request, id):
     fotos = Produtos_BD.objects.get(pk=id)
-    return render(request, "dashboardEditar_fotos.html",{'fotos':fotos})
+    form = ProdutosForms(instance=fotos)
+    return render(request, "dashboardEditar_fotos.html",{'fotos':fotos, 'form':form})
 
 @login_required
 def update_fotos(request, id):
-    fotos = Produtos_BD.objects.get(pk=id)
-    fotos.titulo = request.POST['titulo']
-    fotos.descricao = request.POST['descricao']
-    fotos.preco = request.POST['preco']
-    fotos.tipo = request.POST['tipo']
-    fotos.tamanho = request.POST['tamanho']
-    fotos.marca = request.POST['marca']
-    fotos.tecido = request.POST['tecido']
-    fotos.foto = request.FILES['foto']
-    fotos.save()
+    try:
+        if request.method == "POST":
+            fotos = Produtos_BD.objects.get(pk=id)
+            form = ProdutosForms(request.POST, request.FILES, instance=fotos)
+            
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'imagem foi alterada com sucesso!')
+                return redirect('listarFotos')
+    except Exception as e:
+        messages.error(request, e)
     return redirect('listarFotos')
 
 @login_required

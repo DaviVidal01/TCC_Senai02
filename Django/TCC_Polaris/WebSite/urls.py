@@ -7,6 +7,8 @@ urlpatterns = [
     path('sobre/',views.sobre,name='sobre'),
     path('dicas/',views.dicas,name='dicas'),
     path('faq/',views.faq,name='faq'),
+    path('termos/',views.termos,name='termos'),
+    path('politica/',views.politica,name='politica'),
     path('catalogo/', views.catalogo, name='catalogo'),
     # -----> ADMIN PAGE
     path('dashboard/', views.dashboard, name='dashboard'),
