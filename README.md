@@ -1,59 +1,33 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        <h1>TCC SENAI ( Polaris ) Album de Fotos 📚</h1>
-        <img src="assets-README/LogoPolaris.png" alt="Logo do Polaris">
-        <h2>● Sobre o Projeto 🗃️</h2>
-          <list>
-            <ul>
-              Este projeto foi concebido e desenvolvido de forma colaborativa por um grupo de cinco estudantes denominado 'Polaris'. Nosso trabalho resultou na construção de um site avaliativo de fotos, uma plataforma que visa proporcionar uma experiência única para os entusiastas da fotografia e os apaixonados por imagens.
-            </ul>
-            <ul>
-              - <strong>Comentários Moderados</strong>: Implementamos um sistema de comentários onde somente os moderadores que adicionaram as fotos podem visualizar e gerenciar os comentários. Isso permite um controle mais eficiente e personalizado das discussões em torno das imagens.
-            </ul>
-          </list>
-        <h2>● Contribuidores 👥</h2>
-        <table align="center" style="justify-content:center;">
-          <tr>
-            <td align="center"><a href="https://github.com/DaviVidal01"><img src="https://avatars.githubusercontent.com/u/118399810?v=4" width="100px;" alt="Davi Vidal"/><br /><sub><b>DaviVidal01</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=DaviVidal01">🎩<span><strong>Frontend e Backend</strong></span></a></td>
-            <td align="center"><a href="https://github.com/lferodrigues"><img src="https://avatars.githubusercontent.com/u/65414548?v=4" width="100px;" alt="Luis Felipe"/><br /><sub><b>lferodrigues</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=lferodrigues">🚀<span><strong>Documentação e BD</strong></span></a></td>
-            <td align="center"><a href="https://github.com/luquinha157"><img src="https://avatars.githubusercontent.com/u/131728136?v=4" width="100px;" alt="Lucas"/><br /><sub><b>luquinha157</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=luquinha157">💻<span><strong>Frontend e BD</strong></span></a></td>
-            <td align="center"><a href="https://github.com/GiselliR"><img src="https://avatars.githubusercontent.com/u/131727965?v=4" width="100px;" alt="Giselli"/><br /><sub><b>GiselliR</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=GiselliR">🎛️<span><strong>Backend e Designer</strong></span></a></td>
-            <td align="center"><a href="https://github.com/Lucianojr11"><img src="https://avatars.githubusercontent.com/u/131815938?v=4" width="100px;" alt="Luciano"/><br /><sub><b>Lucianojr11</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=Lucianojr11">🎛️<span><strong>Backend</strong></span></a></td>
-            <td align="center"><a href="https://github.com/NathaliaFT"><img src="https://avatars.githubusercontent.com/u/131728233?v=4" width="100px;" alt="Nathali"/><br /><sub><b>NathaliaFT</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=NathaliaFT">💻<span><strong>Frontend</strong></span></a></td>
-            <td align="center"><a href="https://github.com/Luisrenatou"><img src="https://avatars.githubusercontent.com/u/30247421?v=4" width="100px;" alt="Nathali"/><br /><sub><b>Luisrenatou</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=Luisrenatou">🎨<span><strong>Designer</strong></span></a></td>
-          </tr>
-        </table>
-        <h2>● Programas 📚</h2>
-        <table>
-          <tr>
-            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" width="50px" alt="HTML5"/><br/><strong>HTML5</strong></td>
-            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" width="50px" alt="CSS3"/><br/><strong>CSS3</strong></td>
-            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="50px" alt="Python"/><br/><strong>Python</strong></td>
-          </tr>
-        </table>
-        <h2>● Frameworks 🤖</h2>
-        <table>
-          <tr>
-            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" width="50px" alt="BootstrapV5.3"/><br/><strong>Bootstrap<sub>V5.3</sub></strong></td>
-            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" width="50px" alt="Django"/><br/><strong>Django</strong></td>
-          </tr>
-        </table>
-        <h2>● Banco de Dados 🗃️</h2>
-        <table>
-          <tr>
-            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" width="100px" alt="MySql"/><br/><strong>MySQL</strong></td>
-          </tr>
-        </table>
-        <h2>● Imagens do Projeto 📖</h2>
-        <div style="justify-content:center;" align="center">
-            <img src="" alt="Imagem1" width="500px">
-            <br>
-            <img src="" alt="Imagem2" width="500px">
-<br>
+# ![Logo da Empresa High Fashion](https://github.com/DaviVidal01/TCC_Senai02/blob/aa7af38b01d61032e87cd6b29a8abc115d28d4c4/Django/TCC_Polaris/static/assets/img/highFashionWhite.png)
+
+## High Fashion - Transformando Estilo em Experiência Online
+
+Bem-vindo ao futuro da moda digital, onde a elegância encontra a inovação. A High Fashion é mais do que uma marca, é uma experiência de estilo que transcende o comum. Fundada em 2005 por visionários apaixonados pela moda, a empresa rapidamente se tornou sinônimo de sofisticação e tendências avant-garde.
+
+### A Jornada Estilística
+
+Desde a sua criação, a High Fashion tem impulsionado a indústria da moda para novos patamares. Acreditamos que a moda não é apenas uma escolha de vestuário, mas uma forma de expressão individual. Nossa jornada estilística começou com uma coleção inovadora que desafiou as convenções, conquistando os corações dos amantes da moda em todo o mundo.
+
+Ao longo dos anos, a High Fashion expandiu suas linhas de produtos para abranger desde roupas até acessórios exclusivos, sempre mantendo o compromisso com a qualidade, a criatividade e a sustentabilidade. Nossa paixão pela moda ecoa em cada costura, e cada peça é uma narrativa única que celebra a diversidade e a beleza inerente a cada pessoa.
+
+### O Projeto do Site - Elevando a Experiência Digital
+
+Agora, damos mais um passo ousado em direção ao futuro da moda: o nosso novo site. Desenvolvido em parceria com a Polaris Softwares, líder em inovação digital, o site High Fashion oferece uma experiência online que reflete a exclusividade e a elegância que são marcas registradas da nossa marca.
+
+**Recursos Principais:**
+- **Navegação Intuitiva:** Explore nossas coleções de forma fácil e envolvente.
+- **Visualização 360º:** Veja cada peça de todos os ângulos antes de tomar sua decisão.
+- **Lookbook Virtual:** Inspire-se com nossas sugestões de combinações e tendências.
+
+Nossa parceria com a Polaris Softwares não apenas aprimorou a estética do nosso site, mas também elevou a segurança e a eficiência da plataforma, garantindo uma experiência de compra online tranquila e segura.
+
+### Transformando Visão em Realidade - Polaris Softwares
+
+Este site foi cuidadosamente projetado e desenvolvido pela equipe dedicada da Polaris Softwares, uma empresa líder em soluções digitais. Se você também busca inovação e excelência para a sua presença online, confie na Polaris Softwares para transformar a sua visão em realidade.
+
+**Produzido por:** [Polaris Softwares](https://polarissoftwares.github.io/site/)
+
+Descubra a fusão perfeita entre moda e tecnologia. Seja bem-vindo ao futuro da High Fashion.
             <img src="" alt="Imagem3" width="500px">
         </div>
     </body>
