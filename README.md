@@ -16,7 +16,6 @@ Agora, damos mais um passo ousado em direção ao futuro da moda: o nosso novo s
 
 **Recursos Principais:**
 - **Navegação Intuitiva:** Explore nossas coleções de forma fácil e envolvente.
-- **Visualização 360º:** Veja cada peça de todos os ângulos antes de tomar sua decisão.
 - **Lookbook Virtual:** Inspire-se com nossas sugestões de combinações e tendências.
 
 Nossa parceria com a Polaris Softwares não apenas aprimorou a estética do nosso site, mas também elevou a segurança e a eficiência da plataforma, garantindo uma experiência de compra online tranquila e segura.
@@ -29,3 +28,4 @@ Este site foi cuidadosamente projetado e desenvolvido pela equipe dedicada da Po
 
 Descubra a fusão perfeita entre moda e tecnologia. Seja bem-vindo ao futuro da High Fashion.
 ---          
+## Biuld
