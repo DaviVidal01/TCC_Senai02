@@ -9,125 +9,38 @@
           <div class="carousel-item active">
               <img src="{% static 'assets/img/compre_agora.jpg' %}" class="d-block w-100" alt="...">
               <div class="search-bar-container position-absolute top-50 start-50 translate-middle mt-1">
-                  <form class="d-flex">
-                      <input class="form-control me-2 search-input" type="search" placeholder="Pesquisar" aria-label="Search">
+                  <form class="d-flex" method="GET" action="{% url 'catalogo' %}" >
+                      <input class="form-control me-2 search-input" type="search" placeholder="Pesquisar" aria-label="Search" name="q">
                       <button class="btn-search" type="submit">Buscar</button>
                   </form>
               </div>
           </div>
       </div>
     </div><br>
-    <h2 style="font-family: serif; color: #3D3D3D;">Últimas Atualizações</h2><br>
+    <h2 style="font-family: serif; color: #3D3D3D;">Nossos Produtos</h2><br>
     <!-- cards -->
     <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for produtos in produtos %}
       <div class="col">
         <div class="card h-100">
-          <img src="img/8.jpg" class="card-img-top" alt="...">
+          <img src="{{ produtos.imagem.url }}" class="card-img-top" alt="{{ produtos.titulo }}">
           <div class="card-body">
-            <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Ver mais
-          </button>
+            {% if user.is_authenticated %}
+              <a href="#" >
+                <button type="button" class="btn-ver-mais">
+                  Ver mais
+                </button>
+              </a>
+            {% else %}
+              <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Ver mais
+              </button>
+            {% endif %}
           </div>
         </div>
       </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="img/6.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <button type="button" class="btn-ver-mais">Ver mais</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="img/7.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <button type="button" class="btn-ver-mais">Ver mais</button>
-          </div>
-        </div>
-      </div>
-    </div><br>
-
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100">
-          <img src="img/8.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <button type="button" class="btn-ver-mais">Ver mais</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="img/6.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <button type="button" class="btn-ver-mais">Ver mais</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="img/7.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <button type="button" class="btn-ver-mais">Ver mais</button>
-          </div>
-        </div>
-      </div>
-    </div><br>
-
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100">
-          <img src="img/8.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <button type="button" class="btn-ver-mais">Ver mais</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="img/6.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <button type="button" class="btn-ver-mais">Ver mais</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="img/7.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <button type="button" class="btn-ver-mais">Ver mais</button>
-          </div>
-        </div>
-      </div>
-    </div><br>
-
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100">
-          <img src="img/8.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <button type="button" class="btn-ver-mais">Ver mais</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="img/6.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <button type="button" class="btn-ver-mais">Ver mais</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="img/7.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <button type="button" class="btn-ver-mais">Ver mais</button>
-          </div>
-        </div>
-      </div>
-    </div><br>
+      {% endfor %}
+    </div>
     <!-- cards -->
     {% include 'partials/user/footer.html' %}
   {% endblock %}

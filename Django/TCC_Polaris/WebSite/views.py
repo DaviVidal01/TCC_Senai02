@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render, get_object_or_404, redirect
 from Website.forms import ProdutosForms, LoginForms, RegisterForms
-from .models import Barra_Pesquisa, Produtos_BD
+from .models import Barra_Pesquisa, Produtos_BD, Genero_BD, Tipo_BD, Marca_BD, Tecido_BD, Tamanho_BD
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
 
@@ -58,12 +58,16 @@ def sobre(request):
     return render(request, 'sobre.html', {'register_form':register_form,'user_form': login_form ,'fotos': fotos_view,'imagens': imagem_view})
 
 def catalogo(request):
+    query = request.GET.get('q')
     fotos_view = Produtos_BD.objects.all()
+    if query:
+       fotos_view = fotos_view.filter(titulo__icontains=query)
+
     register_form = RegisterForms()
     login_form = LoginForms()
     imagem_view = Barra_Pesquisa.objects.all()
     user = User.objects.all()
-    return render(request, 'catalogo.html', {'register_form':register_form,'user_form': login_form ,'fotos': fotos_view,'imagens': imagem_view})
+    return render(request, 'catalogo.html', {'register_form':register_form,'user_form': login_form ,'produtos': fotos_view,'imagens': imagem_view})
 
 # -----> DASHBOARD ADMIN PAGE
 
