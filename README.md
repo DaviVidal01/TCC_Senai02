@@ -1,4 +1,4 @@
-![image](https://github.com/DaviVidal01/TCC_Senai02/assets/65414548/7123ec36-b95b-45b1-a8ef-f8f59d94d826)<p align="center">
+<p align="center">
   <img src="https://github.com/DaviVidal01/TCC_Senai02/blob/aa7af38b01d61032e87cd6b29a8abc115d28d4c4/Django/TCC_Polaris/static/assets/img/highFashionWhite.png" alt="Logo da Empresa High Fashion">
 </p>
 
