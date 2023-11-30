@@ -2,8 +2,13 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
-from django.contrib.auth.models import User
 # Create your models here.
+
+GENERO = (
+    ('Masculino','Masculino'),
+    ('Feminino','Feminino'),
+    ('Unisex','Unisex'),
+)
 
 class Tamanho_BD(models.Model):
     tamanho = models.CharField(max_length=7)
@@ -30,6 +35,7 @@ class Produtos_BD(models.Model):
     foto = models.ImageField(upload_to= 'images/')
     descricao = models.TextField(max_length=255)
     preco = models.DecimalField(max_digits=5, decimal_places=2)
+    genero = models.CharField(max_length = 20, choices = GENERO, default = 'Unisex')
     tamanho = models.ForeignKey(Tamanho_BD, on_delete=models.CASCADE)
     tipo = models.ForeignKey(Tipo_BD, on_delete=models.CASCADE)
     marca = models.ForeignKey(Marca_BD, on_delete=models.CASCADE)

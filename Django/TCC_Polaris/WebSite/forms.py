@@ -12,8 +12,6 @@ class LoginForms(forms.Form):
         widget=forms.EmailInput(
             attrs={
                 'type': "email",
-                'class': 'form-control px-4 rounded-pill OrageBorder',
-                'placeholder': 'Ex.: jose@django.com',
             }
         )
     )
@@ -24,23 +22,31 @@ class LoginForms(forms.Form):
         widget=forms.PasswordInput(
             attrs={
                 'type': 'password',
-                'class': 'form-control px-4 rounded-pill OrageBorder',
-                'placeholder': 'Digite a sua senha',
             }
         ),
     )
 
 class RegisterForms(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'custom-input'})),
-    password_confirm = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'custom-input'}))
+    password = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={
+                'type': 'password',
+            }
+        )),
+    password_confirm = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={
+                'type': 'password',
+            }
+        ))
 
     class Meta:
         model = User
         fields = ['username', 'email', 'password']
         widgets = {
-            'username': forms.TextInput(attrs={'class': 'custom-input'}),
-            'email': forms.TextInput(attrs={'class': 'custom-input'}),
-            'password': forms.PasswordInput(attrs={'class': 'custom-input'}),
+            'username': forms.TextInput(),
+            'email': forms.TextInput(),
+            'password': forms.PasswordInput(),
         }
 
     def clean_password_confirm(self):
@@ -63,12 +69,13 @@ class RegisterForms(forms.ModelForm):
 class ProdutosForms(forms.ModelForm):
     class Meta:
         model = Produtos_BD
-        fields = ['titulo', 'descricao', 'foto', 'preco', 'tecido', 'tamanho', 'tipo', 'marca']
+        fields = ['titulo', 'descricao', 'foto', 'preco', 'genero', 'tecido', 'tamanho', 'tipo', 'marca']
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'custom-input'}),
             'descricao': forms.Textarea(attrs={'class': 'custom-textarea'}),
             'foto': forms.FileInput(attrs={'class': 'custom-file-input'}),
             'preco': forms.NumberInput(attrs={'class': 'custom-input'}),
+            'genero': forms.Select(attrs={'class': 'custom-input'}),
             'tecido': forms.Select(attrs={'class': 'custom-input'}),
             'tamanho': forms.Select(attrs={'class': 'custom-input'}),
             'tipo': forms.Select(attrs={'class': 'custom-input'}),

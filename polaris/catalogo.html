@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polaris</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- navbar -->
+    <nav class="navbar navbar-expand-lg" style="background-color:  #FFFFF5;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <h2 style="font-family: serif; color: #3D3D3D;">High Fashion</h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="catalogo.html">Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="dicas.html">Dicas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre.html">Sobre</a>
+                    </li>
+                    <ul class="nav justify-content-end">
+                      <li class="nav-item">
+                      <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" aria-current="page" href="#">Login</a>
+                      </button>
+                      </li>
+                  </ul>
+                </ul>
+            </div>
+        </div>
+      </nav>
+    <!-- navbar -->
+
+    <!--modal-login-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content"><br>
+          <div class="modal-header">
+            <a class="navbar-brand" href="#">
+              <h2 style="font-family: serif; color: #FFFFF5;">Login</h2>
+            </a>
+            <button class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span class="icon-close">
+              <ion-icon name="close"></ion-icon>
+            </span>
+           </button>
+          </div>
+          <div class="modal-body">
+              <div class="input-box">
+                  <span class="icon">
+                      <ion-icon name="mail-outline"></ion-icon>
+                  </span>
+                  <input type="email" required>
+                  <label>Email</label>
+              </div>
+              <div class="input-box">
+                  <span class="icon">
+                      <ion-icon name="lock-closed-outline"></ion-icon>
+                  </span>
+                  <input type="password" required>
+                  <label>Password</label>
+              </div>
+              <div class="remember-forgot">
+                  <label><input type="checkbox">Lembre de mim</label>
+                  <a href="#"> Esqueceu a senha?</a>
+              </div>
+          </div>
+          <div class="footer-modal">
+            <button class="btn-cancelar" data-bs-dismiss="modal">
+                <a class="nav-link" aria-current="page" href="#">Cancelar</a>
+            </button>
+            <button type="button" class="btn-entrar">
+                <a class="nav-link" aria-current="page" href="#">Entrar</a>
+            </button>
+        </div>
+        </div>
+      </div>
+    </div>
+    <!--modal-login-->
+    
+      <div id="carouselExample" class="carousel slide position-relative">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/compre_agora.jpg" class="d-block w-100" alt="...">
+                <div class="search-bar-container position-absolute top-50 start-50 translate-middle mt-1">
+                    <form class="d-flex">
+                        <input class="form-control me-2 search-input" type="search" placeholder="Pesquisar" aria-label="Search">
+                        <button class="btn-search" type="submit">Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    
+    
+      <h2 style="font-family: serif; color: #3D3D3D;">Últimas Atualizações</h2><br>
+      
+      
+      <div class="meu-modal fade" id="meuExemploModal" tabindex="-1" aria-labelledby="meuExemploLabel" aria-hidden="true">
+        <div class="meu-modal-dialog">
+          <div class="meu-modal-content">
+            <button class="meu-fechar" data-bs-dismiss="modal" aria-label="Close">
+              <span class="meu-icon-close">
+                <ion-icon name="close"></ion-icon>
+              </span>
+            </button>
+            <div class="meu-modal-body">
+              <div class="meu-container">
+                <div class="meu-row">
+                  <div class="meu-col-md">
+                    <img src="img/ere.jpg" class="meu-img-thumbnail" alt="Imagem de Moda" width="600px" height="650px">
+                  </div>
+                  <div class="meu-col-md-6 text-center"><br>
+                    <a class="meu-nav-link" href="catalogo.html">
+                      <button type="button" class="meu-btn-ir-catalogo" data-bs-toggle="modal" data-bs-target="#meuExemploModal">
+                        Catálogo
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+
+      <!-- cards -->
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/8.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#meuExemploModal">
+                Ver mais
+            </button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/6.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <button type="button" class="btn-ver-mais">Ver mais</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/7.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <button type="button" class="btn-ver-mais">Ver mais</button>
+            </div>
+          </div>
+        </div>
+      </div><br>
+
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/8.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <button type="button" class="btn-ver-mais">Ver mais</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/6.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <button type="button" class="btn-ver-mais">Ver mais</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/7.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <button type="button" class="btn-ver-mais">Ver mais</button>
+            </div>
+          </div>
+        </div>
+      </div><br>
+
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/8.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <button type="button" class="btn-ver-mais">Ver mais</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/6.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <button type="button" class="btn-ver-mais">Ver mais</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/7.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <button type="button" class="btn-ver-mais">Ver mais</button>
+            </div>
+          </div>
+        </div>
+      </div><br>
+
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/8.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <button type="button" class="btn-ver-mais">Ver mais</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/6.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <button type="button" class="btn-ver-mais">Ver mais</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/7.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <button type="button" class="btn-ver-mais">Ver mais</button>
+            </div>
+          </div>
+        </div>
+      </div><br>
+    <!-- cards -->
+    <footer>
+      <div class="container-footer">
+          <div class="icons">
+              <a class="navbar-brand" href="#">
+                  <h2 style="font-family: serif; color: #3D3D3D;">Polaris</h2>
+                  <h2 style="font-family: serif; color: #3D3D3D;">High Fashion</h2>
+              </a>
+              <div class="medias-socias">
+                  <!-- Ícones nativos sem a biblioteca FontAwesome -->
+                  <a href="#">📘</a>
+                  <a href="#">📸</a>
+                  <a href="#">🐦</a>
+                  <div class="text-center mt-4">
+                    <p class="text-muted">&copy; 2023 Polaris. Todos os direitos reservados.</p>
+                </div>
+              </div>
+          </div>
+      </div>
+    </footer>
+
+      <!--scripts-->
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

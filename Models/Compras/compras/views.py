@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 from django.contrib import messages
 from django.conf import settings
 from .models import Produto, Pedido
 from .forms import ProdutoForm, CheckoutForm
 from django.shortcuts import render, redirect, get_object_or_404
+=======
+from .models import Produto, Pedido
+from .forms import ProdutoForm, CheckoutForm
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
+>>>>>>> d97a7a3b61708641a399a24420a11b920d5d1d0f
 
 # Create your views here.
 def compras(request):
@@ -62,9 +69,6 @@ def efetuar_compra(request, produto_id):
             novo_pedido.save()
 
             # Lógica adicional pode ser adicionada aqui, como atualizar o estoque, processar pagamento, etc.
-
-            # Adicione uma mensagem de sucesso
-            messages.success(request, 'Compra concluída com sucesso!')
 
             # Redirecione para a lista de produtos após a compra
             return redirect('listar_produtos')

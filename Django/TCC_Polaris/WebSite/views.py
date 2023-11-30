@@ -4,9 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render, get_object_or_404, redirect
 from Website.forms import ProdutosForms, LoginForms, RegisterForms
-from .models import Barra_Pesquisa, Produtos_BD
+from .models import Barra_Pesquisa, Produtos_BD, Tipo_BD, Marca_BD, Tecido_BD, Tamanho_BD, GENERO
 from django.contrib.auth.forms import UserCreationForm
-
 from django.db.models import Q
 
 # -----> USER PAGE
@@ -26,6 +25,22 @@ def faq(request):
     user = User.objects.all()
     return render(request, 'faq.html', {'register_form':register_form,'user_form': login_form ,'fotos': fotos_view,'imagens': imagem_view})
 
+def termos(request):
+    fotos_view = Produtos_BD.objects.all()
+    register_form = RegisterForms()
+    login_form = LoginForms()
+    imagem_view = Barra_Pesquisa.objects.all()
+    user = User.objects.all()
+    return render(request, 'termos.html', {'register_form':register_form,'user_form': login_form ,'fotos': fotos_view,'imagens': imagem_view})
+
+def politica(request):
+    fotos_view = Produtos_BD.objects.all()
+    register_form = RegisterForms()
+    login_form = LoginForms()
+    imagem_view = Barra_Pesquisa.objects.all()
+    user = User.objects.all()
+    return render(request, 'politica.html', {'register_form':register_form,'user_form': login_form ,'fotos': fotos_view,'imagens': imagem_view})
+
 def dicas(request):
     fotos_view = Produtos_BD.objects.all()
     register_form = RegisterForms()
@@ -43,12 +58,55 @@ def sobre(request):
     return render(request, 'sobre.html', {'register_form':register_form,'user_form': login_form ,'fotos': fotos_view,'imagens': imagem_view})
 
 def catalogo(request):
-    fotos_view = Produtos_BD.objects.all()
+    query = request.GET.get('q')
+    genero_filter = request.GET.get('genero')
+    tipo_filter = request.GET.get('tipo')
+    marca_filter = request.GET.get('marca')
+    tecido_filter = request.GET.get('tecido')
+    tamanho_filter = request.GET.get('tamanho')
+
+    produtos_view = Produtos_BD.objects.all()
+
+    if query:
+        produtos_view = produtos_view.filter(titulo__icontains=query)
+
+    if genero_filter:
+        produtos_view = produtos_view.filter(genero=genero_filter)
+
+    if tipo_filter:
+        produtos_view = produtos_view.filter(tipo__tipo=tipo_filter)
+
+    if marca_filter:
+        produtos_view = produtos_view.filter(marca__marca=marca_filter)
+
+    if tecido_filter:
+        produtos_view = produtos_view.filter(tecido__tecido=tecido_filter)
+
+    if tamanho_filter:
+        produtos_view = produtos_view.filter(tamanho__tamanho=tamanho_filter)
+
     register_form = RegisterForms()
     login_form = LoginForms()
     imagem_view = Barra_Pesquisa.objects.all()
     user = User.objects.all()
-    return render(request, 'catalogo.html', {'register_form':register_form,'user_form': login_form ,'fotos': fotos_view,'imagens': imagem_view})
+
+    tipos = Tipo_BD.objects.all()
+    marcas = Marca_BD.objects.all()
+    tecidos = Tecido_BD.objects.all()
+    tamanhos = Tamanho_BD.objects.all()
+    generos = [choice[0] for choice in GENERO]
+
+    return render(request, 'catalogo.html', {
+        'register_form':register_form,
+        'user_form': login_form ,
+        'produtos': produtos_view,
+        'imagens': imagem_view,
+        'generos': generos,
+        'tipos': tipos,
+        'marcas': marcas,
+        'tecidos': tecidos,
+        'tamanhos': tamanhos,
+    })
 
 # -----> DASHBOARD ADMIN PAGE
 
@@ -147,20 +205,22 @@ def listarFotos(request):
 @login_required
 def edit_fotos(request, id):
     fotos = Produtos_BD.objects.get(pk=id)
-    return render(request, "dashboardEditar_fotos.html",{'fotos':fotos})
+    form = ProdutosForms(instance=fotos)
+    return render(request, "dashboardEditar_fotos.html",{'fotos':fotos, 'form':form})
 
 @login_required
 def update_fotos(request, id):
-    fotos = Produtos_BD.objects.get(pk=id)
-    fotos.titulo = request.POST['titulo']
-    fotos.descricao = request.POST['descricao']
-    fotos.preco = request.POST['preco']
-    fotos.tipo = request.POST['tipo']
-    fotos.tamanho = request.POST['tamanho']
-    fotos.marca = request.POST['marca']
-    fotos.tecido = request.POST['tecido']
-    fotos.foto = request.FILES['foto']
-    fotos.save()
+    try:
+        if request.method == "POST":
+            fotos = Produtos_BD.objects.get(pk=id)
+            form = ProdutosForms(request.POST, request.FILES, instance=fotos)
+            
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'imagem foi alterada com sucesso!')
+                return redirect('listarFotos')
+    except Exception as e:
+        messages.error(request, e)
     return redirect('listarFotos')
 
 @login_required

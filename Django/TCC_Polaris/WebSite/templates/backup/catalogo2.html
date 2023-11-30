@@ -1,0 +1,26 @@
+{% extends 'layouts/catalogo.html' %}
+{% load static %}
+{% block title %}High Fashion: Catalogo{% endblock %}
+{% block content %}
+    {% include 'partials/user/catalog/header_catalog.html' %}
+    {% include 'partials/alerts.html' %}
+    <!--BARRA DE PESQUISA-->
+    <div id="carouselExample" class="carousel slide position-relative">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'assets/img/compre_agora.jpg' %}" class="d-block w-100" alt="...">
+                <div class="search-bar-container position-absolute top-50 start-50 translate-middle mt-1">
+                    <form class="d-flex">
+                        <input class="form-control me-2 search-input" type="search" placeholder="Pesquisar" aria-label="Search">
+                        <button class="btn-search" type="submit">Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <h2 style="font-family: serif; color: #3D3D3D;">Últimas Atualizações</h2><br>    
+
+    {% include 'partials/user/catalog/container_fotos.html' %}
+    {% include 'partials/user/footer.html' %}  
+    
+{% endblock %}

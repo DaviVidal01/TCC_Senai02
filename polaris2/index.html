@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Polaris</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg" style="background-color:  #FFFFF5;">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+              <h2 style="font-family: serif; color: #3D3D3D;">High Fashion</h2>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="catalogo.html">Catálogo</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="dicas.html">Dicas</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="sobre.html">Sobre</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+    </nav>
+    <!-- navbar -->
+
+    <!-- carrossel -->
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/1.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/2.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/3.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div><br>
+
+      <h2 style="font-family: serif; color: #3D3D3D;">Últimas Lançamentos</h2><br>
+      
+
+<!-- Modal -->
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button class="fechar" data-bs-dismiss="modal" aria-label="Close">
+          <span class="icon-close">
+            <ion-icon name="close"></ion-icon>
+          </span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="img/ere.jpg" class="img-thumbnail" alt="Imagem de Moda" width="600px" height="650px">
+      </div>
+        <a class="nav-link" href="catalogo.html">
+          <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Ir para catálogo
+          </button>
+        </a><br>
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- cards -->
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/8.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Ver mais
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/6.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Ver mais
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/7.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Ver mais
+              </button>
+            </div>
+          </div>
+        </div>
+      </div><br>
+    <!-- cards -->
+
+    <!-- footer -->
+    <footer>
+      <div class="container-footer">
+          <div class="icons">
+              <a class="navbar-brand" href="#">
+                  <h2 style="font-family: serif; color: #3D3D3D;">Polaris</h2>
+                  <h2 style="font-family: serif; color: #3D3D3D;">High Fashion</h2>
+              </a>
+              <div class="medias-socias">
+                  <a href="#">📘</a>
+                  <a href="#">📸</a>
+                  <a href="#">🐦</a>
+                  <div class="text-center mt-4">
+                    <p class="text-muted">&copy; 2023 Polaris. Todos os direitos reservados.</p>
+                </div>
+              </div>
+          </div>
+      </div>
+    </footer>
+    <!-- footer -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+
+
+
+
+

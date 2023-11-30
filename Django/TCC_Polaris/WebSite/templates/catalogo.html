@@ -1,19 +1,102 @@
 {% extends 'layouts/catalogo.html' %}
 {% load static %}
-{% block content %}
+  {% block content %}
     {% include 'partials/user/catalog/header_catalog.html' %}
-    {% include 'partials/alerts.html' %}
-    <!--BARRA DE PESQUISA-->
-    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{% static 'assets/img/hero.jpg' %}">
-        <form class="d-flex tm-search-form">
-            <input id="search" class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success tm-search-btn" type="submit">
-                <i class="fas fa-search"></i>
-            </button>
-        </form>
-    </div>
-
-    {% include 'partials/user/catalog/container_fotos.html' %}
-    {% include 'partials/user/footer.html' %}  
     
-{% endblock %}
+    
+    <div id="carouselExample" class="carousel slide position-relative">
+      <div class="carousel-inner">
+          <div class="carousel-item active">
+              <img src="{% static 'assets/img/compre_agora.jpg' %}" class="d-block w-100" alt="...">
+              <div class="search-bar-container position-absolute top-50 start-50 translate-middle mt-1">
+                  <form class="d-flex" method="GET" action="{% url 'catalogo' %}" >
+                      <input class="form-control me-2 search-input" type="search" placeholder="Pesquisar" aria-label="Search" name="q">
+                      <button class="btn-search" type="submit">Buscar</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+    </div><br>
+    <h2 style="font-family: serif; color: #3D3D3D;">Nossos Produtos</h2><br>
+    <!-- Filtros -->
+    <div class="filter-section">
+      <form method="get" action="{% url 'catalogo' %}" class="d-flex justify-content-end">
+          <div class="mb-3 me-3">
+              <label for="genero" class="form-label">Gênero:</label>
+              <select class="form-select" name="genero" id="genero">
+                  <option value="">Todos</option>
+                  {% for genero in generos %}
+                      <option value="{{ genero }}" {% if genero == genero_filter %}selected{% endif %}>{{ genero }}</option>
+                  {% endfor %}
+              </select>
+          </div>
+          <div class="mb-3 me-3">
+              <label for="tipos" class="form-label">Tipos:</label>
+              <select class="form-select" name="tipo" id="tipo">
+                  <option value="">Todos</option>
+                  {% for tipo in tipos %}
+                      <option value="{{ tipo }}" {% if tipo == tipo_filter %}selected{% endif %}>{{ tipo }}</option>
+                  {% endfor %}
+              </select>
+          </div>
+          <div class="mb-3 me-3">
+              <label for="marca" class="form-label">Marca:</label>
+              <select class="form-select" name="marca" id="marca">
+                  <option value="">Todos</option>
+                  {% for marca in marcas %}
+                      <option value="{{ marca }}" {% if marca == marca_filter %}selected{% endif %}>{{ marca }}</option>
+                  {% endfor %}
+              </select>
+          </div>
+          <div class="mb-3 me-3">
+              <label for="tecido" class="form-label">Tecido:</label>
+              <select class="form-select" name="tecido" id="tecido">
+                  <option value="">Todos</option>
+                  {% for tecido in tecidos %}
+                      <option value="{{ tecido }}" {% if tecido == tecido_filter %}selected{% endif %}>{{ tecido }}</option>
+                  {% endfor %}
+              </select>
+          </div>
+          <div class="mb-3 me-3">
+              <label for="tamanho" class="form-label">Tamanho:</label>
+              <select class="form-select" name="tamanho" id="tamanho">
+                  <option value="">Todos</option>
+                  {% for tamanho in tamanhos %}
+                      <option value="{{ tamanho }}" {% if tamanho == tamanho_filter %}selected{% endif %}>{{ tamanho }}</option>
+                  {% endfor %}
+              </select>
+          </div>
+          <button type="submit" class="mb-3 me-3 btn-ver-mais align-self-end">Filtrar</button>
+      </form>
+  </div>
+  <!-- Container -->
+  <div class="container pt-4 mt-3">
+    <!-- cards -->
+    <div class="row row-cols-1 row-cols-md-5 g-3">
+        {% for produtos in produtos %}
+            <div class="col">
+                <div class="card">
+                    <img src="{{ produtos.foto.url }}" class="card-img-top" alt="{{ produtos.titulo }}">
+                    <div class="card-body">
+                      <h5 class="card-title text-left">{{produtos.titulo}} - <span style="color:green;font-family:Arial Black;">R${{produtos.preco}}</span></h5>
+                      <p class="card-text text-left">{{produtos.descricao}}</p>
+                      {% if user.is_authenticated %}
+                          <a href="#">
+                              <button type="button" class="btn-ver-mais">
+                                  Ver mais
+                              </button>
+                          </a>
+                      {% else %}
+                          <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              Ver mais
+                          </button>
+                      {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <!-- cards -->
+  </div>
+    {% include 'partials/user/footer.html' %}
+  {% endblock %}
