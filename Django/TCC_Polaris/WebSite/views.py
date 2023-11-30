@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render, get_object_or_404, redirect
 from Website.forms import ProdutosForms, LoginForms, RegisterForms
-from .models import Barra_Pesquisa, Produtos_BD, Tipo_BD, Marca_BD, Tecido_BD, Tamanho_BD
+from .models import Barra_Pesquisa, Produtos_BD, Tipo_BD, Marca_BD, Tecido_BD, Tamanho_BD, GENERO
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
 
@@ -59,15 +59,54 @@ def sobre(request):
 
 def catalogo(request):
     query = request.GET.get('q')
-    fotos_view = Produtos_BD.objects.all()
+    genero_filter = request.GET.get('genero')
+    tipo_filter = request.GET.get('tipo')
+    marca_filter = request.GET.get('marca')
+    tecido_filter = request.GET.get('tecido')
+    tamanho_filter = request.GET.get('tamanho')
+
+    produtos_view = Produtos_BD.objects.all()
+
     if query:
-       fotos_view = fotos_view.filter(titulo__icontains=query)
+        produtos_view = produtos_view.filter(titulo__icontains=query)
+
+    if genero_filter:
+        produtos_view = produtos_view.filter(genero=genero_filter)
+
+    if tipo_filter:
+        produtos_view = produtos_view.filter(tipo__tipo=tipo_filter)
+
+    if marca_filter:
+        produtos_view = produtos_view.filter(marca__marca=marca_filter)
+
+    if tecido_filter:
+        produtos_view = produtos_view.filter(tecido__tecido=tecido_filter)
+
+    if tamanho_filter:
+        produtos_view = produtos_view.filter(tamanho__tamanho=tamanho_filter)
 
     register_form = RegisterForms()
     login_form = LoginForms()
     imagem_view = Barra_Pesquisa.objects.all()
     user = User.objects.all()
-    return render(request, 'catalogo.html', {'register_form':register_form,'user_form': login_form ,'produtos': fotos_view,'imagens': imagem_view})
+
+    tipos = Tipo_BD.objects.all()
+    marcas = Marca_BD.objects.all()
+    tecidos = Tecido_BD.objects.all()
+    tamanhos = Tamanho_BD.objects.all()
+    generos = [choice[0] for choice in GENERO]
+
+    return render(request, 'catalogo.html', {
+        'register_form':register_form,
+        'user_form': login_form ,
+        'produtos': produtos_view,
+        'imagens': imagem_view,
+        'generos': generos,
+        'tipos': tipos,
+        'marcas': marcas,
+        'tecidos': tecidos,
+        'tamanhos': tamanhos,
+    })
 
 # -----> DASHBOARD ADMIN PAGE
 
