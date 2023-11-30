@@ -26,28 +26,32 @@ class LoginForms(forms.Form):
         ),
     )
 
-class RegisterForms(forms.ModelForm):
+class RegisterForms(forms.Form):
+    email = forms.EmailField(
+        label='Email',
+        required=True,
+        max_length=100,
+        widget=forms.EmailInput(attrs={'type': 'email'}),
+    )
+    username = forms.CharField(
+        label='Username',
+        required=True,
+        max_length=30,
+        widget=forms.TextInput(attrs={'type': 'text'}),
+    )
     password = forms.CharField(
-        widget=forms.PasswordInput(
-            attrs={
-                'type': 'password',
-            }
-        )),
+        label='Senha',
+        required=True,
+        max_length=100,
+        widget=forms.PasswordInput(attrs={'type': 'password'}),
+    )
     password_confirm = forms.CharField(
-        widget=forms.PasswordInput(
-            attrs={
-                'type': 'password',
-            }
-        ))
+        label='Confirmar Senha',
+        required=True,
+        max_length=100,
+        widget=forms.PasswordInput(attrs={'type': 'password'}),
+    )
 
-    class Meta:
-        model = User
-        fields = ['username', 'email', 'password']
-        widgets = {
-            'username': forms.TextInput(),
-            'email': forms.TextInput(),
-            'password': forms.PasswordInput(),
-        }
 
     def clean_password_confirm(self):
         password = self.cleaned_data.get('password')
@@ -57,14 +61,6 @@ class RegisterForms(forms.ModelForm):
             raise forms.ValidationError('Senhas não são iguais')
 
         return password_confirm
-
-    def save(self, commit=True):
-        user = super().save(commit=False)
-        user.set_password(self.cleaned_data['password'])
-        user.is_staff = 1
-        if commit:
-            user.save()
-        return user
 
 class ProdutosForms(forms.ModelForm):
     class Meta:

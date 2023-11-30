@@ -1,5 +1,7 @@
 from django.contrib import messages
 from django.contrib import auth
+from django.http import HttpResponseForbidden
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render, get_object_or_404, redirect
@@ -7,6 +9,23 @@ from Website.forms import ProdutosForms, LoginForms, RegisterForms
 from .models import Barra_Pesquisa, Produtos_BD, Tipo_BD, Marca_BD, Tecido_BD, Tamanho_BD, GENERO
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
+from django.contrib.auth.decorators import user_passes_test
+
+# ------> VERIFICADORES
+def is_admin(user):
+    return user.is_staff
+
+def admin_required(view_func):
+    def _wrapped_view(request, *args, **kwargs):
+        if not request.user.is_staff:
+            return render(
+                request,
+                'error_page.html',
+                {'error_message': "Você não tem permissão para acessar esta página."}
+            )
+        return view_func(request, *args, **kwargs)
+
+    return _wrapped_view
 
 # -----> USER PAGE
 def index(request):
@@ -110,38 +129,47 @@ def catalogo(request):
 
 # -----> DASHBOARD ADMIN PAGE
 
-@login_required
+@admin_required
 def dashboard(request):
     user = User.objects.all()
     fotos_view = Produtos_BD.objects.all()
     return render(request, 'dashboard.html', {'user':user,'fotos': fotos_view})
 
-@login_required
+@admin_required
 def consulta_fotos(request):
     user = User.objects.all()
     fotos_view = Produtos_BD.objects.all()
     return render(request, 'dashboardConsulta_fotos.html', {'user':user, 'fotos': fotos_view})
 
-@login_required
+@admin_required
 def consulta_users(request):
     user = User.objects.all()
     fotos_view = Produtos_BD.objects.all()
     return render(request, 'dashboardConsulta_user.html', {'user':user, 'fotos': fotos_view})
 
-@login_required
+@admin_required
 def add_user(request):
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data['password'])
+        user.is_staff = 1
+        if commit:
+            user.save()
+        return user
+
     if request.method == 'POST':
         register_form = RegisterForms(request.POST)
         if register_form.is_valid():
             user = register_form.save(commit=False)
             user.save()
-            return redirect('add_user')
+            messages.success(request, 'Usuário foi adicionado com sucesso!')
+            return redirect('add_user')    
     else:
         register_form = RegisterForms()
 
     return render(request, 'dashboardAdd_user.html', {'register_form': register_form})
 
-@login_required
+@admin_required
 def add_fotos(request):
     if request.method == 'POST':
         foto_form = ProdutosForms(request.POST, request.FILES)
@@ -149,13 +177,35 @@ def add_fotos(request):
             foto = foto_form.save(commit=False)
             foto.autor = request.user
             foto.save()
-            return redirect('add_fotos')
+            messages.success(request, 'Produto foi adicionado com sucesso!')
+            return redirect('consulta_fotos')
     else:
         foto_form = ProdutosForms()
 
     return render(request, 'dashboardAdd_fotos.html', {'foto_form': foto_form})
 
 # -----> LOGIN LOGOUT AUTH
+def register_view(request):
+    if request.method == 'POST':
+        register_form = RegisterForms(request.POST)
+        if register_form.is_valid():
+            email = register_form.cleaned_data.get('email')
+            username = register_form.cleaned_data.get('username')
+            password = register_form.cleaned_data.get('password')
+            user = User.objects.create_user(username=username, email=email, password=password)
+
+            if user is not None:
+                user = authenticate(request, username=username, password=password)
+                login(request, user)
+                return redirect('index')
+            else:
+                messages.error(request, 'Erro ao efetuar login')
+                return redirect('index')
+    else:
+        register_form = RegisterForms()
+
+    return render(request, 'index.html', {'register_form': register_form})
+
 def login_view(request):
     user_form = LoginForms()
 
@@ -217,7 +267,7 @@ def update_fotos(request, id):
             
             if form.is_valid():
                 form.save()
-                messages.success(request, 'imagem foi alterada com sucesso!')
+                messages.success(request, 'Produto editado com sucesso!')
                 return redirect('listarFotos')
     except Exception as e:
         messages.error(request, e)
@@ -227,6 +277,7 @@ def update_fotos(request, id):
 def delete_fotos(request, id):
     fotos = Produtos_BD.objects.get(pk=id)
     fotos.delete()
+    messages.success(request, 'Produto deletado com sucesso!')
     return redirect('listarFotos')
 
 # ------> CRUD USERS
@@ -242,10 +293,12 @@ def update_user(request, id):
     user.username = request.POST['username']
     user.email = request.POST['email']
     user.save()
+    messages.success(request, 'Usuário editado com sucesso!')
     return redirect('consulta_users')
 
 @login_required
 def delete_user(request, id):
     user = User.objects.get(pk=id)
     user.delete()
+    messages.success(request, 'Usuário deletado com sucesso!')
     return redirect('consulta_users')
