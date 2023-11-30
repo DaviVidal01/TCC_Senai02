@@ -24,9 +24,9 @@ E como última ação de marketing e agilidade dos processos, a "High Fashion" l
 
 Este site foi cuidadosamente projetado e desenvolvido pela equipe dedicada da Polaris Softwares, uma empresa líder em soluções digitais. Se você também busca inovação e excelência para a sua presença online, confie na Polaris Softwares para transformar a sua visão em realidade.
 
-**Produzido por:** 
-[Polaris Softwares - Site](https://polarissoftwares.github.io/site/)
-[Polaris Softwares - Perfil do github](https://github.com/polarissoftwares)
+**Produzido por: Polaris Softwares** <br>
+**Contato:**
+[ Site ](https://polarissoftwares.github.io/site/)&nbsp;&nbsp;[ Perfil do github ](https://github.com/polarissoftwares)
 
 Descubra a fusão perfeita entre moda e tecnologia. Seja bem-vindo ao futuro da High Fashion.
 ## Build 
