@@ -1,24 +1,21 @@
-# ![Logo da Empresa High Fashion](https://github.com/DaviVidal01/TCC_Senai02/blob/aa7af38b01d61032e87cd6b29a8abc115d28d4c4/Django/TCC_Polaris/static/assets/img/highFashionWhite.png)
+#### ![Logo da Empresa High Fashion](https://github.com/DaviVidal01/TCC_Senai02/blob/aa7af38b01d61032e87cd6b29a8abc115d28d4c4/Django/TCC_Polaris/static/assets/img/highFashionWhite.png)
 
 ## High Fashion - Transformando Estilo em Experiência Online
 
-Bem-vindo ao futuro da moda digital, onde a elegância encontra a inovação. A High Fashion é mais do que uma marca, é uma experiência de estilo que transcende o comum. Fundada em 2005 por visionários apaixonados pela moda, a empresa rapidamente se tornou sinônimo de sofisticação e tendências avant-garde.
+Bem-vindo ao futuro da moda digital, onde a elegância encontra a inovação. A High Fashion é mais do que uma marca, é uma experiência de estilo que transcende o comum. Fundada em 1972 por visionários apaixonados pela moda, a empresa rapidamente se tornou sinônimo de sofisticação e tendências avant-garde.
 
-### A Jornada Estilística
+### Um pouco da Hitória:
+Estabelecida em São João Nepomuceno, 25/02/1972, a empresa " High Fashion Confecções ltda." foi fundada por Gianni Givenchy e Yves Dior atuando principalmente na moda adulta feminina utlizando-se dos conceitos
+de criar roupas práticas, confortáveis e que trouxessem consigo uma beleza cotidiana.
+Iniciando com poucas máquinas, mas com muitas ideias e critavidade, a empresa se destacou no mercado e consequentemente expandiu seu parque fabril agregando máquinas de última geração, automação de processos e 
+utilização de softwares de design, criação e densenvolvimento.
 
-Desde a sua criação, a High Fashion tem impulsionado a indústria da moda para novos patamares. Acreditamos que a moda não é apenas uma escolha de vestuário, mas uma forma de expressão individual. Nossa jornada estilística começou com uma coleção inovadora que desafiou as convenções, conquistando os corações dos amantes da moda em todo o mundo.
-
-Ao longo dos anos, a High Fashion expandiu suas linhas de produtos para abranger desde roupas até acessórios exclusivos, sempre mantendo o compromisso com a qualidade, a criatividade e a sustentabilidade. Nossa paixão pela moda ecoa em cada costura, e cada peça é uma narrativa única que celebra a diversidade e a beleza inerente a cada pessoa.
-
-### O Projeto do Site - Elevando a Experiência Digital
-
-Agora, damos mais um passo ousado em direção ao futuro da moda: o nosso novo site. Desenvolvido em parceria com a Polaris Softwares, líder em inovação digital, o site High Fashion oferece uma experiência online que reflete a exclusividade e a elegância que são marcas registradas da nossa marca.
+E como última ação de marketing e agilidade dos processos, a "High Fashion" lançou um site instituicional, que além de apresentar a empresa para o mundo, também trará aritgos e dicas de moda,um canal de contato contato direto e uma funcionalidade de controle e gerenciamento de fichas técnicas.
 
 **Recursos Principais:**
 - **Navegação Intuitiva:** Explore nossas coleções de forma fácil e envolvente.
 - **Lookbook Virtual:** Inspire-se com nossas sugestões de combinações e tendências.
 
-Nossa parceria com a Polaris Softwares não apenas aprimorou a estética do nosso site, mas também elevou a segurança e a eficiência da plataforma, garantindo uma experiência de compra online tranquila e segura.
 
 ### Transformando Visão em Realidade - Polaris Softwares
 
