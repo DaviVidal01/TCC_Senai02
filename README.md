@@ -1,4 +1,7 @@
-#### ![Logo da Empresa High Fashion](https://github.com/DaviVidal01/TCC_Senai02/blob/aa7af38b01d61032e87cd6b29a8abc115d28d4c4/Django/TCC_Polaris/static/assets/img/highFashionWhite.png)
+<p align="center">
+  <img src="https://github.com/DaviVidal01/TCC_Senai02/blob/aa7af38b01d61032e87cd6b29a8abc115d28d4c4/Django/TCC_Polaris/static/assets/img/highFashionWhite.png" alt="Logo da Empresa High Fashion">
+</p>
+
 
 ## High Fashion - Transformando Estilo em Experiência Online
 
@@ -24,6 +27,6 @@ Este site foi cuidadosamente projetado e desenvolvido pela equipe dedicada da Po
 **Produzido por:** [Polaris Softwares](https://polarissoftwares.github.io/site/)
 
 Descubra a fusão perfeita entre moda e tecnologia. Seja bem-vindo ao futuro da High Fashion.
-## Biuld
+## Build 
 ---          
 
