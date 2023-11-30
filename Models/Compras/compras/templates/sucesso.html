@@ -1,0 +1,13 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compra Realizada com Sucesso</title>
+</head>
+<body>
+    <h2>Compra Realizada com Sucesso!</h2>
+    <p>Obrigado por comprar o produto {{ produto.nome }}.</p>
+    <!-- Adicione qualquer informação adicional desejada -->
+    <a href="{% url 'listar_produtos' %}">Voltar para a lista de produtos</a>
+</body>
+</html>
