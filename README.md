@@ -48,6 +48,11 @@ Descubra a fusão perfeita entre moda e tecnologia. Seja bem-vindo ao futuro da 
 ```bash
 cd ./Django/TCC_Polaris
 ```
+- Extraia os requerimentos necessarios para a execução do projeto:
+
+```bash
+ pip install -r requeriments.txt
+```
 
 - Ligue o Xampp (MySQL):
   
