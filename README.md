@@ -1,4 +1,4 @@
-<p align="center">
+![image](https://github.com/DaviVidal01/TCC_Senai02/assets/65414548/7123ec36-b95b-45b1-a8ef-f8f59d94d826)<p align="center">
   <img src="https://github.com/DaviVidal01/TCC_Senai02/blob/aa7af38b01d61032e87cd6b29a8abc115d28d4c4/Django/TCC_Polaris/static/assets/img/highFashionWhite.png" alt="Logo da Empresa High Fashion">
 </p>
 
@@ -28,5 +28,51 @@ Este site foi cuidadosamente projetado e desenvolvido pela equipe dedicada da Po
 
 Descubra a fusão perfeita entre moda e tecnologia. Seja bem-vindo ao futuro da High Fashion.
 ## Build 
+
+**Passo a Passo:**
+
+- Você começará baixando o arquivo compactado do site:
+
+<img src="assets-README/1.png" >
+
+- Depois irá "Extrair arquivos" da pasta compactada:
+
+<img src="assets-README/2.png" >
+
+- Abra o VSCode na pasta "TCC_Senai02-main"
+
+<img src="assets-README/3.png" >
+
+- Abra o terminal e use o comando:
+
+```bash
+cd ./Django/TCC_Polaris
+```
+
+- Ligue o Xampp (MySQL):
+  
+<img src="assets-README/4.png" >
+  
+- Realize os comandos para poder receber a conecção com o Banco de Dados:
+  
+```bash
+python ./manage.py makemigrations
+```
+
+```bash
+python ./manage.py migrate
+```
+
+- Realize o comando para receber os arquivos staticos e concorde com "yes":
+
+```bash
+python ./manage.py collectstatic
+```
+
+- Depois de tudo estar em ordem, realize o comando para iniciar o servidor:
+
+```bash
+python ./manage.py runserver
+```
 ---          
 
