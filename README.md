@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/DaviVidal01/TCC_Senai02/blob/aa7af38b01d61032e87cd6b29a8abc115d28d4c4/Django/TCC_Polaris/static/assets/img/highFashionWhite.png" alt="Logo da Empresa High Fashion">
+  <img src="https://github.com/DaviVidal01/TCC_Senai02/blob/b21bd54c2bc5da96fec4a9b4f600b52cb8c58859/Django/TCC_Polaris/static/assets/img/highFashionWhite-comfundo.png" alt="Logo da Empresa High Fashion">
 </p>
 
 
