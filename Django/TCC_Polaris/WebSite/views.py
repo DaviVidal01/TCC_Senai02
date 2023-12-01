@@ -5,7 +5,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render, get_object_or_404, redirect
-from Website.forms import ProdutosForms, LoginForms, RegisterForms
+from Website.forms import ProdutosForms, LoginForms, RegisterForms, UserForms
 from .models import Barra_Pesquisa, Produtos_BD, Tipo_BD, Marca_BD, Tecido_BD, Tamanho_BD, GENERO
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
@@ -149,16 +149,8 @@ def consulta_users(request):
 
 @admin_required
 def add_user(request):
-    def save(self, commit=True):
-        user = super().save(commit=False)
-        user.set_password(self.cleaned_data['password'])
-        user.is_staff = 1
-        if commit:
-            user.save()
-        return user
-
     if request.method == 'POST':
-        register_form = RegisterForms(request.POST)
+        register_form = UserForms(request.POST)
         if register_form.is_valid():
             user = register_form.save(commit=False)
             user.save()
