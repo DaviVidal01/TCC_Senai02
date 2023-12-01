@@ -11,7 +11,8 @@ class Produto(models.Model):
 
 class Pedido(models.Model):
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
-    nome_cliente = models.CharField(max_length=100)
+    nome = models.CharField(max_length=100)
+    sobrenome = models.CharField(max_length=100)
     email_cliente = models.EmailField()
     endereco_entrega = models.TextField()
     quantidade = models.PositiveIntegerField(default=1)
