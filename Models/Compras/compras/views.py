@@ -69,3 +69,15 @@ def efetuar_compra(request, produto_id):
         form = CheckoutForm()
 
     return render(request, 'efetuar_compra.html', {'form': form, 'produto': produto})
+
+#   ATENÇÃO ESTA PARTE TEM A FUNÇÃO DE FAZER A QUANTIDADE DOS PRODUTOS E CRIAR O VALOR TOTAL E AINDA ESTÁ SOB FASE DE TESTE   #
+
+def detalhes_produto(request, produto_id):
+    produto = Produto.objects.get(pk=produto_id)
+    pedido = Pedido(produto=produto, quantidade=1)  # Defina outros campos conforme necessário
+
+    context = {
+        'produto': produto,
+        'pedido': pedido,
+    }
+    return render(request, 'efeutar_compra.html', context)

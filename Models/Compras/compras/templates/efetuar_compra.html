@@ -36,24 +36,24 @@
               </div>
               <span class="text-muted" id="valor">- R$ {{ produto.preco }}</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between bg-light">
+            <li class="list-group-item d-flex justify-content-between bg-light" data-produto-id="{{ produto.id }}">
                 <div class="text-success">
                   <small>Quantidade</small>
                   <h6 class="my-0">
-                    <input type="number" class="form-control quantidade-input" value="{{ form.quantidade }}" data-preco="{{ produto.preco }}">
+                    <input type="number" class="form-control quantidade-input" value="{{ pedido.quantidade }}" data-preco="{{ produto.preco }}">
                   </h6>
                 </div>
-                <span class="text-success">-$<span class="subtotal preco-atualizado">5</span></span>
+                <span class="text-muted preco-produto" id="valor">- R$ {{ produto.preco }}</span>
               </li>
             <li class="list-group-item d-flex justify-content-between">
               <span>Total</span>
-              <strong>R$ {{ produto.preco|floatformat:2 }}</strong>
+              <strong id="total">R$ {{ pedido.total }}</strong>
             </li>
           </ul>
 
           <form class="card p-2" action="{% url 'listar_produtos' %}">
               <div class="input-group-append">
-                <button type="submit" class="btn btn-secondary">Cancelar</button>
+                <button type="submit" class="btn btn-danger">Cancelar</button>
               </div>
           </form>
         </div>
@@ -66,14 +66,14 @@
                 <label for="firstName">{{ form.nome.label}}</label>
                 <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
                 <div class="invalid-feedback">
-                  Valid first name is required.
+                  Nome inválido.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="lastName">{{ form.sobrenome.label}}</label>
                 <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
                 <div class="invalid-feedback">
-                  Valid last name is required.
+                  Sobrenome inválido..
                 </div>
               </div>
             </div>
@@ -87,7 +87,7 @@
             </div>
 
             <div class="mb-3">
-              <label for="address">Endereço</label>
+              <label for="address">{{ form.endereco_entrega.label}}</label>
               <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
               <div class="invalid-feedback">
                 Please enter your shipping address.
@@ -103,7 +103,7 @@
                   <option>Usbequistão</option>
                 </select>
                 <div class="invalid-feedback">
-                  Please select a valid country.
+                  Selecione o páis de origem.
                 </div>
               </div>
               <div class="col-md-4 mb-3">
@@ -120,7 +120,7 @@
                 <label for="zip">CEP</label>
                 <input type="text" class="form-control" id="zip" placeholder="" required>
                 <div class="invalid-feedback">
-                  Zip code required.
+                  Insira o cep da região.
                 </div>
               </div>
             </div>
@@ -140,11 +140,11 @@
             <div class="d-block my-3">
               <div class="custom-control custom-radio">
                 <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                <label class="custom-control-label" for="credit">Credit card</label>
+                <label class="custom-control-label" for="credit">Cartão de crédito</label>
               </div>
               <div class="custom-control custom-radio">
                 <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="debit">Debit card</label>
+                <label class="custom-control-label" for="debit">Cartão de débito</label>
               </div>
               <div class="custom-control custom-radio">
                 <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
@@ -159,25 +159,21 @@
 
     </div>
     <script>
-        // JavaScript
-        document.addEventListener('DOMContentLoaded', function () {
-          // Função para calcular e atualizar o subtotal
-          function updateSubtotal() {
-            var quantidade = parseInt(document.getElementById('id_quantidade').value) || 0;
-            var precoProduto = parseFloat(document.getElementById('valor').textContent) || 0;
-            var subtotal = quantidade * precoProduto;
-      
-            // Atualizar o texto do subtotal
-            alert(subtotal);
-          }
-      
-          // Vincular a função ao evento de alteração no input de quantidade
-          document.getElementById('quantidade').addEventListener('input', updateSubtotal);
-      
-          // Chamar a função ao carregar a página para exibir o subtotal inicial
-          updateSubtotal();
-        });
-      </script>   
+      document.addEventListener('DOMContentLoaded', function () {
+          var quantidadeInput = document.querySelector('.quantidade-input');
+          var precoProduto = parseFloat("{{ produto.preco }}"); // Converta o preço para um número
+          var totalElement = document.getElementById('total');
+
+          quantidadeInput.addEventListener('input', function () {
+              var quantidade = parseInt(this.value);
+              var total = (quantidade * precoProduto).toFixed(2);
+
+              // Atualize o texto do elemento total
+              totalElement.textContent = 'R$ ' + total;
+          });
+      });
+  </script>
+
       
     <!-- Bootstrap core JavaScript
     ================================================== -->
