@@ -10,7 +10,7 @@ class ProdutoForm(forms.ModelForm):
 class CheckoutForm(forms.ModelForm):
     class Meta:
         model = Pedido
-        fields = ['nome_cliente', 'email_cliente', 'endereco_entrega', 'quantidade']
+        fields = ['nome', 'sobrenome', 'email_cliente', 'endereco_entrega', 'quantidade']
 
 
 # USER **

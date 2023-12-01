@@ -1,60 +1,116 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        <h1>TCC SENAI ( Polaris ) Album de Fotos 📚</h1>
-        <img src="assets-README/LogoPolaris.png" alt="Logo do Polaris">
-        <h2>● Sobre o Projeto 🗃️</h2>
-          <list>
-            <ul>
-              Este projeto foi concebido e desenvolvido de forma colaborativa por um grupo de cinco estudantes denominado 'Polaris'. Nosso trabalho resultou na construção de um site avaliativo de fotos, uma plataforma que visa proporcionar uma experiência única para os entusiastas da fotografia e os apaixonados por imagens.
-            </ul>
-            <ul>
-              - <strong>Comentários Moderados</strong>: Implementamos um sistema de comentários onde somente os moderadores que adicionaram as fotos podem visualizar e gerenciar os comentários. Isso permite um controle mais eficiente e personalizado das discussões em torno das imagens.
-            </ul>
-          </list>
-        <h2>● Contribuidores 👥</h2>
-        <table align="center" style="justify-content:center;">
-          <tr>
-            <td align="center"><a href="https://github.com/DaviVidal01"><img src="https://avatars.githubusercontent.com/u/118399810?v=4" width="100px;" alt="Davi Vidal"/><br /><sub><b>DaviVidal01</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=DaviVidal01">🎩<span><strong>Frontend e Backend</strong></span></a></td>
-            <td align="center"><a href="https://github.com/lferodrigues"><img src="https://avatars.githubusercontent.com/u/65414548?v=4" width="100px;" alt="Luis Felipe"/><br /><sub><b>lferodrigues</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=lferodrigues">🚀<span><strong>Documentação e BD</strong></span></a></td>
-            <td align="center"><a href="https://github.com/luquinha157"><img src="https://avatars.githubusercontent.com/u/131728136?v=4" width="100px;" alt="Lucas"/><br /><sub><b>luquinha157</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=luquinha157">💻<span><strong>Frontend e BD</strong></span></a></td>
-            <td align="center"><a href="https://github.com/GiselliR"><img src="https://avatars.githubusercontent.com/u/131727965?v=4" width="100px;" alt="Giselli"/><br /><sub><b>GiselliR</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=GiselliR">🎛️<span><strong>Backend e Designer</strong></span></a></td>
-            <td align="center"><a href="https://github.com/Lucianojr11"><img src="https://avatars.githubusercontent.com/u/131815938?v=4" width="100px;" alt="Luciano"/><br /><sub><b>Lucianojr11</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=Lucianojr11">🎛️<span><strong>Backend</strong></span></a></td>
-            <td align="center"><a href="https://github.com/NathaliaFT"><img src="https://avatars.githubusercontent.com/u/131728233?v=4" width="100px;" alt="Nathali"/><br /><sub><b>NathaliaFT</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=NathaliaFT">💻<span><strong>Frontend</strong></span></a></td>
-            <td align="center"><a href="https://github.com/Luisrenatou"><img src="https://avatars.githubusercontent.com/u/30247421?v=4" width="100px;" alt="Nathali"/><br /><sub><b>Luisrenatou</b></sub></a><br/><a href="https://github.com/DaviVidal01/TCC_Senai/commits?author=Luisrenatou">🎨<span><strong>Designer</strong></span></a></td>
-          </tr>
-        </table>
-        <h2>● Programas 📚</h2>
-        <table>
-          <tr>
-            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" width="50px" alt="HTML5"/><br/><strong>HTML5</strong></td>
-            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" width="50px" alt="CSS3"/><br/><strong>CSS3</strong></td>
-            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="50px" alt="Python"/><br/><strong>Python</strong></td>
-          </tr>
-        </table>
-        <h2>● Frameworks 🤖</h2>
-        <table>
-          <tr>
-            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" width="50px" alt="BootstrapV5.3"/><br/><strong>Bootstrap<sub>V5.3</sub></strong></td>
-            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" width="50px" alt="Django"/><br/><strong>Django</strong></td>
-          </tr>
-        </table>
-        <h2>● Banco de Dados 🗃️</h2>
-        <table>
-          <tr>
-            <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" width="100px" alt="MySql"/><br/><strong>MySQL</strong></td>
-          </tr>
-        </table>
-        <h2>● Imagens do Projeto 📖</h2>
-        <div style="justify-content:center;" align="center">
-            <img src="" alt="Imagem1" width="500px">
-            <br>
-            <img src="" alt="Imagem2" width="500px">
-<br>
-            <img src="" alt="Imagem3" width="500px">
-        </div>
-    </body>
-</html>
+<p align="center">
+  <img src="https://github.com/DaviVidal01/TCC_Senai02/blob/b21bd54c2bc5da96fec4a9b4f600b52cb8c58859/Django/TCC_Polaris/static/assets/img/highFashionWhite-comfundo.png" alt="Logo da Empresa High Fashion" width="300" height="294" >
+</p>
+
+
+## High Fashion - Transformando Estilo em Experiência Online
+
+Bem-vindo ao futuro da moda digital, onde a elegância encontra a inovação. A High Fashion é mais do que uma marca, é uma experiência de estilo que transcende o comum. Fundada em 1972 por visionários apaixonados pela moda, a empresa rapidamente se tornou sinônimo de sofisticação e tendências avant-garde.
+
+### 📖 Um pouco da história:
+Estabelecida em São João Nepomuceno, 25/02/1972, a empresa " High Fashion Confecções ltda." foi fundada por Gianni Givenchy e Yves Dior atuando principalmente na moda adulta feminina utlizando-se dos conceitos
+de criar roupas práticas, confortáveis e que trouxessem consigo uma beleza cotidiana.
+Iniciando com poucas máquinas, mas com muitas ideias e critavidade, a empresa se destacou no mercado e consequentemente expandiu seu parque fabril agregando máquinas de última geração, automação de processos e 
+utilização de softwares de design, criação e densenvolvimento.
+
+E como última ação de marketing e agilidade dos processos, a "High Fashion" lançou um site instituicional, que além de apresentar a empresa para o mundo, também trará aritgos e dicas de moda,um canal de contato contato direto e uma funcionalidade de controle e gerenciamento de fichas técnicas.
+
+🗃️ - **Recursos Principais:**
+- **Navegação Intuitiva:** Explore nossas coleções de forma fácil e envolvente.
+- **Lookbook Virtual:** Inspire-se com nossas sugestões de combinações e tendências.
+
+
+### 👀 Transformando Visão em Realidade - Polaris Softwares
+
+Este site foi cuidadosamente projetado e desenvolvido pela equipe dedicada da Polaris Softwares, uma empresa líder em soluções digitais. Se você também busca inovação e excelência para a sua presença online, confie na Polaris Softwares para transformar a sua visão em realidade.
+
+**Produzido por: Polaris Softwares** <br>
+**Saiba mais:**
+[ Site ](https://polarissoftwares.github.io/site/)&nbsp;&nbsp;[ Perfil do github ](https://github.com/polarissoftwares)
+
+Descubra a fusão perfeita entre moda e tecnologia. Seja bem-vindo ao futuro da High Fashion.
+## 📚 Build 
+
+> ⚠️ **Requisitos:** *Python v3.12.0*, *Django v4.2.6*, *XAMPP v3.3.0*, *MySQL*, *Pip 23.3.1*
+
+🏃 - **Passo a Passo:**
+
+- Você começará baixando o arquivo compactado do site:
+
+<img src="assets-README/1.png" >
+
+- Depois irá "Extrair arquivos" da pasta compactada:
+
+<img src="assets-README/2.png" >
+
+- Abra o VSCode na pasta "TCC_Senai02-main"
+
+<img src="assets-README/3.png" >
+
+- Abra o terminal e use o comando:
+
+<img src="assets-README/5.png" >
+
+```bash
+cd ./Django/TCC_Polaris
+```
+
+- 🔔 Certifique-se de que o Python e Pip estejam instalados no seu sistema. Você pode verificar isso executando o seguinte comando no seu terminal ou prompt de comando:
+
+```bash
+python --version
+```
+
+```bash
+pip --version
+```
+
+> Caso contrário, você pode baixa-los em seus sites e seguirem as instruções de instalação em [Python](https://www.python.org/downloads/) e [Pip](https://pip.pypa.io/en/stable/installation/)
+>> Pip (Python Package Installer) geralmente é incluído na instalação do Python mais recente.
+
+- Extraia os requerimentos necessarios para a execução do projeto:
+
+```bash
+ pip install -r requeriments.txt
+```
+
+- Ligue o Xampp (MySQL):
+  
+<img src="assets-README/4.png" >
+
+- Agora vá dentro do projeto do diretório chamado "TCC_Polaris" e procure pelo diretório "setup":
+
+  <img src="assets-README/6.png" >
+
+- Depois você selecionará o arquivo "settings.py" e na seção de DATABASE, você irá colocar as configurações do seu servidor MySQL:
+
+ <img src="assets-README/7.png" >
+
+ - Após configurar o seu banco, você irá criar o seu banco com o mesmo nome que foi definido nas configurações da forma que preferirem. (Estamos usando [MySQL WorkBench](https://www.mysql.com/products/workbench/)):
+
+ <img src="assets-README/8.png" >
+ <img src="assets-README/9.png" >
+  
+- Agora realize os comandos no terminal para poder receber a conexão com o Banco de Dados:
+  
+```bash
+python ./manage.py makemigrations
+```
+
+```bash
+python ./manage.py migrate
+```
+
+- Realize o comando para receber os arquivos staticos e concorde com "yes":
+
+```bash
+python ./manage.py collectstatic
+```
+
+- Depois de tudo estar em ordem, realize o comando para iniciar o servidor:
+
+```bash
+python ./manage.py runserver
+```
+---          
+

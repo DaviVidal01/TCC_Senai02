@@ -45,9 +45,10 @@ https://templatemo.com/tm-556-catalog-z
         </div>
     </nav>
 
+    <!--BARRA DE PESQUISA-->
     <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{% static 'assets/img/hero.jpg' %}">
         <form class="d-flex tm-search-form">
-            <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
+            <input id="search" class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success tm-search-btn" type="submit">
                 <i class="fas fa-search"></i>
             </button>
@@ -55,21 +56,27 @@ https://templatemo.com/tm-556-catalog-z
     </div>
 
     <div class="container-fluid tm-container-content tm-mt-60">
+        {% for produto in produtos %}
         <div class="row mb-4">
-            <h2 class="col-12 tm-text-primary">Photo title goes here</h2>
+            <h2 class="col-12 tm-text-primary">{{ produto.nome }}</h2>
         </div>
+        {% endfor %}
         <div class="row tm-mb-90">            
             <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12">
                 <img src="{% static 'assets/img/img-01-big.jpg' %}" alt="Image" class="img-fluid">
             </div>
             <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
+                {% for produto in produtos %}
                 <div class="tm-bg-gray tm-video-details">
                     <p class="mb-4">
                         Please support us by making <a href="https://paypal.me/templatemo" target="_parent" rel="sponsored">a PayPal donation</a>. Nam ex nibh, efficitur eget libero ut, placerat aliquet justo. Cras nec varius leo.
                     </p>
+                    <form method="post" action="{% url 'efetuar_compra' produto.id %}" style="display:inline;">
+                        {% csrf_token %}
                     <div class="text-center mb-5">
-                        <a href="#" class="btn btn-primary tm-btn-big">Download</a>
-                    </div>                    
+                        <button type="submit" class="btn btn-primary tm-btn-big">Comprar</button>
+                    </div>  
+                    </form>               
                     <div class="mb-4 d-flex flex-wrap">
                         <div class="mr-4 mb-2">
                             <span class="tm-text-gray-dark">Dimension: </span><span class="tm-text-primary">1920x1080</span>
@@ -93,6 +100,7 @@ https://templatemo.com/tm-556-catalog-z
                         <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Real Estate</a>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
         <div class="row mb-4">

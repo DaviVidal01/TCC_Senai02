@@ -15,6 +15,11 @@
 							<div style="flex: 1 1 auto; padding: 1rem 1rem;">
 								<h5 style="margin-bottom: 0.5rem;">{{ users.username }}</h5>
 								<p style="margin-top: 0;margin-bottom: 1rem;">Autor: {{ users.email }}</p>
+								{% if users.is_staff == 1 %}
+								<p style="margin-top: 0;margin-bottom: 1rem;">Funcionário: <strong style="color:green">Sim</strong></p>
+								{% else %}
+									<p style="margin-top: 0;margin-bottom: 1rem;">Funcionário: <strong style="color:red">Não</strong></p>
+								{% endif %}
 								<hr>
 								<div style="text-decoration: none;">
 								 	<a href="{% url 'edit_user' users.id %}">

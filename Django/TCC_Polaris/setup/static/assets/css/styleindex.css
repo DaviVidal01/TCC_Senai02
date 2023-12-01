@@ -251,10 +251,6 @@ footer {
     border-top-right-radius: 8px;
   }
 
-  .card-body {
-    text-align: center;
-  }
-
   .btn-ver-mais {
     background-color: #947F57;
     color: #FFFFF5;
@@ -472,7 +468,12 @@ h2 {
 .winter {
     background-color: #793d11; 
 }
-
+.elegant-hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #ccc, rgba(0, 0, 0, 0));
+    margin: 20px 0;
+}
 .winter h2, .winter p {
     color: #fff;
 }

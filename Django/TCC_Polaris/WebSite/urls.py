@@ -18,6 +18,7 @@ urlpatterns = [
     path('consulta_users/', views.consulta_users, name='consulta_users'),
     # -----> LOGIN AUTH
     path('login', views.login_view, name="login"),
+    path('register', views.register_view, name="register"),
     path('logout', views.logout_view, name="logout"),
     # -----> CRUD FOTOS
     path('listarFotos', views.listarFotos, name="listarFotos"),

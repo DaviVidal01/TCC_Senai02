@@ -7,15 +7,13 @@
 <body>
     <h2>Lista de Produtos</h2>
     <ul>
+        <li>
+            <p>Quantidade de produtos: {{ quantidade_produtos }}</p>
+            <!-- Adicione mais campos conforme necessário -->
+        </li>
         {% for produto in produtos %}
-            <li>{{ produto.nome }} - R$ {{ produto.preco }}</li>
-            <a href="{% url 'delete_produto' produto.id%}">Excluir</a>
-        {% endfor %}
-    </ul>
-    <ul>
-        {% for produto in produtos %}
-            <li>
-                {{ produto.nome }} - R$ {{ produto.preco }}
+            <li>{{ produto.nome }} - R$ {{ produto.preco }}
+                <a href="{% url 'delete_produto' produto.id %}">Excluir</a>
                 <form method="post" action="{% url 'efetuar_compra' produto.id %}" style="display:inline;">
                     {% csrf_token %}
                     <button type="submit">Comprar</button>
@@ -23,6 +21,15 @@
             </li>
         {% endfor %}
     </ul>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
     <a href="{% url 'adicionar_produto' %}">Adicionar Produto</a>
 </body>
 </html>

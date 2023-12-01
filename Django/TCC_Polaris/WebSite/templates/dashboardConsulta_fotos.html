@@ -10,28 +10,27 @@
             <h2>Produtos</h2>
             <div style="--bs-gutter-x: 1.5rem;--bs-gutter-y: 0;display: flex;flex-wrap: wrap;margin-top: calc(var(--bs-gutter-y) * -1);margin-right: calc(var(--bs-gutter-x)/ -2);margin-left: calc(var(--bs-gutter-x)/ -2);">
 				{% for foto in fotos %}
-					<div style="flex-shrink: 0;width: 30%;max-width: 100%;padding-right: calc(var(--bs-gutter-x)/ 2);padding-left: calc(var(--bs-gutter-x)/ 2);margin-top: var(--bs-gutter-y);">
-						<div style="position: relative;display: flex;flex-direction: column;min-width: 0;word-wrap: break-word;background-color: #fff;background-clip: border-box;border: 1px solid rgba(0,0,0,.125);border-radius: 0.25rem;margin-bottom: 1.5rem!important;">
-							<img src="{{ foto.foto.url }}" style="width: 100%;border-top-left-radius: calc(0.25rem - 1px);border-top-right-radius: calc(0.25rem - 1px);" alt="{{ foto.titulo }}">
-							<div style="flex: 1 1 auto; padding: 1rem 1rem;">
-								<h5 style="margin-bottom: 0.5rem;">{{ foto.titulo }}</h5>
-								<p style="margin-top: 0;margin-bottom: 1rem;">Preco: <strong style="color: green;">R${{ foto.preco }}</strong></p>
-								<p style="margin-top: 0;margin-bottom: 1rem;">Descrição: {{ foto.descricao }}</p>
-								<p style="margin-top: 0;margin-bottom: 1rem;">Gênero: {{ foto.genero }}</p>
-								<p style="margin-top: 0;margin-bottom: 1rem;">Tamanho: {{ foto.tamanho }}</p>
-								<p style="margin-top: 0;margin-bottom: 1rem;">Tecido: {{ foto.tecido }}</p>
-								<p style="margin-top: 0;margin-bottom: 1rem;">Marca: {{ foto.marca }}</p>
-								<p style="margin-top: 0;margin-bottom: 1rem;">Autor: {{ foto.autor.username }}</p>
-								<p style="margin-top: 0;margin-bottom: 1rem;">Publicação: {{ foto.data_foto }}</p>
-								<hr>
-								<div style="text-decoration: none;">
-								 	<a href="{% url 'edit_fotos' foto.id %}">
-										<svg xmlns="http://www.w3.org/2000/svg" style="background-color: orange; border-radius:5px;" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-									</a>
-									<a href="{% url 'delete_fotos' foto.id %}">
-										<svg xmlns="http://www.w3.org/2000/svg" style="background-color: red; border-radius:5px;" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
-									</a>
-								</div>
+				<div style="flex-shrink: 0; width: 30%; max-width: 100%; padding-right: calc(var(--bs-gutter-x)/2); padding-left: calc(var(--bs-gutter-x)/2); margin-top: var(--bs-gutter-y);">
+					<div style="position: relative; display: flex; flex-direction: column; min-width: 0; word-wrap: break-word; background-color: #fff; background-clip: border-box; border: 1px solid #ddd; border-radius: 8px; transition: box-shadow 0.3s, transform 0.3s;">
+						<img src="{{ foto.foto.url }}" style="width: 100%; height: auto; border-top-left-radius: calc(0.25rem - 1px); border-top-right-radius: calc(0.25rem - 1px);" alt="{{ foto.titulo }}">
+						<div style="flex: 1 1 auto; padding: 1rem 1rem;">
+							<h5 style="margin-bottom: 0.5rem; margin-block-start: 1.67em; margin-block-end: 1.67em; margin-inline-start: 0px; margin-inline-end: 0px; display: block;">{{ foto.titulo }}</h5>
+							<p style="margin-top: 0; margin-bottom: 1rem;">Preco: <strong style="color: green;">R${{ foto.preco }}</strong></p>
+							<p style="margin-top: 0;margin-bottom: 1rem;">Descrição: {{ foto.descricao }}</p>
+							<p style="margin-top: 0;margin-bottom: 1rem;">Gênero: {{ foto.genero }}</p>
+							<p style="margin-top: 0;margin-bottom: 1rem;">Tamanho: {{ foto.tamanho }}</p>
+							<p style="margin-top: 0;margin-bottom: 1rem;">Tecido: {{ foto.tecido }}</p>
+							<p style="margin-top: 0;margin-bottom: 1rem;">Marca: {{ foto.marca }}</p>
+							<p style="margin-top: 0;margin-bottom: 1rem;">Autor: {{ foto.autor.username }}</p>
+							<p style="margin-top: 0;margin-bottom: 1rem;">Publicação: {{ foto.data_foto }}</p>
+							<hr>
+							<div style="text-decoration: none;">
+							 	<a href="{% url 'edit_fotos' foto.id %}">
+									<svg xmlns="http://www.w3.org/2000/svg" style="background-color: orange; border-radius:5px;" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+								</a>
+								<a href="{% url 'delete_fotos' foto.id %}">
+									<svg xmlns="http://www.w3.org/2000/svg" style="background-color: red; border-radius:5px;" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+								</a>
 							</div>
 						</div>
 					</div>
