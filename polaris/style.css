@@ -4,13 +4,20 @@
     box-sizing: border-box;
     font-family: '', sans-serif;
 }
-h2 {
+h1 {
     font-family: serif;
     color: #3D3D3D;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+h2 {
+    font-family: serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
 
 /*nav*/
 .navbar-nav .nav-link {
@@ -60,48 +67,71 @@ h2 {
     cursor: pointer;
     z-index: 1;
 }
+
+
+
+
+
+
 .modal-body .input-box {
     position: relative;
     width: 100%;
-    height: 50px;
-    border-bottom: 2px solid #FFFFF5;
-    margin: 30px 0;
-}
-.modal-body .input-box label {
+    margin-bottom: 30px;
+  }
+
+  .modal-body .input-box input {
+    width: 100%;
+    height: 40px;
+    padding: 20px;
+    font-size: 1em;
+    border: none;
+    border-bottom: 2px solid #fffff5;
+    background: transparent;
+    color: #fffff5;
+    outline: none;
+  }
+
+  .modal-body .input-box input:focus,
+  .modal-body .input-box input:valid {
+    border-bottom: 2px solid #fffff5;
+  }
+
+  .modal-body .input-box label {
     position: absolute;
     top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
+    left: 10px;
+    transform: translateY(-165%);
     font-size: 1em;
-    color: #FFFFF5;
-    font-weight: 500;
+    color: #fffff5;
     pointer-events: none;
-}
+    transition: 0.3s;
+  }
 
-.input-box input:focus~label,
-.input-box input:valid~label{
-    top: -5px;
-}
+  .modal-body .input-box input:focus~label,
+  .modal-body .input-box input:valid~label {
+    top: 0px;
+    font-size: 0.8em;
+    color: #fffff5;
+  }
 
-.modal-body .input-box input{
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 1em;
-    color: #FFFFF5;
-    font-weight: 600;
-    padding: 0 35px 0 5px;
-}
-
-.modal-body .input-box .icon{
+  .modal-body .input-box .icon {
     position: absolute;
-    right: 20px;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     font-size: 1.2em;
-    color: #FFFFF5;
-    line-height: 57px;
+    color: #fffff5;
 }
+
+
+
+
+
+
+
+
+
+
 .modal-body .remember-forgot{
     font-size: .9em;
     color: #B9C2C4;
@@ -307,9 +337,7 @@ footer {
     background-color: #947F57;
 }
 
-/* #947F57
-#B9C2C4
-#3D3D3D */
+
 /*modal card*/
 .modal-content{
     padding-top: 10%;
@@ -339,71 +367,42 @@ footer {
     cursor: pointer;
     z-index: 1;
 }
-.btn-ir-catalogo {
-    background-color: #947F57;
-    color: #FFFFF5;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    font-size: 1rem;
-    margin-left: 85%;
-    cursor: pointer;
-  }
 
-  .btn-ir-catalogo:hover {
-    justify-content: center;
-    background-color: #B9C2C4;
- }
 
 /*dicas*/
-
 header {
     background-color:  #B9C2C4;
     color: #fff;
     text-align: center;
     padding: 1em 0;
 }
-.h2 {
-    font-family: serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
 }
 
-.tip {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #B9C2C4;
-   
-}
-
-
-.dropdown .dropdown-menu {
-    position: relative;
-    background: transparent;
-    border: 0px solid #AFB6BA;
-    border-radius: 0px;
-    justify-content: center;
-    align-items: center;
-}
-
-h2 {
-    font-family: serif;
-    color: #3D3D3D;
+.card:hover {
+    transform: scale(1.05);
 }
 
 .spring {
     background-color: #a1d4a5; 
+    padding: 3%;
 }
 
 .spring h2, .spring p {
     color: #154734; 
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 .spring p {
     font-weight: bold;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 .spring::before {
@@ -411,7 +410,6 @@ h2 {
     font-size: 2em;
     display: block;
     text-align: center;
-    margin-bottom: 10px;
     color: #154734;
 }
 
@@ -419,20 +417,24 @@ h2 {
     font-size: 2em;
     display: block;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 15px;
     color: #a1d4a5; 
 }
 
 .summer {
     background-color: #b3e0ff;
+    padding: 3%;
 }
 
 .summer h2, .summer p {
     color: #1f497d;
+    
 }
 
 .summer p {
     font-weight: bold;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .summer::before {
@@ -440,7 +442,6 @@ h2 {
     font-size: 2em;
     display: block;
     text-align: center;
-    margin-bottom: 10px;
     color: #1f497d;
 }
 
@@ -454,10 +455,13 @@ h2 {
 
 .autumn {
     background-color: #800020;
+    padding: 3%;
 }
 
 .autumn h2, .autumn p {
     color: #fff;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .autumn::before {
@@ -465,16 +469,18 @@ h2 {
     font-size: 2em;
     display: block;
     text-align: center;
-    margin-bottom: 10px;
     color: #800020;
 }
 
 .winter {
     background-color: #793d11; 
+    padding: 3%;
 }
 
 .winter h2, .winter p {
     color: #fff;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .winter::before {
@@ -482,8 +488,253 @@ h2 {
     font-size: 2em;
     display: block;
     text-align: center;
-    margin-bottom: 10px;
     color: #8b4513;
 }
 
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    background-color: #f0f0f0; /* Cor de fundo para os cards */
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.section-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+
+
+/* #947F57
+#B9C2C4
+#3D3D3D */
+
+.contraste-estampas {
+    background-color: #B9C2C4; 
+    padding: 9%;
+    min-height: 200px;
+    flex-grow: 1; 
+}
+
+.contraste-estampas p {
+    color: #3D3D3D; 
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.contraste-estampas p {
+    font-weight: bold;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.contraste-estampas::before {
+    font-size: 2em;
+    display: block;
+    text-align: center;
+    color: #B9C2C4;
+}
+
+.contraste-estampas::after {
+    font-size: 2em;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #B9C2C4; 
+}
+
+
+.contraste-estampas h2 {
+    padding: 3px;
+}
+
+.contraste-estampas{
+    flex-grow: 1; 
+}
+
+.cores {
+    background-color: #B9C2C4; 
+    padding: 9%;
+    min-height: 200px;
+    flex-grow: 1; 
+}
+
+.cores  h2, .cores  p {
+    color: #3D3D3D; 
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.cores  p {
+    font-weight: bold;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.cores ::before {
+    font-size: 2em;
+    display: block;
+    text-align: center;
+    color: #3D3D3D;
+}
+
+.cores ::after {
+    font-size: 2em;
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #B9C2C4; 
+}
+
+.cores h2 {
+    padding: 3px;
+}
+
+
+
+.complementar {
+    background-color: #B9C2C4; 
+    padding: 9%;
+    min-height: 200px;
+    flex-grow: 1; 
+}
+
+.complementar  p {
+    color: #3D3D3D; 
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.complementar p {
+    font-weight: bold;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.complementar ::before {
+    font-size: 2em;
+    display: block;
+    text-align: center;
+    color: #3D3D3D;
+}
+
+.complementar ::after {
+    font-size: 2em;
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #B9C2C4; 
+}
+
+.complementar h2 {
+    padding: 3px;
+}
+
+.complementar{
+    flex-grow: 1; 
+}
+
+.neutra {
+    background-color: #B9C2C4;
+    padding: 9%;
+    min-height: 200px;
+    flex-grow: 1; 
+}
+
+.neutra p {
+    font-weight: bold;
+    color: #3D3D3D;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.neutra::before {
+    font-size: 2em;
+    display: block;
+    text-align: center;
+    color: #B9C2C4;
+}
+
+
+.neutra h2 {
+    padding: 3px;
+}
+
+
+
+.destaque {
+    background-color: #B9C2C4; 
+    padding: 9%;
+    min-height: 200px;
+    flex-grow: 1; 
+}
+
+.destaque p {
+    font-weight: bold;
+    color: #3D3D3D;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.destaque::before {
+    font-size: 2em;
+    display: block;
+    text-align: center;
+    color: #B9C2C4;
+}
+
+.destaque h2 {
+    padding: 3px;
+}
+
+
+
+
+.acessorio {
+    background-color: #B9C2C4; 
+    padding: 9%;
+    min-height: 200px;
+    flex-grow: 1; 
+}
+
+.acessorio p {
+    font-weight: bold;
+    color: #3D3D3D;
+    margin-left: 2%;
+    margin-right: 2%;
+    
+}
+
+.acessorio::before {
+    font-size: 2em;
+    display: block;
+    text-align: center;
+    color: #B9C2C4;
+}
+
+.acessorio h2 {
+    padding: 3px;
+}
 

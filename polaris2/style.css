@@ -534,6 +534,8 @@ header {
 .contraste-estampas {
     background-color: #B9C2C4; 
     padding: 9%;
+    min-height: 200px;
+    flex-grow: 1; 
 }
 
 .contraste-estampas p {
@@ -564,9 +566,19 @@ header {
 }
 
 
+.contraste-estampas h2 {
+    padding: 3px;
+}
+
+.contraste-estampas{
+    flex-grow: 1; 
+}
+
 .cores {
     background-color: #B9C2C4; 
     padding: 9%;
+    min-height: 200px;
+    flex-grow: 1; 
 }
 
 .cores  h2, .cores  p {
@@ -596,9 +608,17 @@ header {
     color: #B9C2C4; 
 }
 
+.cores h2 {
+    padding: 3px;
+}
+
+
+
 .complementar {
     background-color: #B9C2C4; 
     padding: 9%;
+    min-height: 200px;
+    flex-grow: 1; 
 }
 
 .complementar  p {
@@ -628,9 +648,19 @@ header {
     color: #B9C2C4; 
 }
 
+.complementar h2 {
+    padding: 3px;
+}
+
+.complementar{
+    flex-grow: 1; 
+}
+
 .neutra {
     background-color: #B9C2C4;
     padding: 9%;
+    min-height: 200px;
+    flex-grow: 1; 
 }
 
 .neutra p {
@@ -647,9 +677,18 @@ header {
     color: #B9C2C4;
 }
 
+
+.neutra h2 {
+    padding: 3px;
+}
+
+
+
 .destaque {
     background-color: #B9C2C4; 
     padding: 9%;
+    min-height: 200px;
+    flex-grow: 1; 
 }
 
 .destaque p {
@@ -666,12 +705,18 @@ header {
     color: #B9C2C4;
 }
 
+.destaque h2 {
+    padding: 3px;
+}
 
 
 
-.acessorio{
+
+.acessorio {
     background-color: #B9C2C4; 
     padding: 9%;
+    min-height: 200px;
+    flex-grow: 1; 
 }
 
 .acessorio p {
@@ -679,6 +724,7 @@ header {
     color: #3D3D3D;
     margin-left: 2%;
     margin-right: 2%;
+    
 }
 
 .acessorio::before {
@@ -688,14 +734,7 @@ header {
     color: #B9C2C4;
 }
 
-
-
-
-
-
-
-
-
-
-
+.acessorio h2 {
+    padding: 3px;
+}
 
