@@ -3,6 +3,7 @@ from django.conf import settings
 from .models import Produto, Pedido
 from .forms import ProdutoForm, CheckoutForm
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.paginator import Paginator, EmptyPage
 
 # Create your views here.
 def compras(request):
@@ -32,6 +33,27 @@ def listar_produtos(request):
  # Se nenhum ID foi fornecido, lista todos os produtos
         produtos = Produto.objects.all()
         return render(request, 'listar_produtos.html', {'produtos': produtos, 'quantidade_produtos': Produto.objects.count()})
+
+def listar_produtos(request):
+    produtos = Produto.objects.all()
+
+    # Número de itens por página
+    items_por_pagina = 5  # Altere conforme necessário
+
+    # Obtém o número da página a partir dos parâmetros da solicitação
+    page = request.GET.get('page', 1)
+
+    # Cria um objeto Paginator
+    paginator = Paginator(produtos, items_por_pagina)
+
+    try:
+        produtos_paginados = paginator.page(page)
+    except EmptyPage:
+        # Se a página solicitada estiver fora do intervalo, exibe a última página disponível
+        produtos_paginados = paginator.page(paginator.num_pages)
+
+    return render(request, 'compras.html', {'produtos': produtos_paginados, 'quantidade_produtos': Produto.objects.count()})
+
 
 def adicionar_produto(request):
     if request.method == 'POST':
@@ -67,7 +89,8 @@ def efetuar_compra(request, produto_id):
             return redirect('listar_produtos')
     else:
         form = CheckoutForm()
-
+        
+    context = {'form': form, 'produto': produto}
     return render(request, 'efetuar_compra.html', {'form': form, 'produto': produto})
 
 #   ATENÇÃO ESTA PARTE TEM A FUNÇÃO DE FAZER A QUANTIDADE DOS PRODUTOS E CRIAR O VALOR TOTAL E AINDA ESTÁ SOB FASE DE TESTE   #
@@ -80,4 +103,4 @@ def detalhes_produto(request, produto_id):
         'produto': produto,
         'pedido': pedido,
     }
-    return render(request, 'efeutar_compra.html', context)
+    return render(request, 'efetuar_compra.html', context)

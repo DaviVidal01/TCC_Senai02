@@ -8,12 +8,9 @@
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/fontawesome/css/all.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/templatemo-style.css' %}">
-<!--
-    
+<!-- 
 TemplateMo 556 Catalog-Z
-
 https://templatemo.com/tm-556-catalog-z
-
 -->
 </head>
 <body>
@@ -32,9 +29,6 @@ https://templatemo.com/tm-556-catalog-z
                     <a class="nav-link nav-link-1 active" aria-current="page" href="index.html">Photos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-link-2" href="videos.html">Videos</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link nav-link-3" href="about.html">About</a>
                 </li>
                 <li class="nav-item">
@@ -44,7 +38,6 @@ https://templatemo.com/tm-556-catalog-z
             </div>
         </div>
     </nav>
-
     <!--BARRA DE PESQUISA-->
     <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{% static 'assets/img/hero.jpg' %}">
         <form class="d-flex tm-search-form">
@@ -53,57 +46,74 @@ https://templatemo.com/tm-556-catalog-z
                 <i class="fas fa-search"></i>
             </button>
         </form>
-    </div>
+    </div>          
 
     <div class="container-fluid tm-container-content tm-mt-60">
         {% for produto in produtos %}
-        <div class="row mb-4">
-            <h2 class="col-12 tm-text-primary">{{ produto.nome }}</h2>
-        </div>
-
-        <div class="row tm-mb-90">            
-            <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12">
-                <img src="{% static 'assets/img/img-01-big.jpg' %}" alt="Image" class="img-fluid">
+        <div class="container-fluid tm-mt-60">
+            <div class="row mb-4">
+                <h2 class="col-12 tm-text-primary">{{ produto.nome }}</h2>
             </div>
-            <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
-
-                <div class="tm-bg-gray tm-video-details">
-                    <p class="mb-4">
-                        {{ produto.descricao }}
-                    </p>
-                    <form method="post" action="{% url 'efetuar_compra' produto.id %}" style="display:inline;">
-                        {% csrf_token %}
-                    <div class="text-center mb-5">
-                        <button type="submit" class="btn btn-primary tm-btn-big">Comprar</button>
-                    </div>  
-                    </form>               
-                    <div class="mb-4 d-flex flex-wrap">
-                        <div class="mr-4 mb-2">
-                            <span class="tm-text-gray-dark">Dimension: </span><span class="tm-text-primary">1920x1080</span>
+            <div class="row tm-mb-90">            
+                <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12">
+                    <img src="{% static 'assets/img/img-01-big.jpg' %}" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
+                    <div class="tm-bg-gray tm-video-details">
+                        <p class="mb-4">
+                            {{ produto.descricao }}
+                        </p>
+                        <form method="post" action="{% url 'efetuar_compra' produto.id %}" style="display:inline;">
+                            {% csrf_token %}
+                            <div class="text-center mb-5">
+                                <button type="submit" class="btn btn-primary tm-btn-big">Comprar</button>
+                            </div>  
+                        </form>               
+                        <div class="mb-4 d-flex flex-wrap">
+                            <div class="mr-4 mb-2">
+                                <span class="tm-text-gray-dark">Dimension: </span><span class="tm-text-primary">1920x1080</span>
+                            </div>
+                            <div class="mr-4 mb-2">
+                                <span class="tm-text-gray-dark">Format: </span><span class="tm-text-primary">JPG</span>
+                            </div>
                         </div>
-                        <div class="mr-4 mb-2">
-                            <span class="tm-text-gray-dark">Format: </span><span class="tm-text-primary">JPG</span>
+                        <div class="mb-4">
+                            <h3 class="tm-text-gray-dark mb-3">License</h3>
+                            <p>Free for both personal and commercial use. No need to pay anything. No need to make any attribution.</p>
                         </div>
-                    </div>
-                    <div class="mb-4">
-                        <h3 class="tm-text-gray-dark mb-3">License</h3>
-                        <p>Free for both personal and commercial use. No need to pay anything. No need to make any attribution.</p>
-                    </div>
-                    <div>
-                        <h3 class="tm-text-gray-dark mb-3">Tags</h3>
-                        <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Cloud</a>
-                        <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Bluesky</a>
-                        <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Nature</a>
-                        <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Background</a>
-                        <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Timelapse</a>
-                        <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Night</a>
-                        <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Real Estate</a>
+                        <div>
+                            <h3 class="tm-text-gray-dark mb-3">Tags</h3>
+                            <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Cloud</a>
+                            <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Bluesky</a>
+                            <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Nature</a>
+                            <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Background</a>
+                            <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Timelapse</a>
+                            <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Night</a>
+                            <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Real Estate</a>
+                        </div>
                     </div>
                 </div>
-                {% endfor %}
             </div>
+        </div> 
+        {% endfor %} 
+        <div class="pagination mt-4">
+            <span class="step-links">
+                {% if produtos.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ produtos.previous_page_number }}">previous</a>
+                {% endif %}
+        
+                <span class="current">
+                    Página {{ produto.number }} de {{ produto.paginator.num_pages }}.
+                </span>
+        
+                {% if produtos.has_next %}
+                    <a href="?page={{ produtos.next_page_number }}">next</a>
+                    <a href="?page={{ produtos.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
         </div>
-        <div class="row mb-4">
+        <div class="row mb-4">           
             <h2 class="col-12 tm-text-primary">
                 Related Photos
             </h2>

@@ -15,7 +15,7 @@
     <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
+    <link href="{% static 'assets/css/form-validation.css' %}" rel="stylesheet">
   </head>
 
   <body class="bg-light">
@@ -31,10 +31,11 @@
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
+                <span class="text-muted" id="valor">- R$ {{ produto.preco }}</span>
                 <h6 class="my-0">{{ produto.nome }}</h6>
                 <small class="text-muted">{{ produto.descricao }}</small>
               </div>
-              <span class="text-muted" id="valor">- R$ {{ produto.preco }}</span>
+
             </li>
             <li class="list-group-item d-flex justify-content-between bg-light" data-produto-id="{{ produto.id }}">
                 <div class="text-success">
@@ -51,7 +52,7 @@
             </li>
           </ul>
 
-          <form class="card p-2" action="{% url 'listar_produtos' %}">
+          <form class="card p-2" action="{% url 'compras' %}">
               <div class="input-group-append">
                 <button type="submit" class="btn btn-danger">Cancelar</button>
               </div>
@@ -59,7 +60,7 @@
         </div>
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Dados Pessoais</h4>
-          <form class="needs-validation" novalidate>
+          <form method="post" class="needs-validation" novalidate>
             {% csrf_token %}
             <div class="row">
               <div class="col-md-6 mb-3">
@@ -73,7 +74,7 @@
                 <label for="lastName">{{ form.sobrenome.label}}</label>
                 <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
                 <div class="invalid-feedback">
-                  Sobrenome inválido..
+                  Sobrenome inválido.
                 </div>
               </div>
             </div>
@@ -82,7 +83,7 @@
               <label for="email">{{ form.email_cliente.label}}<span class="text-muted"> (Opicional)</span></label>
               <input type="email" class="form-control" id="email" placeholder="you@example.com">
               <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
+                Insira um endereço de email válido.
               </div>
             </div>
 
@@ -113,7 +114,7 @@
                   <option>Minas Gerais</option>
                 </select>
                 <div class="invalid-feedback">
-                  Please provide a valid state.
+                  Selecione a sua região.
                 </div>
               </div>
               <div class="col-md-3 mb-3">
@@ -134,9 +135,7 @@
               <label class="custom-control-label" for="save-info">Save this information for next time</label>
             </div>
             <hr class="mb-4">
-
             <h4 class="mb-3">Payment</h4>
-
             <div class="d-block my-3">
               <div class="custom-control custom-radio">
                 <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
@@ -152,7 +151,7 @@
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Efetuar Compra</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Efetuar Compra</button>
           </form>
         </div>
       </div>
