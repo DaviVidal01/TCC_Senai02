@@ -7,7 +7,7 @@ from django.core.paginator import Paginator, EmptyPage
 
 # Create your views here.
 def compras(request):
-        # Obtém o parâmetro de ID da solicitação GET
+    # Obtém o parâmetro de ID da solicitação GET
     produto_id = request.GET.get('id')
 
     # Se um ID foi fornecido, filtra o produto pelo ID
@@ -52,7 +52,7 @@ def listar_produtos(request):
         # Se a página solicitada estiver fora do intervalo, exibe a última página disponível
         produtos_paginados = paginator.page(paginator.num_pages)
 
-    return render(request, 'compras.html', {'produtos': produtos_paginados, 'quantidade_produtos': Produto.objects.count()})
+    return render(request, 'compras.html', {'produtos': produtos_paginados })
 
 
 def adicionar_produto(request):
