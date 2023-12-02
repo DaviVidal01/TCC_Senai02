@@ -33,8 +33,7 @@ def listar_produtos(request):
  # Se nenhum ID foi fornecido, lista todos os produtos
         produtos = Produto.objects.all()
         return render(request, 'listar_produtos.html', {'produtos': produtos, 'quantidade_produtos': Produto.objects.count()})
-
-def listar_produtos(request):
+def compras(request):
     produtos = Produto.objects.all()
 
     # Número de itens por página
