@@ -1,7 +1,12 @@
 {% extends 'layouts/layout.html' %}
 {% load static %}
+{% block title %} Error Page {% endblock %}
 {% block content %}
-{% block title %}Error Page{% endblock %}
+{% include 'partials/user/others/navbar.html' %}
+<div class="text-center mx-5 my-5 ">
+    <i class="icon ion-ios-locked-outline" style="font-size: 200px; color: #3D3D3D;"></i>
     <h1>{{ error_message }}</h1>
-    <a href="../">Voltar</a>
+    <p><a href="../" class="btn-ver-mais" style="background-color: red;">Voltar</a></p>
+</div>
+{% include 'partials/user/footer.html' %}
 {% endblock %}

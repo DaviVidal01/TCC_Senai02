@@ -7,13 +7,13 @@
       <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{% static 'assets/img/carrossel.jpg' %}" class="d-block w-100" alt="...">
+            <img src="{% static 'assets/img/1.jpg' %}" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="{% static 'assets/img/carrossel2.jpg' %}" class="d-block w-100" alt="...">
+            <img src="{% static 'assets/img/2.jpg' %}" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="{% static 'assets/img/carrossel3.jpg' %}" class="d-block w-100" alt="...">
+            <img src="{% static 'assets/img/3.jpg' %}" class="d-block w-100" alt="...">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -26,68 +26,76 @@
         </button>
       </div><br>
 
-      <h2 style="font-family: serif; color: #3D3D3D;">Destaques</h2><br>
+      <!-- Sobre -->
+      <h2 class="border-top border-bottom" style="font-family: serif; color: #3D3D3D;">Sobre Nós</h2><br>
+      <div class="container">
+        <div class="row">
+            <div class="d-flex"><br>
+              <div class="mx-5">
+                <img src="{% static 'assets/img/highFashion.png' %}" class="img-thumbnail" alt="Imagem de Moda" width="100%" height="100%">
+              </div>
+              <div>
+                <p>
+                  Bem-vindo ao <strong> High Fashion</strong>, seu destino definitivo para explorar as últimas tendências e novidades no mundo da moda. Navegue pela nossa coleção cuidadosamente selecionada de produtos elegantes e descubra as peças que irão transformar seu estilo.
+                  <br><br>Embrace a moda que reflete a sua individualidade. Junte-se a nós no High Fashion, onde a inovação encontra a elegância.
+                  <br><br>Queremos convidá-lo a conhecer mais sobre nossa história, missão e visão. Clique no botão "Sobre" para obter informações detalhadas sobre quem somos e o que nos inspira. 
+                </p>
+                <br>
+                <div class="text-end">
+                  <a href="../sobre">
+                    <button type="button" class="btn-ver-mais text-end">
+                      Ver Sobre
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div><br>
 
       <!-- cards -->
-      <div class="row row-cols-1 row-cols-md-3 g-4">
+      <h2 class="border-top border-bottom" style="font-family: serif; color: #3D3D3D;">Ultimos Lançamentos</h2><br>
+      <div class="row row-cols-1 row-cols-md-3 g-4 mx-3">
         <div class="col">
           <div class="card h-100">
-            <img src="img/carrossel2.jpg" class="card-img-top" alt="...">
+            <img src="{% static 'assets/img/8.jpg' %}" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h5 style="font-family: serif; color: #3D3D3D;" class="card-title text-left">Roupas de Luxo e Elegantes</h5>
+              <a href="../catalogo">
+                <button type="button" class="btn-ver-mais">
+                  Ver Catálogo
+                </button>
+              </a>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card h-100">
-            <img src="img/carrossel3.jpg" class="card-img-top" alt="...">
+            <img src="{% static 'assets/img/6.jpg' %}" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a short card.</p>
+              <h5 style="font-family: serif; color: #3D3D3D;" class="card-title text-left">Roupas Sociais e Casuais</h5>
+              <a href="../catalogo">
+                <button type="button" class="btn-ver-mais">
+                  Ver Catálogo
+                </button>
+              </a>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card h-100">
-            <img src="img/carrossel.jpg" class="card-img-top" alt="...">
+            <img src="{% static 'assets/img/7.jpg' %}" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+              <h5 style="font-family: serif; color: #3D3D3D;" class="card-title text-left">Roupas Longas e Curtas</h5>
+              <a href="../catalogo">
+                <button type="button" class="btn-ver-mais">
+                  Ver Catálogo
+                </button>
+              </a>
             </div>
           </div>
         </div>
       </div><br>
-
-  <!-- cards -->
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-      <div class="card h-100">
-        <img src="img/carrossel2.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="img/carrossel3.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a short card.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="img/carrossel.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-        </div>
-      </div>
-    </div>
-  </div><br>
+    <!-- cards -->
   {% include 'partials/user/footer.html' %}
 {% endblock %}
