@@ -39,11 +39,76 @@
                       </button>
                       </li>
                   </ul>
+                  <button type="button" class="btn-carrinho" data-bs-toggle="modal" data-bs-target="#exampleModalsacola">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bag-check-fill" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0m-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+                  </svg>
+                  </button>                  
                 </ul>
             </div>
         </div>
       </nav>
     <!-- navbar -->
+    
+    <!-- modal-sacola -->
+    <div class="modal fade" id="exampleModalsacola" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content"><br>
+          <div class="modal-header">
+            <a class="navbar-brand" href="#">
+              <h2 style="font-family: serif; color: #FFFFF5;">Sacola</h2>
+            </a>
+            <button class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span class="icon-close">
+              <ion-icon name="close"></ion-icon>
+            </span>
+           </button>
+          </div><br>
+          <div class="modal-body">
+           <!-- Componentes do carrinho de compras -->
+           <div class="cart-item">
+            <img src="img/5.jpg" alt="Nome do Produto" width="80px" height="80px" class="cart-item-image">
+            <div class="item-details">
+                <p class="cart-item-title" style="color: #FFFFF5; font-family: serif; font-size: 20px;">Nome do Produto</p>
+                <p class="cart-item-price" style="color: #FFFFF5; font-family: serif; font-size: 20px;">Preço: $10.00</p>
+                <p class="cart-item-quantity" style="color: #FFFFF5; font-family: serif; font-size: 20px;">Quantidade: 2
+                    <span style="margin-left: 10px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                            <path d="M1.5 8a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </span>
+                    <span style="margin-left: 10px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                            <path d="M8 1.5a.5.5 0 0 1 .5.5V7h5.5a.5.5 0 0 1 0 1H8V14.5a.5.5 0 0 1-1 0V8H1.5a.5.5 0 0 1 0-1H7V2a.5.5 0 0 1 .5-.5z"/>
+                        </svg>
+                    </span>
+                </p>
+            </div>
+        </div>
+        
+        
+            <!-- Adicione mais itens conforme necessário -->
+
+            <!-- Total do carrinho -->
+            <div class="cart-total" >
+              <p style="color: #FFFFF5; font-family: serif; font-size: 20px; font-weight: bold;">Total: $20.00</p>
+            </div>
+          </div>
+          <div class="footer-modal">
+            <button class="btn-cancelar" data-bs-dismiss="modal">
+                <a class="nav-link" aria-current="page" href="#">Cancelar</a>
+            </button>
+            <button type="button" class="btn-entrar">
+                <a class="nav-link" aria-current="page" href="#">Finalizar compra</a>
+            </button>
+        </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal-sacola -->
+
+
+
 
     <!--modal-login-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
