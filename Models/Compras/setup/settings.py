@@ -11,9 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
-import pymysql
-pymysql.install_as_MySQLdb()
-pymysql = "==1.1.0"
+#import pymysql
+#pymysql.install_as_MySQLdb()
+#pymysql = "==1.1.0"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

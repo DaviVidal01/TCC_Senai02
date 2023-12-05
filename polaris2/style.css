@@ -34,6 +34,15 @@ h2 {
     color: #B9C2C4;
 }
 
+.footer-modal {
+    padding-left: 20px; 
+    padding-right: 20px;
+}
+.footer-modal h1:first-child {
+    margin-right: 15px; 
+    margin-left: 15px;
+    
+}
 
 /*modal login*/
 .modal-content{
