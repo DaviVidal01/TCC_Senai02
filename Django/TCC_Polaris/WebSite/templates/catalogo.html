@@ -82,11 +82,12 @@
                         <h5 class="card-title text-left">{{ produtos.titulo }} - <span style="color:green;font-family:Arial Black;">R${{ produtos.preco }}</span></h5>
                         <p class="card-text text-left">{{ produtos.descricao }}</p>
                         {% if user.is_authenticated %}
-                            <a href="#">
-                                <button type="button" class="btn-ver-mais">
+                            <form method="post" action="{% url 'efetuar_compra' produto_id=produtos.id %}" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn-ver-mais">
                                     Ver mais
                                 </button>
-                            </a>
+                            </form>
                         {% else %}
                             <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 Ver mais
@@ -96,7 +97,7 @@
                 </div>
             </div>
         {% endfor %}
-    </div>
+    </div>    
     <!-- cards -->
     </div>    
     <!-- Paginator mais polido -->
