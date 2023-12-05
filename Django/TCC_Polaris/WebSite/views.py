@@ -10,6 +10,7 @@ from .models import Barra_Pesquisa, Produtos_BD, Tipo_BD, Marca_BD, Tecido_BD, T
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
 from django.contrib.auth.decorators import user_passes_test
+from django.core.paginator import Paginator, EmptyPage
 
 # ------> VERIFICADORES
 def is_admin(user):
@@ -127,6 +128,26 @@ def catalogo(request):
         'tamanhos': tamanhos,
         'users': user
     })
+
+def catalogo(request):
+    produtos = Produtos_BD.objects.all()
+
+    # Número de itens por página
+    items_por_pagina = 10  # Altere conforme necessário
+
+    # Obtém o número da página a partir dos parâmetros da solicitação
+    page = request.GET.get('page', 1)
+
+    # Cria um objeto Paginator
+    paginator = Paginator(produtos, items_por_pagina)
+
+    try:
+        produtos_paginados = paginator.page(page)
+    except EmptyPage:
+        # Se a página solicitada estiver fora do intervalo, exibe a última página disponível
+        produtos_paginados = paginator.page(paginator.num_pages)
+
+    return render(request, 'catalogo.html', {'produtos': produtos_paginados })
 
 # -----> DASHBOARD ADMIN PAGE
 

@@ -6,22 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    
-    <title>Checkout example for Bootstrap</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
-
+     
+    <title>Checkout</title>
     <!-- Bootstrap core CSS -->
     <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
-
+    <link href="{% static 'assets/css/bootstrap.rtl.min.css' %}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="{% static 'assets/css/form-validation.css' %}" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
   </head>
 
   <body class="bg-light">
-
     <div class="container">
-
       <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -81,7 +155,7 @@
 
             <div class="mb-3">
               <label for="email">{{ form.email_cliente.label}}<span class="text-muted"> (Opicional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
+              <input type="email" class="form-control" id="email" placeholder="email@email.com">
               <div class="invalid-feedback">
                 Insira um endereço de email válido.
               </div>
@@ -89,7 +163,7 @@
 
             <div class="mb-3">
               <label for="address">{{ form.endereco_entrega.label}}</label>
-              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+              <input type="text" class="form-control" id="address" placeholder="Rua X, 123, Bairro Y" required>
               <div class="invalid-feedback">
                 Please enter your shipping address.
               </div>
@@ -99,7 +173,7 @@
               <div class="col-md-5 mb-3">
                 <label for="country">País de Origem</label>
                 <select class="custom-select d-block w-100" id="country" required>
-                  <option value="">Choose...</option>
+                  <option value="">Escolha...</option>
                   <option>Brasil</option>
                   <option>Usbequistão</option>
                 </select>
@@ -110,7 +184,7 @@
               <div class="col-md-4 mb-3">
                 <label for="state">Estado</label>
                 <select class="custom-select d-block w-100" id="state" required>
-                  <option value="">Choose...</option>
+                  <option value="">Escolha...</option>
                   <option>Minas Gerais</option>
                 </select>
                 <div class="invalid-feedback">
@@ -119,23 +193,14 @@
               </div>
               <div class="col-md-3 mb-3">
                 <label for="zip">CEP</label>
-                <input type="text" class="form-control" id="zip" placeholder="" required>
+                <input type="text" class="form-control" id="zip" placeholder="00000-000" required>
                 <div class="invalid-feedback">
                   Insira o cep da região.
                 </div>
               </div>
             </div>
             <hr class="mb-4">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="same-address">
-              <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="save-info">
-              <label class="custom-control-label" for="save-info">Save this information for next time</label>
-            </div>
-            <hr class="mb-4">
-            <h4 class="mb-3">Payment</h4>
+            <h4 class="mb-3">Métodos de Pagamento</h4>
             <div class="d-block my-3">
               <div class="custom-control custom-radio">
                 <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
@@ -147,15 +212,26 @@
               </div>
               <div class="custom-control custom-radio">
                 <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="paypal">Paypal</label>
+                <label class="custom-control-label" for="paypal">Pix</label>
               </div>
             </div>
+            <div class="container">
+              <br>
+              <h4>Você concorda com os termos de uso do nosso site</h3>
+              <!-- Create a checkbox element -->
+              <div>
+                <input type="checkbox" id="agree">
+                <label for="agree">Li e concordo com os <a href="../termos" class="texto_rodape">Termos de Uso</a>
+                <a href="../politica" class="texto_rodape">Política de Privacidade</a></label>
+              </div>
+            </div>
+
             <hr class="mb-4">
             <button type="submit" class="btn btn-primary btn-lg btn-block">Efetuar Compra</button>
           </form>
         </div>
       </div>
-
+      
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
@@ -171,6 +247,35 @@
               totalElement.textContent = 'R$ ' + total;
           });
       });
+  </script>
+
+  <!-- Include the JavaScript code -->
+  <script>
+    // Get the checkbox element
+    const checkbox = document.querySelector("#agree");
+
+    // Get the button element
+    const button = document.querySelector("#submit");
+
+    // Define a function to check the checkbox status
+    const checkStatus = () => {
+      // If the checkbox is checked, enable the button
+      if (checkbox.checked) {
+        button.disabled = false;
+      }
+      // Otherwise, disable the button
+      else {
+        button.disabled = true;
+      }
+    }
+
+    // Add an event listener to the checkbox to call the function on change
+    checkbox.addEventListener("change", checkStatus);
+
+    // Do something when the button is clicked
+    button.addEventListener("click", () => {
+      alert("Welcome to SlingAcademy.com");
+    });
   </script>
 
       

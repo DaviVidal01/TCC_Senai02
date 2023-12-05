@@ -79,25 +79,53 @@
                 <div class="card">
                     <img src="{{ produtos.foto.url }}" class="card-img-top" alt="{{ produtos.titulo }}">
                     <div class="card-body">
-                      <h5 class="card-title text-left">{{produtos.titulo}} - <span style="color:green;font-family:Arial Black;">R${{produtos.preco}}</span></h5>
-                      <p class="card-text text-left">{{produtos.descricao}}</p>
-                      {% if user.is_authenticated %}
-                          <a href="#">
-                              <button type="button" class="btn-ver-mais">
-                                  Ver mais
-                              </button>
-                          </a>
-                      {% else %}
-                          <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                              Ver mais
-                          </button>
-                      {% endif %}
+                        <h5 class="card-title text-left">{{ produtos.titulo }} - <span style="color:green;font-family:Arial Black;">R${{ produtos.preco }}</span></h5>
+                        <p class="card-text text-left">{{ produtos.descricao }}</p>
+                        {% if user.is_authenticated %}
+                            <a href="#">
+                                <button type="button" class="btn-ver-mais">
+                                    Ver mais
+                                </button>
+                            </a>
+                        {% else %}
+                            <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Ver mais
+                            </button>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         {% endfor %}
     </div>
     <!-- cards -->
-  </div>
+    </div>    
+    <!-- Paginator mais polido -->
+    <div class="pagination justify-content-center mt-4">
+        <ul class="pagination">
+            {% if produtos.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">&laquo; first</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ produtos.previous_page_number }}">previous</a>
+                </li>
+            {% endif %}
+
+            <li class="page-item disabled">
+                <span class="page-link current-page">
+                    Página {{ produtos.number }} de {{ produtos.paginator.num_pages }}.
+                </span>
+            </li>
+
+            {% if produtos.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ produtos.next_page_number }}">next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ produtos.paginator.num_pages }}">last &raquo;</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
     {% include 'partials/user/footer.html' %}
   {% endblock %}
