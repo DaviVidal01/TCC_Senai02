@@ -164,9 +164,9 @@ Negativo = 🔴
 - Se o nome de usuário ou email já existirem, avisar🔴
 - Todo Usuário adicionado por essa página será um "Funcionário"✅
 
-🔰 ● *Detalhes Produto*🔴
+🔰 ● *Modal Detalhes Produto*🔴
 - Navbar ✅
-- Criar a página🔴
+- Criar o Modal ✅
 - Pegar o produto que for clicado em "Ver Mais"🔴
 - Apresentar as informações detalhadas do produto🔴
 - Botão de "Comprar" para levar usuário até Checkout🔴
@@ -185,7 +185,7 @@ Negativo = 🔴
 🔰 ● *Carrinho (Extra)*
 - Navbar ✅
 - Criar a página/modal🔴
-- Informar os produtos e seus breve detalhes que foram selecionados a comprar🔴
+- Informar os produtos com (Nome/Preço) que foram selecionados a comprar🔴
 - Informar a quantidade de produtos 🔴
 - CRUD (Deletar produto do carrinho)🔴
 - Link de compra individual (Levar para o Checkout de apenas 1 produto)🔴

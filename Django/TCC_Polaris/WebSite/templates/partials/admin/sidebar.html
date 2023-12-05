@@ -1,56 +1,48 @@
 {% load static %}
 <div class="main-container">
     <div class="navcontainer">
-        <nav class="nav">
+        <nav class="nav w-100">
             <div class="nav-upper-options">
-                <div class="nav-option option1" >
-                    <a href="../">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png" class="nav-img" alt="dashboard">
-                        <h3>Catalogo</h3>
-                    </a>
-                </div>
+                <a href="../" class="text-decoration-none w-100" style="color:#FFF">
+                    <div class="nav-option option1" >
+                        <h3><i class="ion-document"></i> Catalogo</h3>
+                    </div>
+                </a>
 
-                <div class=" nav-option" > 
-                    <a href="../dashboard">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png" class="nav-img" alt="articles">
-                        <h3>Dashboard</h3>
-                    </a>
-                </div>
+                <a href="../dashboard" class="text-decoration-none w-100  nav-option" style="color:#FFF">
+                    <h3><i class="ion-gear-a"></i> Dashboard</h3>
+                </a>
 
-                <div class=" nav-option" > 
-                    <a href="../consulta_fotos">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png" class="nav-img" alt="articles">
-                        <h3>Consultar Produtos</h3>
-                    </a>
-                </div>
+                <a href="../consulta_fotos" class="text-decoration-none w-100" style="color:#FFF">
+                    <div class=" nav-option" > 
+                        <h3><ion-icon name="pricetags-outline"></ion-icon> Consultar Produtos</h3>
+                    </div>
+                </a>
 
-                <div class=" nav-option" > 
-                    <a href="../consulta_users">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png" class="nav-img" alt="articles">
-                        <h3>Consultar Usuários</h3>
-                    </a>
-                </div>
+                <a href="../consulta_users" class="text-decoration-none w-100" style="color:#FFF">
+                    <div class=" nav-option" > 
+                        <h3><ion-icon name="person-outline"></ion-icon> Consultar Usuários</h3>
+                    </div>
+                </a>
 
-                <div class="nav-option" >
-                    <a href="../add_fotos">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png" class="nav-img" alt="report">
-                        <h3>Adicionar Produtos</h3>
-                    </a>
-                </div>
+                <a href="../add_fotos" class="text-decoration-none w-100" style="color:#FFF">
+                    <div class="nav-option" >
+                        <h3><ion-icon name="pricetag-outline"></ion-icon> Adicionar Produtos</h3>
+                    </div>
+                </a>
 
-                <div class="nav-option" >
-                    <a href="../add_user">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png" class="nav-img" alt="report">
-                        <h3>Adicionar Usuários</h3>
-                    </a>
-                </div>
+                <a href="../add_user" class="text-decoration-none w-100" style="color:#FFF">
+                    <div class="nav-option" >
+                        <h3><ion-icon name="person-add-outline"></ion-icon> Adicionar Usuários</h3>
+                    </div>
+                </a>
 
-                <div class="nav-option logout" >
-                    <a href="{% url 'logout' %}">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png" class="nav-img" alt="logout">
-                        <h3>Logout</h3>
-                    </a>
-                </div>
+                <a href="{% url 'logout' %}" class="text-decoration-none w-100" style="color:#FFF">
+                    <div class="nav-option logout" >
+                        <h3><i class="ion-log-out"></i> Logout</h3>
+                    </div>
+                </a>
+                d
             </div>
         </nav>
     </div>

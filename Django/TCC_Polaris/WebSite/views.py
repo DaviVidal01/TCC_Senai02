@@ -125,6 +125,7 @@ def catalogo(request):
         'marcas': marcas,
         'tecidos': tecidos,
         'tamanhos': tamanhos,
+        'users': user
     })
 
 # -----> DASHBOARD ADMIN PAGE
@@ -149,15 +150,18 @@ def consulta_users(request):
 
 @admin_required
 def add_user(request):
-    if request.method == 'POST':
-        register_form = UserForms(request.POST)
-        if register_form.is_valid():
-            user = register_form.save(commit=False)
-            user.save()
-            messages.success(request, 'Usuário foi adicionado com sucesso!')
-            return redirect('add_user')    
-    else:
-        register_form = RegisterForms()
+    try:
+        if request.method == 'POST':
+            register_form = UserForms(request.POST)
+            if register_form.is_valid():
+                user = register_form.save(commit=False)
+                user.save()
+                messages.success(request, 'Usuário foi adicionado com sucesso!')
+                return redirect('add_users')    
+        else:
+            register_form = UserForms()
+    except Exception as e:
+        messages.error(request, e)
 
     return render(request, 'dashboardAdd_user.html', {'register_form': register_form})
 
@@ -231,7 +235,7 @@ def login_view(request):
 @login_required
 def logout_view(request):
     auth.logout(request)
-    messages.success(request, 'Logout efetuado com sucesso!')
+    messages.warning(request, 'Logout efetuado com sucesso!')
     return redirect('index')
 
 # -----> CRUD FOTOS
@@ -259,7 +263,7 @@ def update_fotos(request, id):
             
             if form.is_valid():
                 form.save()
-                messages.success(request, 'Produto editado com sucesso!')
+                messages.warning(request, 'Produto editado com sucesso!')
                 return redirect('listarFotos')
     except Exception as e:
         messages.error(request, e)
@@ -269,28 +273,43 @@ def update_fotos(request, id):
 def delete_fotos(request, id):
     fotos = Produtos_BD.objects.get(pk=id)
     fotos.delete()
-    messages.success(request, 'Produto deletado com sucesso!')
+    messages.error(request, 'Produto deletado com sucesso!')
     return redirect('listarFotos')
 
 # ------> CRUD USERS
 
 @login_required
+def listarUsers(request):
+    search_query = request.GET.get('search')
+    if search_query:
+        user = User.objects.filter(Q(username__icontains=search_query) | Q(email__icontains=search_query))
+    else:
+        user = User.objects.all()
+    return render(request,"dashboardConsulta_user.html",{"user":user})
+
+@login_required
 def edit_user(request, id):
-    user = User.objects.get(pk=id)
+    try:
+        user = User.objects.get(pk=id)
+    except Exception as e:
+        messages.error(request, e)
     return render(request, "dashboardEditar_user.html",{'user':user})
 
 @login_required
 def update_user(request, id):
-    user = User.objects.get(pk=id)
-    user.username = request.POST['username']
-    user.email = request.POST['email']
-    user.save()
-    messages.success(request, 'Usuário editado com sucesso!')
+    try:
+        user = User.objects.get(pk=id)
+        user.username = request.POST['username']
+        user.email = request.POST['email']
+        user.save()
+        messages.warning(request, 'Usuário editado com sucesso!')
+    except Exception as e:
+        messages.error(request, e)
     return redirect('consulta_users')
 
 @login_required
 def delete_user(request, id):
     user = User.objects.get(pk=id)
     user.delete()
-    messages.success(request, 'Usuário deletado com sucesso!')
+    messages.error(request, 'Usuário deletado com sucesso!')
     return redirect('consulta_users')

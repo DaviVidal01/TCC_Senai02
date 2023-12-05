@@ -26,6 +26,7 @@ urlpatterns = [
     path('atualizar_fotos/<int:id>', views.update_fotos, name="update_fotos"),
     path('deletar_fotos/<int:id>', views.delete_fotos, name="delete_fotos"),
     # -----> CRUD USER
+    path('listarUsers', views.listarUsers, name="listarUsers"),
     path('editar_user/<int:id>', views.edit_user, name="edit_user"),
     path('atualizar_user/<int:id>', views.update_user, name="update_user"),
     path('deletar_user/<int:id>', views.delete_user, name="delete_user"),

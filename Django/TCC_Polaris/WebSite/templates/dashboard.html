@@ -4,33 +4,33 @@
 	<!-- for header part -->
 	{% include 'partials/admin/header.html' %}
 	{% include 'partials/admin/sidebar.html' %}
-	{% include 'partials/alerts.html' %}
-		<div class="main">
-			<div class="action-buttons">
-				<div class="side-buttons">
-					<a type="button" class="rounded-btn purple-btn" style="text-decoration: none;" href="../catalogo">
+	<div class="main">
+			{% include 'partials/alerts.html' %}
+			<div style="width: auto;" class="action-buttons">
+				<div style="width: auto;" class="side-buttons">
+					<a type="button" class="rounded-btn purple-btn px-5" style="text-decoration: none;" href="../catalogo">
 						<ion-icon name="newspaper-outline" size="large"></ion-icon>
 						<h2>Catalogo</h2>
 					</a>
 				</div>
-				<div class="side-buttons">
+				<div class="side-buttons" style="width: auto;">
 					<a type="button" class="rounded-btn white-btn" style="text-decoration: none;" href="../consulta_fotos">
 						<ion-icon name="pricetags-outline" size="large"></ion-icon>
-						<h3>  Consultar Produtos</h3>
+						<h3>Consultar Produtos</h3>
 					</a>
 					<a type="button" class="rounded-btn white-btn" style="text-decoration: none;" href="../add_fotos">
 						<ion-icon name="pricetag-outline" size="large"></ion-icon>
-						<h3>  Adicionar Produtos</h3>
+						<h3>Adicionar Produtos</h3>
 					</a>
 				</div>
-				<div class="side-buttons">
+				<div class="side-buttons" style="width: auto;">
 					<a type="button" class="rounded-btn white-btn" style="text-decoration: none;" href="../consulta_fotos">
 						<ion-icon name="person-outline" size="large"></ion-icon>
-						<h3>  Consultar Usuários</h3>
+						<h3>Consultar Usuários</h3>
 					</a>
 					<a type="button" class="rounded-btn white-btn" style="text-decoration: none;" href="../add_fotos">
 						<ion-icon name="person-add-outline" size="large"></ion-icon>
-						<h3>  Adicionar Usuários</h3>
+						<h3>Adicionar Usuários</h3>
 					</a>
 				</div>
 			</div>
