@@ -11,6 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
 from django.contrib.auth.decorators import user_passes_test
 from django.core.paginator import Paginator, EmptyPage
+from django.urls import reverse
 
 # ------> VERIFICADORES
 def is_admin(user):
@@ -116,10 +117,24 @@ def catalogo(request):
     tamanhos = Tamanho_BD.objects.all()
     generos = [choice[0] for choice in GENERO]
 
+    items_por_pagina = 10  # Altere conforme necessário
+
+    # Obtém o número da página a partir dos parâmetros da solicitação
+    page = request.GET.get('page', 1)
+
+    # Cria um objeto Paginator
+    paginator = Paginator(produtos_view, items_por_pagina)
+
+    try:
+        produtos_paginados = paginator.page(page)
+    except EmptyPage:
+        # Se a página solicitada estiver fora do intervalo, exibe a última página disponível
+        produtos_paginados = paginator.page(paginator.num_pages)
+
     return render(request, 'catalogo.html', {
         'register_form':register_form,
         'user_form': login_form ,
-        'produtos': produtos_view,
+        'produtos': produtos_paginados,
         'imagens': imagem_view,
         'generos': generos,
         'tipos': tipos,
@@ -128,27 +143,6 @@ def catalogo(request):
         'tamanhos': tamanhos,
         'users': user
     })
-
-def catalogo(request):
-    produtos = Produtos_BD.objects.all()
-
-    # Número de itens por página
-    items_por_pagina = 10  # Altere conforme necessário
-
-    # Obtém o número da página a partir dos parâmetros da solicitação
-    page = request.GET.get('page', 1)
-
-    # Cria um objeto Paginator
-    paginator = Paginator(produtos, items_por_pagina)
-
-    try:
-        produtos_paginados = paginator.page(page)
-    except EmptyPage:
-        # Se a página solicitada estiver fora do intervalo, exibe a última página disponível
-        produtos_paginados = paginator.page(paginator.num_pages)
-
-    return render(request, 'catalogo.html', {'produtos': produtos_paginados })
-
 # -----> DASHBOARD ADMIN PAGE
 
 @admin_required
@@ -278,16 +272,21 @@ def edit_fotos(request, id):
 @login_required
 def update_fotos(request, id):
     try:
-        if request.method == "POST":
-            fotos = Produtos_BD.objects.get(pk=id)
-            form = ProdutosForms(request.POST, request.FILES, instance=fotos)
-            
-            if form.is_valid():
-                form.save()
-                messages.warning(request, 'Produto editado com sucesso!')
-                return redirect('listarFotos')
+        fotos = Produtos_BD.objects.get(pk=id)
+        form = ProdutosForms(request.POST, request.FILES, instance=fotos)
+
+        if form.is_valid():
+            # Se um novo arquivo for fornecido, atualiza o campo 'foto'
+            if 'nova_foto' in request.FILES:
+                fotos.foto = request.FILES['nova_foto']
+
+            form.save()
+            messages.warning(request, 'Produto editado com sucesso!')
+            return redirect('listarFotos')
+
     except Exception as e:
         messages.error(request, e)
+
     return redirect('listarFotos')
 
 @login_required
