@@ -213,7 +213,7 @@ def add_user(request):
                 user = register_form.save(commit=False)
                 user.save()
                 messages.success(request, 'Usuário foi adicionado com sucesso!')
-                return redirect('add_users')    
+                return redirect('add_user')    
         else:
             register_form = UserForms()
     except Exception as e:

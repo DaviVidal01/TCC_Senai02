@@ -24,7 +24,9 @@
 							<div class="card-body">
 								<h5 class="card-title text-left">{{ users.username }}</h5>
 								<p class="card-text text-left">Email: {{ users.email }}</p>
-								{% if users.is_staff == 1 %}
+								{% if users.is_superuser == 1 %}
+									<p class="card-text text-left">Tipo: <strong style="color:rgb(13, 3, 187)">SuperUser</strong></p>
+								{% elif users.is_staff == 1 %}
 									<p class="card-text text-left">Tipo: <strong style="color:rgb(6, 98, 6)">Funcionário</strong></p>
 								{% else %}
 									<p class="card-text text-left">Tipo: <strong style="color:rgba(255, 115, 0, 0.719)">Usuário</strong></p>
