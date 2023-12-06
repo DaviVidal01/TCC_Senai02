@@ -1,7 +1,7 @@
 {% extends 'layouts/catalogo.html' %}
 {% load static %}
   {% block content %}
-    {% include 'partials/user/catalog/header_catalog.html' %}
+{% include 'partials/user/catalog/header_catalog.html' %}
     
     
     <div id="carouselExample" class="carousel slide position-relative">
@@ -72,6 +72,9 @@
               <button type="submit" class="mb-3 me-3 btn-ver-mais align-self-end">Filtrar</button>
           </form>
         </div>
+
+
+
     <!-- cards -->
     <div class="row row-cols-1 row-cols-md-5 g-3">
         {% for produtos in produtos %}
@@ -80,15 +83,14 @@
                     <img src="{{ produtos.foto.url }}" class="card-img-top" alt="{{ produtos.titulo }}">
                     <div class="card-body">
                         <h5 class="card-title text-left">{{ produtos.titulo }} - <span style="color:green;font-family:Arial Black;">R${{ produtos.preco }}</span></h5>
-                        <p class="card-text text-left">{{ produtos.descricao }}</p>
+                        <!--<p class="card-text text-left">{{ produtos.descricao }}</p>-->
                         {% if user.is_authenticated %}
-                            <form method="post" action="{% url 'efetuar_compra' produto_id=produtos.id %}" style="display:inline;">
                                 {% csrf_token %}
-                                <button type="submit" class="btn-ver-mais">
+                                <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                     Ver mais
                                 </button>
-                            </form>
                         {% else %}
+                            <!-- Alterações no botão para abrir o modal da sacola -->
                             <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 Ver mais
                             </button>
@@ -128,5 +130,167 @@
             {% endif %}
         </ul>
     </div>
+
+    <!--modal-login-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content"><br>
+                <div class="modal-header">
+                    <a class="navbar-brand" href="#">
+                        <h2 style="font-family: serif; color: #FFFFF5;">Login</h2>
+                    </a>
+                <button class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span class="icon-close">
+                        <ion-icon name="close"></ion-icon>
+                    </span>
+                </button>
+            </div>
+        <form method="POST" action="{% url 'login' %}"> 
+          <div class="modal-body">
+            {% csrf_token %}
+            <div class="input-box">
+              <span class="icon">
+                    <ion-icon name="mail-outline"></ion-icon>
+                </span>
+                {{ user_form.email }}
+                <label>Email</label>
+            </div>
+            <div class="input-box">
+                <span class="icon">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                  </span>
+                {{ user_form.senha }}
+                <label>Senha</label>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox">Lembre de mim</label>
+                <a href="#"> Esqueceu a senha?</a>
+                <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModalRegister" data-bs-dismiss="modal"> Criar conta</a>
+            </div>
+          </div>
+          <div class="footer-modal">
+            <button class="btn-cancelar" data-bs-dismiss="modal">
+                <a class="nav-link" aria-current="page">Cancelar</a>
+            </button>
+            <button type="submit" class="btn-entrar">
+              <a class="nav-link" aria-current="page">Entrar</a>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--modal-login-->
+  <!--modal-Register-->
+  <div class="modal fade" id="exampleModalRegister" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content"><br>
+        <div class="modal-header">
+          <a class="navbar-brand" href="#">
+            <h2 style="font-family: serif; color: #FFFFF5;">Registrar</h2>
+          </a>
+          <button class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span class="icon-close">
+            <ion-icon name="close"></ion-icon>
+          </span>
+         </button>
+        </div>
+        <form method="POST" action="{% url 'register' %}"> 
+          <div class="modal-body">
+            {% csrf_token %}
+            <div class="input-box">
+              <span class="icon">
+                <ion-icon name="person-outline"></ion-icon>
+              </span>
+              {{ register_form.username }}
+              <label>{{ register_form.username.label }}</label>
+            </div>
+            <div class="input-box">
+              <span class="icon">
+                <ion-icon name="person-outline"></ion-icon>
+              </span>
+              {{ register_form.email }}
+              <label>{{ register_form.email.label }}</label>
+            </div>
+            <div class="input-box">
+              <span class="icon">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+              </span>
+              {{ register_form.password }}
+              <label>{{ register_form.password.label }}</label>
+            </div>
+            <div class="input-box">
+              <span class="icon">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+              </span>
+              {{ register_form.password_confirm }}
+              <label>{{ register_form.password_confirm.label }}</label>
+            </div>
+            <div class="remember-forgot">
+              <label><input type="checkbox">Lembre de mim</label>
+            </div>
+          </div>
+          <div class="footer-modal">
+            <button class="btn-cancelar" data-bs-dismiss="modal">
+                <a class="nav-link" aria-current="page">Cancelar</a>
+            </button>
+            <button type="submit" class="btn-entrar">
+              <a class="nav-link" aria-current="page">Registrar</a>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--modal-Register-->
+
+<!-- Modal Catalogo -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    {% for produto in produtos %}
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ produto.titulo }}</h1>
+            <button class="fechar" data-bs-dismiss="modal" aria-label="Close">
+              <span class="icon-close">
+                <ion-icon name="close"></ion-icon>
+              </span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.titulo }}">
+          </div>
+          <div class="footer-modal">
+            <div class="">
+              <h1 class="modal-title fs-5" style="font-family: serif; color: #FFFFF5;">{{ produto.descricao }}</h1><br>
+              <ul><center>
+                  <div class="icons">
+                    <div class="medias-socias">
+                      <a href="#">S</a>
+                      <a href="#">M</a>
+                      <a href="#">L</a>
+                      <a href="#">XL</a>
+                    </div>
+                  </div></center>
+              </ul>
+              <h1 class="modal-title fs-5" style="font-family: serif; color: #FFFFF5">R$- {{ produto.preco }}</h1>
+            </div>
+            </div><br>
+            <!-- Corrigir o botão Comprar -->
+            <form method="post" action="{% url 'efetuar_compra' produto_id=produto.id %}" style="display:inline;">
+              {% csrf_token %}
+              <button type="submit" class="btn-ver-mais">
+                Comprar 
+              </button>
+            </form><br>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+  </div>
+  <!-- Fim do Modal Catalogo -->
+  
+
+      <!-- Modal Catalogo -->
     {% include 'partials/user/footer.html' %}
   {% endblock %}

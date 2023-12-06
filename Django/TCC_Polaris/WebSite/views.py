@@ -165,7 +165,7 @@ def efetuar_compra(request, produto_id):
             # Lógica adicional pode ser adicionada aqui, como atualizar o estoque, processar pagamento, etc.
 
             # Redirecione para a lista de produtos após a compra
-            return redirect('listar_produtos')
+            return redirect('catalogo')
     else:
         form = CheckoutForm()
         
