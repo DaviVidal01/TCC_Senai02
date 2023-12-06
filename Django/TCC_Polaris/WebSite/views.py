@@ -5,8 +5,8 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render, get_object_or_404, redirect
-from Website.forms import ProdutosForms, LoginForms, RegisterForms, UserForms
-from .models import Barra_Pesquisa, Produtos_BD, Tipo_BD, Marca_BD, Tecido_BD, Tamanho_BD, GENERO
+from Website.forms import ProdutosForms, CheckoutForm, LoginForms, RegisterForms, UserForms
+from .models import Barra_Pesquisa, Pedido, Produtos_BD, Tipo_BD, Marca_BD, Tecido_BD, Tamanho_BD, GENERO
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
 from django.contrib.auth.decorators import user_passes_test
@@ -78,7 +78,10 @@ def sobre(request):
     user = User.objects.all()
     return render(request, 'sobre.html', {'register_form':register_form,'user_form': login_form ,'fotos': fotos_view,'imagens': imagem_view})
 
+from django.core.paginator import Paginator, EmptyPage
+
 def catalogo(request):
+    # Código do primeiro bloco
     query = request.GET.get('q')
     genero_filter = request.GET.get('genero')
     tipo_filter = request.GET.get('tipo')
@@ -143,6 +146,41 @@ def catalogo(request):
         'tamanhos': tamanhos,
         'users': user
     })
+
+#   ATENÇÃO ESTA PARTE DAS MODELS EFETUA AS COMPRAS E AINDA ESTÁ SOB FASE DE TESTE   #
+def efetuar_compra(request, produto_id):
+    produto = get_object_or_404(Produtos_BD, id=produto_id)
+    
+    if request.method == 'POST':
+        form = CheckoutForm(request.POST)
+        if form.is_valid():
+            # Crie um novo pedido
+            novo_pedido = form.save(commit=False)
+            novo_pedido.produto = produto
+            novo_pedido.save()
+
+            # Lógica adicional pode ser adicionada aqui, como atualizar o estoque, processar pagamento, etc.
+
+            # Redirecione para a lista de produtos após a compra
+            return redirect('catalogo')
+    else:
+        form = CheckoutForm()
+        
+    context = {'form': form, 'produto': produto}
+    return render(request, 'efetuar_compra.html', {'form': form, 'produto': produto})
+
+#   ATENÇÃO ESTA PARTE TEM A FUNÇÃO DE FAZER A QUANTIDADE DOS PRODUTOS E CRIAR O VALOR TOTAL E AINDA ESTÁ SOB FASE DE TESTE   #
+
+def detalhes_produto(request, produto_id):
+    produto = Produtos_BD.objects.get(pk=produto_id)
+    pedido = Pedido(produto=produto, quantidade=1)  # Defina outros campos conforme necessário
+
+    context = {
+        'produto': produto,
+        'pedido': pedido,
+    }
+    return render(request, 'efetuar_compra.html', context)
+
 # -----> DASHBOARD ADMIN PAGE
 
 @admin_required
@@ -172,7 +210,7 @@ def add_user(request):
                 user = register_form.save(commit=False)
                 user.save()
                 messages.success(request, 'Usuário foi adicionado com sucesso!')
-                return redirect('add_users')    
+                return redirect('add_user')    
         else:
             register_form = UserForms()
     except Exception as e:

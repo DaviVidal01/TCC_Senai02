@@ -10,6 +10,8 @@ urlpatterns = [
     path('termos/',views.termos,name='termos'),
     path('politica/',views.politica,name='politica'),
     path('catalogo/', views.catalogo, name='catalogo'),
+    # -----> CHECKOUT
+    path('efetuar_compra/<int:produto_id>/', views.efetuar_compra, name='efetuar_compra'),
     # -----> ADMIN PAGE
     path('dashboard/', views.dashboard, name='dashboard'),
     path('add_fotos/', views.add_fotos, name='add_fotos'),
