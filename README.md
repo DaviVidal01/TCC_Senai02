@@ -98,6 +98,12 @@ python ./manage.py migrate
 ```bash
 python ./manage.py collectstatic
 ```
+- Após gerar os arquivos staticos, entre na pasta fixtures e execute o seguinte comando via terminal :
+
+```bash
+python manage.py loaddata seed.json
+
+```
 
 - Depois de tudo estar em ordem, realize o comando para iniciar o servidor:
 
