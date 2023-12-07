@@ -84,7 +84,7 @@
             </div>
             <div class="remember-forgot">
                 <label><input type="checkbox">Lembre de mim</label>
-                <a href="#"> Esqueceu a senha?</a>
+                <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModalSenha" data-bs-dismiss="modal"> Esqueceu a senha?</a>
                 <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModalRegister" data-bs-dismiss="modal"> Criar conta</a>
             </div>
           </div>
@@ -101,7 +101,40 @@
     </div>
   </div>
   <!--modal-login-->
-
+  <!-- Modal de Recuperação de Senha -->
+  <div class="modal fade" id="exampleModalSenha" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Conteúdo do modal aqui -->
+            <form method="post" action="{% url 'esqueci_senha' %}">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <p style="color:#FFFFF5;">
+                        Caso você tenha esquecido sua senha, preencha com o Email no qual você esqueceu a senha e vá até
+                        seu email onde enviaremos um link para <strong>Alteração de Senha</strong>
+                    </p>
+                    <br>
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="person-outline"></ion-icon>
+                        </span>
+                        {{ esqueci_senha.email }}
+                        <label>{{ esqueci_senha.email.label }}</label>
+                    </div>
+                </div>
+                <div class="footer-modal">
+                    <button class="btn-cancelar" data-bs-dismiss="modal">
+                        <a class="nav-link" aria-current="page">Cancelar</a>
+                    </button>
+                    <button type="submit" class="btn-entrar">
+                        <a class="nav-link" aria-current="page">Enviar</a>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+  <!--modal-Senha-->
   <!--modal-Register-->
   <div class="modal fade" id="exampleModalRegister" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
