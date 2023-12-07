@@ -117,27 +117,27 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const navOptions = document.querySelectorAll('.nav-option');
-        
+
                 navOptions.forEach(option => {
                     option.addEventListener('click', (e) => {
                         // Remove a classe 'option1' de todos os itens
                         navOptions.forEach(opt => opt.classList.remove('option1'));
-        
+
                         // Adiciona a classe 'option1' ao item clicado
                         e.currentTarget.classList.add('option1');
-        
+
                         // Verifica se o item clicado é o botão "Catalogo"
                         if (e.currentTarget.classList.contains('catalogo')) {
                             // Se for, adiciona a classe 'option1' ao botão "Dashboard" também
                             document.querySelector('.nav-option.dashboard').classList.add('option1');
                         }
-        
+
                         // Armazena o ID ou índice do item ativo no localStorage
                         const activeItemId = Array.from(navOptions).indexOf(e.currentTarget);
                         localStorage.setItem('activeItemId', activeItemId);
                     });
                 });
-        
+
                 // Recupera e aplica a classe 'option1' ao item ativo armazenado no localStorage
                 const activeItemId = localStorage.getItem('activeItemId');
                 if (activeItemId !== null) {

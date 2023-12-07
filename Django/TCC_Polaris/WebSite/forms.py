@@ -3,10 +3,6 @@ from django.shortcuts import render
 from .models import Produtos_BD, Pedido, Barra_Pesquisa, Tecido_BD, Tipo_BD, Marca_BD, Tamanho_BD
 from django import forms
 from django.contrib.auth.models import User
-from django.forms.widgets import ClearableFileInput
-
-class CustomClearableFileInput(ClearableFileInput):
-    template_name = 'custom_clearable_file_input.html'
 
 class LoginForms(forms.Form):
     email = forms.EmailField(
@@ -97,13 +93,12 @@ class RegisterForms(forms.Form):
         return password_confirm
         
 class ProdutosForms(forms.ModelForm):
-    nova_foto = forms.FileField(required=False, widget=forms.ClearableFileInput(attrs={'class': 'custom-file-input'}))
-
     class Meta:
         model = Produtos_BD
         fields = ['titulo', 'descricao', 'foto', 'preco', 'genero', 'tecido', 'tamanho', 'tipo', 'marca']
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'custom-input'}),
+            'foto': forms.FileInput(attrs={'class': 'custom-input'}),
             'descricao': forms.Textarea(attrs={'class': 'custom-textarea'}),
             'preco': forms.NumberInput(attrs={'class': 'custom-input'}),
             'genero': forms.Select(attrs={'class': 'custom-input'}),

@@ -24,7 +24,7 @@ https://templatemo.com/tm-556-catalog-z
     margin: -75px 0 0 -75px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: #FFAE2E;
+    border-top-color: #3498db;
 
     -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
     animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
@@ -56,7 +56,7 @@ https://templatemo.com/tm-556-catalog-z
         bottom: 15px;
         border-radius: 50%;
         border: 3px solid transparent;
-        border-top-color: #FFAE2E;
+        border-top-color: #f9c922;
 
         -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
           animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
@@ -148,12 +148,12 @@ a {
     text-decoration: none;
     transition: all 0.3s ease; 
 }
-a:hover { color:#b06f07; }
+a:hover { color:#009999; }
 .container-fluid { max-width: 1770px; }
 .tm-container-small { max-width: 1050px; }
 .btn { border-radius: 0; }
 .btn-primary {
-    background-color: #FFAE2E;
+    background-color: #009999;
     border: 0;
     border-radius: 5px;
     padding: 12px 50px 14px;
@@ -162,12 +162,12 @@ a:hover { color:#b06f07; }
 
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color:#FFAE2E;
+    background-color:#086969;
 }
 
 .btn-primary.disabled, 
 .btn-primary:disabled {
-    background-color: #FFAE2E;
+    background-color: #009999;
     pointer-events: all;
     cursor: not-allowed;
 }
@@ -183,7 +183,7 @@ a:hover { color:#b06f07; }
 
 .navbar-toggler:focus { box-shadow: none; }
 .navbar-brand {
-    color: #FFAE2E;
+    color: #3399CC;
     font-size: 1.6rem;
 }
 
@@ -198,8 +198,8 @@ a:hover { color:#b06f07; }
 .tm-mb-50 { margin-bottom: 50px; }
 .tm-mb-74 { margin-bottom: 74px; }
 .tm-mb-90 { margin-bottom: 90px; }
-.tm-text-primary { color: #FFAE2E; }
-.tm-text-secondary { color: #FFAE2E; }
+.tm-text-primary { color: #009999; }
+.tm-text-secondary { color: #CC6699; }
 a.tm-text-primary:hover { color:#666666; }
 .tm-bg-gray { background-color: #EEEEEE; }
 .tm-input-paging {
@@ -226,44 +226,44 @@ a.tm-text-primary:hover { color:#666666; }
 
 .nav-link-2.active,
 .nav-link-2:hover {
-    border-color: #FFAE2E;
+    border-color: #FF6666;
 }
 
 .nav-link-3.active,
 .nav-link-3:hover {
-    border-color: #FFAE2E;
+    border-color: #33CC66;
 }
 
 .nav-link-4.active,
 .nav-link-4:hover {
-    border-color: #FFAE2E;
+    border-color: #CC66CC;
 }
 
 .tm-search-input {
     width: 360px;
     border-radius: 0;
     padding: 12px 15px;
-    color: #FFAE2E;
+    color: #009999;
     border: none;
 }
 
 .tm-search-input:focus {
-    border-color: #FFAE2E;
+    border-color: #009999;
     box-shadow: 0 0 0 0.25rem rgb(0 153 153 / 0.25);
 }
 
 .tm-search-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #FFAE2E;
+    color: #009999;
     opacity: 1; /* Firefox */
 }
   
 .tm-search-input::-ms-input-placeholder { /* Microsoft Edge */
-    color: #FFAE2E;
+    color: #009999;
 }
 
 .tm-search-btn {
     color: white;
-    background-color: #FFAE2E;
+    background-color: #009999;
     border: none;
     width: 100px;
     height: 50px;
@@ -365,7 +365,7 @@ p, .tm-text-gray { color: #999; }
 
 .tm-paging-link:hover,
 .tm-paging-link.active {
-    background-color: #FFAE2E;
+    background-color: #009999;
     color: #fff; 
 }
 
@@ -424,7 +424,7 @@ figure.effect-ming:hover img { opacity: 0.4; }
 }
 
 .tm-footer-links li a { color: #999999; }
-.tm-footer-links li a:hover { color: #FFAE2E; }
+.tm-footer-links li a:hover { color: #009999; }
 
 .tm-social-links li {
     list-style: none;
@@ -445,7 +445,7 @@ figure.effect-ming:hover img { opacity: 0.4; }
 
 .tm-social-links li a:hover {
     color: #fff;
-    background-color: #FFAE2E;
+    background-color: #009999;
 }
 
 .tm-footer { font-size: 0.95rem; }
@@ -560,17 +560,17 @@ select:not([multiple]) {
 
 .tm-social li a:hover i {
     color: #fff;
-    background-color: #FFAE2E;
+    background-color: #009999;
 }
 
 .form-control,
 input:-internal-autofill-selected,
 select:not([multiple]) {
-    color: #FFAE2E !important;
+    color: #009999 !important;
 }
 
 .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color:  #FFAE2E;
+    color:  #009999;
     opacity: 1; /* Firefox */
 }
 

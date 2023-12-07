@@ -315,9 +315,6 @@ def update_fotos(request, id):
 
         if form.is_valid():
             # Se um novo arquivo for fornecido, atualiza o campo 'foto'
-            if 'nova_foto' in request.FILES:
-                fotos.foto = request.FILES['nova_foto']
-
             form.save()
             messages.warning(request, 'Produto editado com sucesso!')
             return redirect('listarFotos')
@@ -363,7 +360,9 @@ def update_user(request, id):
         messages.warning(request, 'Usuário editado com sucesso!')
     except Exception as e:
         messages.error(request, e)
+
     return redirect('consulta_users')
+
 
 @login_required
 def delete_user(request, id):
