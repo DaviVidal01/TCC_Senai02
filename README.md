@@ -98,10 +98,10 @@ python ./manage.py migrate
 ```bash
 python ./manage.py collectstatic
 ```
-- Após gerar os arquivos staticos, entre na pasta fixtures e execute o seguinte comando via terminal :
+- Após gerar os arquivos staticos e execute o seguinte comando via terminal :
 
 ```bash
-python manage.py loaddata seed.json
+python manage.py seed
 
 ```
 
