@@ -189,7 +189,9 @@ transition: all 0.1s ease-in-out;
 }
 .nav-option:hover {
 border-left: 5px solid #a2a2a2;
-background-color: #dadada;
+padding: 10px;
+background-color: var(--primary-color);
+color: var(--one-use-color);
 cursor: pointer;
 }
 .nav-img {
@@ -200,19 +202,29 @@ height: 30px;
 display: flex;
 flex-direction: column;
 align-items: center;
-gap: 30px;
+gap: 15px;
+}
+
+.catalogo {
+    border-left: 5px solid #2B2B2B;
+    background-color: #7c7b7b;
+    color: #2B2B2B;
+    cursor: pointer;
 }
 
 .option1 {
 border-left: 5px solid #2B2B2B;
-background-color: var(--Border-color);
-color: white;
+background-color: var(--primary-color);
+color: var(--one-use-color);
 cursor: pointer;
 }
+
 .option1:hover {
 border-left: 5px solid #2B2B2B;
-background-color: var(--Border-color);
+background-color: var(--primary-color);
+color: var(--one-use-color);
 }
+
 .box {
 height: 130px;
 width: 230px;
