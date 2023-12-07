@@ -91,15 +91,15 @@ class RegisterForms(forms.Form):
             raise forms.ValidationError('Senhas não são iguais')
 
         return password_confirm
-
+        
 class ProdutosForms(forms.ModelForm):
     class Meta:
         model = Produtos_BD
         fields = ['titulo', 'descricao', 'foto', 'preco', 'genero', 'tecido', 'tamanho', 'tipo', 'marca']
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'custom-input'}),
+            'foto': forms.FileInput(attrs={'class': 'custom-input'}),
             'descricao': forms.Textarea(attrs={'class': 'custom-textarea'}),
-            'foto': forms.FileInput(attrs={'class': 'custom-file-input'}),
             'preco': forms.NumberInput(attrs={'class': 'custom-input'}),
             'genero': forms.Select(attrs={'class': 'custom-input'}),
             'tecido': forms.Select(attrs={'class': 'custom-input'}),

@@ -10,6 +10,8 @@ urlpatterns = [
     path('termos/',views.termos,name='termos'),
     path('politica/',views.politica,name='politica'),
     path('catalogo/', views.catalogo, name='catalogo'),
+    # -----> ESQUECI MINHA SENHA
+    path('esqueci_senha/', views.esqueci_senha, name='esqueci_senha'),
     # -----> CHECKOUT
     path('efetuar_compra/<int:produto_id>/', views.efetuar_compra, name='efetuar_compra'),
     # -----> ADMIN PAGE
