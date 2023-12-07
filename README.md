@@ -74,10 +74,6 @@ pip --version
  pip install -r requeriments.txt
 ```
 
-- Ligue o Xampp (MySQL):
-  
-<img src="assets-README/4.png" >
-
 - Agora vá dentro do projeto do diretório chamado "TCC_Polaris" e procure pelo diretório "setup":
 
   <img src="assets-README/6.png" >
@@ -86,10 +82,6 @@ pip --version
 
  <img src="assets-README/7.png" >
 
- - Após configurar o seu banco, você irá criar o seu banco com o mesmo nome que foi definido nas configurações da forma que preferirem. (Estamos usando [MySQL WorkBench](https://www.mysql.com/products/workbench/)):
-
- <img src="assets-README/8.png" >
- <img src="assets-README/9.png" >
   
 - Agora realize os comandos no terminal para poder receber a conexão com o Banco de Dados:
   
