@@ -5,11 +5,13 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render, get_object_or_404, redirect
-from Website.forms import ProdutosForms, LoginForms, RegisterForms, UserForms
-from .models import Barra_Pesquisa, Produtos_BD, Tipo_BD, Marca_BD, Tecido_BD, Tamanho_BD, GENERO
+from Website.forms import ProdutosForms, CheckoutForm, LoginForms, RegisterForms, UserForms
+from .models import Barra_Pesquisa, Pedido, Produtos_BD, Tipo_BD, Marca_BD, Tecido_BD, Tamanho_BD, GENERO
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
 from django.contrib.auth.decorators import user_passes_test
+from django.core.paginator import Paginator, EmptyPage
+from django.urls import reverse
 
 # ------> VERIFICADORES
 def is_admin(user):
@@ -76,7 +78,10 @@ def sobre(request):
     user = User.objects.all()
     return render(request, 'sobre.html', {'register_form':register_form,'user_form': login_form ,'fotos': fotos_view,'imagens': imagem_view})
 
+from django.core.paginator import Paginator, EmptyPage
+
 def catalogo(request):
+    # Código do primeiro bloco
     query = request.GET.get('q')
     genero_filter = request.GET.get('genero')
     tipo_filter = request.GET.get('tipo')
@@ -115,17 +120,71 @@ def catalogo(request):
     tamanhos = Tamanho_BD.objects.all()
     generos = [choice[0] for choice in GENERO]
 
+    items_por_pagina = 10  # Altere conforme necessário
+
+    # Obtém o número da página a partir dos parâmetros da solicitação
+    page = request.GET.get('page', 1)
+
+    # Cria um objeto Paginator
+    paginator = Paginator(produtos_view, items_por_pagina)
+
+    try:
+        produtos_paginados = paginator.page(page)
+    except EmptyPage:
+        # Se a página solicitada estiver fora do intervalo, exibe a última página disponível
+        produtos_paginados = paginator.page(paginator.num_pages)
+
     return render(request, 'catalogo.html', {
         'register_form':register_form,
         'user_form': login_form ,
-        'produtos': produtos_view,
+        'produtos': produtos_paginados,
         'imagens': imagem_view,
         'generos': generos,
         'tipos': tipos,
         'marcas': marcas,
         'tecidos': tecidos,
         'tamanhos': tamanhos,
+        'users': user
     })
+
+#   ATENÇÃO ESTA PARTE DAS MODELS EFETUA AS COMPRAS E AINDA ESTÁ SOB FASE DE TESTE   #
+def efetuar_compra(request, produto_id):
+    produto = get_object_or_404(Produtos_BD, id=produto_id)
+    
+    if request.method == 'POST':
+        form = CheckoutForm(request.POST)
+        if form.is_valid():
+            # Crie um novo pedido
+            novo_pedido = form.save(commit=False)
+            novo_pedido.produto = produto
+            novo_pedido.save()
+
+            # Lógica adicional pode ser adicionada aqui, como atualizar o estoque, processar pagamento, etc.
+
+            # Redirecione para a lista de produtos após a compra
+            return redirect('catalogo')
+    else:
+        form = CheckoutForm()
+        
+    context = {'form': form, 'produto': produto}
+    return render(request, 'efetuar_compra.html', {'form': form, 'produto': produto})
+
+#   ATENÇÃO ESTA PARTE TEM A FUNÇÃO DE FAZER A QUANTIDADE DOS PRODUTOS E CRIAR O VALOR TOTAL E AINDA ESTÁ SOB FASE DE TESTE   #
+
+def detalhes_produto(request, produto_id):
+    produto = Produtos_BD.objects.get(pk=produto_id)
+    pedido = Pedido(produto=produto, quantidade=1)  # Defina outros campos conforme necessário
+
+    context = {
+        'produto': produto,
+        'pedido': pedido,
+    }
+    return render(request, 'efetuar_compra.html', context)
+
+# ATENÇÃO ESTE TRECHO SE TRATA DO ESQUECI MINHA SENHA E AINDA ESTÁ SOB TESTE
+def esqueci_senha(request):
+    # Sua lógica para a recuperação de senha aqui
+    return render(request, 'catalogo.html')
 
 # -----> DASHBOARD ADMIN PAGE
 
@@ -149,15 +208,18 @@ def consulta_users(request):
 
 @admin_required
 def add_user(request):
-    if request.method == 'POST':
-        register_form = UserForms(request.POST)
-        if register_form.is_valid():
-            user = register_form.save(commit=False)
-            user.save()
-            messages.success(request, 'Usuário foi adicionado com sucesso!')
-            return redirect('add_user')    
-    else:
-        register_form = RegisterForms()
+    try:
+        if request.method == 'POST':
+            register_form = UserForms(request.POST)
+            if register_form.is_valid():
+                user = register_form.save(commit=False)
+                user.save()
+                messages.success(request, 'Usuário foi adicionado com sucesso!')
+                return redirect('add_user')    
+        else:
+            register_form = UserForms()
+    except Exception as e:
+        messages.error(request, e)
 
     return render(request, 'dashboardAdd_user.html', {'register_form': register_form})
 
@@ -231,7 +293,7 @@ def login_view(request):
 @login_required
 def logout_view(request):
     auth.logout(request)
-    messages.success(request, 'Logout efetuado com sucesso!')
+    messages.warning(request, 'Logout efetuado com sucesso!')
     return redirect('index')
 
 # -----> CRUD FOTOS
@@ -253,44 +315,63 @@ def edit_fotos(request, id):
 @login_required
 def update_fotos(request, id):
     try:
-        if request.method == "POST":
-            fotos = Produtos_BD.objects.get(pk=id)
-            form = ProdutosForms(request.POST, request.FILES, instance=fotos)
-            
-            if form.is_valid():
-                form.save()
-                messages.success(request, 'Produto editado com sucesso!')
-                return redirect('listarFotos')
+        fotos = Produtos_BD.objects.get(pk=id)
+        form = ProdutosForms(request.POST, request.FILES, instance=fotos)
+
+        if form.is_valid():
+            # Se um novo arquivo for fornecido, atualiza o campo 'foto'
+            form.save()
+            messages.warning(request, 'Produto editado com sucesso!')
+            return redirect('listarFotos')
+
     except Exception as e:
         messages.error(request, e)
+
     return redirect('listarFotos')
 
 @login_required
 def delete_fotos(request, id):
     fotos = Produtos_BD.objects.get(pk=id)
     fotos.delete()
-    messages.success(request, 'Produto deletado com sucesso!')
+    messages.error(request, 'Produto deletado com sucesso!')
     return redirect('listarFotos')
 
 # ------> CRUD USERS
 
 @login_required
+def listarUsers(request):
+    search_query = request.GET.get('search')
+    if search_query:
+        user = User.objects.filter(Q(username__icontains=search_query) | Q(email__icontains=search_query))
+    else:
+        user = User.objects.all()
+    return render(request,"dashboardConsulta_user.html",{"user":user})
+
+@login_required
 def edit_user(request, id):
-    user = User.objects.get(pk=id)
+    try:
+        user = User.objects.get(pk=id)
+    except Exception as e:
+        messages.error(request, e)
     return render(request, "dashboardEditar_user.html",{'user':user})
 
 @login_required
 def update_user(request, id):
-    user = User.objects.get(pk=id)
-    user.username = request.POST['username']
-    user.email = request.POST['email']
-    user.save()
-    messages.success(request, 'Usuário editado com sucesso!')
+    try:
+        user = User.objects.get(pk=id)
+        user.username = request.POST['username']
+        user.email = request.POST['email']
+        user.save()
+        messages.warning(request, 'Usuário editado com sucesso!')
+    except Exception as e:
+        messages.error(request, e)
+
     return redirect('consulta_users')
+
 
 @login_required
 def delete_user(request, id):
     user = User.objects.get(pk=id)
     user.delete()
-    messages.success(request, 'Usuário deletado com sucesso!')
+    messages.error(request, 'Usuário deletado com sucesso!')
     return redirect('consulta_users')

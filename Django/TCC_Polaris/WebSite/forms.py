@@ -1,6 +1,6 @@
 from django import forms
 from django.shortcuts import render
-from .models import Produtos_BD, Barra_Pesquisa, Tecido_BD, Tipo_BD, Marca_BD, Tamanho_BD
+from .models import Produtos_BD, Pedido, Barra_Pesquisa, Tecido_BD, Tipo_BD, Marca_BD, Tamanho_BD
 from django import forms
 from django.contrib.auth.models import User
 
@@ -91,15 +91,15 @@ class RegisterForms(forms.Form):
             raise forms.ValidationError('Senhas não são iguais')
 
         return password_confirm
-
+        
 class ProdutosForms(forms.ModelForm):
     class Meta:
         model = Produtos_BD
         fields = ['titulo', 'descricao', 'foto', 'preco', 'genero', 'tecido', 'tamanho', 'tipo', 'marca']
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'custom-input'}),
+            'foto': forms.FileInput(attrs={'class': 'custom-input'}),
             'descricao': forms.Textarea(attrs={'class': 'custom-textarea'}),
-            'foto': forms.FileInput(attrs={'class': 'custom-file-input'}),
             'preco': forms.NumberInput(attrs={'class': 'custom-input'}),
             'genero': forms.Select(attrs={'class': 'custom-input'}),
             'tecido': forms.Select(attrs={'class': 'custom-input'}),
@@ -116,3 +116,9 @@ class Barra_Pesquisa(forms.ModelForm):
             'imagem': forms.FileInput(attrs={'class': 'custom-file-input'}),
         }
     
+#* ATENÇÃO ESTE FORM É O ORM DO CHECKOUT *
+#* ONDE ESTARÃO CONTIDAS AS INFORMAÇÕES NECESSÁRIAS PARA EFEUTAR A COMPRA *
+class CheckoutForm(forms.ModelForm):
+    class Meta:
+        model = Pedido
+        fields = ['nome', 'sobrenome', 'email', 'endereco_entrega', 'quantidade']

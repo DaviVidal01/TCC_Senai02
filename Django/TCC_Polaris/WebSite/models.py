@@ -46,3 +46,24 @@ class Produtos_BD(models.Model):
 #-----Imagem da Barra de Pesquisa
 class Barra_Pesquisa(models.Model):
     imagem = models.ImageField(upload_to= 'images/')
+
+# * ATENÇÃO ESTA PARTE DAS MODELS VAI FAZER O CHECKOUT, OU SEJA AS COMPRAS *
+# * ATENÇÃO, O NOME DA CLASSE É 'PEDIDO' E EFETUA A FUNÇÃO DE CHECKOUT *
+# * ATENÇÃO ESTA FASE ANDA ESTÁ EM FASE DE TESTES!! *
+class Pedido(models.Model):
+    produto = models.ForeignKey(Produtos_BD, on_delete=models.CASCADE)
+    nome = models.CharField(max_length=100)
+    sobrenome = models.CharField(max_length=100)
+    email = models.EmailField()
+    endereco_entrega = models.TextField()
+    quantidade = models.PositiveIntegerField(default=1)
+    total = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    data_pedido = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        # Calcule o total com base na quantidade e preço do produto
+        self.total = self.produto.preco * self.quantidade
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"Pedido de {self.produto.titulo} por {self.nome}"

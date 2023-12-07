@@ -4,8 +4,8 @@
 	<!-- for header part -->
 	{% include 'partials/admin/header.html' %}
 	{% include 'partials/admin/sidebar.html' %}
-	{% include 'partials/alerts.html' %}
-		<div class="main">
+	<div class="main">
+			{% include 'partials/alerts.html' %}
 			<form method="post" enctype="multipart/form-data" class="custom-form">
 				{% csrf_token %}
 				<div class="form-group">

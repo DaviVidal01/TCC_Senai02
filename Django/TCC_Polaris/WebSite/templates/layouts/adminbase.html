@@ -8,6 +8,7 @@
     	<title>{% block title %}High Fashion: Dashboard{% endblock %}</title>
     	<link rel="stylesheet"href="{% static './assets/css/styles.css' %}">
         <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-eA0uRAe5RSKxyEsdzjtCO+sw9yoQmP7dF41kwoyUqCgg9gkGlAcd4sP9JCJ6pCpm" crossorigin="anonymous">
@@ -61,7 +62,7 @@
             .custom-button:hover {
                 background-color: #947F57;
             }
-            .nav-option button {
+            .nav-option a {
                 display: flex;
                 justify-content: center;
                 text-decoration: none;
@@ -70,7 +71,7 @@
             .rounded-btn {
                 border: none;
                 border-radius: 15px;
-                width: 40%; 
+                width: 100%; 
                 height: 100px;
                 margin: 10px;
             }
@@ -114,16 +115,34 @@
         {% block content %}
         {% endblock %}
         <script>
-            const navOptions = document.querySelectorAll('.nav-option');
-        
-            navOptions.forEach(option => {
-                option.addEventListener('click', (e) => {
-                    // Remova a classe 'option1' de todas as opções
-                    navOptions.forEach(opt => opt.classList.remove('option1'));
-                
-                    // Adicione a classe 'option1' à opção clicada
-                    option.classList.add('option1');
+            document.addEventListener('DOMContentLoaded', function() {
+                const navOptions = document.querySelectorAll('.nav-option');
+
+                navOptions.forEach(option => {
+                    option.addEventListener('click', (e) => {
+                        // Remove a classe 'option1' de todos os itens
+                        navOptions.forEach(opt => opt.classList.remove('option1'));
+
+                        // Adiciona a classe 'option1' ao item clicado
+                        e.currentTarget.classList.add('option1');
+
+                        // Verifica se o item clicado é o botão "Catalogo"
+                        if (e.currentTarget.classList.contains('catalogo')) {
+                            // Se for, adiciona a classe 'option1' ao botão "Dashboard" também
+                            document.querySelector('.nav-option.dashboard').classList.add('option1');
+                        }
+
+                        // Armazena o ID ou índice do item ativo no localStorage
+                        const activeItemId = Array.from(navOptions).indexOf(e.currentTarget);
+                        localStorage.setItem('activeItemId', activeItemId);
+                    });
                 });
+
+                // Recupera e aplica a classe 'option1' ao item ativo armazenado no localStorage
+                const activeItemId = localStorage.getItem('activeItemId');
+                if (activeItemId !== null) {
+                    navOptions[activeItemId].classList.add('option1');
+                }
             });
         </script>
     	<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>

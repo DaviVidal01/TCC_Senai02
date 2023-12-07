@@ -4,8 +4,8 @@
 	<!-- for header part -->
 	{% include 'partials/admin/header.html' %}
 	{% include 'partials/admin/sidebar.html' %}
-	{% include 'partials/alerts.html' %}
-		<div class="main">
+	<div class="main">
+			{% include 'partials/alerts.html' %}
 			<form method="post" class="custom-form">
 				{% csrf_token %}
 				<div class="form-group">
@@ -24,6 +24,7 @@
 					{{ register_form.password_confirm.label_tag }}
 					{{ register_form.password_confirm }}
 				</div>
+				
 				<button type="submit" class="custom-button">Adicionar Usuário</button>
 			</form>
 		</div>

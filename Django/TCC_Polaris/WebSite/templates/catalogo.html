@@ -1,9 +1,8 @@
 {% extends 'layouts/catalogo.html' %}
 {% load static %}
-  {% block content %}
-    {% include 'partials/user/catalog/header_catalog.html' %}
-    
-    
+{% block content %}
+  {% include 'partials/user/catalog/header_catalog.html' %}
+  {% include 'partials/user/catalog/modals.html' %}  
     <div id="carouselExample" class="carousel slide position-relative">
       <div class="carousel-inner">
           <div class="carousel-item active">
@@ -16,7 +15,7 @@
               </div>
           </div>
       </div>
-    </div><br>
+    </div>
     <h2 style="font-family: serif; color: #3D3D3D;">Nossos Produtos</h2><br>
     <!-- Container -->
     <div class="container pt-1 mt-1">
@@ -74,30 +73,90 @@
         </div>
     <!-- cards -->
     <div class="row row-cols-1 row-cols-md-5 g-3">
-        {% for produtos in produtos %}
-            <div class="col">
-                <div class="card">
-                    <img src="{{ produtos.foto.url }}" class="card-img-top" alt="{{ produtos.titulo }}">
-                    <div class="card-body">
-                      <h5 class="card-title text-left">{{produtos.titulo}} - <span style="color:green;font-family:Arial Black;">R${{produtos.preco}}</span></h5>
-                      <p class="card-text text-left">{{produtos.descricao}}</p>
+      {% for produto in produtos %}
+          <div class="col">
+              <div class="card">
+                  <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.titulo }}">
+                  <div class="card-body">
+                      <h5 class="card-title text-left">{{ produto.titulo }} - <span style="color:green;font-family:Arial Black;">R${{ produto.preco }}</span></h5>
                       {% if user.is_authenticated %}
-                          <a href="#">
-                              <button type="button" class="btn-ver-mais">
-                                  Ver mais
-                              </button>
-                          </a>
-                      {% else %}
-                          <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          {% csrf_token %}
+                          <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ produto.id }}">
                               Ver mais
                           </button>
+                      {% else %}
+                          <!-- Alterações no botão para abrir o modal da sacola -->
+                          <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                             Ver mais
+                          </button>
                       {% endif %}
+                  </div>
+              </div>
+          </div>
+        <!-- Modais Catalogo -->
+        <div class="modal fade" id="staticBackdrop{{ produto.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ produto.id }}" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel{{ produto.id }}">{{ produto.titulo }}</h1>
+                        <button class="fechar" data-bs-dismiss="modal" aria-label="Close">
+                            <span class="icon-close">
+                                <ion-icon name="close"></ion-icon>
+                            </span>
+                        </button>
                     </div>
+                    <div class="modal-body">
+                        <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.titulo }}">
+                    </div>
+                    <div class="footer-modal">
+                        <div>
+                            <h1 class="modal-title fs-5" style="font-family: serif; color: #FFFFF5;">{{ produto.descricao }}</h1><br>
+                            <h1 class="modal-title fs-5" style="font-family: serif; color: #FFFFF5">R$- {{ produto.preco }}</h1>
+                        </div>
+                    </div><br>
+                    <!-- Corrigir o botão Comprar -->
+                    <form method="post" action="{% url 'efetuar_compra' produto_id=produto.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-ver-mais">
+                            Comprar
+                        </button>
+                    </form><br>
                 </div>
             </div>
-        {% endfor %}
+        </div>
+        <!-- Fim dos Modais Catalogo -->
+      {% endfor %}
     </div>
     <!-- cards -->
-  </div>
-    {% include 'partials/user/footer.html' %}
+
+    <!-- Paginator mais polido -->
+      <div class="pagination justify-content-center mt-4">
+        <ul class="pagination">
+          {% if produtos.has_previous %}
+              <li class="page-item">
+                  <a class="page-link" href="?page=1">&laquo; first</a>
+              </li>
+              <li class="page-item">
+                  <a class="page-link" href="?page={{ produtos.previous_page_number }}">previous</a>
+              </li>
+              {% endif %}
+
+              <li class="page-item disabled">
+                  <span class="page-link current-page">
+                      Página {{ produtos.number }} de {{ produtos.paginator.num_pages }}.
+                  </span>
+              </li>
+
+              {% if produtos.has_next %}
+                  <li class="page-item">
+                      <a class="page-link" href="?page={{ produtos.next_page_number }}">next</a>
+                  </li>
+                  <li class="page-item">
+                      <a class="page-link" href="?page={{ produtos.paginator.num_pages }}">last &raquo;</a>
+                  </li>
+              {% endif %}
+          </ul>
+        </div>
+    </div>
+  {% include 'partials/user/footer.html' %}
   {% endblock %}
