@@ -101,7 +101,7 @@ python ./manage.py collectstatic
 - Após gerar os arquivos staticos e execute o seguinte comando via terminal :
 
 ```bash
-python manage.py seed
+python ./manage.py seed
 
 ```
 
