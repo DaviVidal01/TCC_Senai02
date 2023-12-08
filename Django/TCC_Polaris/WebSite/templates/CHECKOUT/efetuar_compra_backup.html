@@ -1,15 +1,14 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="{% static 'assets/js/imask.min.js' %}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'assets/css/style_credits.css' %}" >
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <link rel="stylesheet" href="{% static 'assets/css/style_credits.css' %}"> 
-	  <script src="{% static 'assets/js/script.js' %}"></script>
-
+    <script src="{% static 'assets/js/script.js' %}"></script>
+     
     <title>Checkout</title>
     <!-- Bootstrap core CSS -->
     <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -18,6 +17,7 @@
     <link href="{% static 'assets/css/form-validation.css' %}" rel="stylesheet">
 
   </head>
+
   <body class="bg-light">
     <div class="container">
       <div class="row">
@@ -139,6 +139,9 @@
                 <label class="custom-control-label" for="pix">Pix</label>
               </div>
             </div><br>
+            <div class="payment-title">
+              <h1>Informações</h1>
+            </div>
           <div class="container preload">
               <div class="creditcard">
                   <div class="front">
@@ -274,7 +277,7 @@
         </div>
       </div>
     </div>
-         
+
         <!-- ... other head elements ... -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js" integrity="sha512-example-hash" crossorigin="anonymous"></script>
         <script>
@@ -328,6 +331,7 @@
       alert("Welcome to SlingAcademy.com");
     });
   </script>
+
       
     <!-- Bootstrap core JavaScript
     ================================================== -->
