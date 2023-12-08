@@ -1,22 +1,25 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{% static 'assets/css/style_credits.css' %}" >
+<html lang = "pt">
+    <head>
+    <meta charset = "viewport" "UTF-8">
+    <meta name="description" content="Anime Template">
+    <meta name="keywords" content="html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{% static 'assets/js/imask.min.js' %}"></script>
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="{% static 'assets/js/script.js' %}"></script>
-     
+    <link rel="stylesheet" href="{% static 'assets/css/style_credits.css' %}"> >
+	<script src="{% static 'assets/js/script.js' %}"></script>
+	<title>HTLML - Template</title>
+
     <title>Checkout</title>
     <!-- Bootstrap core CSS -->
     <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'assets/css/bootstrap.rtl.min.css' %}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="{% static 'assets/css/form-validation.css' %}" rel="stylesheet">
-
-  </head>
+    </head>
 
   <body class="bg-light">
     <div class="container">
@@ -49,7 +52,6 @@
               <strong id="total">R$ {{ pedido.total }}</strong>
             </li>
           </ul>
-
           <form class="card p-2" action="{% url 'catalogo' %}">
               <div class="input-group-append">
                 <button type="submit" class="btn btn-danger">Cancelar</button>
@@ -140,7 +142,8 @@
               </div>
             </div><br>
             <div class="payment-title">
-              <h1>Payment Information</h1>
+              <script src="{% static 'assets/js/' %}"></script>
+              <h1>la ele</h1>
             </div>
           <div class="container preload">
               <div class="creditcard">
@@ -241,26 +244,29 @@
               </div>
           </div>
           <div class="form-container">
+              <!-- ... (restante do código permanece o mesmo) -->
+              <!-- Check the "for" attribute in the label and input elements -->
               <div class="field-container">
-                  <label for="name">Name</label>
-                  <input class="input" id="name" maxlength="20" type="text">
+                <label for="firstName">Name</label>
+                <input class="input" id="firstName" maxlength="20" type="text">
               </div>
               <div class="field-container">
-                  <label for="cardnumber">Card Number</label><span id="generatecard">generate random</span>
-                  <input class="input" id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
-                  <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      xmlns:xlink="http://www.w3.org/1999/xlink">
-      
-                  </svg>
+                <label for="cardnumber">Card Number</label><span id="generatecard"></span>
+                <input class="input" id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
+                <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- ... (restante do código permanece o mesmo) -->
+              </svg>
               </div>
               <div class="field-container">
-                  <label for="expirationdate">Expiration (mm/yy)</label>
-                  <input class="input" id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">
+                <label for="expirationdate">Expiration (mm/yy)</label>
+                <input class="input" id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">
               </div>
               <div class="field-container">
-                  <label for="securitycode">Security Code</label>
-                  <input class="input" id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
+                <label for="securitycode">Security Code</label>
+                <input class="input" id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
               </div>
+<!-- ... (restante do código permanece o mesmo) -->
           </div>
             <div class="container">
               <br>
@@ -277,6 +283,36 @@
         </div>
       </div>
     </div>
+    <div class="field-container">         
+        <!-- ... other head elements ... -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js" integrity="sha512-example-hash" crossorigin="anonymous"></script>
+        <script>
+            window.console = window.console || function(t) {};
+        </script>
+        <script id="rendered-js">
+        // Your JavaScript code here
+        </script>
+    
+	<!-- ... other head elements ... -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js" integrity="sha512-example-hash" crossorigin="anonymous"></script>
+	<script>
+		window.console = window.console || function(t) {};
+	</script>
+	<script id="rendered-js">
+    // Your JavaScript code here
+	</script>
+
+	<!-- ... other head elements ... -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js" integrity="sha512-example-hash" crossorigin="anonymous"></script>
+	<script>
+		window.console = window.console || function(t) {};
+	</script>
+	<script id="rendered-js">
+    // Your JavaScript code here
+	</script>
+    <!--jskjakj-->
+   
+
 
         <!-- ... other head elements ... -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js" integrity="sha512-example-hash" crossorigin="anonymous"></script>
@@ -287,50 +323,48 @@
           // Your JavaScript code here
         </script>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-          var quantidadeInput = document.querySelector('.quantidade-input');
-          var precoProduto = parseFloat("{{ produto.preco }}"); // Converta o preço para um número
-          var totalElement = document.getElementById('total');
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+              var quantidadeInput = document.querySelector('.quantidade-input');
+              var precoProduto = parseFloat("{{ produto.preco }}"); // Converta o preço para um número
+              var totalElement = document.getElementById('total');
 
-          quantidadeInput.addEventListener('input', function () {
-              var quantidade = parseInt(this.value);
-              var total = (quantidade * precoProduto).toFixed(2);
+              quantidadeInput.addEventListener('input', function () {
+                  var quantidade = parseInt(this.value);
+                  var total = (quantidade * precoProduto).toFixed(2);
 
-              // Atualize o texto do elemento total
-              totalElement.textContent = 'R$ ' + total;
+                  // Atualize o texto do elemento total
+                  totalElement.textContent = 'R$ ' + total;
+              });
           });
-      });
-  </script>
+        </script>
 
-  <!-- Include the JavaScript code -->
-  <script>
-    // Get the checkbox element
-    const checkbox = document.querySelector("#agree");
 
-    // Get the button element
-    const button = document.querySelector("#submit");
 
-    // Define a function to check the checkbox status
-    const checkStatus = () => {
-      // If the checkbox is checked, enable the button
-      if (checkbox.checked) {
-        button.disabled = false;
-      }
-      // Otherwise, disable the button
-      else {
-        button.disabled = true;
-      }
-    }
+        <!-- Include the JavaScript code -->
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+              // Get the checkbox element
+              const checkbox = document.querySelector("#agree");
 
-    // Add an event listener to the checkbox to call the function on change
-    checkbox.addEventListener("change", checkStatus);
+              // Get the button element
+              const button = document.querySelector(".btn-primary"); // Adapte o seletor conforme necessário
 
-    // Do something when the button is clicked
-    button.addEventListener("click", () => {
-      alert("Welcome to SlingAcademy.com");
-    });
-  </script>
+              // Define a function to check the checkbox status
+              const checkStatus = () => {
+                  // If the checkbox is checked, enable the button
+                  button.disabled = !checkbox.checked;
+              }
+
+              // Add an event listener to the checkbox to call the function on change
+              checkbox.addEventListener("change", checkStatus);
+
+              // Do something when the button is clicked
+              button.addEventListener("click", () => {
+                  alert("Welcome to SlingAcademy.com");
+              });
+          });
+      </script>
 
       
     <!-- Bootstrap core JavaScript
