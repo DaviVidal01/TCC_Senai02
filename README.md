@@ -31,7 +31,7 @@ Este site foi cuidadosamente projetado e desenvolvido pela equipe dedicada da Po
 Descubra a fusão perfeita entre moda e tecnologia. Seja bem-vindo ao futuro da High Fashion.
 ## 📚 Build 
 
-> ⚠️ **Requisitos:** *Python v3.12.0*, *Django v4.2.6*, *XAMPP v3.3.0*, *MySQL*, *Pip 23.3.1*
+> ⚠️ **Requisitos:** *Python v3.12.0*, *Django v4.2.6*,  *MySQL*, *Pip 23.3.1*
 
 🏃 - **Passo a Passo:**
 
@@ -39,15 +39,8 @@ Descubra a fusão perfeita entre moda e tecnologia. Seja bem-vindo ao futuro da 
 
 <img src="assets-README/1.png" >
 
-- Depois irá "Extrair arquivos" da pasta compactada:
 
-<img src="assets-README/2.png" >
-
-- Abra o VSCode na pasta "TCC_Senai02-main"
-
-<img src="assets-README/3.png" >
-
-- Abra o terminal e use o comando:
+- Abra o terminal na pasta descompactada do projeto e use o comando:
 
 <img src="assets-README/5.png" >
 
