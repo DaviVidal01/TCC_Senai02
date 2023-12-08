@@ -347,4 +347,9 @@ body {
 .creditcard.flipped {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> c93191463a06ed1c12088cdc755b925372767f25
