@@ -16,10 +16,11 @@
           </div>
       </div>
     </div>
-    <h2 style="font-family: serif; color: #3D3D3D;">Nossos Produtos</h2><br>
+    <header>
+        <h1 class="h2" style="font-family: serif; color: #3D3D3D;">Nossos Produtos</h1>
+    </header><br>
     <!-- Container -->
     <div class="container pt-1 mt-1">
-        <hr class="elegant-hr">
         <!-- Filtros -->
         <div class="filter-section">
           <form method="get" action="{% url 'catalogo' %}" class="d-flex justify-content-end">
@@ -70,15 +71,15 @@
               </div>
               <button type="submit" class="mb-3 me-3 btn-ver-mais align-self-end">Filtrar</button>
           </form>
-        </div>
+        </div><br>
     <!-- cards -->
-    <div class="row row-cols-1 row-cols-md-5 g-3">
+    <div class="row row-cols-1 row-cols-md-4 g-3">
       {% for produto in produtos %}
           <div class="col">
               <div class="card">
-                  <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.titulo }}">
+                  <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.titulo }}" width="400px" height="200px">
                   <div class="card-body">
-                      <h5 class="card-title text-left">{{ produto.titulo }} - <span style="color:green;font-family:Arial Black;">R${{ produto.preco }}</span></h5>
+                      <h5 class="card-title text-left">{{ produto.titulo }} - <span style="font-family: serif; color: #3D3D3D;">R${{ produto.preco }}</span></h5>
                       {% if user.is_authenticated %}
                           {% csrf_token %}
                           <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ produto.id }}">
@@ -106,7 +107,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.titulo }}">
+                        <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.titulo }}" style="border-radius: 2%;">
                     </div>
                     <div class="footer-modal">
                         <div>
@@ -128,7 +129,30 @@
       {% endfor %}
     </div>
     <!-- cards -->
+<style>
+   .page-link {
 
+    margin-left: 10px; /* Margem à esquerda para separação do botão */
+    box-shadow: 0 4px 8px #3D3D3D; /* Adicione uma sombra suave */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+    background-color: #B9C2C4;
+    color: #FFFFF5;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    
+}
+.page-link:hover {
+    background-color: #947F57;
+    text-decoration: none;
+}
+.page-item{
+    margin-right: 10px;
+}
+
+</style>
     <!-- Paginator mais polido -->
       <div class="pagination justify-content-center mt-4">
         <ul class="pagination">
@@ -149,10 +173,10 @@
 
               {% if produtos.has_next %}
                   <li class="page-item">
-                      <a class="page-link" href="?page={{ produtos.next_page_number }}">next</a>
+                      <a class="page-link" href="?page={{ produtos.next_page_number }}" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">next</a>
                   </li>
                   <li class="page-item">
-                      <a class="page-link" href="?page={{ produtos.paginator.num_pages }}">last &raquo;</a>
+                      <a class="page-link" href="?page={{ produtos.paginator.num_pages }}" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">last &raquo;</a>
                   </li>
               {% endif %}
           </ul>

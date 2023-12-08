@@ -2,37 +2,67 @@
 {% load static %}
 {% block content %}
 	<!-- for header part -->
-	{% include 'partials/admin/header.html' %}
+	<nav class="navbar navbar-expand-lg" style="background-color:  #FFFFF5;">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="../">
+				<h2 style="font-family: serif; color: #3D3D3D;"> <img width="50px" src="{% static 'assets/img/highFashion.png' %}" alt="HF"> High Fashion</h2>
+			</a>
+			<div class="d-flex justify-content-center">
+			  <div class="rocket-container row tm-sm-90">
+				</div>          
+			</div>
+		</div>
+	  </nav>     
 	{% include 'partials/admin/sidebar.html' %}
+	
+	<style>
+		
+    .btn-dash {
+        margin-left: 10px;
+    }
+
+    .rounded-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .rounded-btn h2,
+    .rounded-btn h3 {
+        margin: 5px 0;
+    }
+	</style>
 	<div class="main">
-			{% include 'partials/alerts.html' %}
-			<div style="width: auto;" class="action-buttons">
-				<div style="width: auto;" class="side-buttons">
-					<a type="button" class="rounded-btn purple-btn px-5" style="text-decoration: none;" href="../catalogo">
-						<ion-icon name="newspaper-outline" size="large"></ion-icon>
-						<h2>Catalogo</h2>
-					</a>
-				</div>
-				<div class="side-buttons" style="width: auto;">
-					<a type="button" class="rounded-btn white-btn" style="text-decoration: none;" href="../consulta_fotos">
-						<ion-icon name="pricetags-outline" size="large"></ion-icon>
-						<h3>Consultar Produtos</h3>
-					</a>
-					<a type="button" class="rounded-btn white-btn" style="text-decoration: none;" href="../add_fotos">
-						<ion-icon name="pricetag-outline" size="large"></ion-icon>
-						<h3>Adicionar Produtos</h3>
-					</a>
-				</div>
-				<div class="side-buttons" style="width: auto;">
-					<a type="button" class="rounded-btn white-btn" style="text-decoration: none;" href="../consulta_fotos">
-						<ion-icon name="person-outline" size="large"></ion-icon>
-						<h3>Consultar Usuários</h3>
-					</a>
-					<a type="button" class="rounded-btn white-btn" style="text-decoration: none;" href="../add_fotos">
-						<ion-icon name="person-add-outline" size="large"></ion-icon>
-						<h3>Adicionar Usuários</h3>
-					</a>
-				</div>
+		{% include 'partials/alerts.html' %}
+		<div class="action-buttons">
+			<div class="side-buttons">
+				<a href="../catalogo" class="rounded-btn purple-btn">
+					<ion-icon name="newspaper-outline" size="large"></ion-icon>
+					<h2>Catálogo</h2>
+				</a>
+			</div>
+			<div class="side-buttons">
+				<a href="../consulta_fotos" class="rounded-btn white-btn">
+					<ion-icon name="pricetags-outline" size="large"></ion-icon>
+					<h3>Consultar Produtos</h3>
+				</a>
+				<a href="../add_fotos" class="rounded-btn white-btn">
+					<ion-icon name="pricetag-outline" size="large"></ion-icon>
+					<h3>Adicionar Produtos</h3>
+				</a>
+			</div>
+			<div class="side-buttons">
+				<a href="../consulta_fotos" class="rounded-btn white-btn">
+					<ion-icon name="person-outline" size="large"></ion-icon>
+					<h3>Consultar Usuários</h3>
+				</a>
+				<a href="../add_fotos" class="rounded-btn white-btn">
+					<ion-icon name="person-add-outline" size="large"></ion-icon>
+					<h3>Adicionar Usuários</h3>
+				</a>
 			</div>
 		</div>
 	</div>
