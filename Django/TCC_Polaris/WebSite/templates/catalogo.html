@@ -23,30 +23,28 @@
     <div class="container pt-1 mt-1">
         <!-- Filtros -->
 
-<style>
-.form-select {
-    background-color: #B9C2C4;
-    color: #3D3D3D;
-    border: 1px solid #B9C2C4;
-    border-radius: 5px;
-    font-weight: bold;
-    box-shadow: 0 4px 8px #B9C2C4; /* Adicione uma sombra suave */
-    transition: box-shadow 0.3s; /* Transição suave para a sombra */
-}
+    <style>
+    .form-select {
+        background-color: #B9C2C4;
+        color: #3D3D3D;
+        border: 1px solid #B9C2C4;
+        border-radius: 5px;
+        font-weight: bold;
+        box-shadow: 0 4px 8px #B9C2C4; /* Adicione uma sombra suave */
+        transition: box-shadow 0.3s; /* Transição suave para a sombra */
+    }
 
-.form-select:focus {
-    outline: none; /* Remova o contorno ao focar no campo de pesquisa */
-    box-shadow: 0 0 8px #B9C2C4; /* Altere a sombra ao focar */
-}
+    .form-select:focus {
+        outline: none; /* Remova o contorno ao focar no campo de pesquisa */
+        box-shadow: 0 0 8px #B9C2C4; /* Altere a sombra ao focar */
+    }
 
-.form-select:hover {
-    background-color: #FFFFF5;
-    border-color: #947F57;
-}
+    .form-select:hover {
+        background-color: #FFFFF5;
+        border-color: #947F57;
+    }
 
-
-</style>
-
+    </style>
         <div class="filter-section">
           <form method="get" action="{% url 'catalogo' %}" class="d-flex justify-content-end">
               <div class="mb-3 me-3">
@@ -97,107 +95,107 @@
               <button type="submit" class="mb-3 me-3 btn-ver-mais align-self-end" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">Filtrar</button>
           </form>
         </div><br>
-    <!-- cards -->
-    <div class="row row-cols-1 row-cols-md-4 g-3">
-      {% for produto in produtos %}
-          <div class="col">
-              <div class="card">
-                  <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.titulo }}" width="400px" height="200px">
-                  <div class="card-body">
-                      <h5 class="card-title text-left" style="font-family: serif; color: #3D3D3D;">{{ produto.titulo }} - <span style="font-family: serif; color: #3D3D3D;">R${{ produto.preco }}</span></h5>
-                      {% if user.is_authenticated %}
-                          {% csrf_token %}
-                          <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ produto.id }}" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;; color: #FFFFF5;">
-                              Ver mais
-                          </button>
-                      {% else %}
-                          <!-- Alterações no botão para abrir o modal da sacola -->
-                          <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                             Ver mais
-                          </button>
-                      {% endif %}
-                  </div>
-              </div>
-          </div>
-        <!-- Modais Catalogo -->
-        <div class="modal fade" id="staticBackdrop{{ produto.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ produto.id }}" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel{{ produto.id }}">{{ produto.titulo }}</h1>
-                        <button class="fechar" data-bs-dismiss="modal" aria-label="Close">
-                            <span class="icon-close">
-                                <ion-icon name="close"></ion-icon>
-                            </span>
-                        </button>
+   <!-- cards -->
+    <div class="row row-cols-1 row-cols-md-5 g-3">
+        {% for produto in produtos %}
+            <div class="col">
+                <div class="card">
+                    <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.titulo }}">
+                    <div class="card-body">
+                        <h5 class="card-title text-left">{{ produto.titulo }} - <span style="color:green;font-family:Arial Black;">R${{ produto.preco }}</span></h5>
+                        {% if user.is_authenticated %}
+                            {% csrf_token %}
+                            <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ produto.id }}">
+                                Ver mais
+                            </button>
+                        {% else %}
+                            <!-- Alterações no botão para abrir o modal da sacola -->
+                            <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Ver mais
+                            </button>
+                        {% endif %}
                     </div>
-                    <div class="modal-body">
-                        <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.titulo }}" style="border-radius: 2%;">
-                    </div>
-                    <div class="footer-modal">
-                        <div>
-                            <h1 class="modal-title fs-5" style="font-family: serif; color: #FFFFF5;">{{ produto.descricao }}</h1><br>
-                            <h1 class="modal-title fs-5" style="font-family: serif; color: #FFFFF5">R$- {{ produto.preco }}</h1>
-                        </div>
-                    </div><br>
-                    <!-- Corrigir o botão Comprar -->
-                    <form method="post" action="{% url 'efetuar_compra' produto_id=produto.id %}" style="display:inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="btn-ver-mais">
-                            Comprar
-                        </button>
-                    </form><br>
                 </div>
             </div>
+            <!-- Modais Catalogo -->
+            <div class="modal fade" id="staticBackdrop{{ produto.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ produto.id }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel{{ produto.id }}">{{ produto.titulo }}</h1>
+                            <button class="fechar" data-bs-dismiss="modal" aria-label="Close">
+                                <span class="icon-close">
+                                    <ion-icon name="close"></ion-icon>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.titulo }}">
+                        </div>
+                        <div class="footer-modal">
+                            <div>
+                                <h1 class="modal-title fs-5" style="font-family: serif; color: #FFFFF5;">{{ produto.descricao }}</h1><br>
+                                <h1 class="modal-title fs-5" style="font-family: serif; color: #FFFFF5">R$- {{ produto.preco }}</h1>
+                            </div>
+                        </div><br>
+                        <!-- Corrigir o botão Comprar -->
+                        <form method="post" action="{% url 'efetuar_compra' produto_id=produto.id %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-ver-mais">
+                                Comprar
+                            </button>
+                        </form><br>
+                    </div>
+                </div>
+            </div>
+            <!-- Fim dos Modais Catalogo -->
+            {% endfor %}
         </div>
-        <!-- Fim dos Modais Catalogo -->
-      {% endfor %}
-    </div>
-    <!-- cards -->
-<style>
-   .page-link {
+        <!-- cards -->
+    <style>
+    .page-link {
 
-    margin-left: 10px; /* Margem à esquerda para separação do botão */
-    box-shadow: 0 4px 8px #3D3D3D; /* Adicione uma sombra suave */
-    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
-    background-color: #B9C2C4;
-    color: #FFFFF5;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    font-size: 1rem;
-    cursor: pointer;
-    
-}
-.page-link:hover {
-    background-color: #947F57;
-    text-decoration: none;
-}
-.page-item{
-    margin-right: 10px;
-}
-.paginatiot {
-    box-shadow: 0 4px 8px #B9C2C4; /* Adicione uma sombra suave */
-    transition: box-shadow 0.3s; /* Transição suave para a sombra */
-}
-.page-link:focus {
-    outline: none; /* Remova o contorno ao focar no campo de pesquisa */
-    box-shadow: 0 4px 8px #B9C2C4; /* Altere a sombra ao focar */
-}
+        margin-left: 10px; /* Margem à esquerda para separação do botão */
+        box-shadow: 0 4px 8px #3D3D3D; /* Adicione uma sombra suave */
+        transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+        background-color: #B9C2C4;
+        color: #FFFFF5;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        font-size: 1rem;
+        cursor: pointer;
+        
+    }
+    .page-link:hover {
+        background-color: #947F57;
+        text-decoration: none;
+    }
+    .page-item{
+        margin-right: 10px;
+    }
+    .paginatiot {
+        box-shadow: 0 4px 8px #B9C2C4; /* Adicione uma sombra suave */
+        transition: box-shadow 0.3s; /* Transição suave para a sombra */
+    }
+    .page-link:focus {
+        outline: none; /* Remova o contorno ao focar no campo de pesquisa */
+        box-shadow: 0 4px 8px #B9C2C4; /* Altere a sombra ao focar */
+    }
 
-.page-link {
-    background-color: #FFFFF5;
-    border-color: #947F57;
-}
+    .page-link {
+        background-color: #FFFFF5;
+        border-color: #947F57;
+    }
 
-.page-link  {
-    background-color: #B9C2C4;
-    color:#3D3D3D ;
-    border: 1px solid #a7adad;
-    border-radius: 5px;
-    font-weight: bold;
-}
-</style>
+    .page-link  {
+        background-color: #B9C2C4;
+        color:#3D3D3D ;
+        border: 1px solid #a7adad;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    </style>
 
     <!-- Paginator mais polido -->
       <div class="pagination justify-content-center mt-4">
