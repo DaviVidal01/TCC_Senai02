@@ -31,7 +31,7 @@ Este site foi cuidadosamente projetado e desenvolvido pela equipe dedicada da Po
 Descubra a fusão perfeita entre moda e tecnologia. Seja bem-vindo ao futuro da High Fashion.
 ## 📚 Build 
 
-> ⚠️ **Requisitos:** *Python v3.12.0*, *Django v4.2.6*,  *MySQL*, *Pip 23.3.1*
+> ⚠️ **Requisitos:** *Python v3.12.0*, *Django v4.2.6*,  *MySQL 8.0.33*, *Pip 23.3.1*
 
 🏃 - **Passo a Passo:**
 
