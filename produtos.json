@@ -1,0 +1,84 @@
+[
+    {
+        "model": "app_nome.tamanho_bd",
+        "pk": 1,
+        "fields": {
+            "tamanho": "PP"
+        }
+    },
+    {
+        "model": "app_nome.tamanho_bd",
+        "pk": 2,
+        "fields": {
+            "tamanho": "P"
+        }
+    },
+    {
+        "model": "app_nome.tamanho_bd",
+        "pk": 3,
+        "fields": {
+            "tamanho": "M"
+        }
+    },
+    {
+        "model": "app_nome.tamanho_bd",
+        "pk": 4,
+        "fields": {
+            "tamanho": "G"
+        }
+    },
+    {
+        "model": "app_nome.tamanho_bd",
+        "pk": 5,
+        "fields": {
+            "tamanho": "GG"
+        }
+    },
+    {
+        "model": "app_nome.tamanho_bd",
+        "pk": 6,
+        "fields": {
+            "tamanho": "XGG"
+        }
+    },
+    {
+        "model": "app_nome.tipo_bd",
+        "pk": 1,
+        "fields": {
+            "tipo": "Camisa"
+        }
+    },
+    {
+        "model": "app_nome.tipo_bd",
+        "pk": 2,
+        "fields": {
+            "tipo": "Calça"
+        }
+    },
+    {
+        "model": "app_nome.tipo_bd",
+        "pk": 3,
+        "fields": {
+            "tipo": "Casaco/Blusa"
+        }
+    },
+    
+    {
+        "model": "app_nome.produtos_bd",
+        "pk": 1,
+        "fields": {
+            "titulo": "Terno Azul Gucci",
+            "foto": "images/13_vMXu88c.png",
+            "descricao": "Terno Azul da marca Gucci usando tecido de lã",
+            "preco": "900",
+            "data_foto": "2023-12-08T00:00:00Z",
+            "autor": 1,
+            "marca": 30,
+            "tamanho": 23,
+            "tecido": 22,
+            "tipo": 46,
+            "genero": "Masculino"
+        }
+    },
+    
+]
