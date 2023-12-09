@@ -1,0 +1,425 @@
+[
+    {
+      "model": "Website.Tamanho_BD",
+      "pk": 1,
+      "fields": {
+        "tamanho": "PP"
+      }
+    },
+    {
+        "model": "Website.Tamanho_BD",
+        "pk": 2,
+        "fields": {
+          "tamanho": "P"
+        }
+      },
+    {
+        "model": "Website.Tamanho_BD",
+        "pk": 3,
+        "fields": {
+          "tamanho": "M"
+        }
+    },
+    {
+        "model": "Website.Tamanho_BD",
+        "pk": 4,
+        "fields": {
+          "tamanho": "G"
+        }
+    },
+    {
+        "model": "Website.Tamanho_BD",
+        "pk": 5,
+        "fields": {
+          "tamanho": "GG"
+        }
+    },
+    {
+        "model": "Website.Tamanho_BD",
+        "pk": 6,
+        "fields": {
+          "tamanho": "XGG"
+        }
+    },
+    {
+        "model": "Website.Tipo_BD",
+        "pk": 1,
+        "fields": {
+          "tipo": "Camisa"
+        }
+    },
+    {
+        "model": "Website.Tipo_BD",
+        "pk": 2,
+        "fields": {
+          "tipo": "Calça"
+        }
+    },
+    {
+        "model": "Website.Tipo_BD",
+        "pk": 3,
+        "fields": {
+          "tipo": "Casaco/Blusa"
+        }
+    },
+    {
+        "model": "Website.Tipo_BD",
+        "pk": 4,
+        "fields": {
+          "tipo": "Vestido"
+        }
+    },
+    {
+        "model": "Website.Tipo_BD",
+        "pk": 5,
+        "fields": {
+          "tipo": "Short"
+        }
+    },
+    {
+        "model": "Website.Tipo_BD",
+        "pk": 6,
+        "fields": {
+          "tipo": "Bermuda"
+        }
+    },
+    {
+        "model": "Website.Tipo_BD",
+        "pk": 7,
+        "fields": {
+          "tipo": "Jaqueta"
+        }
+    },
+    {
+        "model": "Website.Tipo_BD",
+        "pk": 8,
+        "fields": {
+          "tipo": "Íntima"
+        }
+    },
+    {
+        "model": "Website.Tipo_BD",
+        "pk": 9,
+        "fields": {
+          "tipo": "Banho"
+        }
+    },
+    {
+        "model": "Website.Tipo_BD",
+        "pk": 10,
+        "fields": {
+          "tipo": "Social"
+        }
+    },
+    {
+        "model": "Website.Tipo_BD",
+        "pk": 11,
+        "fields": {
+          "tipo": "Esportiva"
+        }
+    },
+    {
+        "model": "Website.Tipo_BD",
+        "pk": 12,
+        "fields": {
+          "tipo": "Kit"
+        }
+    },
+    {
+        "model": "Website.Marca_BD",
+        "pk": 1,
+        "fields": {
+          "marca": "High Fashion"
+        }
+    },
+    {
+        "model": "Website.Marca_BD",
+        "pk": 2,
+        "fields": {
+          "marca": "Nike"
+        }
+    },
+    {
+        "model": "Website.Marca_BD",
+        "pk": 3,
+        "fields": {
+          "marca": "Adidas"
+        }
+    },
+    {
+        "model": "Website.Marca_BD",
+        "pk": 4,
+        "fields": {
+          "marca": "Zara"
+        }
+    },
+    {
+        "model": "Website.Marca_BD",
+        "pk": 5,
+        "fields": {
+          "marca": "Levi's"
+        }
+    },
+    {
+        "model": "Website.Marca_BD",
+        "pk": 6,
+        "fields": {
+          "marca": "Gucci"
+        }
+    },
+    {
+        "model": "Website.Marca_BD",
+        "pk": 7,
+        "fields": {
+          "marca": "Chanel"
+        }
+    },
+    {
+        "model": "Website.Marca_BD",
+        "pk": 8,
+        "fields": {
+          "marca": "Calvin Klein"
+        }
+    },
+    {
+        "model": "Website.Marca_BD",
+        "pk": 9,
+        "fields": {
+          "marca": "Bob Nature"
+        }
+    },
+    {
+        "model": "Website.Marca_BD",
+        "pk": 10,
+        "fields": {
+          "marca": "Puma"
+        }
+    },
+    {
+        "model": "Website.Tecido_BD",
+        "pk": 1,
+        "fields": {
+          "tecido": "Algodão"
+        }
+    },
+    {
+        "model": "Website.Tecido_BD",
+        "pk": 2,
+        "fields": {
+          "tecido": "Jeans"
+        }
+    },
+    {
+        "model": "Website.Tecido_BD",
+        "pk": 3,
+        "fields": {
+          "tecido": "Lã"
+        }
+    },
+    {
+        "model": "Website.Tecido_BD",
+        "pk": 4,
+        "fields": {
+          "tecido": "Legging"
+        }
+    },
+    {
+        "model": "Website.Tecido_BD",
+        "pk": 5,
+        "fields": {
+          "tecido": "Seda"
+        }
+    },
+    {
+        "model": "Website.Tecido_BD",
+        "pk": 6,
+        "fields": {
+          "tecido": "Linho"
+        }
+    },
+    {
+        "model": "Website.Tecido_BD",
+        "pk": 7,
+        "fields": {
+          "tecido": "Sintéticos"
+        }
+    },
+    {
+        "model": "Website.Tecido_BD",
+        "pk": 8,
+        "fields": {
+          "tecido": "Microfibra"
+        }
+    },
+
+    {
+        "model": "Website.Produtos_BD",
+        "pk": 1,
+        "fields": {
+            "titulo": "Terno Azul Gucci",
+            "foto": "images/13_vMXu88c.png",
+            "descricao": "Terno Azul da marca Gucci usando tecido de lã",
+            "preco": "900",
+            "data_foto": "2023-12-04",
+            "autor": 1,
+            "marca": 6,
+            "tamanho": 3,
+            "tecido": 3,
+            "tipo": 3,
+            "genero": "Masculino"
+        }
+    },
+    {
+        "model": "Website.Produtos_BD",
+        "pk": 2,
+        "fields": {
+            "titulo": "Terno Cinza Chanel",
+            "foto": "images/12.png",
+            "descricao": "Terno cinza da Chanel usando tecidos de lã", 
+            "preco": "850",
+            "data_foto": "2023-12-04",
+            "autor": 1,
+            "marca": 7,
+            "tamanho": 4,
+            "tecido": 3,
+            "tipo": 3,
+            "genero": "Masculino"
+        }
+    },
+    {
+        "model": "Website.Produtos_BD",
+        "pk": 3,
+        "fields": {
+            "titulo": "Terno Bege Calvin Klein",
+            "foto": "images/11_H0GTVms.png",
+            "descricao": "Terno bege da Calvin Klein usando tecido de lã", 
+            "preco": "500",
+            "data_foto": "2023-12-04",
+            "autor": 1,
+            "marca": 8,
+            "tamanho": 2,
+            "tecido": 3,
+            "tipo": 3,
+            "genero": "Masculino"
+        }
+    },
+    {
+        "model": "Website.Produtos_BD",
+        "pk": 4,
+        "fields": {
+            "titulo": "Vestido Branco Zara",
+            "foto": "images/7_FOc1rR1.png",
+            "descricao": "Vestido branco da marca Zara e tecido Linho",  
+            "preco": "200",
+            "data_foto": "2023-12-04",
+            "autor": 1,
+            "marca": 4,
+            "tamanho": 3,
+            "tecido": 6,
+            "tipo": 4,
+            "genero": "Feminino"
+        }
+    },
+    {
+        "model": "Website.Produtos_BD",
+        "pk": 5,
+        "fields": {
+            "titulo": "Vestido Cinza Zara",
+            "foto": "images/6_hPALumE.png",
+            "descricao": "Vestido branco da marca Zara e tecido Linho",  
+            "preco": "230",
+            "data_foto": "2023-12-04",
+            "autor": 1,
+            "marca": 4,
+            "tamanho": 1,
+            "tecido": 6,
+            "tipo": 4,
+            "genero": "Feminino"
+        }
+    },
+    {
+        "model": "Website.Produtos_BD",
+        "pk": 6,
+        "fields": {
+            "titulo": "Vestido Azul Claro Zara",
+            "foto": "images/10_CnlDA5K.png",
+            "descricao": "Vestido azul claro da marca Zara usando tecido Seda", 
+            "preco": "230",
+            "data_foto": "2023-12-04",
+            "autor": 1,
+            "marca": 4,
+            "tamanho": 4,
+            "tecido": 5,
+            "tipo": 4,
+            "genero": "Feminino"
+        }
+    },
+    {
+        "model": "Website.Produtos_BD",
+        "pk": 7,
+        "fields": {
+            "titulo": "Calça Jeans rasgo joelho",
+            "foto": "images/8_RQjn6EU.png",
+            "descricao": "Calça Jeans rasgada, estilo punkrock e heavymetal",
+            "preco": "90",
+            "data_foto": "2023-12-04",
+            "autor": 1,
+            "marca": 9,
+            "tamanho": 4,
+            "tecido": 2,
+            "tipo": 2,
+            "genero": "Unisex"
+        }
+    },
+    {
+        "model": "Website.Produtos_BD",
+        "pk": 8,
+        "fields": {
+            "titulo": "Camisa Estampada Preta",
+            "foto": "images/9_Q1qaKx1.png",
+            "descricao": "Camisa estampada preta com mão de caveira, camisa feminino e masculino da marca High Fashion",
+            "preco": "150",
+            "data_foto": "2023-12-04",
+            "autor": 1,
+            "marca": 3,
+            "tamanho": 3,
+            "tecido": 1,
+            "tipo": 1,
+            "genero": "Unisex"
+        }
+    },
+    {
+        "model": "Website.Produtos_BD",
+        "pk": 9,
+        "fields": {
+            "titulo": "Camisa Estampada Vermelha",
+            "foto": "images/camisavermelha_Rd9xiCX.png",
+            "descricao": "Camisa estampada da cor vermelha da marca High Fashion", 
+            "preco": "78",
+            "data_foto": "2023-12-04",
+            "autor": 1,
+            "marca": 1,
+            "tamanho": 5,
+            "tecido": 1,
+            "tipo": 1,
+            "genero": "Unisex"
+        }
+    },
+    {
+        "model": "Website.Produtos_BD",
+        "pk": 10,
+        "fields": {
+            "titulo": "Calvin Klein Esportiva",
+            "foto": "images/4_fV2nPkg.png",
+            "descricao": "Calvin Klein Esportiva feminina do tecido de legging", 
+            "preco": "32",
+            "data_foto": "2023-12-04",
+            "autor": 1,
+            "marca": 8,
+            "tamanho": 1,
+            "tecido": 4,
+            "tipo": 11,
+            "genero": "Feminino"
+        }
+    }
+  ]
