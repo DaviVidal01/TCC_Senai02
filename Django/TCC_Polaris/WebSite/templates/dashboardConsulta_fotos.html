@@ -1,4 +1,4 @@
-{% extends 'layouts/adminbase.html' %}
+
 {% load static %}
 {% block content %}
 	<!-- for header part -->
@@ -6,12 +6,49 @@
 	{% include 'partials/admin/sidebar.html' %}
 	<div class="main">
 		{% include 'partials/alerts.html' %}
+<style>
+			/*barra de pesquisa*/
+.search-bar-container {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.search-input {
+    border: none; /* Remova a borda */
+    border-radius: 30px; /* Borda arredondada */
+    padding: 10px 20px; /* Preenchimento interno */
+    box-shadow: 0 4px 8px #B9C2C4; /* Adicione uma sombra suave */
+    transition: box-shadow 0.3s; /* Transição suave para a sombra */
+}
+
+.btn-search {
+    margin-left: 10px; /* Margem à esquerda para separação do botão */
+    box-shadow: 0 4px 8px #3D3D3D; /* Adicione uma sombra suave */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+    background-color: #B9C2C4;
+    color: #FFFFF5;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer
+}
+
+.search-input:focus {
+    outline: none; /* Remova o contorno ao focar no campo de pesquisa */
+    box-shadow: 0 4px 8px #B9C2C4; /* Altere a sombra ao focar */
+}
+
+.btn-search:hover {
+    background-color: #947F57;
+}
+</style>
 		<form method="GET" action="{% url 'listarFotos' %}" class="mb-3 justify-content-end text-align-end">
-			<div class="searchbar d-flex input-group">
-				<input type="text" name="search" placeholder="Search">
-				<button type="submit" class="searchbtn">
-					<ion-icon name="search-outline" size="large" style="color:#FFFFFF ;"></ion-icon>
-				</button>
+			<div class="search-bar-container position-absolute top-50 start-50 translate-middle mt-1">
+				<form class="d-flex" method="GET" action="{% url 'catalogo' %}" >
+					<input class="form-control me-2 search-input" type="search" placeholder="Pesquisar" aria-label="Search" name="q" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #B9C2C4;">
+					<button class="btn-search" type="submit" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">Buscar</button>
+				</form>
 			</div>
 		</form>
         <div class="photo-list">
@@ -20,7 +57,7 @@
 				{% for foto in fotos %}
 					<div class="col">
 						<div class="card">
-							<img src="{{ foto.foto.url }}" class="card-img-top" alt="{{ foto.titulo }}">
+							<img src="{{ foto.foto.url }}" class="card-img-top" alt="{{ foto.titulo }}" width="400px" height="500px">
 							<div class="card-body">
 							    <h5 class="card-title text-left">Título: {{foto.titulo}}</h5>
 							    <p class="card-text text-left">Preço: <strong style="color:green;font-family:Arial Black;">R${{foto.preco}}</strong></p>

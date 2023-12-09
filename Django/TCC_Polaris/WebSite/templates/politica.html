@@ -3,6 +3,30 @@
 {% block title %}High Fashion: Sobre{% endblock %}
 {% block content %}
     {% include 'partials/user/others/navbar.html' %}
+
+    <style>
+        body {
+            background-color: #FFFFF5;
+            color: #343a40;
+        }
+
+        .section-container {
+            background-color: #FFFFF5;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #343a40;
+        }
+
+        hr {
+            border-top: 1px solid #007bff;
+        }
+    </style>
+
     <div id="carouselExample" class="carousel slide position-relative">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -101,6 +125,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div><br>
     {% include 'partials/user/footer.html' %}
 {% endblock %}
