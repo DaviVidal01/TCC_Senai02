@@ -1,69 +1,79 @@
-{% extends 'layouts/adminbase.html' %}
+{% extends 'layouts/catalogo.html' %}
 {% load static %}
 {% block content %}
-	<!-- for header part -->
-	<nav class="navbar navbar-expand-lg" style="background-color:  #FFFFF5;">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="../">
-				<h2 style="font-family: serif; color: #3D3D3D;"> <img width="50px" src="{% static 'assets/img/highFashion.png' %}" alt="HF"> High Fashion</h2>
-			</a>
-			<div class="d-flex justify-content-center">
-			  <div class="rocket-container row tm-sm-90">
-				</div>          
-			</div>
-		</div>
-	  </nav>     
-	{% include 'partials/admin/sidebar.html' %}
-	
-	<style>
-		
-    .btn-dash {
-        margin-left: 10px;
-    }
+{% include 'partials/user/catalog/dash_nav.html' %}	   
+{% include 'partials/alerts.html' %}
 
-    .rounded-btn {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-        padding: 10px;
-        margin: 5px;
-    }
+<style>
+.container {
+    margin-top: 40px;
+}
+.rounded-btn {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 20px;
+	text-decoration: none;
+}
 
-    .rounded-btn h2,
-    .rounded-btn h3 {
-        margin: 5px 0;
-    }
-	</style>
-	<div class="main">
-		{% include 'partials/alerts.html' %}
-		<div class="action-buttons">
-			<div class="side-buttons">
-				<a href="../catalogo" class="rounded-btn purple-btn">
-					<ion-icon name="newspaper-outline" size="large"></ion-icon>
-					<h2>Catálogo</h2>
-				</a>
-			</div>
-			<div class="side-buttons">
-				<a href="../consulta_fotos" class="rounded-btn white-btn">
-					<ion-icon name="pricetags-outline" size="large"></ion-icon>
-					<h3>Consultar Produtos</h3>
-				</a>
-				<a href="../add_fotos" class="rounded-btn white-btn">
-					<ion-icon name="pricetag-outline" size="large"></ion-icon>
-					<h3>Adicionar Produtos</h3>
-				</a>
-			</div>
-			<div class="side-buttons">
-				<a href="../consulta_fotos" class="rounded-btn white-btn">
-					<ion-icon name="person-outline" size="large"></ion-icon>
-					<h3>Consultar Usuários</h3>
-				</a>
-				<a href="../add_fotos" class="rounded-btn white-btn">
-					<ion-icon name="person-add-outline" size="large"></ion-icon>
-					<h3>Adicionar Usuários</h3>
-				</a>
-			</div>
-		</div>
-	</div>
+.white-btn {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+}
+
+.white-btn:hover {
+	background-color: #f0f0f0;
+}
+
+ion-icon {
+	margin-bottom: 10px;
+}
+
+h3 {
+	margin: 0;
+	font-size: 18px;
+}
+</style>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+            <div class="card" style="background-color: #B9C2C4; border: #3D3D3D;"><br>
+                <a href="../consulta_fotos" class="rounded-btn">
+                    <ion-icon name="pricetags-outline" size="large" style="color: #fffff5;"></ion-icon>
+                    <h2 style= "font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #fffff5;">Consultar Produtos</h2>
+                </a><br>
+            </div>
+        </div>
+        <div class="col">
+			<div class="card" style="background-color: #B9C2C4; border: #3D3D3D;"><br>
+                <a href="../add_fotos" class="rounded-btn">
+                    <ion-icon name="pricetag-outline" size="large" style="color: #fffff5;"></ion-icon>
+                    <h2 style= "font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #fffff5;">Adicionar Produtos</h2>
+                </a><br>
+            </div>
+        </div>
+        <div class="col">
+			<div class="card" style="background-color: #B9C2C4; border: #3D3D3D;"><br>
+                <a href="../consulta_user"  class="rounded-btn">
+                    <ion-icon name="person-outline" size="large" style="color: #fffff5;"></ion-icon>
+                    <h2 style= "font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #fffff5;">Consultar Usuários</h2>
+                </a><br>
+            </div>
+        </div>
+        <div class="col">
+			<div class="card" style="background-color: #B9C2C4; border: #3D3D3D;"><br>
+                <a href="../add_user" class="rounded-btn">
+                    <ion-icon name="person-add-outline" size="large" style="color: #fffff5;"></ion-icon>
+                    <h2 style= "font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #fffff5;">Adicionar Usuários</h2>
+                </a><br>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

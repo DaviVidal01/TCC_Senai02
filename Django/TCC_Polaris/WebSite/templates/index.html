@@ -1,7 +1,7 @@
 {% extends 'layouts/layout.html' %}
 {% load static %}
 {% block content %}
-{% include 'partials/user/others/navbar.html' %}
+{% include 'partials/user/catalog/header_catalog.html' %}
 {% include 'partials/alerts.html' %}
     <!-- carrossel -->
       <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -26,58 +26,220 @@
         </button>
       </div>
 
-      <!-- cards -->
-      <header>
-        <h1 class="h2" style="font-family: serif; color: #3D3D3D;">Últimos Lançamentos</h1>
-      </header><br>
+      <style>
+        .payment-options {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .payment-option {
+            margin-right: 10px;
+            padding: 20px 50px;
+            font-size: 14px;
+            color: #fff;
+            background-color: #947F57;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .payment-option:hover {
+            background-color: #B9C2C4;
+        }
+      </style>
+
+<header>
+  <h1 class="h2" style="font-family: serif; color: #3D3D3D;">Promoções Especiais</h1>
+</header><br><br>
+<h2 class="h2" style="font-family: serif; color: #3D3D3D;">Não perca nossas ofertas exclusivas! Descontos incríveis em toda a loja.</h2>
     
+      <div class="payment-options">
+          <a href="#" class="payment-option" style="font-size: 20px; text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">Até <br> 70% Off</a>
+          <a href="#" class="payment-option"  style="font-size: 20px; text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">Parcele Suas Compras <br> Até 12x Sem Juros.</a>
+          <a href="#" class="payment-option"  style="font-size: 20px; text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">Confira Nossas <br> Novidades</a>
+      </div><br><br>
+
       <div class="container">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row row-cols-1 row-cols-md-5 g-3">
             <div class="col">
                 <div class="card h-100">
                     <img src="{% static 'assets/img/6.jpg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h2 class="card-title">Brincos Statement</h2>
-                        <h5 class="card-title text-left" style="font-family: serif; color: #3D3D3D;">Brincos grandes e chamativos podem adicionar um toque de sofisticação a qualquer look.</p><br>
-                        <a class="nav-link" href="catalogo.html">
-                          <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;; color: #FFFFF5;">
-                            Ir para catálogo
-                          </button>
-                        </a>
+                        <h2 class="card-title" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Vestidos</h2>
+                        <div class="button-container">
+                            <a class="nav-link" href="catalogo.html">
+                                <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">
+                                    Catálogo
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- Repita a estrutura semelhante para outros cards -->
+            <!-- Card 2 -->
             <div class="col">
                 <div class="card h-100">
                     <img src="{% static 'assets/img/5.jpg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h2 class="card-title">Lenços de Seda</h2>
-                        <h5 class="card-title text-left" style="font-family: serif; color: #3D3D3D;">Lenços de seda podem ser usados de várias maneiras, seja amarrado no pescoço, nos pulsos ou como um acessório de cabelo.</p>
-                        <a class="nav-link" href="catalogo.html">
-                          <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;; color: #FFFFF5;">
-                            Ir para catálogo
-                          </button>
-                        </a>
+                        <h2 class="card-title" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Blusas</h2>
+                        <div class="button-container">
+                            <a class="nav-link" href="catalogo.html">
+                                <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">
+                                    Catálogo
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- Card 3 -->
             <div class="col">
                 <div class="card h-100">
                     <img src="{% static 'assets/img/4.jpg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h2 class="card-title">Bolsas de Designer</h2>
-                        <h5 class="card-title text-left" style="font-family: serif; color: #3D3D3D;">Adicionar imagens de bolsas de designer famosas pode destacar a qualidade e o estilo dos produtos que você oferece.</p>
-                        <a class="nav-link" href="catalogo.html">
-                          <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;; color: #FFFFF5;">
-                            Ir para catálogo
-                          </button>
-                        </a>
+                        <h2 class="card-title" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Calças</h2>
+                        <div class="button-container">
+                            <a class="nav-link" href="catalogo.html">
+                                <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">
+                                    Catálogo
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col">
+              <div class="card h-100">
+                  <img src="{% static 'assets/img/6.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h2 class="card-title" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Shorts</h2>
+                      <div class="button-container">
+                          <a class="nav-link" href="catalogo.html">
+                              <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">
+                                  Catálogo
+                              </button>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+            <!-- Card 5 -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'assets/img/6.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Novidades</h2>
+                        <div class="button-container">
+                            <a class="nav-link" href="catalogo.html">
+                                <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">
+                                    Catálogo
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <br>
-    <!-- cards -->
+      <!-- cards -->
+      <header>
+        <h1 class="h2" style="font-family: serif; color: #3D3D3D;">Últimos Lançamentos</h1>
+      </header><br>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-5 g-3">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'assets/img/6.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Vestidos</h2>
+                        <div class="button-container">
+                            <a class="nav-link" href="catalogo.html">
+                                <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">
+                                    Catálogo
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Repita a estrutura semelhante para outros cards -->
+            <!-- Card 2 -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'assets/img/5.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Blusas</h2>
+                        <div class="button-container">
+                            <a class="nav-link" href="catalogo.html">
+                                <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">
+                                    Catálogo
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'assets/img/4.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Calças</h2>
+                        <div class="button-container">
+                            <a class="nav-link" href="catalogo.html">
+                                <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">
+                                    Catálogo
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col">
+              <div class="card h-100">
+                  <img src="{% static 'assets/img/6.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h2 class="card-title" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Shorts</h2>
+                      <div class="button-container">
+                          <a class="nav-link" href="catalogo.html">
+                              <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">
+                                  Catálogo
+                              </button>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+            <!-- Card 5 -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'assets/img/6.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Novidades</h2>
+                        <div class="button-container">
+                            <a class="nav-link" href="catalogo.html">
+                                <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">
+                                    Catálogo
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'assets/img/banner.jpg' %}" class="card-img-top" alt="...">
+        </div>
+      </div>
+    </div>
   {% include 'partials/user/footer.html' %}
 {% endblock %}
