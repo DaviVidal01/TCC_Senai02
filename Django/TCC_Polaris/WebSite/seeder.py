@@ -5,45 +5,45 @@ agora = timezone.now()
 
 def DadosHighFashionBD():
     # --- Tamanhos
-    Tamanho_BD.objects.create(tamanho='PP')
-    Tamanho_BD.objects.create(tamanho='P')
-    Tamanho_BD.objects.create(tamanho='M')
-    Tamanho_BD.objects.create(tamanho='G')
-    Tamanho_BD.objects.create(tamanho='GG')
-    Tamanho_BD.objects.create(tamanho='XGG')
+    Tamanho_BD.objects.create(id="1",tamanho='PP')
+    Tamanho_BD.objects.create(id="2",tamanho='P')
+    Tamanho_BD.objects.create(id="3",tamanho='M')
+    Tamanho_BD.objects.create(id="4",tamanho='G')
+    Tamanho_BD.objects.create(id="5",tamanho='GG')
+    Tamanho_BD.objects.create(id="6",tamanho='XGG')
     # --- Tipos
-    Tipo_BD.objects.create(tipo='Camisa')
-    Tipo_BD.objects.create(tipo='Calça')
-    Tipo_BD.objects.create(tipo='Casaco/Blusa')
-    Tipo_BD.objects.create(tipo='Vestido')
-    Tipo_BD.objects.create(tipo='Short')
-    Tipo_BD.objects.create(tipo='Bermuda')
-    Tipo_BD.objects.create(tipo='Jaqueta')
-    Tipo_BD.objects.create(tipo='Íntima')
-    Tipo_BD.objects.create(tipo='Banho')
-    Tipo_BD.objects.create(tipo='Social')
-    Tipo_BD.objects.create(tipo='Esportiva')
-    Tipo_BD.objects.create(tipo='Kit')
+    Tipo_BD.objects.create(id="1",tipo='Camisa')
+    Tipo_BD.objects.create(id="2",tipo='Calça')
+    Tipo_BD.objects.create(id="3",tipo='Casaco/Blusa')
+    Tipo_BD.objects.create(id="4",tipo='Vestido')
+    Tipo_BD.objects.create(id="5",tipo='Short')
+    Tipo_BD.objects.create(id="6",tipo='Bermuda')
+    Tipo_BD.objects.create(id="7",tipo='Jaqueta')
+    Tipo_BD.objects.create(id="8",tipo='Íntima')
+    Tipo_BD.objects.create(id="9",tipo='Banho')
+    Tipo_BD.objects.create(id="10",tipo='Social')
+    Tipo_BD.objects.create(id="11",tipo='Esportiva')
+    Tipo_BD.objects.create(id="12",tipo='Kit')
     # --- Marcas
-    Marca_BD.objects.create(marca='High Fashion')
-    Marca_BD.objects.create(marca='Nike')
-    Marca_BD.objects.create(marca='Adidas')
-    Marca_BD.objects.create(marca='Zara')
-    Marca_BD.objects.create(marca="Levi's")
-    Marca_BD.objects.create(marca="Gucci")
-    Marca_BD.objects.create(marca="Chanel")
-    Marca_BD.objects.create(marca="Calvin Klein")
-    Marca_BD.objects.create(marca="Bob Nature")
-    Marca_BD.objects.create(marca="Puma")
+    Marca_BD.objects.create(id="1",marca='High Fashion')
+    Marca_BD.objects.create(id="2",marca='Nike')
+    Marca_BD.objects.create(id="3",marca='Adidas')
+    Marca_BD.objects.create(id="4",marca='Zara')
+    Marca_BD.objects.create(id="5",marca="Levi's")
+    Marca_BD.objects.create(id="6",marca="Gucci")
+    Marca_BD.objects.create(id="7",marca="Chanel")
+    Marca_BD.objects.create(id="8",marca="Calvin Klein")
+    Marca_BD.objects.create(id="9",marca="Bob Nature")
+    Marca_BD.objects.create(id="10",marca="Puma")
     # --- Tecidos
-    Tecido_BD.objects.create(tecido='Algodão')
-    Tecido_BD.objects.create(tecido='Jeans')
-    Tecido_BD.objects.create(tecido='Lã')
-    Tecido_BD.objects.create(tecido='Legging')
-    Tecido_BD.objects.create(tecido='Seda')
-    Tecido_BD.objects.create(tecido='Linho')
-    Tecido_BD.objects.create(tecido='Sintéticos')
-    Tecido_BD.objects.create(tecido='Microfibra')
+    Tecido_BD.objects.create(id="1",tecido='Algodão')
+    Tecido_BD.objects.create(id="2",tecido='Jeans')
+    Tecido_BD.objects.create(id="3",tecido='Lã')
+    Tecido_BD.objects.create(id="4",tecido='Legging')
+    Tecido_BD.objects.create(id="5",tecido='Seda')
+    Tecido_BD.objects.create(id="6",tecido='Linho')
+    Tecido_BD.objects.create(id="7",tecido='Sintéticos')
+    Tecido_BD.objects.create(id="8",tecido='Microfibra')
     # --- Produtos
     Produtos_BD.objects.create(
         titulo="Terno Azul Gucci",
@@ -53,7 +53,7 @@ def DadosHighFashionBD():
         data_foto=agora, 
         autor_id="1",
         marca_id="30",
-        tamanho_id="23",
+        tamanho_id="3",
         tecido_id="22",
         tipo_id="46",
         genero="Masculino",
@@ -66,7 +66,7 @@ def DadosHighFashionBD():
         data_foto=agora, 
         autor_id="1",
         marca_id="31",
-        tamanho_id="23",
+        tamanho_id="3",
         tecido_id="22",
         tipo_id="46",
         genero="Masculino",
@@ -79,7 +79,7 @@ def DadosHighFashionBD():
         data_foto=agora, 
         autor_id="1",
         marca_id="32",
-        tamanho_id="23",
+        tamanho_id="3",
         tecido_id="22",
         tipo_id="46",
         genero="Masculino",
@@ -92,7 +92,7 @@ def DadosHighFashionBD():
         data_foto=agora, 
         autor_id="1",
         marca_id="28",
-        tamanho_id="23",
+        tamanho_id="3",
         tecido_id="25",
         tipo_id="40",
         genero="Feminino",
@@ -105,7 +105,7 @@ def DadosHighFashionBD():
         data_foto=agora, 
         autor_id="1",
         marca_id="28",
-        tamanho_id="23",
+        tamanho_id="3",
         tecido_id="25",
         tipo_id="40",
         genero="Feminino",
@@ -118,7 +118,7 @@ def DadosHighFashionBD():
         data_foto=agora, 
         autor_id="1",
         marca_id="28",
-        tamanho_id="23",
+        tamanho_id="3",
         tecido_id="24",
         tipo_id="40",
         genero="Feminino",
@@ -131,7 +131,7 @@ def DadosHighFashionBD():
         data_foto=agora, 
         autor_id="1",
         marca_id="33",
-        tamanho_id="23",
+        tamanho_id="3",
         tecido_id="21",
         tipo_id="38",
         genero="Unisex",
@@ -144,7 +144,7 @@ def DadosHighFashionBD():
         data_foto=agora, 
         autor_id="1",
         marca_id="25",
-        tamanho_id="23",
+        tamanho_id="3",
         tecido_id="20",
         tipo_id="37",
         genero="Unisex",
@@ -157,7 +157,7 @@ def DadosHighFashionBD():
         data_foto=agora, 
         autor_id="1",
         marca_id="25",
-        tamanho_id="23",
+        tamanho_id="3",
         tecido_id="20",
         tipo_id="37",
         genero="Unisex",
@@ -170,7 +170,7 @@ def DadosHighFashionBD():
         data_foto=agora, 
         autor_id="1",
         marca_id="32",
-        tamanho_id="23",
+        tamanho_id="3",
         tecido_id="23",
         tipo_id="47",
         genero="Feminino",
