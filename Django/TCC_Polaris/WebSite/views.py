@@ -368,7 +368,6 @@ def update_user(request, id):
 
     return redirect('consulta_users')
 
-
 @login_required
 def delete_user(request, id):
     user = User.objects.get(pk=id)
