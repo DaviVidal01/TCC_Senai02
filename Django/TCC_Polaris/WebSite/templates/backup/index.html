@@ -1,0 +1,83 @@
+{% extends 'layouts/layout.html' %}
+{% load static %}
+{% block content %}
+{% include 'partials/user/others/navbar.html' %}
+{% include 'partials/alerts.html' %}
+    <!-- carrossel -->
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'assets/img/1.jpg' %}" class="d-block w-100" alt="..." width="1200px" height="800px">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'assets/img/2.jpg' %}" class="d-block w-100" alt="..." width="1200px" height="800px">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'assets/img/3.jpg' %}" class="d-block w-100" alt="..." width="1200px" height="800px">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <!-- cards -->
+      <header>
+        <h1 class="h2" style="font-family: serif; color: #3D3D3D;">Últimos Lançamentos</h1>
+      </header><br>
+    
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'assets/img/6.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title">Brincos Statement</h2>
+                        <h5 class="card-title text-left" style="font-family: serif; color: #3D3D3D;">Brincos grandes e chamativos podem adicionar um toque de sofisticação a qualquer look.</p><br>
+                        <a class="nav-link" href="catalogo.html">
+                          <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;; color: #FFFFF5;">
+                            Ir para catálogo
+                          </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'assets/img/5.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title">Lenços de Seda</h2>
+                        <h5 class="card-title text-left" style="font-family: serif; color: #3D3D3D;">Lenços de seda podem ser usados de várias maneiras, seja amarrado no pescoço, nos pulsos ou como um acessório de cabelo.</p>
+                        <a class="nav-link" href="catalogo.html">
+                          <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;; color: #FFFFF5;">
+                            Ir para catálogo
+                          </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{% static 'assets/img/4.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title">Bolsas de Designer</h2>
+                        <h5 class="card-title text-left" style="font-family: serif; color: #3D3D3D;">Adicionar imagens de bolsas de designer famosas pode destacar a qualidade e o estilo dos produtos que você oferece.</p>
+                        <a class="nav-link" href="catalogo.html">
+                          <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;; color: #FFFFF5;">
+                            Ir para catálogo
+                          </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!-- cards -->
+  {% include 'partials/user/footer.html' %}
+{% endblock %}

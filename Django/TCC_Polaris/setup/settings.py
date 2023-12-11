@@ -14,7 +14,7 @@ from django.contrib.messages import constants as messages
 from pathlib import Path
 import os
 #import pymysql
-#pymysql.install_as_MySQLdb()
+#ymysql.install_as_MySQLdb()
 #pymysql = "==1.1.0"
 
 #load_dotenv()

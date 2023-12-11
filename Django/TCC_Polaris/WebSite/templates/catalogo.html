@@ -1,16 +1,16 @@
 {% extends 'layouts/catalogo.html' %}
 {% load static %}
 {% block content %}
-  {% include 'partials/user/catalog/header_catalog.html' %}
-  {% include 'partials/user/catalog/modals.html' %}  
+{% include 'partials/user/catalog/header_catalog.html' %}
+{% include 'partials/user/catalog/modals.html' %}  
     <div id="carouselExample" class="carousel slide position-relative">
       <div class="carousel-inner">
           <div class="carousel-item active">
               <img src="{% static 'assets/img/compre_agora.jpg' %}" class="d-block w-100" alt="...">
               <div class="search-bar-container position-absolute top-50 start-50 translate-middle mt-1">
                   <form class="d-flex" method="GET" action="{% url 'catalogo' %}" >
-                      <input class="form-control me-2 search-input" type="search" placeholder="Pesquisar" aria-label="Search" name="q">
-                      <button class="btn-search" type="submit">Buscar</button>
+                      <input class="form-control me-2 search-input" type="search" placeholder="Pesquisar" aria-label="Search" name="q" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #B9C2C4;">
+                      <button class="btn-search" type="submit" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">Buscar</button>
                   </form>
               </div>
           </div>
@@ -22,137 +22,195 @@
     <!-- Container -->
     <div class="container pt-1 mt-1">
         <!-- Filtros -->
+
+    <style>
+        .form-select {
+        background-color: #B9C2C4;
+        color: #3D3D3D;
+        border: 1px solid #B9C2C4;
+        border-radius: 5px;
+        font-weight: bold;
+        box-shadow: 0 4px 8px #B9C2C4; /* Adicione uma sombra suave */
+        transition: box-shadow 0.3s; /* Transição suave para a sombra */
+    }
+
+    .form-select:focus {
+        outline: none; /* Remova o contorno ao focar no campo de pesquisa */
+        box-shadow: 0 0 8px #B9C2C4; /* Altere a sombra ao focar */
+    }
+
+    .form-select:hover {
+        background-color: #FFFFF5;
+        border-color: #947F57;
+        outline: none; /* Remova o contorno ao focar no campo de pesquisa */
+        box-shadow: 0 0 8px #B9C2C4; /* Altere a sombra ao focar */
+    }
+
+    .form-select option {
+        background-color: #B9C2C4;
+        color: #3D3D3D;
+        outline: none; /* Remova o contorno ao focar no campo de pesquisa */
+        box-shadow: 0 0 8px #B9C2C4; /* Altere a sombra ao focar */
+    }
+
+    .form-select option:hover {
+        background-color: #FFFFF5;
+        outline: none; /* Remova o contorno ao focar no campo de pesquisa */
+        box-shadow: 0 0 8px #B9C2C4; /* Altere a sombra ao focar */
+    }
+    </style>
         <div class="filter-section">
           <form method="get" action="{% url 'catalogo' %}" class="d-flex justify-content-end">
               <div class="mb-3 me-3">
-                  <label for="genero" class="form-label">Gênero:</label>
+                  <label for="genero" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Gênero:</label>
                   <select class="form-select" name="genero" id="genero">
-                      <option value="">Todos</option>
+                      <option value="" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Todos</option>
                       {% for genero in generos %}
-                          <option value="{{ genero }}" {% if genero == genero_filter %}selected{% endif %}>{{ genero }}</option>
+                          <option value="{{ genero }}" {% if genero == genero_filter %}selected{% endif %} style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">{{ genero }}</option>
                       {% endfor %}
                   </select>
               </div>
               <div class="mb-3 me-3">
-                  <label for="tipos" class="form-label">Tipos:</label>
+                  <label for="tipos" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Tipos:</label>
                   <select class="form-select" name="tipo" id="tipo">
-                      <option value="">Todos</option>
+                      <option value="" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;" >Todos</option>
                       {% for tipo in tipos %}
-                          <option value="{{ tipo }}" {% if tipo == tipo_filter %}selected{% endif %}>{{ tipo }}</option>
+                          <option value="{{ tipo }}" {% if tipo == tipo_filter %}selected{% endif %} style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">{{ tipo }}</option>
                       {% endfor %}
                   </select>
               </div>
               <div class="mb-3 me-3">
-                  <label for="marca" class="form-label">Marca:</label>
+                  <label for="marca" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Marca:</label>
                   <select class="form-select" name="marca" id="marca">
-                      <option value="">Todos</option>
+                      <option value="" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Todos</option>
                       {% for marca in marcas %}
-                          <option value="{{ marca }}" {% if marca == marca_filter %}selected{% endif %}>{{ marca }}</option>
+                          <option value="{{ marca }}" {% if marca == marca_filter %}selected{% endif %} style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">{{ marca }}</option>
                       {% endfor %}
                   </select>
               </div>
               <div class="mb-3 me-3">
-                  <label for="tecido" class="form-label">Tecido:</label>
+                  <label for="tecido" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Tecido:</label>
                   <select class="form-select" name="tecido" id="tecido">
-                      <option value="">Todos</option>
+                      <option value="" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Todos</option>
                       {% for tecido in tecidos %}
-                          <option value="{{ tecido }}" {% if tecido == tecido_filter %}selected{% endif %}>{{ tecido }}</option>
+                          <option value="{{ tecido }}" {% if tecido == tecido_filter %}selected{% endif %} style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">{{ tecido }}</option>
                       {% endfor %}
                   </select>
               </div>
               <div class="mb-3 me-3">
-                  <label for="tamanho" class="form-label">Tamanho:</label>
+                  <label for="tamanho" class="form-label" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Tamanho:</label>
                   <select class="form-select" name="tamanho" id="tamanho">
-                      <option value="">Todos</option>
+                      <option value="" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">Todos</option>
                       {% for tamanho in tamanhos %}
-                          <option value="{{ tamanho }}" {% if tamanho == tamanho_filter %}selected{% endif %}>{{ tamanho }}</option>
+                          <option value="{{ tamanho }}" {% if tamanho == tamanho_filter %}selected{% endif %} style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">{{ tamanho }}</option>
                       {% endfor %}
                   </select>
               </div>
-              <button type="submit" class="mb-3 me-3 btn-ver-mais align-self-end">Filtrar</button>
+              <button type="submit" class="mb-3 me-3 btn-ver-mais align-self-end" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">Filtrar</button>
           </form>
         </div><br>
-    <!-- cards -->
-    <div class="row row-cols-1 row-cols-md-4 g-3">
-      {% for produto in produtos %}
-          <div class="col">
-              <div class="card">
-                  <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.titulo }}" width="400px" height="200px">
-                  <div class="card-body">
-                      <h5 class="card-title text-left">{{ produto.titulo }} - <span style="font-family: serif; color: #3D3D3D;">R${{ produto.preco }}</span></h5>
-                      {% if user.is_authenticated %}
-                          {% csrf_token %}
-                          <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ produto.id }}">
-                              Ver mais
-                          </button>
-                      {% else %}
-                          <!-- Alterações no botão para abrir o modal da sacola -->
-                          <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                             Ver mais
-                          </button>
-                      {% endif %}
-                  </div>
-              </div>
-          </div>
-        <!-- Modais Catalogo -->
-        <div class="modal fade" id="staticBackdrop{{ produto.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ produto.id }}" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel{{ produto.id }}">{{ produto.titulo }}</h1>
-                        <button class="fechar" data-bs-dismiss="modal" aria-label="Close">
-                            <span class="icon-close">
-                                <ion-icon name="close"></ion-icon>
-                            </span>
-                        </button>
+   <!-- cards -->
+    <div class="row row-cols-1 row-cols-md-5 g-3">
+        {% for produto in produtos %}
+            <div class="col">
+                <div class="card">
+                    <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.titulo }}">
+                    <div class="card-body">
+                        <h5 class="card-title text-left" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  color: #3D3D3D;">{{ produto.titulo }} - <br><span style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  color: #154734;">R${{ produto.preco }}</span></h5>
+                        {% if user.is_authenticated %}  
+                            {% csrf_token %}
+                            <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ produto.id }}">
+                                Ver mais
+                            </button>
+                        {% else %}
+                            <!-- Alterações no botão para abrir o modal da sacola -->
+                            <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Ver mais
+                            </button>
+                        {% endif %}
                     </div>
-                    <div class="modal-body">
-                        <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.titulo }}" style="border-radius: 2%;">
-                    </div>
-                    <div class="footer-modal">
-                        <div>
-                            <h1 class="modal-title fs-5" style="font-family: serif; color: #FFFFF5;">{{ produto.descricao }}</h1><br>
-                            <h1 class="modal-title fs-5" style="font-family: serif; color: #FFFFF5">R$- {{ produto.preco }}</h1>
-                        </div>
-                    </div><br>
-                    <!-- Corrigir o botão Comprar -->
-                    <form method="post" action="{% url 'efetuar_compra' produto_id=produto.id %}" style="display:inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="btn-ver-mais">
-                            Comprar
-                        </button>
-                    </form><br>
                 </div>
             </div>
+            <!-- Modais Catalogo -->
+            <div class="modal fade" id="staticBackdrop{{ produto.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ produto.id }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel{{ produto.id }}">{{ produto.titulo }}</h1>
+                            <button class="fechar" data-bs-dismiss="modal" aria-label="Close">
+                                <span class="icon-close">
+                                    <ion-icon name="close"></ion-icon>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.titulo }}">
+                        </div>
+                        <div class="footer-modal">
+                            <div>
+                                <h1 class="modal-title fs-5" style="font-family: serif; color: #FFFFF5;">{{ produto.descricao }}</h1><br>
+                                <h1 class="modal-title fs-5" style="font-family: serif; color: #FFFFF5">R$- {{ produto.preco }}</h1>
+                            </div>
+                        </div><br>
+                        <!-- Corrigir o botão Comprar -->
+                        <form method="post" action="{% url 'efetuar_compra' produto_id=produto.id %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-ver-mais">
+                                Comprar
+                            </button>
+                        </form><br>
+                    </div>
+                </div>
+            </div>
+            <!-- Fim dos Modais Catalogo -->
+            {% endfor %}
         </div>
-        <!-- Fim dos Modais Catalogo -->
-      {% endfor %}
-    </div>
-    <!-- cards -->
-<style>
-   .page-link {
+        <!-- cards -->
+    <style>
+    .page-link {
 
-    margin-left: 10px; /* Margem à esquerda para separação do botão */
-    box-shadow: 0 4px 8px #3D3D3D; /* Adicione uma sombra suave */
-    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
-    background-color: #B9C2C4;
-    color: #FFFFF5;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    font-size: 1rem;
-    cursor: pointer;
-    
-}
-.page-link:hover {
-    background-color: #947F57;
-    text-decoration: none;
-}
-.page-item{
-    margin-right: 10px;
-}
+        margin-left: 10px; /* Margem à esquerda para separação do botão */
+        box-shadow: 0 4px 8px #3D3D3D; /* Adicione uma sombra suave */
+        transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+        background-color: #B9C2C4;
+        color: #FFFFF5;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        font-size: 1rem;
+        cursor: pointer;
+        
+    }
+    .page-link:hover {
+        background-color: #947F57;
+        text-decoration: none;
+    }
+    .page-item{
+        margin-right: 10px;
+    }
+    .paginatiot {
+        box-shadow: 0 4px 8px #B9C2C4; /* Adicione uma sombra suave */
+        transition: box-shadow 0.3s; /* Transição suave para a sombra */
+    }
+    .page-link:focus {
+        outline: none; /* Remova o contorno ao focar no campo de pesquisa */
+        box-shadow: 0 4px 8px #B9C2C4; /* Altere a sombra ao focar */
+    }
 
-</style>
+    .page-link {
+        background-color: #FFFFF5;
+        border-color: #947F57;
+    }
+
+    .page-link  {
+        background-color: #B9C2C4;
+        color:#3D3D3D ;
+        border: 1px solid #a7adad;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    </style>
+
     <!-- Paginator mais polido -->
       <div class="pagination justify-content-center mt-4">
         <ul class="pagination">

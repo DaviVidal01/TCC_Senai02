@@ -64,7 +64,7 @@
                         <ion-icon name="close"></ion-icon>
                     </span>
                 </button>
-            </div>
+            </div><br><br>
         <form method="POST" action="{% url 'login' %}"> 
           <div class="modal-body">
             {% csrf_token %}
@@ -74,7 +74,7 @@
                 </span>
                 {{ user_form.email }}
                 <label>Email</label>
-            </div>
+            </div><br>
             <div class="input-box">
                 <span class="icon">
                     <ion-icon name="lock-closed-outline"></ion-icon>

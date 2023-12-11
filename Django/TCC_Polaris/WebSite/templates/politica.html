@@ -3,6 +3,63 @@
 {% block title %}High Fashion: Sobre{% endblock %}
 {% block content %}
     {% include 'partials/user/others/navbar.html' %}
+
+    <style>
+        body {
+            background-color: #FFFFF5;
+            color: #343a40;
+        }
+
+        .section-container {
+            background-color: #FFFFF5;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #343a40;
+        }
+
+        hr {
+            border-top: 1px solid #007bff;
+        }
+        .section-container p {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #3D3D3D;
+        }
+        .styled-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: #947F57;
+            color: #FFFFF5;
+            border: 2px solid #FFFFF5;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .styled-button:hover {
+            background-color: transparent;
+        }
+       .section-container{
+            background-color: #B9C2C4;
+            border: #3D3D3D;
+            box-shadow: 0 4px 8px #B9C2C4; /* Adicione uma sombra suave */
+            transition: box-shadow 0.3s; /* Transição suave para a sombra */
+       }
+       .styled-hr {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(to right, #3D3D3D, #947F57);
+            margin: 20px 0;
+        }
+    </style>
+
     <div id="carouselExample" class="carousel slide position-relative">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -15,7 +72,7 @@
         <div class="row">
             <div class="col-md">
                 <div class="section-container">
-                    <h1>Política de Privacidade do High Fashion - Polaris</h1>
+                    <h1>Política de Privacidade do High Fashion - Polaris</h1><br>
                     <p>Bem-vindo à Política de Privacidade do High Fashion, parte integrante da experiência oferecida pela Polaris. Nossa missão é proporcionar não apenas moda excepcional, mas também transparência e proteção aos nossos usuários. Leia atentamente os termos abaixo para entender como tratamos suas informações.</p>
                 </div>
             </div>
@@ -23,7 +80,7 @@
         <div class="row">
             <div class="col-md">
                 <div class="section-container">
-                    <h2>1. Informações Coletadas:</h2>
+                    <h2>1. Informações Coletadas:</h2><br>
                     <p><strong>Dados Pessoais:</strong> Ao criar uma conta, podemos coletar informações como nome, e-mail e senha.</p><br>
                     <p><strong>Informações de Navegação:</strong> Registramos dados de interação com o site, como páginas visitadas e tempo de permanência.</p>
                 </div>
@@ -32,7 +89,7 @@
         <div class="row">
             <div class="col-md">
                 <div class="section-container">
-                    <h2>2. Uso das Informações:</h2>
+                    <h2>2. Uso das Informações:</h2><br>
                     <p><strong>Melhoria da Experiência:</strong> Utilizamos seus dados para personalizar sua experiência no High Fashion, oferecendo recomendações e conteúdo relevante.</p><br>
                     <p><strong>Processamento de Compras:</strong> Ao realizar uma compra, suas informações são necessárias para processar e enviar seus pedidos.</p>
                 </div>
@@ -41,7 +98,7 @@
         <div class="row">
             <div class="col-md">
                 <div class="section-container">
-                    <h2>3. Compartilhamento de Informações:</h2>
+                    <h2>3. Compartilhamento de Informações:</h2><br>
                     <p><strong>Parceiros e Serviços:</strong> Podemos compartilhar dados com parceiros de confiança para otimizar serviços como entregas e processamento de pagamentos.</p><br>
                     <p><strong>Segurança:</strong> Em casos específicos, podemos compartilhar informações para prevenir fraudes ou atividades ilegais.</p>
                 </div>
@@ -50,7 +107,7 @@
         <div class="row">
             <div class="col-md">
                 <div class="section-container">
-                    <h2>4. Cookies e Tecnologias Similares:</h2>
+                    <h2>4. Cookies e Tecnologias Similares:</h2><br>
                     <p><strong>Cookies:</strong> Utilizamos cookies para personalizar conteúdo, analisar padrões de navegação e aprimorar funcionalidades.</p>
                 </div>
             </div>
@@ -58,7 +115,7 @@
         <div class="row">
             <div class="col-md">
                 <div class="section-container">
-                    <h2>5. Segurança das Informações:</h2>
+                    <h2>5. Segurança das Informações:</h2><br>
                     <p><strong>Proteção:</strong> Implementamos medidas de segurança para garantir a integridade e confidencialidade de suas informações.</p>
                 </div>
             </div>
@@ -66,7 +123,7 @@
         <div class="row">
             <div class="col-md">
                 <div class="section-container">
-                    <h2>6. Menores de Idade:</h2>
+                    <h2>6. Menores de Idade:</h2><br>
                     <p><strong>Restrições:</strong> O High Fashion não é direcionado a menores de 13 anos. Não coletamos intencionalmente informações de crianças.</p>
                 </div>
             </div>
@@ -74,7 +131,7 @@
         <div class="row">
             <div class="col-md">
                 <div class="section-container">
-                    <h2>7. Atualização de Informações:</h2>
+                    <h2>7. Atualização de Informações:</h2><br>
                     <p><strong>Acesso e Atualizações:</strong> Os funcionários podem acessar, corrigir ou excluir informações de produtos a qualquer momento nas configurações do site.</p>
                     <p><strong></strong> </p>
                 </div>
@@ -83,24 +140,27 @@
         <div class="row">
             <div class="col-md">
                 <div class="section-container">
-                    <h2>8. Mudanças na Política de Privacidade:</h2>
+                    <h2>8. Mudanças na Política de Privacidade:</h2><br>
                     <p><strong>Notificação:</strong> Alterações nesta política serão comunicadas por meio de notificações no site.</p>
                 </div>
             </div>
         </div>
+        
+            <!-- ... (seu conteúdo continua) ... -->
         <div class="row">
             <div class="col-md">
                 <div class="section-container">
-                    <h2>9. Contato:</h2>
-                    <p>Estamos à disposição para esclarecer dúvidas ou atender solicitações relacionadas à privacidade. Entre em contato pelos meios disponíveis em nosso site.</p><a href="https://polarissoftwares.github.io/site/" target="_blank" rel="noopener noreferrer"><strong>Clique Aqui</strong></a><br>
-                    <hr>
+                    <h2>9. Contato:</h2><br>
+                    <p>Estamos à disposição para esclarecer dúvidas ou atender solicitações relacionadas à privacidade. Entre em contato pelos meios disponíveis em nosso site.</p>
+                    <button class="styled-button" onclick="window.open('https://polarissoftwares.github.io/site/', '_blank', 'noopener noreferrer')">Clique Aqui</button><br>
+                    <hr class="styled-hr">
                     <p>
                         Agradecemos por escolher o High Fashion - Polaris. Sua privacidade é uma prioridade, e trabalhamos continuamente para proporcionar uma experiência segura e inovadora.<br>
                         Última atualização: 28/11/2023
                     </p>
                 </div>
             </div>
-        </div>
+        </div><br>
     </div>
     {% include 'partials/user/footer.html' %}
 {% endblock %}
