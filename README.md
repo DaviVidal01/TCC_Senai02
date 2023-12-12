@@ -98,6 +98,21 @@ python manage.py loaddata produtos.json
 
 ```
 
+- Agora, crie um superusuario com o seguinte código :
+
+```bash
+python manage.py createsuperuser
+
+```
+ --  insira o seguinte username:
+ instrutor
+ 
+ -- o login com o seguinte email:
+instrutor@trilhas-2.com
+
+ -- e a senha:
+ 1234
+
 - Depois de tudo estar em ordem, realize o comando para iniciar o servidor:
 
 ```bash
