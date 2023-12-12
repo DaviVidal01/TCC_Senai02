@@ -104,6 +104,9 @@ python manage.py loaddata produtos.json
 python manage.py createsuperuser
 
 ```
+ --  insira o seguinte username:
+ instrutor
+ 
  -- o login com o seguinte email:
 instrutor@trilhas-2.com
 
