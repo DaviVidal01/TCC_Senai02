@@ -3,43 +3,7 @@
 {% block content %}
 	<!-- for header part -->
 	{% include 'partials/admin/dash_nav.html' %}
-	<style>
-		/*barra de pesquisa*/
-		.search-bar-container {
-			text-align: center;
-			padding: 40px 0;
-		}
-		
-		.search-input {
-			border: none; /* Remova a borda */
-			border-radius: 30px; /* Borda arredondada */
-			padding: 10px 20px; /* Preenchimento interno */
-			box-shadow: 0 4px 8px #B9C2C4; /* Adicione uma sombra suave */
-			transition: box-shadow 0.3s; /* Transição suave para a sombra */
-		}
-		
-		.btn-search {
-			margin-left: 10px; /* Margem à esquerda para separação do botão */
-			box-shadow: 0 4px 8px #3D3D3D; /* Adicione uma sombra suave */
-			transition: background-color 0.3s; /* Transição suave para a cor de fundo */
-			background-color: #B9C2C4;
-			color: #FFFFF5;
-			border: none;
-			border-radius: 4px;
-			padding: 8px 16px;
-			font-size: 1rem;
-			cursor: pointer
-		}
-		
-		.search-input:focus {
-			outline: none; /* Remova o contorno ao focar no campo de pesquisa */
-			box-shadow: 0 4px 8px #B9C2C4; /* Altere a sombra ao focar */
-		}
-		
-		.btn-search:hover {
-			background-color: #947F57;
-		}
-		</style>
+
 	<div class="main">
 		{% include 'partials/alerts.html' %}
 		<form method="GET" action="{% url 'listarUsers' %}" class="mb-3">
