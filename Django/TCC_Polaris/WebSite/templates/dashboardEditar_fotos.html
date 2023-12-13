@@ -2,8 +2,7 @@
 {% load static %}
 {% block content %}
 	<!-- for header part -->
-	{% include 'partials/admin/header.html' %}
-	{% include 'partials/admin/sidebar.html' %}
+	{% include 'partials/admin/dash_nav.html' %}
 	<div class="main">
         {% include 'partials/alerts.html' %}
         <form method="POST" action="{% url 'update_fotos' fotos.id %}" enctype="multipart/form-data" class="custom-form">

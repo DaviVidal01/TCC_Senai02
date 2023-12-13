@@ -805,3 +805,12 @@ header {
         text-align: right;
     }
 
+.texto_rodape a {
+    color: #FFFFF5;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.texto_rodape a:hover {
+    color: #FF5733; /* Cor de destaque ao passar o mouse */
+}

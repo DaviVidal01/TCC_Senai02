@@ -1,4 +1,6 @@
 {% load static %}
+{% include 'partials/user/others/navbar.html' %}
+
 <!DOCTYPE html>
 <html lang="pt">
   <head>
@@ -16,13 +18,17 @@
     <link href="{% static 'assets/css/bootstrap.rtl.min.css' %}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="{% static 'assets/css/form-validation.css' %}" rel="stylesheet">
-
+    
   </head>
+  <!-- navbar -->
+  
   <body class="bg-light">
-    <div class="container">
+    
       <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
+          
           <h4 class="d-flex justify-content-between align-items-center mb-3">
+            
             <span class="text-muted">Carrinho</span>
           </h4>
           <ul class="list-group mb-3">
@@ -56,6 +62,7 @@
           </form>
         </div>
         <div class="col-md-8 order-md-1">
+         
           <h4 class="mb-3">Dados Pessoais</h4>
           <form method="post" class="needs-validation" novalidate>
             {% csrf_token %}
@@ -155,7 +162,7 @@
                                   <path class="darkcolor greydark" d="M750,431V193.2c-217.6-57.5-556.4-13.5-750,24.9V431c0,22.1,17.9,40,40,40h670C732.1,471,750,453.1,750,431z" />
                               </g>
                               <text transform="matrix(1 0 0 1 60.106 295.0121)" id="svgnumber" class="st2 st3 st4">0123 4567 8910 1112</text>
-                              <text transform="matrix(1 0 0 1 54.1064 428.1723)" id="svgname" class="st2 st5 st6">JOHN DOE</text>
+                              <text transform="matrix(1 0 0 1 54.1064 428.1723)" id="svgname" class="st2 st5 st6">Bruno Gabriel Da Silva</text>
                               <text transform="matrix(1 0 0 1 54.1074 389.8793)" class="st7 st5 st8">cardholder name</text>
                               <text transform="matrix(1 0 0 1 479.7754 388.8793)" class="st7 st5 st8">expiration</text>
                               <text transform="matrix(1 0 0 1 65.1054 241.5)" class="st7 st5 st8">card number</text>
@@ -230,7 +237,7 @@
                               </g>
                               <rect x="58.1" y="378.6" class="st11" width="375.5" height="13.5" />
                               <rect x="58.1" y="405.6" class="st11" width="421.7" height="13.5" />
-                              <text transform="matrix(1 0 0 1 59.5073 228.6099)" id="svgnameback" class="st12 st13">John Doe</text>
+                              <text transform="matrix(1 0 0 1 59.5073 228.6099)" id="svgnameback" class="st12 st13">Bruno Gabriel Da Silva</text>
                           </g>
                       </svg>
                   </div>
@@ -239,7 +246,7 @@
           <div class="form-container">
               <div class="field-container">
                   <label for="name">Name</label>
-                  <input class="input" id="name" maxlength="20" type="text">
+                  <input class="input" id="name" maxlength="20" type="text" value="Bruno Gabriel Da silva">
               </div>
               <div class="field-container">
                   <label for="cardnumber">Card Number</label><span id="generatecard">generate random</span>
@@ -251,11 +258,11 @@
               </div>
               <div class="field-container">
                   <label for="expirationdate">Expiration (mm/yy)</label>
-                  <input class="input" id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">
+                  <input class="input" id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric" value="01/23">
               </div>
               <div class="field-container">
                   <label for="securitycode">Security Code</label>
-                  <input class="input" id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
+                  <input class="input" id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric" value="985">
               </div>
           </div>
             <div class="container">
@@ -268,12 +275,81 @@
                 <a href="../politica" class="texto_rodape">Política de Privacidade</a></label>
               </div>
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Efetuar Compra</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="alert('Compra efetuada com sucesso!')" >Efetuar Compra</button>
           </form>
         </div>
       </div>
     </div>
-         
+  <!--FOOTER-->
+<style >
+  .texto_rodape a {
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      color:  #3D3D3D;
+      transition: color 0.3s, background-color 0.3s, border 0.3s;
+      color: #FFFFF5;
+      text-decoration: none;
+      transition: color 0.3s ease;
+  }
+  
+  .texto_rodape a:hover {
+      color: #3D3D3D; 
+  }
+  .texto  {
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      color:  #3D3D3D;
+      transition: color 0.3s, background-color 0.3s, border 0.3s;
+      color: #FFFFF5;
+      text-decoration: none;
+      transition: color 0.3s ease;
+  }
+  .texto  a:hover{
+      color: #98a0a1; 
+  }
+  
+  </style>
+
+  <footer style="background-color: #B9C2C4; color: #FFFFF5;" class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer mt-2">
+      <div class="container-fluid tm-container-small">
+          <div class="row">
+              <div class="col-lg-6 col-md-12 col-12 px-5 mb-5">
+                  <h3 class="texto_rodape">
+                      <a href="https://polarissoftwares.github.io/site/" target="_blank" rel="noopener noreferrer">
+                          <img width="30%" src="{% static 'assets/img/LogoPolaris.png' %}" alt="Polaris">
+                      </a><br>
+                  </h3><br>
+                  <p style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">
+                      O "High Fashion" é fruto da inovação e dedicação da
+                      <a rel="sponsored" href="https://polarissoftwares.github.io/site/" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;" class="link_estilizado">
+                          Polaris
+                      </a>. Como pioneiros no universo da moda,
+                      buscamos constantemente redefinir padrões, unindo design arrojado e tecnologia.
+                      Cada peça reflete nosso compromisso com a qualidade e a expressão única.
+                  </p>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                  <h2 style="font-family: serif; color: #3D3D3D;" alt="">Outros Links</h2><br>
+                  <ul class="texto_rodape" style="list-style: none; padding: 0;">
+                      <li><a class="texto_rodape link_estilizado" href="../sobre">Sobre Nós</a></li>
+                      <li><a class="texto_rodape link_estilizado" href="../dicas">Dicas</a></li>
+                      <li><a class="texto_rodape link_estilizado" href="../catalogo">Nossos Produtos</a></li>
+                      <li><a class="texto_rodape link_estilizado" href="../faq">Ajuda</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
+                  <div>
+                      <a href="../termos" class="texto link_estilizado" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">Termos de Uso</a><br>
+                      <a href="../politica" class="texto link_estilizado" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">Política de Privacidade</a>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-12 texto_rodape" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">
+                  Copyright 2023 Polaris Company. Todos os direitos reservados.
+              </div>
+          </div>
+      </div>
+  </footer>
+</div>       
         <!-- ... other head elements ... -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js" integrity="sha512-example-hash" crossorigin="anonymous"></script>
         <script>
@@ -358,5 +434,6 @@
         }, false);
       })();
     </script>
+    
   </body>
 </html>

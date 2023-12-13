@@ -1,52 +1,111 @@
-{% extends 'layouts/adminbase.html' %}
+{% extends 'layouts/catalogo.html' %}
 {% load static %}
 {% block content %}
-	<!-- for header part -->
-	{% include 'partials/admin/header.html' %}
-	{% include 'partials/admin/sidebar.html' %}
-	<div class="main">
-			{% include 'partials/alerts.html' %}
-			<form method="post" enctype="multipart/form-data" class="custom-form">
-				{% csrf_token %}
-				<div class="form-group">
-					{{ foto_form.titulo.label_tag }}
-					{{ foto_form.titulo }}
-				</div>
-				<div class="form-group">
-					{{ foto_form.preco.label_tag }}
-					{{ foto_form.preco }}
-				</div>
-				<div class="form-group">
-					{{ foto_form.descricao.label_tag }}
-					{{ foto_form.descricao }}
-				</div>
-				<hr> <br>
-				<div class="form-group">
-					{{ foto_form.genero.label_tag }}
-					{{ foto_form.genero }}
-				</div>
-				<div class="form-group">
-					{{ foto_form.tamanho.label_tag }}
-					{{ foto_form.tamanho }}
-				</div>
-				<div class="form-group">
-					{{ foto_form.tipo.label_tag }}
-					{{ foto_form.tipo }}
-				</div>
-				<div class="form-group">
-					{{ foto_form.marca.label_tag }}
-					{{ foto_form.marca }}
-				</div>
-				<div class="form-group">
-					{{ foto_form.tecido.label_tag }}
-					{{ foto_form.tecido }}
-				</div>
-				<hr> <br>
-				<div class="form-group">
-					{{ foto_form.foto.label_tag }}
-					{{ foto_form.foto }}
-				</div>
-				<button type="submit" class="custom-button">Adicionar Foto</button>
-			</form>
-		</div>
+{% include 'partials/admin/dash_nav.html' %}
+{% include 'partials/alerts.html' %}
+<style>
+body
+.container {
+    max-width: 800px;
+    margin: 0 auto; /* Centraliza o container na página */
+    padding: 20px; /* Adiciona algum espaço interno ao container */
+    background-color: #B9C2C4; /* Adiciona uma cor de fundo (opcional) */
+    border: 1px solid #3D3D3D; /* Adiciona uma borda ao redor do container (opcional) */
+    border-radius: 8px; /* Adiciona bordas arredondadas (opcional) */
+}
+.btn-dash {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-right: 10px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: #FFFFF5;
+        text-decoration: none;
+        background-color: #947F57; 
+        color: #FFFFF5; 
+        border-radius: 5px; 
+		border: 1px solid #FFFFF5; /* Adiciona uma borda ao botão */
+        transition: background-color 0.3s ease; 
+    }
+
+    .btn-dash:hover {
+        background-color: #B9C2C4;
+        color: #FFFFF5;
+        text-decoration: #FFFFF5;
+    }
+/* Adicione outras regras de estilo conforme necessário */
+
+.custom-form {
+    max-width: 600px;
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+	border-radius: 10;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+</style>
+<header>
+	<h1 class="h2" style="font-family: serif; color: #3D3D3D;">Adicionar Produtos</h1>
+</header><br>
+<div class="container">
+    <form method="post" enctype="multipart/form-data" class="custom-form">
+        {% csrf_token %}
+        <div class="form-group" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">
+            {{ foto_form.titulo.label_tag }}
+            {{ foto_form.titulo }}
+        </div>
+        <div class="form-group" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">
+            {{ foto_form.preco.label_tag }}
+            {{ foto_form.preco }}
+        </div>
+        <div class="form-group" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">
+            {{ foto_form.descricao.label_tag }}
+            {{ foto_form.descricao }}
+        </div>
+        <hr>
+        <div class="form-group" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">
+            {{ foto_form.genero.label_tag }}
+            {{ foto_form.genero }}
+        </div>
+        <div class="form-group" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">
+            {{ foto_form.tamanho.label_tag }}
+            {{ foto_form.tamanho }}
+        </div>
+        <div class="form-group" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">
+            {{ foto_form.tipo.label_tag }}
+            {{ foto_form.tipo }}
+        </div>
+        <div class="form-group" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">
+            {{ foto_form.marca.label_tag }}
+            {{ foto_form.marca }}
+        </div>
+        <div class="form-group" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">
+            {{ foto_form.tecido.label_tag }}
+            {{ foto_form.tecido }}
+        </div>
+        <hr>
+		 <div class="form-group" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;">
+            {{ foto_form.foto.label_tag }}
+            {{ foto_form.foto }}
+        </div>
+        <button type="submit" class="btn-dash" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">Adicionar Foto</button>
+    </form>
+</div><br>
+
+
 {% endblock %}

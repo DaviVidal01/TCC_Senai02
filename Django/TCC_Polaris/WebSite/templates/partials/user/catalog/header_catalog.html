@@ -1,4 +1,26 @@
 {% load static %}
+<style>
+  .btn-dash {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-right: 10px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: #FFFFF5;
+        text-decoration: none;
+        background-color: #947F57; 
+        color: #FFFFF5; 
+        border-radius: 5px; 
+        transition: background-color 0.3s ease; 
+    }
+
+    .btn-dash:hover {
+        background-color: #B9C2C4;
+        color: #FFFFF5;
+        text-decoration: #FFFFF5;
+    }
+</style>
+
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg" style="background-color:  #FFFFF5;">
       <div class="container-fluid">
@@ -10,10 +32,13 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../dicas">Dicas</a>
+                      <a class="nav-link active" aria-current="page" href="../">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../catalogo">Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="../dicas">Dicas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../sobre">Sobre</a>
@@ -30,11 +55,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               {% if user.is_authenticated %}
                 {% if user.is_staff == 1 %}
-                  <a href="{% url 'dashboard' %}" style="border-color: #203540; color: #203540" class="btn btn-ver-mais mx-2">Dashboard</a>
+                  <a href="{% url 'dashboard' %}" class="btn btn-dash"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                    <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+                  </svg></a>
                 {% endif %}
-                <a href="{% url 'logout' %}" style="background-color: #203540; color: #FFFF" class="btn btn-outline-primary">Logout</a>
+                <a href="{% url 'logout' %}" class="btn btn-dash"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0z"/>
+                  <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                </svg></a>
               {% else %}
-                  <button style="background-color: #203540; color: #FFFF" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <button style="border: #FFFFF5;" class="btn-dash" data-bs-toggle="modal" data-bs-target="#exampleModal">
                       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-person" viewBox="2 1 18 16">
                           <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
                       </svg>Login

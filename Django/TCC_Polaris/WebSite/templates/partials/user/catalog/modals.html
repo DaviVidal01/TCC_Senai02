@@ -52,54 +52,78 @@
   </div>
   <!-- modal-sacola -->
   <!--modal-login-->
+  <style>
+    .input-box {
+        position: relative;
+        margin-bottom: 15px;
+        background-color: transparent;
+        border: #FFFFF5;
+
+    }
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #FFFFF5;
+        border-radius: 5px;
+        padding-left: 30px; /* ajuste conforme necessário para acomodar o ícone */
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .form-control:focus {
+        border-color:  #B9C2C4;
+        box-shadow: 0 0 5px  #B9C2C4;
+    }
+
+  </style>
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content"><br>
-                <div class="modal-header">
-                    <a class="navbar-brand" href="#">
-                        <h2 style="font-family: serif; color: #FFFFF5;">Login</h2>
-                    </a>
+    <div class="modal-dialog">
+        <div class="modal-content"><br>
+            <div class="modal-header">
+                <a class="navbar-brand" href="#">
+                    <h2 style="font-family: serif; color: #FFFFF5;">Login</h2>
+                </a><br><br>
                 <button class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span class="icon-close">
                         <ion-icon name="close"></ion-icon>
                     </span>
                 </button>
-            </div>
-        <form method="POST" action="{% url 'login' %}"> 
-          <div class="modal-body">
-            {% csrf_token %}
-            <div class="input-box">
-              <span class="icon">
-                    <ion-icon name="mail-outline"></ion-icon>
-                </span>
-                {{ user_form.email }}
-                <label>Email</label>
-            </div>
-            <div class="input-box">
-                <span class="icon">
-                    <ion-icon name="lock-closed-outline"></ion-icon>
-                  </span>
-                {{ user_form.senha }}
-                <label>Senha</label>
-            </div>
-            <div class="remember-forgot">
-                <label><input type="checkbox">Lembre de mim</label>
-                <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModalSenha" data-bs-dismiss="modal"> Esqueceu a senha?</a>
-                <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModalRegister" data-bs-dismiss="modal"> Criar conta</a>
-            </div>
-          </div>
-          <div class="footer-modal">
-            <button class="btn-cancelar" data-bs-dismiss="modal">
-                <a class="nav-link" aria-current="page">Cancelar</a>
-            </button>
-            <button type="submit" class="btn-entrar">
-              <a class="nav-link" aria-current="page">Entrar</a>
-            </button>
-          </div>
-        </form>
-      </div>
+            </div><br><br>
+            <form method="POST" action="{% url 'login' %}">
+                <div class="modal-body">
+                    {% csrf_token %}
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </span>
+                        <input type="text" name="email" id="id_email" class="form-control" value="{{ user_form.email.value }}" required>
+                        <label>Email</label>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                        </span>
+                        <input type="password" name="senha" id="id_senha" class="form-control" value="{{ user_form.senha.value }}" required>
+                        <label>Senha</label>
+                    </div>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox">Lembre de mim</label>
+                        <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModalSenha" data-bs-dismiss="modal"> Esqueceu a senha?</a>
+                        <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModalRegister" data-bs-dismiss="modal"> Criar conta</a>
+                    </div>
+                </div>
+                <div class="footer-modal">
+                    <button class="btn-cancelar" data-bs-dismiss="modal">
+                        <a class="nav-link" aria-current="page">Cancelar</a>
+                    </button>
+                    <button type="submit" class="btn-entrar">
+                        <a class="nav-link" aria-current="page">Entrar</a>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
+</div>
+
   <!--modal-login-->
   <!-- Modal de Recuperação de Senha -->
   <div class="modal fade" id="exampleModalSenha" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -138,62 +162,63 @@
   <!--modal-Register-->
   <div class="modal fade" id="exampleModalRegister" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content"><br>
-        <div class="modal-header">
-          <a class="navbar-brand" href="#">
-            <h2 style="font-family: serif; color: #FFFFF5;">Registrar</h2>
-          </a>
-          <button class="close" data-bs-dismiss="modal" aria-label="Close">
-          <span class="icon-close">
-            <ion-icon name="close"></ion-icon>
-          </span>
-         </button>
+        <div class="modal-content"><br>
+            <div class="modal-header">
+                <a class="navbar-brand" href="#">
+                    <h2 style="font-family: serif; color: #FFFFF5;">Registrar</h2>
+                </a>
+                <button class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span class="icon-close">
+                        <ion-icon name="close"></ion-icon>
+                    </span>
+                </button>
+            </div><br><br>
+            <form method="POST" action="{% url 'register' %}">
+                <div class="modal-body">
+                    {% csrf_token %}
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="person-outline"></ion-icon>
+                        </span>
+                        <input type="text" name="username" id="id_username" class="form-control" required>
+                        <label>Nome de usuário</label>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="person-outline"></ion-icon>
+                        </span>
+                        <input type="email" name="email" id="id_email" class="form-control" required>
+                        <label>Email</label>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                        </span>
+                        <input type="password" name="password" id="id_password" class="form-control" required>
+                        <label>Senha</label>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                        </span>
+                        <input type="password" name="password_confirm" id="id_password_confirm" class="form-control" required>
+                        <label>Confirme a senha</label>
+                    </div><br>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox">Lembre de mim</label>
+                    </div><br>
+                </div>
+                <div class="footer-modal">
+                    <button class="btn-cancelar" data-bs-dismiss="modal">
+                        <a class="nav-link" aria-current="page">Cancelar</a>
+                    </button>
+                    <button type="submit" class="btn-entrar">
+                        <a class="nav-link" aria-current="page">Registrar</a>
+                    </button>
+                </div>
+            </form>
         </div>
-        <form method="POST" action="{% url 'register' %}"> 
-          <div class="modal-body">
-            {% csrf_token %}
-            <div class="input-box">
-              <span class="icon">
-                <ion-icon name="person-outline"></ion-icon>
-              </span>
-              {{ register_form.username }}
-              <label>{{ register_form.username.label }}</label>
-            </div>
-            <div class="input-box">
-              <span class="icon">
-                <ion-icon name="person-outline"></ion-icon>
-              </span>
-              {{ register_form.email }}
-              <label>{{ register_form.email.label }}</label>
-            </div>
-            <div class="input-box">
-              <span class="icon">
-                <ion-icon name="lock-closed-outline"></ion-icon>
-              </span>
-              {{ register_form.password }}
-              <label>{{ register_form.password.label }}</label>
-            </div>
-            <div class="input-box">
-              <span class="icon">
-                <ion-icon name="lock-closed-outline"></ion-icon>
-              </span>
-              {{ register_form.password_confirm }}
-              <label>{{ register_form.password_confirm.label }}</label>
-            </div>
-            <div class="remember-forgot">
-              <label><input type="checkbox">Lembre de mim</label>
-            </div>
-          </div>
-          <div class="footer-modal">
-            <button class="btn-cancelar" data-bs-dismiss="modal">
-                <a class="nav-link" aria-current="page">Cancelar</a>
-            </button>
-            <button type="submit" class="btn-entrar">
-              <a class="nav-link" aria-current="page">Registrar</a>
-            </button>
-          </div>
-        </form>
-      </div>
     </div>
-  </div>
+</div>
   <!--modal-Register-->
+
