@@ -3,6 +3,12 @@
 {% block content %}
 	<!-- for header part -->
 	{% include 'partials/admin/dash_nav.html' %}
+
+    <style>
+        .custom-button:hover {
+            background-color: #B9C2C4;
+        }
+    </style>
 	<div class="main">
         {% include 'partials/alerts.html' %}
         <form method="POST" action="{% url 'update_user' user.id %}" enctype="multipart/form-data" class="custom-form">

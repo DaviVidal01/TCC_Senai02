@@ -1,42 +1,180 @@
 {% extends 'layouts/adminbase.html' %}
 {% load static %}
 {% block content %}
-	<!-- for header part -->
-	{% include 'partials/admin/dash_nav.html' %}
+    <!-- for header part -->
+    {% include 'partials/admin/dash_nav.html' %}
+	<style>
+		.search-bar-container {
+    text-align: center;
+    padding: 40px 0;
+}
 
-	<div class="main">
-		{% include 'partials/alerts.html' %}
-		<form method="GET" action="{% url 'listarUsers' %}" class="mb-3">
+.search-input {
+    border: none; /* Remova a borda */
+    border-radius: 30px; /* Borda arredondada */
+    padding: 10px 20px; /* Preenchimento interno */
+    box-shadow: 0 4px 8px #B9C2C4; /* Adicione uma sombra suave */
+    transition: box-shadow 0.3s; /* Transição suave para a sombra */
+}
+
+.btn-search {
+    margin-left: 10px; /* Margem à esquerda para separação do botão */
+    box-shadow: 0 4px 8px #3D3D3D; /* Adicione uma sombra suave */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+    background-color: #B9C2C4;
+    color: #FFFFF5;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer
+}
+
+.search-input:focus {
+    outline: none; /* Remova o contorno ao focar no campo de pesquisa */
+    box-shadow: 0 4px 8px #B9C2C4; /* Altere a sombra ao focar */
+}
+
+.btn-search:hover {
+    background-color: #947F57;
+}
+
+.card {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s, transform 0.3s;
+		background-color:  #ddd;
+        display: flex;
+       
+}
+
+  
+    
+    
+
+    .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Adiciona alinhamento central vertical */
+        padding: 20px;
+        
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .card-text strong {
+        font-weight: bold;
+    }
+
+    .custom-buttons {
+        text-decoration: none;
+        display: flex;
+        gap: 10px; /* Espaçamento entre os botões */
+    }
+
+    .custom-btn {
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        display: flex; /* Adiciona flex container para alinhar ícone e texto verticalmente */
+        align-items: center; /* Centraliza itens verticalmente no flex container */
+		
+    }
+
+    .custom-btn:hover {
+        filter: brightness(90%);
+        color: #947F57;
+    }
+
+    .custom-btn-edit {
+        background-color: #947F57;
+    }
+
+	.custom-btn-edit:hover {
+		background-color: #B9C2C4;
+		color: #FFFFF5;
+	}
+
+	.custom-btn-delete:hover {
+		background-color: #947F57;
+		color: #FFFFF5;
+	}
+
+    .custom-btn-delete {
+        background-color: #B9C2C4;
+
+
+    }
+
+    .icon {
+        margin-right: 8px; /* Espaçamento entre o ícone e o texto */
+    }
+h2 {
+	text-align: center;
+}
+
+h5 {
+	align-items: center;
+}
+
+p {
+	text-align: left;
+}
+
+	</style>
+
+    <div class="main">
+        {% include 'partials/alerts.html' %}
+		<form method="GET" action="{% url 'listarUsers' %}" class="mb-3 search-bar-container">
 			<div class="searchbar d-flex input-group">
-				<input type="text" name="search" placeholder="Search">
-				<button type="submit" class="searchbtn">
-					<ion-icon name="search-outline" size="large" style="color:#FFFFFF ;"></ion-icon>
+				<input type="text" name="search" placeholder="Search" class="search-input">
+				<button type="submit" class="searchbtn btn-search">
+					<ion-icon name="search-outline" size="large" style="color:#FFFFF5;"></ion-icon>
 				</button>
 			</div>
 		</form>
+		
         <div class="photo-list">
-            <h2>Usuários</h2>
-            <div class="row row-cols-1 row-cols-md-5 g-3">
+            <h2>Usuários</h2><br>
+			<div class="row row-cols-1 row-cols-md-4 g-3">
 				{% for users in user %}
 					<div class="col">
 						<div class="card">
-							<img src="{{ foto.foto.url }}" class="card-img-top" alt="{{ foto.titulo }}">
 							<div class="card-body">
 								<h5 class="card-title text-left">{{ users.username }}</h5>
-								<p class="card-text text-left">Email: {{ users.email }}</p>
+								<p class="card-text text-left" >Email: {{ users.email }}</p>
 								{% if users.is_superuser == 1 %}
-									<p class="card-text text-left">Tipo: <strong style="color:rgb(13, 3, 187)">SuperUser</strong></p>
+									<p class="card-text text-left">Tipo: <strong style="color: #947F57">SuperUser</strong></p>
 								{% elif users.is_staff == 1 %}
-									<p class="card-text text-left">Tipo: <strong style="color:rgb(6, 98, 6)">Funcionário</strong></p>
+									<p class="card-text text-left">Tipo: <strong style="color: rgb(1, 1, 112)">Funcionário</strong></p>
 								{% else %}
-									<p class="card-text text-left">Tipo: <strong style="color:rgba(255, 115, 0, 0.719)">Usuário</strong></p>
+									<p class="card-text text-left">Tipo: <strong style="color:#FFFFF5">Usuário</strong></p>
 								{% endif %}
 								<hr>
-								<div style="text-decoration: none;">
-								 	<a href="{% url 'edit_user' users.id %}" class="btn" style="background-color: orange; border-radius:5px;">
+								<div class="custom-buttons">
+									<a href="{% url 'edit_user' users.id %}" class="custom-btn custom-btn-edit">
 										<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
 									</a>
-									<a href="{% url 'delete_user' users.id %}" class="btn" style="background-color: red; border-radius:5px;">
+									<a href="{% url 'delete_user' users.id %}" class="custom-btn custom-btn-delete">
 										<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
 									</a>
 								</div>
@@ -45,6 +183,7 @@
 					</div>
 				{% endfor %}
 			</div>
+			
         </div>
     </div>
 {% endblock %}

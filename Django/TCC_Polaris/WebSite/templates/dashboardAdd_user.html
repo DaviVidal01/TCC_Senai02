@@ -3,85 +3,89 @@
 {% block content %}
 {% include 'partials/admin/dash_nav.html' %}
 <style>
-.container {
-    max-width: 800px;
-    margin: 0 auto; /* Centraliza o container na página */
-    padding: 20px; /* Adiciona algum espaço interno ao container */
-    background-color: #B9C2C4; /* Adiciona uma cor de fundo (opcional) */
-    border: 1px solid #3D3D3D; /* Adiciona uma borda ao redor do container (opcional) */
-    border-radius: 8px; /* Adiciona bordas arredondadas (opcional) */
-}
-.custom-form {
-    display: flex;
-    flex-direction: column;
-}
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #B9C2C4;
+        border: 1px solid #3D3D3D;
+        border-radius: 8px;
+    }
 
-.form-group {
-    margin-bottom: 20px;
-}
+    .custom-form {
+        display: flex;
+        flex-direction: column;
+    }
 
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
+    .form-group {
+        margin-bottom: 20px;
+    }
 
-input,
-button {
-    padding: 10px;
-    box-sizing: border-box;
-}
-.button-container {
-    text-align: center;
-}
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
 
-.custom-button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-right: 10px;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-    background-color: #947F57;
-    color: #FFFFF5;
-    border-radius: 5px;
-    border: 1px solid #FFFFF5;
-    transition: background-color 0.3s ease;
-}
+    input,
+    button {
+        padding: 10px;
+        box-sizing: border-box;
+        width: 100%; /* Adiciona largura total aos elementos de entrada */
+    }
 
-.custom-button:hover {
-    background-color: #B9C2C4;
-    color: #FFFFF5;
-}
+    .button-container {
+        text-align: center;
+    }
+
+    .custom-button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        background-color: #947F57;
+        color: #FFFFF5;
+        border-radius: 5px;
+        border: 1px solid #FFFFF5;
+        transition: background-color 0.3s ease;
+    }
+
+    .custom-button:hover {
+        background-color: #B9C2C4;
+        color: #FFFFF5;
+    }
 </style>
+
 <header>
-	<h1 class="h2" style="font-family: serif; color: #3D3D3D;">Adicionar Usuário</u></h1>
+    <h1 class="h2" style="font-family: serif; color: #3D3D3D;">Adicionar Usuário</h1>
 </header><br>
-	<div class="container">
-        {% include 'partials/alerts.html' %}
-        <form method="post" class="custom-form">
-            {% csrf_token %}
-            <div class="form-group">
-                {{ register_form.username.label_tag }}
-                {{ register_form.username }}
-            </div>
-            <div class="form-group">
-                {{ register_form.email.label_tag }}
-                {{ register_form.email }}
-            </div>
-            <div class="form-group">
-                {{ register_form.password.label_tag }}
-                {{ register_form.password }}
-            </div>
-            <div class="form-group">
-                {{ register_form.password_confirm.label_tag }}
-                {{ register_form.password_confirm }}
-            </div>
-            
-            <div class="button-container">
-                <button type="submit" class="custom-button">Adicionar Usuário</button>
-            </div>
-        </form>
-	</div><br>
+
+<div class="container">
+    {% include 'partials/alerts.html' %}
+    <form method="post" class="custom-form">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ register_form.username.label_tag }}
+            {{ register_form.username }}
+        </div>
+        <div class="form-group">
+            {{ register_form.email.label_tag }}
+            {{ register_form.email }}
+        </div>
+        <div class="form-group">
+            {{ register_form.password.label_tag }}
+            {{ register_form.password }}
+        </div>
+        <div class="form-group">
+            {{ register_form.password_confirm.label_tag }}
+            {{ register_form.password_confirm }}
+        </div>
+
+        <div class="button-container">
+            <button type="submit" class="custom-button">Adicionar Usuário</button>
+        </div>
+    </form>
+</div><br>
 
 {% endblock %}
