@@ -1,7 +1,6 @@
 {% extends 'layouts/adminbase.html' %}
 {% load static %}
 {% block content %}
-<<<<<<< HEAD
     <!-- for header part -->
     {% include 'partials/admin/dash_nav.html' %}
 	<style>
@@ -142,17 +141,10 @@ p {
 }
 
 	</style>
-
+    
     <div class="main">
         {% include 'partials/alerts.html' %}
 		<form method="GET" action="{% url 'listarUsers' %}" class="mb-3 search-bar-container">
-=======
-	<!-- for header part -->
-	{% include 'partials/admin/dash_nav.html' %}
-	<div class="main">
-		{% include 'partials/alerts.html' %}
-		<form method="GET" action="{% url 'listarUsers' %}" class="mb-3">
->>>>>>> e57b5959fc46d283fd52e728f0ca8aac5d63e69b
 			<div class="searchbar d-flex input-group">
 				<input type="text" name="search" placeholder="Search" class="search-input">
 				<button type="submit" class="searchbtn btn-search">
@@ -175,7 +167,7 @@ p {
 								{% elif users.is_staff == 1 %}
 									<p class="card-text text-left">Tipo: <strong style="color: rgb(1, 1, 112)">Funcionário</strong></p>
 								{% else %}
-									<p class="card-text text-left">Tipo: <strong style="color:#FFFFF5">Usuário</strong></p>
+									<p class="card-text text-left">Tipo: <strong style="color: green">Usuário</strong></p>
 								{% endif %}
 								<hr>
 								<div class="custom-buttons">
