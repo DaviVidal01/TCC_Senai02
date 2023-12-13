@@ -48,16 +48,16 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <h2 style="font-family: serif; color: #3D3D3D;" alt="">Outros Links</h2><br>
                 <ul class="texto_rodape" style="list-style: none; padding: 0;">
-                    <li><a class="texto_rodape link_estilizado" href="../sobre">Sobre Nós</a></li>
-                    <li><a class="texto_rodape link_estilizado" href="../dicas">Dicas</a></li>
-                    <li><a class="texto_rodape link_estilizado" href="../catalogo">Nossos Produtos</a></li>
-                    <li><a class="texto_rodape link_estilizado" href="../faq">Ajuda</a></li>
+                    <li><a class="texto_rodape link_estilizado" href="{% url 'sobre' %}">Sobre Nós</a></li>
+                    <li><a class="texto_rodape link_estilizado" href="{% url 'dicas' %}">Dicas</a></li>
+                    <li><a class="texto_rodape link_estilizado" href="{% url 'catalogo' %}">Nossos Produtos</a></li>
+                    <li><a class="texto_rodape link_estilizado" href="{% url 'faq' %}">Ajuda</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
                 <div>
-                    <a href="../termos" class="texto link_estilizado" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">Termos de Uso</a><br>
-                    <a href="../politica" class="texto link_estilizado" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">Política de Privacidade</a>
+                    <a href="{% url 'termos' %}" class="texto link_estilizado" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">Termos de Uso</a><br>
+                    <a href="{% url 'politica' %}" class="texto link_estilizado" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">Política de Privacidade</a>
                 </div>
             </div>
         </div>

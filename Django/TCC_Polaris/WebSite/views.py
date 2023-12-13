@@ -78,8 +78,6 @@ def sobre(request):
     user = User.objects.all()
     return render(request, 'sobre.html', {'register_form':register_form,'user_form': login_form ,'fotos': fotos_view,'imagens': imagem_view})
 
-from django.core.paginator import Paginator, EmptyPage
-
 def catalogo(request):
     # Código do primeiro bloco
     query = request.GET.get('q')
@@ -181,11 +179,6 @@ def detalhes_produto(request, produto_id):
     }
     return render(request, 'efetuar_compra.html', context)
 
-# ATENÇÃO ESTE TRECHO SE TRATA DO ESQUECI MINHA SENHA E AINDA ESTÁ SOB TESTE
-def esqueci_senha(request):
-    # Sua lógica para a recuperação de senha aqui
-    return render(request, 'catalogo.html')
-
 # -----> DASHBOARD ADMIN PAGE
 
 @admin_required
@@ -205,6 +198,12 @@ def consulta_users(request):
     user = User.objects.all()
     fotos_view = Produtos_BD.objects.all()
     return render(request, 'dashboardConsulta_user.html', {'user':user, 'fotos': fotos_view})
+
+@admin_required
+def consulta_pedidos(request):
+    pedido = Pedido.objects.all()
+    fotos_view = Produtos_BD.objects.all()
+    return render(request, 'dashboardConsulta_pedidos.html', {'pedidos':pedido, 'fotos': fotos_view})
 
 @admin_required
 def add_user(request):
@@ -374,3 +373,42 @@ def delete_user(request, id):
     user.delete()
     messages.error(request, 'Usuário deletado com sucesso!')
     return redirect('consulta_users')
+
+# ------> CRUD PEDIDOS
+
+@login_required
+def listarPedidos(request):
+    search_query = request.GET.get('search')
+    if search_query:
+        pedido = Pedido.objects.filter(Q(username__icontains=search_query) | Q(email__icontains=search_query))
+    else:
+        pedido = Pedido.objects.all()
+    return render(request,"dashboardConsulta_pedidos.html",{"pedidos":pedido})
+
+@login_required
+def delete_pedido(request, id):
+    pedido = Pedido.objects.get(pk=id)
+    pedido.delete()
+    messages.error(request, 'Pedido deletado com sucesso!')
+    return redirect('consulta_pedidos')
+
+@login_required
+def cancelar_pedido(request, id):
+    pedido = Pedido.objects.get(pk=id)
+    pedido.delete()
+    messages.error(request, 'Pedido cancelado com sucesso!')
+    return redirect('consulta_pedidos')
+
+@login_required
+def aprovar_pedido(request, id):
+    pedido = Pedido.objects.get(pk=id)
+    pedido.delete()
+    messages.success(request, 'Pedido aprovado com sucesso!')
+    return redirect('consulta_pedidos')
+
+@login_required
+def entregar_pedido(request, id):
+    pedido = Pedido.objects.get(pk=id)
+    pedido.delete()
+    messages.success(request, 'Pedido enviado com sucesso!')
+    return redirect('consulta_pedidos')

@@ -10,6 +10,44 @@ GENERO = (
     ('Unisex','Unisex'),
 )
 
+STATUS = (
+    ('Pendente','Pendente'),
+    ('Aprovado','Aprovado'),
+    ('Cancelado','Cancelado'),
+    ('Entregue','Entregue'),
+)
+
+ESTADOS = (
+    ('AC', 'Acre'),
+    ('AL', 'Alagoas'),
+    ('AP', 'Amapá'),
+    ('AM', 'Amazonas'),
+    ('BA', 'Bahia'),
+    ('CE', 'Ceará'),
+    ('DF', 'Distrito Federal'),
+    ('ES', 'Espírito Santo'),
+    ('GO', 'Goiás'),
+    ('MA', 'Maranhão'),
+    ('MT', 'Mato Grosso'),
+    ('MS', 'Mato Grosso do Sul'),
+    ('MG', 'Minas Gerais'),
+    ('PA', 'Pará'),
+    ('PB', 'Paraíba'),
+    ('PR', 'Paraná'),
+    ('PE', 'Pernambuco'),
+    ('PI', 'Piauí'),
+    ('RJ', 'Rio de Janeiro'),
+    ('RN', 'Rio Grande do Norte'),
+    ('RS', 'Rio Grande do Sul'),
+    ('RO', 'Rondônia'),
+    ('RR', 'Roraima'),
+    ('SC', 'Santa Catarina'),
+    ('SP', 'São Paulo'),
+    ('SE', 'Sergipe'),
+    ('TO', 'Tocantins'),
+)
+
+
 class Tamanho_BD(models.Model):
     tamanho = models.CharField(max_length=7)
     def __str__(self):
@@ -54,10 +92,14 @@ class Pedido(models.Model):
     produto = models.ForeignKey(Produtos_BD, on_delete=models.CASCADE)
     nome = models.CharField(max_length=100)
     sobrenome = models.CharField(max_length=100)
-    email = models.EmailField()
-    endereco_entrega = models.TextField()
+    email = models.EmailField(max_length=100)
+    endereco_entrega = models.TextField(max_length=255)
+    pais = models.CharField(max_length =20, default="Brasil")
+    estado = models.CharField(max_length = 20, choices = ESTADOS)
+    cep = models.CharField(max_length=9)
     quantidade = models.PositiveIntegerField(default=1)
     total = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    status = models.CharField(max_length = 20, choices = STATUS, default = 'Pendente')
     data_pedido = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):

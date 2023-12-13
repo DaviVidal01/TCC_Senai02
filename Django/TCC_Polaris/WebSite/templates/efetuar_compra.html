@@ -291,8 +291,8 @@
               <!-- Create a checkbox element -->
               <div>
                 <input type="checkbox" id="agree">
-                <label for="agree">Li e concordo com os <a href="../termos" class="texto_rodape">Termos de Uso</a>
-                <a href="../politica" class="texto_rodape">Política de Privacidade</a></label>
+                <label for="agree">Li e concordo com os <a href="{% url 'termos' %}" class="texto_rodape">Termos de Uso</a>
+                <a href="{% url 'politica' %}" class="texto_rodape">Política de Privacidade</a></label>
               </div>
             <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="alert('Compra efetuada com sucesso!')" >Efetuar Compra</button>
@@ -300,48 +300,7 @@
         </div>
       </div>
     </div>
-    <!--FOOTER-->
-    <footer style="background-color: #B9C2C4; color: #FFFFF5;" class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer mt-2">
-        <div class="container-fluid tm-container-small">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-12 px-5 mb-5">
-                    <h3 class="texto_rodape">
-                        <a href="https://polarissoftwares.github.io/site/" target="_blank" rel="noopener noreferrer">
-                            <img width="30%" src="{% static 'assets/img/LogoPolaris.png' %}" alt="Polaris">
-                        </a><br>
-                    </h3><br>
-                    <p style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">
-                        O "High Fashion" é fruto da inovação e dedicação da
-                        <a rel="sponsored" href="https://polarissoftwares.github.io/site/" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #3D3D3D;" class="link_estilizado">
-                            Polaris
-                        </a>. Como pioneiros no universo da moda,
-                        buscamos constantemente redefinir padrões, unindo design arrojado e tecnologia.
-                        Cada peça reflete nosso compromisso com a qualidade e a expressão única.
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <h2 style="font-family: serif; color: #3D3D3D;" alt="">Outros Links</h2><br>
-                    <ul class="texto_rodape" style="list-style: none; padding: 0;">
-                        <li><a class="texto_rodape link_estilizado" href="../sobre">Sobre Nós</a></li>
-                        <li><a class="texto_rodape link_estilizado" href="../dicas">Dicas</a></li>
-                        <li><a class="texto_rodape link_estilizado" href="../catalogo">Nossos Produtos</a></li>
-                        <li><a class="texto_rodape link_estilizado" href="../faq">Ajuda</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
-                    <div>
-                        <a href="../termos" class="texto link_estilizado" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">Termos de Uso</a><br>
-                        <a href="../politica" class="texto link_estilizado" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">Política de Privacidade</a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 texto_rodape" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #FFFFF5;">
-                    Copyright 2023 Polaris Company. Todos os direitos reservados.
-                </div>
-            </div>
-        </div>
-    </footer>
+    {% include 'partials/user/footer.html' %}
   </div>       
         <!-- ... other head elements ... -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js" integrity="sha512-example-hash" crossorigin="anonymous"></script>
