@@ -108,7 +108,7 @@ instrutor@trilhas-2.com
  -- e a senha:
  1234
 
- - Após gerar os arquivos staticos e execute o seguinte comando via terminal :
+ - Após gerar o usuario administrador  execute o seguinte comando via terminal :
 
 ```bash
 python manage.py loaddata produtos.json
