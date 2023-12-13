@@ -86,7 +86,7 @@
         <div class="col-md-8 order-md-1">
          
           <h4 class="mb-3">Dados Pessoais</h4>
-          <form method="post" class="needs-validation" novalidate>
+          <form method="POST" class="needs-validation" novalidate action="{% url 'efetuar_compra' produto_id=produto.id %}">
             {% csrf_token %}
             <div class="row">
               <div class="col-md-6 mb-3">

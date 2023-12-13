@@ -1,0 +1,27 @@
+{% extends 'layouts/catalogo.html' %}
+{% load static %}
+{% block content %}
+{% include 'partials/admin/dash_nav.html' %}
+{% include 'partials/alerts.html' %}
+
+<style>
+.container {
+    margin-top: 40px;
+}
+</style>
+
+<div class="container">
+    {% if compra_efetuada %}
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Compra Efetuada!</h4>
+            <p>Detalhes da Compra:</p>
+            <ul>
+                <li>Produto ID: {{ compra_efetuada.produto_id }}</li>
+                <li>Quantidade: {{ compra_efetuada.quantidade }}</li>
+                <!-- Adicione outros campos relevantes -->
+            </ul>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

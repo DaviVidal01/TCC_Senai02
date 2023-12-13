@@ -12,6 +12,7 @@ from django.db.models import Q
 from django.contrib.auth.decorators import user_passes_test
 from django.core.paginator import Paginator, EmptyPage
 from django.urls import reverse
+from django.contrib.sessions.models import Session
 
 # ------> VERIFICADORES
 def is_admin(user):
@@ -159,13 +160,19 @@ def efetuar_compra(request, produto_id):
 
             # Lógica adicional pode ser adicionada aqui, como atualizar o estoque, processar pagamento, etc.
 
+            # Armazene os dados da compra na sessão
+            request.session['compra_efetuada'] = {
+                'produto_id': produto_id,
+                'quantidade': form.cleaned_data['quantidade'],
+            }
+
             # Redirecione para a lista de produtos após a compra
             return redirect('catalogo')
     else:
         form = CheckoutForm()
         
     context = {'form': form, 'produto': produto}
-    return render(request, 'efetuar_compra.html', {'form': form, 'produto': produto})
+    return render(request, 'efetuar_compra.html', context)
 
 #   ATENÇÃO ESTA PARTE TEM A FUNÇÃO DE FAZER A QUANTIDADE DOS PRODUTOS E CRIAR O VALOR TOTAL E AINDA ESTÁ SOB FASE DE TESTE   #
 
@@ -179,13 +186,23 @@ def detalhes_produto(request, produto_id):
     }
     return render(request, 'efetuar_compra.html', context)
 
+def detalhes_compra(request):
+    compra_efetuada = request.session.get('compra_efetuada')
+
+    return render(request, 'dashboardCompras.html', {'compra_efetuada': compra_efetuada})
+
 # -----> DASHBOARD ADMIN PAGE
 
 @admin_required
 def dashboard(request):
     user = User.objects.all()
     fotos_view = Produtos_BD.objects.all()
-    return render(request, 'dashboard.html', {'user':user,'fotos': fotos_view})
+
+    # Obtenha os dados da compra da sessão sem removê-los
+    compra_efetuada = request.session.get('compra_efetuada')
+
+    return render(request, 'dashboard.html', {'user': user, 'fotos': fotos_view, 'compra_efetuada': compra_efetuada})
+
 
 @admin_required
 def consulta_fotos(request):
