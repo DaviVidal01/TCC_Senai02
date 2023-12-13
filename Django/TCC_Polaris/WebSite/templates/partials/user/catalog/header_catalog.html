@@ -24,7 +24,7 @@
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg" style="background-color:  #FFFFF5;">
       <div class="container-fluid">
-          <a class="navbar-brand" href="../">
+          <a class="navbar-brand" href="{% url 'index' %}">
               <h2 style="font-family: serif; color: #3D3D3D;"> <img width="50px" src="{% static 'assets/img/highFashion.png' %}" alt="HF"> High Fashion</h2>
           </a>
           <div class="d-flex justify-content-center">
@@ -32,16 +32,16 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="../">Home</a>
+                      <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../catalogo">Catálogo</a>
+                        <a class="nav-link" href="{% url 'catalogo' %}">Catálogo</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="../dicas">Dicas</a>
+                      <a class="nav-link active" aria-current="page" href="{% url 'dicas' %}">Dicas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../sobre">Sobre</a>
+                        <a class="nav-link" href="{% url 'sobre' %}">Sobre</a>
                     </li>
                 </ul>
               </div>

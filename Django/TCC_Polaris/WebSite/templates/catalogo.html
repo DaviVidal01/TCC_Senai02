@@ -116,7 +116,7 @@
                 <div class="card">
                     <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.titulo }}">
                     <div class="card-body">
-                        <h5 class="card-title text-left" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  color: #3D3D3D;">{{ produto.titulo }} - <br><span style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  color: #154734;">R${{ produto.preco }}</span></h5>
+                        <h5 class="card-title text-left" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  color: #3D3D3D;">{{ produto.titulo }} - <span style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  color: #154734;">R${{ produto.preco }}</span></h5>
                         {% if user.is_authenticated %}  
                             {% csrf_token %}
                             <button type="button" class="btn-ver-mais" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ produto.id }}">
@@ -148,8 +148,8 @@
                         </div>
                         <div class="footer-modal">
                             <div>
+                                <h1 class="modal-title fs-5" style="font-family: serif; color: #FFFFF5">R$ {{ produto.preco }}</h1>
                                 <h1 class="modal-title fs-5" style="font-family: serif; color: #FFFFF5;">{{ produto.descricao }}</h1><br>
-                                <h1 class="modal-title fs-5" style="font-family: serif; color: #FFFFF5">R$- {{ produto.preco }}</h1>
                             </div>
                         </div><br>
                         <!-- Corrigir o botão Comprar -->
