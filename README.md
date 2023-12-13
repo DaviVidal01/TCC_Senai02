@@ -91,12 +91,7 @@ python ./manage.py migrate
 ```bash
 python ./manage.py collectstatic
 ```
-- Após gerar os arquivos staticos e execute o seguinte comando via terminal :
 
-```bash
-python manage.py loaddata produtos.json
-
-```
 
 - Agora, crie um superusuario com o seguinte código :
 
@@ -112,6 +107,13 @@ instrutor@trilhas-2.com
 
  -- e a senha:
  1234
+
+ - Após gerar os arquivos staticos e execute o seguinte comando via terminal :
+
+```bash
+python manage.py loaddata produtos.json
+
+```
 
 - Depois de tudo estar em ordem, realize o comando para iniciar o servidor:
 
