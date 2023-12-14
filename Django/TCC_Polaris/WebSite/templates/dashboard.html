@@ -51,7 +51,7 @@ h3 {
         </ul>
     </div>
     {% endif %}
-    <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
         <div class="col">
             <div class="card" style="background-color: #B9C2C4; border: #3D3D3D;"><br>
                 <a href="../consulta_fotos" class="rounded-btn">
@@ -69,14 +69,6 @@ h3 {
             </div>
         </div>
         <div class="col">
-            <div class="card" style="background-color: #B9C2C4; border: #3D3D3D;"><br>
-                <a href="{% url 'detalhes_compra' %}" class="rounded-btn">
-                    <ion-icon name="pricetag-outline" size="large" style="color: #fffff5;"></ion-icon>
-                    <h2 style= "font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #fffff5;">Compras efetuadas</h2>
-                </a><br>
-            </div>
-        </div>
-        <div class="col">
 			<div class="card" style="background-color: #B9C2C4; border: #3D3D3D;"><br>
                 <a href="../consulta_users"  class="rounded-btn">
                     <ion-icon name="person-outline" size="large" style="color: #fffff5;"></ion-icon>
@@ -89,6 +81,14 @@ h3 {
                 <a href="../add_user" class="rounded-btn">
                     <ion-icon name="person-add-outline" size="large" style="color: #fffff5;"></ion-icon>
                     <h2 style= "font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #fffff5;">Adicionar Usuários</h2>
+                </a><br>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="background-color: #B9C2C4; border: #3D3D3D;"><br>
+                <a href="{% url 'consulta_pedidos' %}" class="rounded-btn">
+                    <ion-icon name="bag-check-outline" size="large" style="color: #fffff5;"></ion-icon>
+                    <h2 style= "font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: #fffff5;">Compras efetuadas</h2>
                 </a><br>
             </div>
         </div>

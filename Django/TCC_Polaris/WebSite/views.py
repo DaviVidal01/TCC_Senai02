@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render, get_object_or_404, redirect
 from Website.forms import ProdutosForms, CheckoutForm, LoginForms, RegisterForms, UserForms
-from .models import Barra_Pesquisa, Pedido, Produtos_BD, Tipo_BD, Marca_BD, Tecido_BD, Tamanho_BD, GENERO
+from .models import Barra_Pesquisa, Pedido_BD, Produtos_BD, Tipo_BD, Marca_BD, Tecido_BD, Tamanho_BD, GENERO, ESTADOS, STATUS
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
 from django.contrib.auth.decorators import user_passes_test
@@ -149,47 +149,18 @@ def catalogo(request):
 #   ATENÇÃO ESTA PARTE DAS MODELS EFETUA AS COMPRAS E AINDA ESTÁ SOB FASE DE TESTE   #
 def efetuar_compra(request, produto_id):
     produto = get_object_or_404(Produtos_BD, id=produto_id)
-    
     if request.method == 'POST':
-        form = CheckoutForm(request.POST)
-        if form.is_valid():
-            # Crie um novo pedido
-            novo_pedido = form.save(commit=False)
-            novo_pedido.produto = produto
-            novo_pedido.save()
-
-            # Lógica adicional pode ser adicionada aqui, como atualizar o estoque, processar pagamento, etc.
-
-            # Armazene os dados da compra na sessão
-            request.session['compra_efetuada'] = {
-                'produto_id': produto_id,
-                'quantidade': form.cleaned_data['quantidade'],
-            }
-
-            # Redirecione para a lista de produtos após a compra
+        pedido_form = CheckoutForm(request.POST)
+        if pedido_form.is_valid():
+            pedido = pedido_form.save(commit=False)
+            pedido.produto = produto
+            pedido.save()
             return redirect('catalogo')
     else:
-        form = CheckoutForm()
-        
-    context = {'form': form, 'produto': produto}
-    return render(request, 'efetuar_compra.html', context)
+        pedido_form = CheckoutForm()
+    return render(request, 'efetuar_compra.html', {'pedido_form': pedido_form, 'produto': produto})
 
 #   ATENÇÃO ESTA PARTE TEM A FUNÇÃO DE FAZER A QUANTIDADE DOS PRODUTOS E CRIAR O VALOR TOTAL E AINDA ESTÁ SOB FASE DE TESTE   #
-
-def detalhes_produto(request, produto_id):
-    produto = Produtos_BD.objects.get(pk=produto_id)
-    pedido = Pedido(produto=produto, quantidade=1)  # Defina outros campos conforme necessário
-
-    context = {
-        'produto': produto,
-        'pedido': pedido,
-    }
-    return render(request, 'efetuar_compra.html', context)
-
-def detalhes_compra(request):
-    compra_efetuada = request.session.get('compra_efetuada')
-
-    return render(request, 'dashboardCompras.html', {'compra_efetuada': compra_efetuada})
 
 # -----> DASHBOARD ADMIN PAGE
 
@@ -202,7 +173,6 @@ def dashboard(request):
     compra_efetuada = request.session.get('compra_efetuada')
 
     return render(request, 'dashboard.html', {'user': user, 'fotos': fotos_view, 'compra_efetuada': compra_efetuada})
-
 
 @admin_required
 def consulta_fotos(request):
@@ -218,7 +188,7 @@ def consulta_users(request):
 
 @admin_required
 def consulta_pedidos(request):
-    pedido = Pedido.objects.all()
+    pedido = Pedido_BD.objects.all()
     fotos_view = Produtos_BD.objects.all()
     return render(request, 'dashboardConsulta_pedidos.html', {'pedidos':pedido, 'fotos': fotos_view})
 
@@ -236,21 +206,23 @@ def add_user(request):
             register_form = UserForms()
     except Exception as e:
         messages.error(request, e)
-
     return render(request, 'dashboardAdd_user.html', {'register_form': register_form})
 
 @admin_required
 def add_fotos(request):
-    if request.method == 'POST':
-        foto_form = ProdutosForms(request.POST, request.FILES)
-        if foto_form.is_valid():
-            foto = foto_form.save(commit=False)
-            foto.autor = request.user
-            foto.save()
-            messages.success(request, 'Produto foi adicionado com sucesso!')
-            return redirect('consulta_fotos')
-    else:
-        foto_form = ProdutosForms()
+    try:
+        if request.method == 'POST':
+            foto_form = ProdutosForms(request.POST, request.FILES)
+            if foto_form.is_valid():
+                foto = foto_form.save(commit=False)
+                foto.autor = request.user
+                foto.save()
+                messages.success(request, 'Produto foi adicionado com sucesso!')
+                return redirect('consulta_fotos')
+        else:
+            foto_form = ProdutosForms()
+    except Exception as e:
+        messages.error(request, e)
 
     return render(request, 'dashboardAdd_fotos.html', {'foto_form': foto_form})
 
@@ -397,10 +369,11 @@ def delete_user(request, id):
 def listarPedidos(request):
     search_query = request.GET.get('search')
     if search_query:
-        pedido = Pedido.objects.filter(Q(username__icontains=search_query) | Q(email__icontains=search_query))
+        pedidos = Pedido_BD.objects.filter(Q(nome__icontains=search_query) | Q(email__icontains=search_query) | Q(status__icontains=search_query))
     else:
-        pedido = Pedido.objects.all()
-    return render(request,"dashboardConsulta_pedidos.html",{"pedidos":pedido})
+        pedidos = Pedido_BD.objects.all()
+
+    return render(request, "dashboardConsulta_pedidos.html", {"pedidos": pedidos})
 
 @login_required
 def delete_pedido(request, id):

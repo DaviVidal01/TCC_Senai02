@@ -7,172 +7,191 @@
     <script src="{% static 'assets/js/imask.min.js' %}"></script>
     <link rel="icon" href="{% static 'assets/img/highFashionWhite.png' %}" type="image/png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <link rel="stylesheet" href="{% static 'assets/css/style_credits.css' %}"> 
-	  <script src="{% static 'assets/js/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'assets/css/style_credits.css' %}">
+    <script src="{% static 'assets/js/script.js' %}"></script>
     <link rel="stylesheet" href="{% static 'assets/css/styleindex.css' %}">
-    <title>Checkout</title> 
+    <title>Checkout</title>
     <!-- Bootstrap core CSS -->
     <link href="{% static 'assets/css/bootstrap1.min.css' %}" rel="stylesheet">
     <link href="{% static 'assets/css/bootstrap.rtl.min.css' %}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="{% static 'assets/css/form-validation.css' %}" rel="stylesheet">
-    <style >
+    <style>
       .texto_rodape a {
-          font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-          color:  #3D3D3D;
-          transition: color 0.3s, background-color 0.3s, border 0.3s;
-          color: #FFFFF5;
-          text-decoration: none;
-          transition: color 0.3s ease;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: #3D3D3D;
+        transition: color 0.3s, background-color 0.3s, border 0.3s;
+        color: #FFFFF5;
+        text-decoration: none;
+        transition: color 0.3s ease;
       }
-      
+
       .texto_rodape a:hover {
-          color: #3D3D3D; 
+        color: #3D3D3D;
       }
-      .texto  {
-          font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-          color:  #3D3D3D;
-          transition: color 0.3s, background-color 0.3s, border 0.3s;
-          color: #FFFFF5;
-          text-decoration: none;
-          transition: color 0.3s ease;
+
+      .texto {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: #3D3D3D;
+        transition: color 0.3s, background-color 0.3s, border 0.3s;
+        color: #FFFFF5;
+        text-decoration: none;
+        transition: color 0.3s ease;
       }
-      .texto  a:hover{
-          color: #98a0a1; 
+
+      .texto a:hover {
+        color: #98a0a1;
       }
-      
-      </style>
+    </style>
+    <!-- ... other head elements ... -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js" integrity="sha512-example-hash" crossorigin="anonymous"></script>
+    <script>
+        window.console = window.console || function (t) {};
+    </script>
+    <script id="rendered-js">
+        // Your JavaScript code here
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var cepInput = document.getElementById('zip');
+            var cepMask = IMask(cepInput, {
+                mask: '00000-000'
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var quantidadeInput = document.querySelector('.quantidade-input');
+            var precoProduto = parseFloat("{{ produto.preco }}");
+            var totalElement = document.getElementById('total');
+
+            quantidadeInput.addEventListener('input', function () {
+                var quantidade = parseInt(this.value);
+
+                if (isNaN(quantidade) || quantidade < 0) {
+                    alert("A quantidade não pode ser negativa.");
+                    this.value = 0;
+                    quantidade = 0;
+                }
+
+                var total = (quantidade * precoProduto).toFixed(2);
+
+                totalElement.textContent = 'R$ ' + total;
+            });
+        });
+    </script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            window.addEventListener('load', function () {
+                var forms = document.getElementsByClassName('needs-validation');
+
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
   </head>
   <!-- navbar -->
-  
   <body class="bg-light">
+    <form method="post" action="{% url 'efetuar_compra' produto.id %}" class="needs-validation">
+    {% csrf_token %}
     <div class="main">
       {% include 'partials/user/catalog/header_catalog.html' %}
-      <div class="row mx-4 my-4">
-        <div class="col-md-4 order-md-2 mb-4">
-          
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
-            
-            <span class="text-muted">Carrinho</span>
-          </h4>
-          <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">{{ produto.titulo }} <span class="text-muted" id="valor">- R$ {{ produto.preco }}</span></h6>
-                <small class="text-muted">{{ produto.descricao }}</small>
-              </div>
-            </li>
-            <li class="list-group-item d-flex justify-content-between bg-light" data-produto-id="{{ produto.id }}">
+        <div class="row mx-4 my-4">
+          <div class="col-md-4 order-md-2 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-muted">Carrinho</span>
+            </h4>
+            <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">{{ produto.titulo }} <span class="text-muted" id="valor">- R$ {{ produto.preco }}</span></h6>
+                  <small class="text-muted">{{ produto.descricao }}</small>
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between bg-light" data-produto-id="{{ produto.id }}">
                 <div class="text-success">
                   <small>Quantidade</small>
                   <h6 class="my-0">
-                    <input type="number" class="form-control quantidade-input" value="{{ pedido.quantidade }}" data-preco="{{ produto.preco }}">
+                    {{ pedido_form.quantidade }}
                   </h6>
                 </div>
                 <span class="text-muted preco-produto" id="valor">- R$ {{ produto.preco }}</span>
               </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <span>Total</span>
-              <strong id="total">R$ {{ pedido.total }}</strong>
-            </li>
-          </ul>
-
-          <form class="card p-2" action="{% url 'catalogo' %}">
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-danger">Cancelar</button>
-              </div>
-          </form>
-        </div>
-        <div class="col-md-8 order-md-1">
-         
-          <h4 class="mb-3">Dados Pessoais</h4>
-          <form method="POST" class="needs-validation" novalidate action="{% url 'efetuar_compra' produto_id=produto.id %}">
-            {% csrf_token %}
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Total</span>
+                <strong id="total">R$ {{ pedido.total }}</strong>
+              </li>
+            </ul>
+            <a class="card p-2 input-group-append" style="text-decoration:none; " href="{% url 'catalogo' %}">
+              <button type="button" class="btn btn-danger">Cancelar</button>
+            </a>
+          </div>
+          <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">Dados Pessoais</h4>
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="firstName">{{ form.nome.label}}</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <label for="firstName">{{ pedido_form.nome.label }}</label>
+                {{ pedido_form.nome }}
                 <div class="invalid-feedback">
                   Nome inválido.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
-                <label for="lastName">{{ form.sobrenome.label}}</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                <label for="lastName">{{ pedido_form.sobrenome.label }}</label>
+                {{ pedido_form.sobrenome }}
                 <div class="invalid-feedback">
                   Sobrenome inválido.
                 </div>
               </div>
             </div>
-
             <div class="mb-3">
-              <label for="email">{{ form.email.label}}<span class="text-muted"> (Opicional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="email@email.com">
+              <label for="email">{{ pedido_form.email.label }}</label>
+              {{ pedido_form.email }}
               <div class="invalid-feedback">
                 Insira um endereço de email válido.
               </div>
             </div>
-
             <div class="mb-3">
-              <label for="address">{{ form.endereco_entrega.label}}</label>
-              <input type="text" class="form-control" id="address" placeholder="Rua X, 123, Bairro Y" required>
+              <label for="address">{{ pedido_form.endereco.label }}</label>
+              {{ pedido_form.endereco }}
               <div class="invalid-feedback">
                 Please enter your shipping address.
               </div>
             </div>
-
             <div class="row">
               <div class="col-md-5 mb-3">
-                <label for="country">País de Origem</label>
-                <select class="custom-select d-block w-100" id="country" required>
-                  <option value="">...Selecione..</option>
-                  <option>Brasil</option>
-                  
-                </select>
+                <label for="country">{{ pedido_form.pais.label }}</label>
+                {{ pedido_form.pais }}
                 <div class="invalid-feedback">
                   Selecione o páis de origem.
                 </div>
               </div>
               <div class="col-md-4 mb-3">
-                <label for="state">Estado</label>
-                <select class="custom-select d-block w-100" id="state" required>
-                  <option value="">...Selecione...</option>
-                  <option value="AC">Acre</option>
-                  <option value="AL">Alagoas</option>
-                  <option value="AP">Amapá</option>
-                  <option value="AM">Amazonas</option>
-                  <option value="BA">Bahia</option>
-                  <option value="CE">Ceará</option>
-                  <option value="DF">Distrito Federal</option>
-                  <option value="ES">Espírito Santo</option>
-                  <option value="GO">Goiás</option>
-                  <option value="MA">Maranhão</option>
-                  <option value="MT">Mato Grosso</option>
-                  <option value="MS">Mato Grosso do Sul</option>
-                  <option value="MG">Minas Gerais</option>
-                  <option value="PA">Pará</option>
-                  <option value="PB">Paraíba</option>
-                  <option value="PR">Paraná</option>
-                  <option value="PE">Pernambuco</option>
-                  <option value="PI">Piauí</option>
-                  <option value="RJ">Rio de Janeiro</option>
-                  <option value="RN">Rio Grande do Norte</option>
-                  <option value="RS">Rio Grande do Sul</option>
-                  <option value="RO">Rondônia</option>
-                  <option value="RR">Roraima</option>
-                  <option value="SC">Santa Catarina</option>
-                  <option value="SP">São Paulo</option>
-                  <option value="SE">Sergipe</option>
-                  <option value="TO">Tocantins</option>
-
-                </select>
+                <label for="state">{{ pedido_form.estado.label }}</label>
+                {{ pedido_form.estado }}
                 <div class="invalid-feedback">
                   Selecione a sua região.
                 </div>
               </div>
               <div class="col-md-3 mb-3">
-                <label for="zip">CEP</label>
-                <input type="text" class="form-control" id="zip" placeholder="00000-000" required>
+                <label for="zip">{{ pedido_form.cep.label }}</label>
+                {{ pedido_form.cep }}
                 <div class="invalid-feedback">
                   Insira o cep da região.
                 </div>
@@ -193,33 +212,32 @@
             <div class="d-flex">
               <div class="form-container">
                 <div class="field-container">
-                    <label for="name">Nome</label>
-                    <input class="input" id="name" maxlength="20" type="text" value="Bruno Gabriel Da silva">
+                  <label for="name">Nome</label>
+                  <input class="input" id="name" maxlength="20" type="text" value="Bruno Gabriel Da silva">
                 </div>
                 <div class="field-container">
-                    <label for="cardnumber">Número do Cartão</label><span id="generatecard">generate random</span>
-                    <input class="input" id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
-                    <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink">
-                
-                    </svg>
+                  <label for="cardnumber">Número do Cartão</label><span id="generatecard">generate random</span>
+                  <input class="input" id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
+                  <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                  </svg>
                 </div>
                 <div class="field-container">
-                    <label for="expirationdate">Expira (mm/yy)</label>
-                    <input class="input" id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric" value="01/23">
+                  <label for="expirationdate">Expira (mm/yy)</label>
+                  <input class="input" id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric" value="01/23">
                 </div>
                 <div class="field-container">
-                    <label for="securitycode">Código de Segurança</label>
-                    <input class="input" id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric" value="985">
+                  <label for="securitycode">Código de Segurança</label>
+                  <input class="input" id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric" value="985">
                 </div>
               </div>
               <div class="container preload">
                 <div class="creditcard">
                   <div class="front">
                     <div id="ccsingle"></div>
-                    <svg version="1.1" id="cardfront" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                      x="0px" y="0px" viewBox="0 0 750 471" style="enable-background:new 0 0 750 471;" xml:space="preserve">
-                      <g id="Front">
+                      <svg version="1.1" id="cardfront" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" viewBox="0 0 750 471" style="enable-background:new 0 0 750 471;" xml:space="preserve">
+                        <g id="Front">
                           <g id="CardBackground">
                               <g id="Page-1_1_">
                                   <g id="amex_1_">
@@ -285,142 +303,45 @@
                               <line class="st0" x1="35.3" y1="10.4" x2="36.7" y2="11" />
                           </g>
                           <g id="Back">
-                              <g id="Page-1_2_">
-                                  <g id="amex_2_">
-                                      <path id="Rectangle-1_2_" class="darkcolor greydark" d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
-                              C0,17.9,17.9,0,40,0z" />
-                                  </g>
-                              </g>
-                              <rect y="61.6" class="st2" width="750" height="78" />
-                              <g>
-                                  <path class="st3" d="M701.1,249.1H48.9c-3.3,0-6-2.7-6-6v-52.5c0-3.3,2.7-6,6-6h652.1c3.3,0,6,2.7,6,6v52.5
+                            <g id="Page-1_2_">
+                                <g id="amex_2_">
+                                    <path id="Rectangle-1_2_" class="darkcolor greydark" d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
+                            C0,17.9,17.9,0,40,0z" />
+                                </g>
+                            </g>
+                            <rect y="61.6" class="st2" width="750" height="78" />
+                            <g>
+                                <path class="st3" d="M701.1,249.1H48.9c-3.3,0-6-2.7-6-6v-52.5c0-3.3,2.7-6,6-6h652.1c3.3,0,6,2.7,6,6v52.5
                           C707.1,246.4,704.4,249.1,701.1,249.1z" />
-                                  <rect x="42.9" y="198.6" class="st4" width="664.1" height="10.5" />
-                                  <rect x="42.9" y="224.5" class="st4" width="664.1" height="10.5" />
-                                  <path class="st5" d="M701.1,184.6H618h-8h-10v64.5h10h8h83.1c3.3,0,6-2.7,6-6v-52.5C707.1,187.3,704.4,184.6,701.1,184.6z" />
-                              </g>
-                              <text transform="matrix(1 0 0 1 621.999 227.2734)" id="svgsecurity" class="st6 st7">985</text>
-                              <g class="st8">
-                                  <text transform="matrix(1 0 0 1 518.083 280.0879)" class="st9 st6 st10">Código de Segurança</text>
-                              </g>
-                              <rect x="58.1" y="378.6" class="st11" width="375.5" height="13.5" />
-                              <rect x="58.1" y="405.6" class="st11" width="421.7" height="13.5" />
-                              <text transform="matrix(1 0 0 1 59.5073 228.6099)" id="svgnameback" class="st12 st13">Bruno Gabriel Da Silva</text>
+                              <rect x="42.9" y="198.6" class="st4" width="664.1" height="10.5" />
+                              <rect x="42.9" y="224.5" class="st4" width="664.1" height="10.5" />
+                              <path class="st5" d="M701.1,184.6H618h-8h-10v64.5h10h8h83.1c3.3,0,6-2.7,6-6v-52.5C707.1,187.3,704.4,184.6,701.1,184.6z" />
                           </g>
-                      </svg>
+                          <text transform="matrix(1 0 0 1 621.999 227.2734)" id="svgsecurity" class="st6 st7">985</text>
+                          <g class="st8">
+                              <text transform="matrix(1 0 0 1 518.083 280.0879)" class="st9 st6 st10">Código de Segurança</text>
+                          </g>
+                          <rect x="58.1" y="378.6" class="st11" width="375.5" height="13.5" />
+                          <rect x="58.1" y="405.6" class="st11" width="421.7" height="13.5" />
+                          <text transform="matrix(1 0 0 1 59.5073 228.6099)" id="svgnameback" class="st12 st13">Bruno Gabriel Da Silva</text>
+                        </g>
+                    </svg>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="container">
               <br>
               <h4>Você concorda com os termos de uso do nosso site</h3>
               <!-- Create a checkbox element -->
-              <div>
-                <input type="checkbox" id="agree">
-                <label for="agree">Li e concordo com os <a href="{% url 'termos' %}" class="texto_rodape">Termos de Uso</a>
-                <a href="{% url 'politica' %}" class="texto_rodape">Política de Privacidade</a></label>
-              </div>
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="alert('Compra efetuada com sucesso!')" >Efetuar Compra</button>
-          </form>
+              <input type="checkbox" id="agree">
+              <label for="agree">Li e concordo com os <a href="{% url 'termos' %}" class="texto_rodape">Termos de Uso</a>
+              <a href="{% url 'politica' %}" class="texto_rodape">Política de Privacidade</a></label>
+              <hr class="">
+              <button class="btn btn-primary btn-lg btn-block" type="submit">Efetuar Compra</button>
+          </div>
         </div>
-      </div>
-    </div>
-    {% include 'partials/user/footer.html' %}
-  </div>       
-        <!-- ... other head elements ... -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js" integrity="sha512-example-hash" crossorigin="anonymous"></script>
-        <script>
-          window.console = window.console || function(t) {};
-        </script>
-        <script id="rendered-js">
-          // Your JavaScript code here
-        </script>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-          var quantidadeInput = document.querySelector('.quantidade-input');
-          var precoProduto = parseFloat("{{ produto.preco }}"); // Converta o preço para um número
-          var totalElement = document.getElementById('total');
-      
-          quantidadeInput.addEventListener('input', function () {
-              var quantidade = parseInt(this.value);
-          
-              // Verifique se a quantidade é negativa ou não é um número
-              if (isNaN(quantidade) || quantidade < 0) {
-                  alert("A quantidade não pode ser negativa.");
-                  this.value = 0;  // Defina a quantidade de volta para 0
-                  quantidade = 0;  // Atualize a variável quantidade para 0
-              }
-            
-              var total = (quantidade * precoProduto).toFixed(2);
-            
-              // Atualize o texto do elemento total
-              totalElement.textContent = 'R$ ' + total;
-          });
-      });
-    </script>
-
-    <!-- Include the JavaScript code -->
-    <script>
-      // Get the checkbox element
-      const checkbox = document.querySelector("#agree");
-
-      // Get the button element
-      const button = document.querySelector("#submit");
-
-      // Define a function to check the checkbox status
-      const checkStatus = () => {
-        // If the checkbox is checked, enable the button
-        if (checkbox.checked) {
-          button.disabled = false;
-        }
-        // Otherwise, disable the button
-        else {
-          button.disabled = true;
-        }
-      }
-
-      // Add an event listener to the checkbox to call the function on change
-      checkbox.addEventListener("change", checkStatus);
-
-      // Do something when the button is clicked
-      button.addEventListener("click", () => {
-        alert("Welcome to SlingAcademy.com");
-      });
-    </script>
-      
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
-    <script src="../../assets/js/vendor/holder.min.js"></script>
-    <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
-      (function() {
-        'use strict';
-
-        window.addEventListener('load', function() {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
-          var forms = document.getElementsByClassName('needs-validation');
-
-          // Loop over them and prevent submission
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
-      })();
-    </script>
-    </div>
+      </form>
+      {% include 'partials/user/footer.html' %}
+    </div>       
   </body>
 </html>

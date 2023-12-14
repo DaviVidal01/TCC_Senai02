@@ -53,11 +53,12 @@
             <div class="rocket-container row tm-sm-90">
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <a href="../" class="btn-add"><ion-icon name="home-outline" size="large" style="color: #fffff5; margin-top: -9%;"></ion-icon></a>
-                    <a href="../consulta_fotos" class="btn-add"><ion-icon name="pricetags-outline" size="large" style="color: #fffff5; margin-top: -9%;"></ion-icon></a>
-                    <a href="../add_fotos" class="btn-add"> <ion-icon name="pricetag-outline" size="large" style="color: #fffff5;  margin-top: -9%;"></ion-icon></a>
-                    <a href="../consulta_users"  class="btn-add"><ion-icon name="person-outline" size="large" style="color: #fffff5;  margin-top: -9%;"></ion-icon></a>
-                    <a  href="../add_user" class="btn-add"><ion-icon name="person-add-outline" size="large" style="color: #fffff5;  margin-top: -9%;"></ion-icon></a>
+                    <a href="{% url 'index' %}" class="btn-add"><ion-icon name="home-outline" size="large" style="color: #fffff5; margin-top: -9%;"></ion-icon></a>
+                    <a href="{% url 'consulta_fotos' %}" class="btn-add"><ion-icon name="pricetags-outline" size="large" style="color: #fffff5; margin-top: -9%;"></ion-icon></a>
+                    <a href="{% url 'add_fotos' %}" class="btn-add"> <ion-icon name="pricetag-outline" size="large" style="color: #fffff5;  margin-top: -9%;"></ion-icon></a>
+                    <a href="{% url 'consulta_users' %}"  class="btn-add"><ion-icon name="person-outline" size="large" style="color: #fffff5;  margin-top: -9%;"></ion-icon></a>
+                    <a  href="{% url 'add_user' %}" class="btn-add"><ion-icon name="person-add-outline" size="large" style="color: #fffff5;  margin-top: -9%;"></ion-icon></a>
+                    <a  href="{% url 'consulta_pedidos' %}" class="btn-add"><ion-icon name="bag-check-outline" size="large" style="color: #fffff5;  margin-top: -9%;"></ion-icon></a>
                 </ul>
               </div>
             </div>          

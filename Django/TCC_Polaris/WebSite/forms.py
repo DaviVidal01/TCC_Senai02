@@ -1,6 +1,6 @@
 from django import forms
 from django.shortcuts import render
-from .models import Produtos_BD, Pedido, Barra_Pesquisa, Tecido_BD, Tipo_BD, Marca_BD, Tamanho_BD
+from .models import Produtos_BD, Pedido_BD, Barra_Pesquisa, Tecido_BD, Tipo_BD, Marca_BD, Tamanho_BD
 from django import forms
 from django.contrib.auth.models import User
 
@@ -116,9 +116,17 @@ class Barra_Pesquisa(forms.ModelForm):
             'imagem': forms.FileInput(attrs={'class': 'custom-file-input'}),
         }
     
-#* ATENÇÃO ESTE FORM É O ORM DO CHECKOUT *
-#* ONDE ESTARÃO CONTIDAS AS INFORMAÇÕES NECESSÁRIAS PARA EFEUTAR A COMPRA *
 class CheckoutForm(forms.ModelForm):
     class Meta:
-        model = Pedido
-        fields = ['nome', 'sobrenome', 'email', 'endereco_entrega', 'quantidade']
+        model = Pedido_BD
+        fields = ['nome', 'sobrenome', 'email', 'endereco_entrega', 'quantidade', 'pais', 'estado', 'cep']
+        widgets = {
+            'nome': forms.TextInput(attrs={'type':"text", 'class':"form-control", 'id':"firstName", 'placeholder':"", 'value':"", 'required':'True'}),
+            'sobrenome': forms.TextInput(attrs={'type':"text", 'class':"form-control", 'id':"lastName", 'placeholder':"", 'value':"", 'required':'True'}),
+            'email': forms.TextInput(attrs={'type':"email", 'class':"form-control", 'id':"email", 'placeholder':"email@email.com", 'required':'True'}),
+            'endereco': forms.TextInput(attrs={'type':"text", 'class':"form-control", 'id':"address", 'placeholder':"Rua X, 123, Bairro Y", 'required':'True'}),
+            'quantidade': forms.NumberInput(attrs={'class': 'form-control quantidade-input', 'type':'number', 'value':'0'}),
+            'pais': forms.Select(attrs={'class': 'custom-select d-block w-100', 'id':'country', 'placeholder':"Selecione Aqui", 'required':'True'}),
+            'estado': forms.Select(attrs={'class': 'custom-select d-block w-100', 'id':'state', 'placeholder':"Selecione Aqui", 'required':'True'}),
+            'cep': forms.TextInput(attrs={'type':"text", 'class':"form-control", 'id':"zip", 'placeholder':"00000-000", 'value':"", 'required':'True'}),
+        }
