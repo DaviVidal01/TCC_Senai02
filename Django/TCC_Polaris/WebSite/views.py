@@ -5,7 +5,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render, get_object_or_404, redirect
-from Website.forms import ProdutosForms, CheckoutForm, LoginForms, RegisterForms, UserForms
+from WebSite.forms import ProdutosForms, CheckoutForm, LoginForms, RegisterForms, UserForms
 from .models import Barra_Pesquisa, Pedido_BD, Produtos_BD, Tipo_BD, Marca_BD, Tecido_BD, Tamanho_BD, GENERO, ESTADOS, STATUS
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
