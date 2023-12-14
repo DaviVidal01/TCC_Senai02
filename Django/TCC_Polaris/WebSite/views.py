@@ -377,28 +377,31 @@ def listarPedidos(request):
 
 @login_required
 def delete_pedido(request, id):
-    pedido = Pedido.objects.get(pk=id)
+    pedido = Pedido_BD.objects.get(pk=id)
     pedido.delete()
     messages.error(request, 'Pedido deletado com sucesso!')
     return redirect('consulta_pedidos')
 
 @login_required
 def cancelar_pedido(request, id):
-    pedido = Pedido.objects.get(pk=id)
-    pedido.delete()
+    pedido = Pedido_BD.objects.get(pk=id)
+    pedido.status = 'Cancelado'
+    pedido.save()
     messages.error(request, 'Pedido cancelado com sucesso!')
     return redirect('consulta_pedidos')
 
 @login_required
 def aprovar_pedido(request, id):
-    pedido = Pedido.objects.get(pk=id)
-    pedido.delete()
+    pedido = Pedido_BD.objects.get(pk=id)
+    pedido.status = 'Aprovado'
+    pedido.save()
     messages.success(request, 'Pedido aprovado com sucesso!')
     return redirect('consulta_pedidos')
 
 @login_required
 def entregar_pedido(request, id):
-    pedido = Pedido.objects.get(pk=id)
-    pedido.delete()
+    pedido = Pedido_BD.objects.get(pk=id)
+    pedido.status = 'Entregado'
+    pedido.save()
     messages.success(request, 'Pedido enviado com sucesso!')
     return redirect('consulta_pedidos')

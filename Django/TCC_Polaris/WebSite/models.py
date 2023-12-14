@@ -55,7 +55,7 @@ STATUS = (
     ('Pendente','Pendente'),
     ('Aprovado','Aprovado'),
     ('Cancelado','Cancelado'),
-    ('Entregue','Entregue'),
+    ('Entregue','Entregado'),
 )
 
 PAIS = (

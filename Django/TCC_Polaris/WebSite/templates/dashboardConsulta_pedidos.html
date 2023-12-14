@@ -49,11 +49,6 @@
         display: flex;
        
 }
-
-  
-    
-    
-
     .card:hover {
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         transform: scale(1.05);
@@ -62,7 +57,6 @@
     .card-body {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Adiciona alinhamento central vertical */
         padding: 20px;
         
     }
@@ -128,17 +122,6 @@
     .icon {
         margin-right: 8px; /* Espaçamento entre o ícone e o texto */
     }
-h2 {
-	text-align: center;
-}
-
-h5 {
-	align-items: center;
-}
-
-p {
-	text-align: left;
-}
 
 	</style>
     
@@ -156,7 +139,7 @@ p {
 
         <!-- Lista de Pedidos -->
         <div class="photo-list">
-            <h2>Pedidos</h2><br>
+            <h2 class="text-center">Pedidos</h2><br>
             <div class="row row-cols-1 row-cols-md-4 g-3">
                 {% for pedido in pedidos %}
                     <div class="col">
@@ -164,14 +147,31 @@ p {
                             <div class="card-body">
                                 <h5 class="card-title text-left">{{ pedido.nome }}</h5>
                                 <p class="card-text text-left" >Email: {{ pedido.email }}</p>
-                                <p class="card-text text-left">Status: {% if pedido.status == 'Pendente' %}<strong style="color: #947F57">{{ pedido.status }}</strong>{% elif pedido.status == 'Cancelado' %}<strong style="color: rgb(1, 1, 112)">{{ pedido.status }}</strong>{% else %}<strong style="color: green">{{ pedido.status }}</strong>{% endif %}</p>
+                                <p class="card-text text-left" >Produto: {{ pedido.produto.titulo }}</p>
+                                <p class="card-text text-left">Status: 
+                                    {% if pedido.status == 'Pendente' %}
+                                        <strong style="color: #947F57">{{ pedido.status }}</strong>
+                                    {% elif pedido.status == 'Cancelado' %}
+                                        <strong style="color: rgb(202, 95, 95)">{{ pedido.status }}</strong>
+                                    {% elif pedido.status == 'Aprovado' %}
+                                        <strong style="color: rgb(106, 187, 106)">{{ pedido.status }}</strong>
+                                    {% else %}
+                                        <strong style="color: rgb(63, 74, 182)">{{ pedido.status }}</strong>
+                                    {% endif %}
+                                </p>
                                 <p class="card-text text-left">Total: R$ {{ pedido.total|floatformat:2 }}</p>
                                 <hr>
                                 <div class="custom-buttons">
-                                    <a href="{% url 'edit_user' pedido.id %}" class="custom-btn custom-btn-edit">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                                    <a href="{% url 'aprovar_pedido' pedido.id %}" class="custom-btn custom-btn-edit">
+                                        <ion-icon name="bag-add-outline" size="large"></ion-icon>
                                     </a>
-                                    <a href="{% url 'delete_user' pedido.id %}" class="custom-btn custom-btn-delete">
+                                    <a href="{% url 'entregar_pedido' pedido.id %}" class="custom-btn custom-btn-delete">
+                                        <ion-icon name="bag-check-outline" size="large"></ion-icon>
+                                    </a>
+                                    <a href="{% url 'cancelar_pedido' pedido.id %}" class="custom-btn custom-btn-edit">
+                                        <ion-icon name="bag-remove-outline" size="large"></ion-icon>
+                                    </a>
+                                    <a href="{% url 'delete_pedido' pedido.id %}" class="custom-btn custom-btn-delete">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
                                     </a>
                                 </div>
