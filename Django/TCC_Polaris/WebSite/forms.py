@@ -119,7 +119,7 @@ class Barra_Pesquisa(forms.ModelForm):
 class CheckoutForm(forms.ModelForm):
     class Meta:
         model = Pedido_BD
-        fields = ['nome', 'sobrenome', 'email', 'endereco_entrega', 'quantidade', 'pais', 'estado', 'cep']
+        fields = ['nome', 'sobrenome', 'email', 'endereco_entrega', 'quantidade', 'pais', 'estado', 'cep', 'cartaonome', 'cartaonumero', 'dataexpira', 'codseguranca']
         widgets = {
             'nome': forms.TextInput(attrs={'type':"text", 'class':"form-control", 'id':"firstName", 'placeholder':"", 'value':"", 'required':'True'}),
             'sobrenome': forms.TextInput(attrs={'type':"text", 'class':"form-control", 'id':"lastName", 'placeholder':"", 'value':"", 'required':'True'}),
@@ -129,4 +129,8 @@ class CheckoutForm(forms.ModelForm):
             'pais': forms.Select(attrs={'class': 'custom-select d-block w-100', 'id':'country', 'placeholder':"Selecione Aqui", 'required':'True'}),
             'estado': forms.Select(attrs={'class': 'custom-select d-block w-100', 'id':'state', 'placeholder':"Selecione Aqui", 'required':'True'}),
             'cep': forms.TextInput(attrs={'type':"text", 'class':"form-control", 'id':"zip", 'placeholder':"00000-000", 'value':"", 'required':'True'}),
+            'cartaonome': forms.TextInput(attrs={'class':'input','id':'name','type':'text','placeholder':'Nome do Cartão'}),
+            'cartaonumero': forms.TextInput(attrs={'class':'input','id':'cardnumber','type':'text','placeholder':'Número do Cartão'}),
+            'dataexpira': forms.TextInput(attrs={'class':'input','id':'expirationdate','type':'text','placeholder':'01/23'}),
+            'codseguranca': forms.TextInput(attrs={'class':'input','id':'securitycode','type':'text','placeholder':'985'}),
         }

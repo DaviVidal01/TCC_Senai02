@@ -160,6 +160,7 @@
                                     {% endif %}
                                 </p>
                                 <p class="card-text text-left">Total: R$ {{ pedido.total|floatformat:2 }}</p>
+                                <p class="card-text text-left text-muted" >Data: {{ pedido.data_pedido_formatada }}</p>
                                 <hr>
                                 <div class="custom-buttons">
                                     <a href="{% url 'aprovar_pedido' pedido.id %}" class="custom-btn custom-btn-edit">

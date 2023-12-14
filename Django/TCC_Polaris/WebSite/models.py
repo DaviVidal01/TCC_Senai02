@@ -42,6 +42,10 @@ class Produtos_BD(models.Model):
     tecido = models.ForeignKey(Tecido_BD, on_delete=models.CASCADE)
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
     data_foto = models.DateField(default=timezone.now)
+
+    def data_fotos_formatada(self):
+        # Retorna a data formatada como dia/mês/ano
+        return self.data_foto.strftime('%d/%m/%Y')
     
 #-----Imagem da Barra de Pesquisa
 class Barra_Pesquisa(models.Model):
@@ -104,6 +108,14 @@ class Pedido_BD(models.Model):
     total = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     status = models.CharField(max_length = 20, choices = STATUS, default = 'Pendente')
     data_pedido = models.DateField(default=timezone.now)
+    cartaonome = models.CharField(max_length=100,default="")
+    cartaonumero = models.CharField(max_length=26,default="")
+    dataexpira = models.CharField(max_length=5,default="")
+    codseguranca= models.CharField(max_length=4,default="")
+
+    def data_pedido_formatada(self):
+        # Retorna a data formatada como dia/mês/ano
+        return self.data_pedido.strftime('%d/%m/%Y')
 
     def save(self, *args, **kwargs):
         # Calcule o total com base na quantidade e preço do produto
