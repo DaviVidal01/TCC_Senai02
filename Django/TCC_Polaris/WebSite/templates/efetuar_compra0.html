@@ -2,9 +2,10 @@
 
 {% block content %}
   <h2>Checkout</h2>
-  <form method="post" class="needs-validation" novalidate>
+  <form method="post"  action="{% url 'efetuar_compra' produto.id %}" class="needs-validation" novalidate>
     {% csrf_token %}
     {{ pedido_form.as_p }}
     <button type="submit">Efetuar Compra</button>
   </form>
+  
 {% endblock %}

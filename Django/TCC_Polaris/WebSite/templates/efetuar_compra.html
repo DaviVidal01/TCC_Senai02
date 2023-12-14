@@ -42,6 +42,7 @@
       .texto a:hover {
         color: #98a0a1;
       }
+      
     </style>
     <!-- ... other head elements ... -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js" integrity="sha512-example-hash" crossorigin="anonymous"></script>
@@ -109,42 +110,40 @@
   <!-- navbar -->
   <body class="bg-light">
     <div class="main">
-      {% include 'partials/user/catalog/header_catalog.html' %}
-      <form method="post" action="{% url 'efetuar_compra' produto.id %}" class="needs-validation">
-      {% csrf_token %}
-        <div class="row mx-4 my-4">
-          <div class="col-md-4 order-md-2 mb-4">
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-              <span class="text-muted">Carrinho</span>
-            </h4>
-            <ul class="list-group mb-3">
-              <li class="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 class="my-0">{{ produto.titulo }} <span class="text-muted" id="valor">- R$ {{ produto.preco }}</span></h6>
-                  <small class="text-muted">{{ produto.descricao }}</small>
+        {% include 'partials/user/catalog/header_catalog.html' %}
+        <form method="POST"  class="needs-validation"  id="firstForm">
+            {% csrf_token %}
+            <div class="row mx-4 my-4">
+                <div class="col-md-4 order-md-2 mb-4">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">Carrinho</span>
+                    </h4>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">{{ produto.titulo }} <span class="text-muted" id="valor">- R$ {{ produto.preco }}</span></h6>
+                                <small class="text-muted">{{ produto.descricao }}</small>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between bg-light" data-produto-id="{{ produto.id }}">
+                            <div class="text-success">
+                                <small>Quantidade</small>
+                                <h6 class="my-0">{{ pedido_form.quantidade }}</h6>
+                            </div>
+                            <span class="text-muted preco-produto" id="valor">- R$ {{ produto.preco }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Total</span>
+                            <strong id="total">R$ {{ pedido.total }}</strong>
+                        </li>
+                    </ul>
+                    <a class="card p-2 input-group-append" style="text-decoration:none; " href="{% url 'catalogo' %}">
+                        <button type="button" class="btn btn-danger">Cancelar</button>
+                    </a>
                 </div>
-              </li>
-              <li class="list-group-item d-flex justify-content-between bg-light" data-produto-id="{{ produto.id }}">
-                <div class="text-success">
-                  <small>Quantidade</small>
-                  <h6 class="my-0">
-                    {{ pedido_form.quantidade }}
-                  </h6>
-                </div>
-                <span class="text-muted preco-produto" id="valor">- R$ {{ produto.preco }}</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between">
-                <span>Total</span>
-                <strong id="total">R$ {{ pedido.total }}</strong>
-              </li>
-            </ul>
-            <a class="card p-2 input-group-append" style="text-decoration:none; " href="{% url 'catalogo' %}">
-              <button type="button" class="btn btn-danger">Cancelar</button>
-            </a>
-          </div>
-          <div class="col-md-8 order-md-1">
-            <h4 class="mb-3">Dados Pessoais</h4>
-            <div class="row">
+                <div class="col-md-8 order-md-1">
+                    <h4 class="mb-3">Dados Pessoais</h4>
+                    <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">{{ pedido_form.nome.label }}</label>
                 {{ pedido_form.nome }}
@@ -168,10 +167,10 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="address">{{ pedido_form.endereco.label }}</label>
-              {{ pedido_form.endereco }}
+              <label for="email">{{ pedido_form.endereco_entrega.label }}</label>
+              {{ pedido_form.endereco_entrega }}
               <div class="invalid-feedback">
-                Please enter your shipping address.
+                Insira um endereço de email válido.
               </div>
             </div>
             <div class="row">
@@ -334,14 +333,53 @@
               <h4>Você concorda com os termos de uso do nosso site</h3>
               <!-- Create a checkbox element -->
               <input type="checkbox" id="agree">
-              <label for="agree">Li e concordo com os <a href="{% url 'termos' %}" class="texto_rodape">Termos de Uso</a>
-              <a href="{% url 'politica' %}" class="texto_rodape">Política de Privacidade</a></label>
-              <hr class="">
-              <button class="btn btn-primary btn-lg btn-block" type="submit">Efetuar Compra</button>
+                    <label for="agree">Li e concordo com os <a href="{% url 'termos' %}" class="texto_rodape">Termos de Uso</a>
+                        <a href="{% url 'politica' %}" class="texto_rodape">Política de Privacidade</a></label>
+                    <hr class="">
+                    <style>
+                      .hidden {
+                          display: none;
+                      }
+                    </style>
+                    <button class="btn btn-primary btn-lg btn-block custom btn" type="button" id="copyButton">Validar Dados</button>
+                </div>
             </div>
-        </div>
-      </form>
-      {% include 'partials/user/footer.html' %}
-    </div>       
+        </form>
+        <form method="post" action="{% url 'efetuar_compra' produto.id %}" class="needs-validation hidden" id="secondForm" novalidate>
+          {% csrf_token %}
+          <div class="hidden">
+              {{ pedido_form.as_p }}
+          </div>
+          <div class="container">
+            <button class="btn btn-primary btn-lg btn-block custom btn" type="submit" onclick="alert('Compra efetuada com sucesso!')" >Efetuar Compra</button>
+          </div>
+        </form>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+              // Obtenha os campos do primeiro formulário
+              var formVisible = document.getElementById('firstForm');
+      
+              // Obtenha os campos do segundo formulário
+              var formAsP = document.getElementById('secondForm');
+      
+              // Adicione um ouvinte de evento para o botão de cópia
+              document.getElementById('copyButton').addEventListener('click', function () {
+                  // Preencha automaticamente os campos do segundo formulário com os valores do primeiro formulário
+                  Array.from(formVisible.elements).forEach(function (element) {
+                      // Verifique se o campo existe no segundo formulário
+                      var correspondingField = formAsP.querySelector('[name="' + element.name + '"]');
+                      if (correspondingField) {
+                          correspondingField.value = element.value;
+                      }
+                  });
+      
+                  // Exiba o segundo formulário
+                  formAsP.classList.remove('hidden');
+              });
+          });
+      </script>
+      
+        {% include 'partials/user/footer.html' %}
+    </div>
   </body>
 </html>

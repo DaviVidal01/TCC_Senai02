@@ -100,7 +100,7 @@ class Pedido_BD(models.Model):
     nome = models.CharField(max_length=100)
     sobrenome = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
-    endereco_entrega = models.TextField(max_length=255)
+    endereco_entrega = models.CharField(max_length=255)
     pais = models.CharField(max_length =20, choices = PAIS ,default="BR")
     estado = models.CharField(max_length = 20, choices = ESTADOS, default='MG')
     cep = models.CharField(max_length=9, default=36680000)
