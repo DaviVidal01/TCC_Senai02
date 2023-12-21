@@ -1,0 +1,159 @@
+<!-- efetuar_compra.html -->
+{% extends 'layouts/layout.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- for header part -->
+    {% include 'partials/user/catalog/header_catalog.html' %}
+    
+    <div class="container mt-5">
+        {% include 'partials/alerts.html' %}
+        <div class="row">
+            <form method="POST" action="{% url 'checkout' produto.id %}" enctype="multipart/form-data" class="custom-form d-flex">
+                {% csrf_token %}
+                <div class="col-md-6 mx-4">
+                    <h3>Detalhes do Produto:</h3>
+                    <p><strong>Nome do Produto:</strong> {{ produto.titulo }}</p>
+                    <p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
+                    <div class="mb-3">
+                        <label for="{{ pedido_form.quantidade.id_for_label }}" class="form-label">Quantidade:</label>
+                        {{ pedido_form.quantidade }}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Total a Pagar:</label>
+                        <p id="total">R$ 0.00</p>
+                    </div>
+                    <hr>
+                </div>
+                <div class="col-md-6">
+                    <h3>Formulário de Checkout:</h3>
+                    <div class="form-group">
+                        <label for="{{ pedido_form.nome.id_for_label }}">Nome</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            {{ pedido_form.nome }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ pedido_form.sobrenome.id_for_label }}">Sobrenome</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            {{ pedido_form.sobrenome }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ pedido_form.email.id_for_label }}">Email</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            {{ pedido_form.email }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ pedido_form.endereco_entrega.id_for_label }}">Endereço</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            {{ pedido_form.endereco_entrega }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ pedido_form.pais.id_for_label }}">País</label>
+                        <div class="input-group">
+                            {{ pedido_form.pais }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ pedido_form.estado.id_for_label }}">Estado</label>
+                        <div class="input-group">
+                            {{ pedido_form.estado }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ pedido_form.cep.id_for_label }}">CEP</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            {{ pedido_form.cep }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ pedido_form.cartaonome.id_for_label }}">Nome do Cartão</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            {{ pedido_form.cartaonome }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ pedido_form.cartaonumero.id_for_label }}">Número do Cartão</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            {{ pedido_form.cartaonumero }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ pedido_form.dataexpira.id_for_label }}">Data Validação</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            {{ pedido_form.dataexpira }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ pedido_form.codseguranca.id_for_label }}">Cod. Segurança</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            {{ pedido_form.codseguranca }}
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Efetuar Compra</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js" integrity="sha512-example-hash" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var cepInput = document.getElementById('zip');
+            var cepMask = IMask(cepInput, {
+                mask: '00000-000'
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var quantidadeInput = document.querySelector('.quantidade-input');
+            var precoProduto = parseFloat("{{ produto.preco }}");
+            var totalElement = document.getElementById('total');
+
+            quantidadeInput.addEventListener('input', function () {
+                var quantidade = parseInt(this.value);
+
+                if (isNaN(quantidade) || quantidade < 0) {
+                    alert("A quantidade não pode ser negativa.");
+                    this.value = 0;
+                    quantidade = 0;
+                }
+
+                var total = (quantidade * precoProduto).toFixed(2);
+
+                totalElement.textContent = 'R$ ' + total;
+            });
+        });
+    </script>
+    {% include 'partials/user/footer.html' %}
+{% endblock %}
